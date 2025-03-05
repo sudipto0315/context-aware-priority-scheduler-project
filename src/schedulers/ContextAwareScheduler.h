@@ -7,22 +7,38 @@
 #include <vector>
 #include <map>
 #include <memory>
+#include <limits>
+#include <algorithm>
 
 class ContextAwareScheduler : public BaseScheduler {
 private:
     std::vector<FogNode> fogNodes;
-    std::vector<std::shared_ptr<Process>> processQueue;
     std::map<int, int> processToNodeMap;
 
-    std::shared_ptr<Process> getNextProcess();
+    // Override the inherited getNextProcess from BaseScheduler
+    std::shared_ptr<Process> getNextProcess() override;
+    
+    // Node assignment and partitioning methods
     int assignToFogNode(std::shared_ptr<Process> process);
-    bool partitionProcess(std::shared_ptr<Process> process);  // New method
+    bool partitionProcess(std::shared_ptr<Process> process);
+
+    // Helper methods for scoring and evaluation
+    double calculateLocationScore(const std::shared_ptr<Process>& process, const FogNode& node);
+    double calculateLoadBalanceScore(const FogNode& node);
 
 public:
+    // Constructor
     ContextAwareScheduler(const std::vector<FogNode>& nodes);
+    
+    // Override methods from BaseScheduler
     void addProcess(std::shared_ptr<Process> process) override;
     void schedule() override;
+    
+    // Additional methods
     void printSchedulingState() const;
+
+    // Virtual destructor
+    virtual ~ContextAwareScheduler() = default;
 };
 
-#endif
+#endif // CONTEXT_AWARE_SCHEDULER_H

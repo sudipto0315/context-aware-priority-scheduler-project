@@ -1,6 +1,6 @@
 🚀 How to Compile & Run
 1️⃣ Compile the Code
-~/Developer/scheduler/priority-scheduler-project 
+~/Developer/scheduler/context-aware-priority-scheduler-project
 ❯ g++ -std=c++17 -o output/scheduler_simulation \
     src/main.cpp \
     src/simulation/Simulation.cpp \
@@ -9,11 +9,13 @@
     src/schedulers/NonPreemptiveScheduler.cpp \
     src/schedulers/PreemptiveScheduler.cpp \
     src/schedulers/StaticPriorityScheduler.cpp \
+    src/schedulers/ContextAwareScheduler.cpp \
     src/models/Process.cpp \
+    src/models/FogNode.cpp \
     -I. -I/opt/homebrew/include
 
 2️⃣ Run the Simulation
-~/Developer/scheduler/priority-scheduler-project
+~/Developer/scheduler/context-aware-priority-scheduler-project
 ❯ ./output/scheduler_simulation
 
 

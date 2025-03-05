@@ -1,0 +1,188 @@
+{
+    "scheduler": "ContextAwareAdaptive",
+    "global_settings": {
+        "zone_load_threshold": 0.7,
+        "migration_penalty": 0.2,
+        "max_migration_attempts": 3
+    },
+    "zones": [
+        {
+            "name": "Zone_A",
+            "geographical_coordinates": {"latitude": 40.7128, "longitude": -74.0060},
+            "max_concurrent_processes": 10
+        },
+        {
+            "name": "Zone_B", 
+            "geographical_coordinates": {"latitude": 34.0522, "longitude": -118.2437},
+            "max_concurrent_processes": 8
+        },
+        {
+            "name": "Zone_C",
+            "geographical_coordinates": {"latitude": 41.8781, "longitude": -87.6298},
+            "max_concurrent_processes": 12
+        }
+    ],
+    "fog_nodes": [
+        {
+            "id": 1,
+            "zone": "Zone_A",
+            "cpu_capacity": 8,
+            "memory": 16,
+            "network_bandwidth": 200,
+            "current_load": 0.0,
+            "delay": 5.0,
+            "packet_loss": 0.01,
+            "is_active": true,
+            "energy_efficiency": 0.9
+        },
+        {
+            "id": 2,
+            "zone": "Zone_A", 
+            "cpu_capacity": 6,
+            "memory": 12,
+            "network_bandwidth": 150,
+            "current_load": 0.0,
+            "delay": 7.0,
+            "packet_loss": 0.02,
+            "is_active": true,
+            "energy_efficiency": 0.85
+        },
+        {
+            "id": 3,
+            "zone": "Zone_B",
+            "cpu_capacity": 4,
+            "memory": 8,
+            "network_bandwidth": 100,
+            "current_load": 0.0,
+            "delay": 10.0,
+            "packet_loss": 0.03,
+            "is_active": true,
+            "energy_efficiency": 0.75
+        },
+        {
+            "id": 4,
+            "zone": "Zone_B",
+            "cpu_capacity": 5,
+            "memory": 10,
+            "network_bandwidth": 120,
+            "current_load": 0.0,
+            "delay": 8.0,
+            "packet_loss": 0.02,
+            "is_active": true,
+            "energy_efficiency": 0.80
+        },
+        {
+            "id": 5,
+            "zone": "Zone_C",
+            "cpu_capacity": 7,
+            "memory": 14,
+            "network_bandwidth": 180,
+            "current_load": 0.0,
+            "delay": 6.0,
+            "packet_loss": 0.01,
+            "is_active": true,
+            "energy_efficiency": 0.88
+        }
+    ],
+    "processes": [
+        {
+            "id": 1,
+            "arrival_time": 0,
+            "burst_time": 10,
+            "priority": 1,
+            "user_id": 101,
+            "mobility": 0.3,
+            "relinquish_probability": 0.15,
+            "usage_history": "0.4,0.6,0.8",
+            "application_type": "video_streaming",
+            "request_location": "Zone_A",
+            "max_tolerable_migration_delay": 50,
+            "required_resources": {
+                "cpu": 2,
+                "memory": 4
+            }
+        },
+        {
+            "id": 2,
+            "arrival_time": 1,
+            "burst_time": 7,
+            "priority": 2,
+            "user_id": 102,
+            "mobility": 0.5,
+            "relinquish_probability": 0.25,
+            "usage_history": "0.3,0.5,0.7",
+            "application_type": "gaming",
+            "request_location": "Zone_B",
+            "max_tolerable_migration_delay": 30,
+            "required_resources": {
+                "cpu": 1,
+                "memory": 2
+            }
+        },
+        {
+            "id": 3,
+            "arrival_time": 2,
+            "burst_time": 15,
+            "priority": 1,
+            "user_id": 103,
+            "mobility": 0.2,
+            "relinquish_probability": 0.1,
+            "usage_history": "0.5,0.7,0.9",
+            "application_type": "cloud_offload",
+            "request_location": "Zone_A",
+            "max_tolerable_migration_delay": 40,
+            "required_resources": {
+                "cpu": 3,
+                "memory": 6
+            }
+        },
+        {
+            "id": 4,
+            "arrival_time": 3,
+            "burst_time": 5,
+            "priority": 3,
+            "user_id": 104,
+            "mobility": 0.6,
+            "relinquish_probability": 0.3,
+            "usage_history": "0.2,0.4,0.6",
+            "application_type": "real_time_communication",
+            "request_location": "Zone_B",
+            "max_tolerable_migration_delay": 20,
+            "required_resources": {
+                "cpu": 1,
+                "memory": 2
+            }
+        },
+        {
+            "id": 5,
+            "arrival_time": 4,
+            "burst_time": 12,
+            "priority": 2,
+            "user_id": 105,
+            "mobility": 0.4,
+            "relinquish_probability": 0.2,
+            "usage_history": "0.6,0.8,0.9",
+            "application_type": "machine_learning_inference",
+            "request_location": "Zone_C",
+            "max_tolerable_migration_delay": 60,
+            "required_resources": {
+                "cpu": 4,
+                "memory": 8
+            }
+        }
+    ],
+    "migration_strategies": {
+        "Zone_A": {
+            "backup_zones": ["Zone_C", "Zone_B"],
+            "load_transfer_threshold": 0.75
+        },
+        "Zone_B": {
+            "backup_zones": ["Zone_A", "Zone_C"],
+            "load_transfer_threshold": 0.8
+        },
+        "Zone_C": {
+            "backup_zones": ["Zone_B", "Zone_A"],
+            "load_transfer_threshold": 0.7
+        }
+    }
+}
