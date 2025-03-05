@@ -1,0 +1,104 @@
+{
+    "scheduler": "ContextAware",
+    "fog_nodes": [
+        {
+            "id": 1,
+            "cpu_capacity": 4,
+            "memory": 8,
+            "network_bandwidth": 100,
+            "current_load": 0.0,  
+            "delay": 5.0,
+            "packet_loss": 0.01,
+            "location": "Zone_A",
+            "is_active": true
+        },
+        {
+            "id": 2,
+            "cpu_capacity": 2,
+            "memory": 4,
+            "network_bandwidth": 50,
+            "current_load": 0.0,  
+            "delay": 10.0,
+            "packet_loss": 0.02,
+            "location": "Zone_B",
+            "is_active": true
+        }
+    ],
+    "processes": [
+        {
+            "id": 1,
+            "arrival_time": 0,
+            "burst_time": 5,
+            "priority": 1,
+            "user_id": 101,
+            "mobility": 0.2,
+            "relinquish_probability": 0.1,
+            "usage_history": "0.3,0.5,0.7",
+            "nps": 9,
+            "application_type": "video_streaming",
+            "latency_sensitivity": 0.8,
+            "current_task_load": 0.5,
+            "request_location": "Zone_A",
+            "request_time": 1.0,
+            "required_bandwidth": 10,  
+            "max_packet_loss": 0.02,
+            "max_delay": 10,
+            "battery_lifetime": 80,
+            "required_resources": {
+                "cpu": 1,  
+                "memory": 2  
+            },
+            "data_size": 500
+        },
+        {
+            "id": 2,
+            "arrival_time": 1,
+            "burst_time": 3,
+            "priority": 2,
+            "user_id": 102,
+            "mobility": 0.4,
+            "relinquish_probability": 0.2,
+            "usage_history": "0.2, 0.3, 0.4",
+            "nps": 7,
+            "application_type": "gaming",
+            "latency_sensitivity": 0.6,
+            "current_task_load": 0.3,
+            "request_location": "Zone_B",
+            "request_time": 2.5,
+            "required_bandwidth": 5,  
+            "max_packet_loss": 0.05,
+            "max_delay": 15,
+            "battery_lifetime": 60,
+            "required_resources": {
+                "cpu": 0.5,  
+                "memory": 1  
+            },
+            "data_size": 300
+        },
+        {
+            "id": 3,
+            "arrival_time": 2,
+            "burst_time": 7,
+            "priority": 1,
+            "user_id": 103,
+            "mobility": 0.1,
+            "relinquish_probability": 0.05,
+            "usage_history": "0.5, 0.6, 0.8",
+            "nps": 8,
+            "application_type": "cloud_offload",
+            "latency_sensitivity": 0.9,
+            "current_task_load": 0.7,
+            "request_location": "Zone_A",
+            "request_time": 3.0,
+            "required_bandwidth": 20,  
+            "max_packet_loss": 0.01,
+            "max_delay": 5,
+            "battery_lifetime": 90,
+            "required_resources": {
+                "cpu": 2,  
+                "memory": 4  
+            },
+            "data_size": 700
+        }
+    ]
+}
