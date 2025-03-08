@@ -1,6 +1,7 @@
 #include "Process.h"
 #include <iostream>
 
+// Constructor with all attributes
 Process::Process(int id, int arrival, int burst, int prio,
                  int uid, double mob, double rp, std::string uh, double nps_score,
                  std::string appType, double latSens, double taskLoad,
