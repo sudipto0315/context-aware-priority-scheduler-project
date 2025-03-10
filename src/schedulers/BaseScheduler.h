@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
+#include <iostream>
 
 class BaseScheduler {
 protected:
@@ -29,15 +30,14 @@ public:
             processQueue.end());
     }
 
+    // Clear all processes from the queue
+    virtual void clearQueue();
+
     // Get the next process (to be implemented in derived classes)
     virtual std::shared_ptr<Process> getNextProcess() = 0;
 
-    // Print the current process queue
-    virtual void printQueue() const {
-        for (const auto& process : processQueue) {
-            process->printProcessInfo();
-        }
-    }
+    // Print the current process queue with logging
+    virtual void printQueue() const;
 };
 
 #endif // BASESCHEDULER_H

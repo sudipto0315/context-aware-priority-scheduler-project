@@ -1,10 +1,12 @@
 #include "ContextAwareScheduler.h"
 #include <iostream>
 #include <cmath>
+#include <limits>
+#include <algorithm>
 
 // Constructor
 ContextAwareScheduler::ContextAwareScheduler(const std::vector<FogNode>& nodes) 
-    : fogNodes(nodes) {}
+    : fogNodes(nodes), sortedNodes(nodes) {}
 
 // Add process to the queue
 void ContextAwareScheduler::addProcess(std::shared_ptr<Process> process) {
@@ -17,15 +19,13 @@ double ContextAwareScheduler::calculateLocationScore(const std::shared_ptr<Proce
     if (process->getRequestLocation() == node.getLocation()) {
         return 1.0;  // Perfect location match
     } else {
-        // Exponential decay for location mismatch
         return std::exp(-0.5);  // Significant but not total penalty
     }
 }
 
-// Calculate load balance scoring
+// Calculate load balance scoring with safe bounds
 double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
-    // Prefer nodes with lower current load
-    return 1.0 / (1.0 + std::exp(node.getCurrentLoad() * 5));
+    return 1.0 / (1.0 + std::exp(std::min(node.getCurrentLoad() * 5, 10.0)));
 }
 
 // Select next process based on comprehensive scoring
@@ -36,13 +36,12 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     double bestScore = std::numeric_limits<double>::lowest();
 
     for (const auto& process : processQueue) {
-        // Comprehensive scoring mechanism
         double score = 
-            (1.0 / (1.0 + process->getPriority())) +  // Priority consideration
-            (0.5 * (1.0 - process->getMobility())) +  // Mobility factor
-            (0.2 * process->getNps()) +  // Network Performance Score
-            (0.3 * (1.0 - process->getRelinquishProbability())) +  // Stability factor
-            (0.4 * process->getLatencySensitivity());  // Latency sensitivity
+            (1.0 / (1.0 + process->getPriority())) + // Priority consideration
+            (0.5 * (1.0 - process->getMobility())) + // Mobility factor
+            (0.2 * process->getNps()) + // Network Performance Score
+            (0.3 * (1.0 - process->getRelinquishProbability())) + // Stability factor
+            (0.4 * process->getLatencySensitivity()); // Latency sensitivity
 
         if (score > bestScore) {
             bestScore = score;
@@ -53,7 +52,13 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     return bestProcess;
 }
 
-// Main scheduling method
+// Helper function to check if a node can handle a process
+bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Process& process) {
+    return node.getDelay() <= process.getMaxDelay() &&
+           node.getPacketLoss() <= process.getMaxPacketLoss();
+}
+
+// Main scheduling method with optimized sorting and retry queue
 void ContextAwareScheduler::schedule() {
     std::cout << "Scheduling started. Queue size: " << processQueue.size() << "\n";
     
@@ -62,22 +67,20 @@ void ContextAwareScheduler::schedule() {
         return;
     }
 
-    // Sort processes by priority and resource requirements
-    std::sort(processQueue.begin(), processQueue.end(), 
-        [](const std::shared_ptr<Process>& a, const std::shared_ptr<Process>& b) {
-            // Primary sort by priority (lower number means higher priority)
-            if (a->getPriority() != b->getPriority()) {
-                return a->getPriority() < b->getPriority();
-            }
-            // Secondary sort by resource intensity
-            auto resourcesA = a->getRequiredResources();
-            auto resourcesB = b->getRequiredResources();
-            return (resourcesA.cpu + resourcesA.memory) > (resourcesB.cpu + resourcesB.memory);
+    // Sort nodes by load once for reuse
+    sortedNodes = fogNodes;
+    std::sort(sortedNodes.begin(), sortedNodes.end(), 
+        [](const FogNode& a, const FogNode& b) {
+            return a.getCurrentLoad() < b.getCurrentLoad();
         });
 
     while (!processQueue.empty()) {
-        std::shared_ptr<Process> process = processQueue.front();
-        processQueue.erase(processQueue.begin());
+        std::shared_ptr<Process> process = getNextProcess();
+        if (!process) break;  // No process selected (shouldn't happen due to empty check)
+
+        auto it = std::find(processQueue.begin(), processQueue.end(), process);
+        std::iter_swap(it, processQueue.end() - 1);
+        processQueue.pop_back();
 
         int assignedNode = assignToFogNode(process);
         if (assignedNode != -1) {
@@ -87,15 +90,15 @@ void ContextAwareScheduler::schedule() {
                         std::cout << "Process " << process->getProcessID() 
                                   << " assigned to Fog Node " << assignedNode 
                                   << " (Location: " << node.getLocation() << ").\n";
-                        processToNodeMap[process->getProcessID()] = assignedNode;
+                        processToNodeMap[process->getProcessID()] = {assignedNode};
                     } else {
                         std::cout << "Fog Node " << assignedNode 
                                   << " failed to assign Process " << process->getProcessID() 
                                   << " due to load constraints.\n";
-                        // Attempt partitioning
                         if (!partitionProcess(process)) {
-                            std::cout << "Rescheduling of Process " 
-                                      << process->getProcessID() << " failed.\n";
+                            std::cout << "Partitioning failed for Process " 
+                                      << process->getProcessID() << ". Adding to retry queue.\n";
+                            retryQueue.push_back(process);
                         }
                     }
                     break;
@@ -106,7 +109,23 @@ void ContextAwareScheduler::schedule() {
                       << process->getProcessID() << ". Attempting advanced partitioning...\n";
             if (!partitionProcess(process)) {
                 std::cout << "Advanced partitioning failed for Process " 
-                          << process->getProcessID() << ". Process dropped.\n";
+                          << process->getProcessID() << ". Adding to retry queue.\n";
+                retryQueue.push_back(process);
+            }
+        }
+    }
+
+    // Retry failed processes
+    if (!retryQueue.empty()) {
+        std::cout << "Retrying " << retryQueue.size() << " failed processes...\n";
+        std::vector<std::shared_ptr<Process>> tempQueue = std::move(retryQueue);
+        retryQueue.clear();
+        for (auto& process : tempQueue) {
+            if (!partitionProcess(process)) {
+                std::cout << "Retry failed for Process " << process->getProcessID() 
+                          << ". Escalation to higher-tier scheduler recommended.\n";
+            } else {
+                std::cout << "Retry succeeded for Process " << process->getProcessID() << ".\n";
             }
         }
     }
@@ -117,37 +136,34 @@ int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
     int bestNode = -1;
     double bestScore = std::numeric_limits<double>::lowest();
 
-    for (auto& node : fogNodes) {
+    for (auto& node : sortedNodes) {
         if (!node.getIsActive()) {
             std::cout << "Fog Node " << node.getNodeID() << " is inactive.\n";
             continue;
         }
 
         auto resources = process->getRequiredResources();
-        
-        // Enhanced constraint checking
-        bool resourcesFit = 
-            node.getCpuCapacity() >= resources.cpu &&
-            node.getMemory() >= resources.memory &&
-            node.getBandwidth() >= process->getRequiredBandwidth() &&
-            node.getDelay() <= process->getMaxDelay() &&
-            node.getPacketLoss() <= process->getMaxPacketLoss();
 
-        if (resourcesFit) {
+        // Allow partial assignment if at least 50% of resources are available
+        bool resourcesFit = 
+            (node.getCpuCapacity() >= resources.cpu * 0.5) && // Partial assignment threshold
+            node.getMemory() >= resources.memory &&
+            node.getBandwidth() >= process->getRequiredBandwidth();
+
+        if (resourcesFit && canNodeHandleProcess(node, *process)) {
             double newLoad = node.getCurrentLoad() + (resources.cpu / node.getCpuCapacity());
-            
             if (newLoad <= 1.0) {
-                // Comprehensive scoring mechanism
+                // Calculate scoring components for the Comprehensive Scoring Mechanism
                 double locationScore = calculateLocationScore(process, node);
                 double loadBalanceScore = calculateLoadBalanceScore(node);
-                
+
                 // Multifactor scoring
                 double score = 
-                    (1.0 / (1.0 + node.getDelay())) +  // Delay preference
-                    (node.getBandwidth() / process->getRequiredBandwidth()) +  // Bandwidth utilization
-                    (1.0 - (node.getPacketLoss() / process->getMaxPacketLoss())) +  // Packet loss
-                    locationScore +  // Location matching
-                    loadBalanceScore;  // Load distribution
+                    (1.0 / (1.0 + node.getDelay())) + // Delay preference
+                    (node.getBandwidth() / process->getRequiredBandwidth()) + // Bandwidth utilization
+                    (1.0 - (node.getPacketLoss() / process->getMaxPacketLoss())) + // Packet loss
+                    locationScore + // Location matching
+                    loadBalanceScore; // Load distribution
 
                 std::cout << "Fog Node " << node.getNodeID() 
                           << " score: " << score 
@@ -171,20 +187,20 @@ int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
     return bestNode;
 }
 
-// Partition process across multiple nodes if initial assignment fails
+// Partition process across multiple nodes with recursion limit
 bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
+    static int recursionDepth = 0;
+    if (recursionDepth++ > 10) {  // Prevent infinite recursion
+        recursionDepth = 0;
+        std::cout << "Recursion depth exceeded for Process " << process->getProcessID() << ". Partitioning aborted.\n";
+        return false;
+    }
+
     auto resources = process->getRequiredResources();
     double remainingCpu = resources.cpu;
     double remainingMem = resources.memory;
     double remainingBw = process->getRequiredBandwidth();
     std::vector<int> assignedNodes;
-
-    // Sort nodes by their current load (lowest first)
-    std::vector<FogNode> sortedNodes = fogNodes;
-    std::sort(sortedNodes.begin(), sortedNodes.end(), 
-        [](const FogNode& a, const FogNode& b) {
-            return a.getCurrentLoad() < b.getCurrentLoad();
-        });
 
     for (auto& node : sortedNodes) {
         if (!node.getIsActive() || node.getCurrentLoad() >= 1.0) continue;
@@ -193,10 +209,7 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
         double memAvailable = node.getMemory() * (1.0 - node.getCurrentLoad());
         double bwAvailable = node.getBandwidth();
 
-        // Location-aware partitioning
-        if (node.getDelay() <= process->getMaxDelay() && 
-            node.getPacketLoss() <= process->getMaxPacketLoss()) {
-            
+        if (canNodeHandleProcess(node, *process)) {
             double cpuToAssign = std::min(remainingCpu, cpuAvailable);
             double memToAssign = std::min(remainingMem, memAvailable);
             double bwToAssign = std::min(remainingBw, bwAvailable);
@@ -206,7 +219,7 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
                 partitionedProcess->setRequiredResources(cpuToAssign, memToAssign);
                 
                 if (node.assignProcess(*partitionedProcess)) {
-                    processToNodeMap[process->getProcessID()] = node.getNodeID();
+                    processToNodeMap[process->getProcessID()].push_back(node.getNodeID()); // Add node ID to the vector
                     assignedNodes.push_back(node.getNodeID());
 
                     remainingCpu -= cpuToAssign;
@@ -224,12 +237,23 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
                               << " fully partitioned across nodes: ";
                     for (int id : assignedNodes) std::cout << id << " ";
                     std::cout << "\n";
+                    recursionDepth = 0;
                     return true;
                 }
             }
         }
     }
 
+    if (remainingCpu > 0 || remainingMem > 0 || remainingBw > 0) {
+        std::cout << "Remaining resources for Process " << process->getProcessID() 
+                  << " (CPU: " << remainingCpu << ", Mem: " << remainingMem 
+                  << ", BW: " << remainingBw << "). Retrying partitioning...\n";
+        bool result = partitionProcess(process);
+        recursionDepth--;
+        return result;
+    }
+
+    recursionDepth = 0;
     return false;
 }
 
@@ -237,6 +261,14 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
 void ContextAwareScheduler::printSchedulingState() const {
     std::cout << "Current Scheduling State:\n";
     for (const auto& entry : processToNodeMap) {
-        std::cout << "Process " << entry.first << " -> Fog Node " << entry.second << "\n";
+        if (entry.second.empty()) {
+            std::cout << "Process " << entry.first << " -> No Fog Node assigned\n";
+        } else {
+            std::cout << "Process " << entry.first << " -> Fog Node(s): ";
+            for (int nodeId : entry.second) {
+                std::cout << nodeId << " ";
+            }
+            std::cout << "\n";
+        }
     }
 }

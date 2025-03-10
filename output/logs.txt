@@ -1,8 +1,136 @@
-===== [2025-03-05 12:27:12] Priority Scheduling Simulation Started =====
-===== [2025-03-05 12:27:12] Simulation Completed Successfully =====
-===== [2025-03-05 12:33:07] Priority Scheduling Simulation Started =====
-===== [2025-03-05 12:33:07] Simulation Completed Successfully =====
-===== [2025-03-05 13:38:33] Priority Scheduling Simulation Started =====
-===== [2025-03-05 13:38:33] Simulation Completed Successfully =====
-===== [2025-03-05 16:14:43] Priority Scheduling Simulation Started =====
-===== [2025-03-05 16:14:43] Simulation Completed Successfully =====
+===== [2025-03-09 03:19:09] Context-Aware Priority Scheduling Simulation Started =====
+===== [2025-03-09 03:19:09] Simulation Completed Successfully =====
+
+
+this is the output in terminal
+===== [2025-03-09 03:19:09] Context-Aware Priority Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process 1 added to queue.
+Process 2 added to queue.
+Process 3 added to queue.
+Process 4 added to queue.
+Process 5 added to queue.
+Process 6 added to queue.
+Scheduling started. Queue size: 6
+Fog Node 5 score: 7.17769 (newLoad: 0.675, Location: Zone_D)
+Fog Node 3 score: 5.48407 (newLoad: 0.933333, Location: Zone_C)
+Fog Node 1 rejected due to resource constraints.
+Fog Node 2 rejected due to resource constraints.
+Fog Node 4 is inactive.
+Attempting to assign Process 6 to Node 5
+Current Load: 0.05, New Load: 0.675
+Current Memory: 16, Required: 10, Remaining: 6
+Process 6 assigned successfully.
+Process 6 assigned to Fog Node 5 (Location: Zone_D).
+Fog Node 5 score: 22.2777 (newLoad: 0.175, Location: Zone_D)
+Fog Node 3 score: 16.9841 (newLoad: 0.266667, Location: Zone_C)
+Fog Node 1 score: 11.9356 (newLoad: 0.45, Location: Zone_A)
+Fog Node 2 score: 5.87987 (newLoad: 0.8, Location: Zone_B)
+Fog Node 4 is inactive.
+Attempting to assign Process 1 to Node 5
+Current Load: 0.675, New Load: 0.8
+Current Memory: 6, Required: 2, Remaining: 4
+Process 1 assigned successfully.
+Process 1 assigned to Fog Node 5 (Location: Zone_D).
+Fog Node 5 score: 12.1777 (newLoad: 0.3, Location: Zone_D)
+Fog Node 3 score: 9.23407 (newLoad: 0.433333, Location: Zone_C)
+Fog Node 1 score: 6.43561 (newLoad: 0.7, Location: Zone_A)
+Fog Node 2 rejected due to resource constraints.
+Fog Node 4 is inactive.
+Attempting to assign Process 3 to Node 5
+Current Load: 0.8, New Load: 1.05
+Current Memory: 4, Required: 4, Remaining: 0
+Process 3 assignment failed. Insufficient resources.
+Fog Node 5 failed to assign Process 3 due to load constraints.
+Attempting to assign Process 3 to Node 5
+Current Load: 0.05, New Load: 0.3
+Current Memory: 16, Required: 4, Remaining: 12
+Process 3 assigned successfully.
+Partitioned Process 3 partially assigned to Fog Node 5 (CPU: 2, Memory: 4)
+Process 3 fully partitioned across nodes: 5 
+Fog Node 5 score: 9.51576 (newLoad: 0.8, Location: Zone_D)
+Fog Node 3 rejected due to resource constraints.
+Fog Node 1 rejected due to resource constraints.
+Fog Node 2 rejected due to resource constraints.
+Fog Node 4 is inactive.
+Attempting to assign Process 5 to Node 5
+Current Load: 0.8, New Load: 1.3
+Current Memory: 4, Required: 8, Remaining: -4
+Process 5 assignment failed. Insufficient resources.
+Fog Node 5 failed to assign Process 5 due to load constraints.
+Attempting to assign Process 5 to Node 5
+Current Load: 0.3, New Load: 0.8
+Current Memory: 12, Required: 8, Remaining: 4
+Process 5 assigned successfully.
+Partitioned Process 5 partially assigned to Fog Node 5 (CPU: 4, Memory: 8)
+Process 5 fully partitioned across nodes: 5 
+Fog Node 5 score: 41.9179 (newLoad: 0.8, Location: Zone_D)
+Fog Node 3 score: 32.1341 (newLoad: 0.1, Location: Zone_C)
+Fog Node 1 score: 21.8421 (newLoad: 0.2, Location: Zone_A)
+Fog Node 2 score: 11.8733 (newLoad: 0.3, Location: Zone_B)
+Fog Node 4 is inactive.
+Attempting to assign Process 2 to Node 5
+Current Load: 0.8, New Load: 0.8
+Current Memory: 4, Required: 1, Remaining: 3
+Process 2 assigned successfully.
+Process 2 assigned to Fog Node 5 (Location: Zone_D).
+Fog Node 5 rejected due to resource constraints.
+Fog Node 3 score: 6.62754 (newLoad: 0.6, Location: Zone_C)
+Fog Node 1 rejected due to resource constraints.
+Fog Node 2 rejected due to resource constraints.
+Fog Node 4 is inactive.
+Attempting to assign Process 4 to Node 3
+Current Load: 0.1, New Load: 0.6
+Current Memory: 12, Required: 6, Remaining: 6
+Process 4 assigned successfully.
+Process 4 assigned to Fog Node 3 (Location: Zone_C).
+Process queue is empty.
+===== [2025-03-09 03:19:09] Simulation Completed Successfully =====
+
+Form ChatGPT:
+
+Your Context-Aware Priority Scheduling Simulation seems to be functioning as expected, but let's verify a few key points based on your config.json and the execution log.
+
+✅ What is Working Correctly
+Process Addition & Scheduling Start
+
+All 6 processes are correctly added to the queue.
+The scheduler starts with queue size = 6.
+Fog Node Evaluations & Scores
+
+Each active fog node is evaluated, and an assignment score is computed.
+Inactive nodes (Fog Node 4) are properly ignored.
+Nodes with resource constraints (memory, CPU, or load) are correctly rejecting processes.
+Process Assignments
+
+Process 6 → Node 5 ✅ (Success)
+Process 1 → Node 5 ✅ (Success)
+Process 3 → Node 5 ❌ (Failed initially, then partitioned & assigned)
+Process 5 → Node 5 ❌ (Failed initially, then partitioned & assigned)
+Process 2 → Node 5 ✅ (Success)
+Process 4 → Node 3 ✅ (Success)
+Partitioning of Processes
+
+Process 3 & Process 5 were partially assigned when full allocation was not possible.
+Partitioning logic worked well to distribute resource usage across nodes.
+End of Simulation
+
+The scheduler processed all tasks successfully.
+The process queue is empty at the end, indicating all processes were either scheduled or rejected due to constraints.
+⚠️ Possible Issues & Areas for Improvement
+Multiple Attempts to Assign the Same Process
+
+Process 3 and 5 had two assignment attempts (one failed, then another succeeded with partitioning).
+Q: Is this intended behavior in your scheduler logic?
+Suggestion: If partitioning is allowed, ensure that the first rejection doesn't prevent the second attempt.
+Fog Node Selection & Prioritization
+
+Most tasks heavily favored Node 5, leading to rapid resource exhaustion.
+Q: Are you optimizing for balanced workload distribution across all fog nodes? Suggestion: Consider re-evaluating the scoring system to balance load better.
+Potential Over-Assignment of Node 5
+
+Process 2 was assigned even though the log says Node 5 is "rejected due to resource constraints."
+Q: Is your scheduler ensuring proper constraints before finalizing assignments? Suggestion: Double-check memory/CPU constraints before committing a process to a node.
+🔎 Final Verdict
+Your scheduler is working correctly based on the provided configuration, but it may need tuning for load balancing, reducing redundant assignment attempts, and ensuring strict resource enforcement. Would you like to analyze a specific part of the logic in more detail? 🚀

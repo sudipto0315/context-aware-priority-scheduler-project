@@ -17,11 +17,14 @@ SIMULATION_DIR = src/simulation
 SRC_FILES = $(SRC_DIR)/main.cpp \
             $(SRC_DIR)/simulation/Simulation.cpp \
             $(SRC_DIR)/utils/Logger.cpp \
+            $(SRC_DIR)/schedulers/BaseScheduler.cpp \
             $(SRC_DIR)/schedulers/DynamicPriorityScheduler.cpp \
             $(SRC_DIR)/schedulers/NonPreemptiveScheduler.cpp \
             $(SRC_DIR)/schedulers/PreemptiveScheduler.cpp \
             $(SRC_DIR)/schedulers/StaticPriorityScheduler.cpp \
-            $(SRC_DIR)/models/Process.cpp
+            $(SRC_DIR)/schedulers/ContextAwareScheduler.cpp \
+            $(SRC_DIR)/models/Process.cpp \
+            $(SRC_DIR)/models/FogNode.cpp
 
 # Test Files
 TEST_PROCESS_FILES = $(TEST_DIR)/test_process.cpp $(SRC_DIR)/models/Process.cpp

@@ -45,16 +45,13 @@ private:
     int dataSize;                 // Size of data to process (MB)
 
 public:
-    // Full constructor with all attributes
+    // Constructor declaration
     Process(int id, int arrival, int burst, int prio,
-            int uid, double mob, double rp, std::string uh, double nps_score,
-            std::string appType, double latSens, double taskLoad,
-            std::string loc, std::time_t rt,
-            double bw, double pl, double delay,
-            double batt, double cpuRes, double memRes, int ds);
-
-    // Legacy constructor (backward compatibility)
-    Process(int id, int arrival, int burst, int prio);
+        int uid = 0, double mob = 0.0, double rp = 0.0, std::string uh = "none", double nps_score = 0.0,
+        std::string appType = "generic", double latSens = 0.0, double taskLoad = 0.0,
+        std::string loc = "unknown", std::time_t rt = std::time(nullptr),
+        double bw = 0.0, double pl = 0.0, double delay = 0.0,
+        double batt = 0.0, double cpuRes = 0.0, double memRes = 0.0, int ds = 0);
 
     // Getters
     int getProcessID() const { return processID; }
@@ -76,7 +73,7 @@ public:
     double getMaxPacketLoss() const { return maxPacketLoss; }
     double getMaxDelay() const { return maxDelay; }
     double getBatteryLifetime() const { return batteryLifetime; }
-    Resource getRequiredResources() const { return requiredResources; } // Updated return type
+    Resource getRequiredResources() const { return requiredResources; }
     int getDataSize() const { return dataSize; }
     int getExecutionTime() const { return burstTime; }
     int getDeadline() const { return arrivalTime + burstTime; }

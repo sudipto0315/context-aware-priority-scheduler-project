@@ -5,6 +5,7 @@
     src/main.cpp \
     src/simulation/Simulation.cpp \
     src/utils/Logger.cpp \
+    src/schedulers/BaseScheduler.cpp \
     src/schedulers/DynamicPriorityScheduler.cpp \
     src/schedulers/NonPreemptiveScheduler.cpp \
     src/schedulers/PreemptiveScheduler.cpp \

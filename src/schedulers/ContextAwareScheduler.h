@@ -9,11 +9,14 @@
 #include <memory>
 #include <limits>
 #include <algorithm>
+#include <iostream>
 
 class ContextAwareScheduler : public BaseScheduler {
 private:
     std::vector<FogNode> fogNodes;
-    std::map<int, int> processToNodeMap;
+    std::vector<FogNode> sortedNodes;  // Pre-sorted nodes for performance
+    std::vector<std::shared_ptr<Process>> retryQueue;  // Queue for failed assignments
+    std::map<int, std::vector<int>> processToNodeMap;  // Maps process ID to list of fog node IDs
 
     // Override the inherited getNextProcess from BaseScheduler
     std::shared_ptr<Process> getNextProcess() override;
@@ -25,15 +28,16 @@ private:
     // Helper methods for scoring and evaluation
     double calculateLocationScore(const std::shared_ptr<Process>& process, const FogNode& node);
     double calculateLoadBalanceScore(const FogNode& node);
+    bool canNodeHandleProcess(const FogNode& node, const Process& process);
 
 public:
     // Constructor
     ContextAwareScheduler(const std::vector<FogNode>& nodes);
-    
+
     // Override methods from BaseScheduler
     void addProcess(std::shared_ptr<Process> process) override;
     void schedule() override;
-    
+
     // Additional methods
     void printSchedulingState() const;
 

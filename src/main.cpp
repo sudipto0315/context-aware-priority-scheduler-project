@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 
     // Initialize Logger
     Logger::init("output/logs.txt");
-    Logger::log("===== [" + getCurrentTimestamp() + "] Priority Scheduling Simulation Started =====");
+    Logger::log("===== [" + getCurrentTimestamp() + "] Context-Aware Priority Scheduling Simulation Started =====");
 
     try {
         // Load and run the simulation
