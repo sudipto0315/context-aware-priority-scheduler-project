@@ -133,4 +133,7 @@ Potential Over-Assignment of Node 5
 Process 2 was assigned even though the log says Node 5 is "rejected due to resource constraints."
 Q: Is your scheduler ensuring proper constraints before finalizing assignments? Suggestion: Double-check memory/CPU constraints before committing a process to a node.
 🔎 Final Verdict
-Your scheduler is working correctly based on the provided configuration, but it may need tuning for load balancing, reducing redundant assignment attempts, and ensuring strict resource enforcement. Would you like to analyze a specific part of the logic in more detail? 🚀
+Your scheduler is working correctly based on the provided configuration, but it may need tuning for load balancing, reducing redundant assignment attempts, and ensuring strict resource enforcement. Would you like to analyze a specific part of the logic in more detail? 🚀===== [2025-03-16 15:04:14] Context-Aware Priority Scheduling Simulation Started =====
+===== [2025-03-16 15:04:14] Simulation Completed Successfully =====
+===== [2025-03-16 15:14:50] Context-Aware Priority Scheduling Simulation Started =====
+===== [2025-03-16 15:14:50] Simulation Completed Successfully =====

@@ -14,6 +14,8 @@ void ContextAwareScheduler::addProcess(std::shared_ptr<Process> process) {
     std::cout << "Process " << process->getProcessID() << " added to queue.\n";
 }
 
+/* Calculations and scoring methods section */
+
 // Calculate location-based scoring
 double ContextAwareScheduler::calculateLocationScore(const std::shared_ptr<Process>& process, const FogNode& node) {
     if (process->getRequestLocation() == node.getLocation()) {
@@ -28,6 +30,48 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
     return 1.0 / (1.0 + std::exp(std::min(node.getCurrentLoad() * 5, 10.0)));
 }
 
+// Calculate Comprehensive Process Score
+double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Process>& process) {
+    return 
+        (1.0 / (1.0 + process->getPriority())) + // Priority consideration
+        (0.5 * (1.0 - process->getMobility())) + // Mobility factor
+        (0.2 * process->getNps()) + // Network Performance Score
+        (0.3 * (1.0 - process->getRelinquishProbability())) + // Stability factor
+        (0.4 * process->getLatencySensitivity()); // Latency sensitivity
+}
+
+// Calculate Comprehensive Node Selection Score
+double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std::shared_ptr<Process>& process) {
+    double locationScore = calculateLocationScore(process, node);
+    double loadBalanceScore = calculateLoadBalanceScore(node);
+    return (1.0 / (1.0 + node.getDelay())) + // Delay preference
+            (node.getBandwidth() / process->getRequiredBandwidth()) + // Bandwidth utilization
+            (1.0 - (node.getPacketLoss() / process->getMaxPacketLoss())) + // Packet loss
+            locationScore + // Location matching
+            loadBalanceScore; // Load distribution
+}
+
+// Calculate New Load after assigning process to node
+double ContextAwareScheduler::calculateNewLoad(const FogNode& node, const Resource& resources) {
+    return node.getCurrentLoad() + (resources.cpu / node.getCpuCapacity());
+}
+
+// Function to check if a node can handle a process
+bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Process& process) {
+    return node.getDelay() <= process.getMaxDelay() &&
+           node.getPacketLoss() <= process.getMaxPacketLoss();
+}
+
+// Function to check if resources can fit a process
+bool ContextAwareScheduler::canResourcesFit(const FogNode& node, const Resource& resources, const Process& process) {
+    // Allow partial assignment if at least 50% of resources are available
+    return (node.getCpuCapacity() >= resources.cpu * 0.5) && // Partial assignment threshold
+            node.getMemory() >= resources.memory &&
+            node.getBandwidth() >= process.getRequiredBandwidth();
+}
+
+/* Algorithm methods section */
+
 // Select next process based on comprehensive scoring
 std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     if (processQueue.empty()) return nullptr;
@@ -36,12 +80,8 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     double bestScore = std::numeric_limits<double>::lowest();
 
     for (const auto& process : processQueue) {
-        double score = 
-            (1.0 / (1.0 + process->getPriority())) + // Priority consideration
-            (0.5 * (1.0 - process->getMobility())) + // Mobility factor
-            (0.2 * process->getNps()) + // Network Performance Score
-            (0.3 * (1.0 - process->getRelinquishProbability())) + // Stability factor
-            (0.4 * process->getLatencySensitivity()); // Latency sensitivity
+        // Comprehensive scoring for process selection
+        double score = calculateProcessScore(process);
 
         if (score > bestScore) {
             bestScore = score;
@@ -52,10 +92,43 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     return bestProcess;
 }
 
-// Helper function to check if a node can handle a process
-bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Process& process) {
-    return node.getDelay() <= process.getMaxDelay() &&
-           node.getPacketLoss() <= process.getMaxPacketLoss();
+// Assign process to the most suitable Fog Node
+int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
+    int bestNode = -1;
+    double bestScore = std::numeric_limits<double>::lowest();
+
+    for (auto& node : sortedNodes) {
+        if (!node.getIsActive()) {
+            std::cout << "Fog Node " << node.getNodeID() << " is inactive.\n";
+            continue;
+        }
+
+        auto resources = process->getRequiredResources();
+
+        if (canResourcesFit(node, resources, *process) && canNodeHandleProcess(node, *process)) {
+            double newLoad = calculateNewLoad(node, resources);
+            if (newLoad <= 1.0) {
+                // Comprehensive scoring for node selection
+                double score = calculateNodeScore(node, process);
+                std::cout << "Fog Node " << node.getNodeID() 
+                          << " score: " << score 
+                          << " (newLoad: " << newLoad 
+                          << ", Location: " << node.getLocation() << ")\n";
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestNode = node.getNodeID();
+                }
+            } else {
+                std::cout << "Fog Node " << node.getNodeID() 
+                          << " rejected due to high load: " << newLoad << "\n";
+            }
+        } else {
+            std::cout << "Fog Node " << node.getNodeID() 
+                      << " rejected due to resource constraints.\n";
+        }
+    }
+
+    return bestNode;
 }
 
 // Main scheduling method with optimized sorting and retry queue
@@ -76,11 +149,9 @@ void ContextAwareScheduler::schedule() {
 
     while (!processQueue.empty()) {
         std::shared_ptr<Process> process = getNextProcess();
-        if (!process) break;  // No process selected (shouldn't happen due to empty check)
-
         auto it = std::find(processQueue.begin(), processQueue.end(), process);
         std::iter_swap(it, processQueue.end() - 1);
-        processQueue.pop_back();
+        processQueue.pop_back(); // Remove the selected process from the queue
 
         int assignedNode = assignToFogNode(process);
         if (assignedNode != -1) {
@@ -129,62 +200,6 @@ void ContextAwareScheduler::schedule() {
             }
         }
     }
-}
-
-// Assign process to the most suitable Fog Node
-int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
-    int bestNode = -1;
-    double bestScore = std::numeric_limits<double>::lowest();
-
-    for (auto& node : sortedNodes) {
-        if (!node.getIsActive()) {
-            std::cout << "Fog Node " << node.getNodeID() << " is inactive.\n";
-            continue;
-        }
-
-        auto resources = process->getRequiredResources();
-
-        // Allow partial assignment if at least 50% of resources are available
-        bool resourcesFit = 
-            (node.getCpuCapacity() >= resources.cpu * 0.5) && // Partial assignment threshold
-            node.getMemory() >= resources.memory &&
-            node.getBandwidth() >= process->getRequiredBandwidth();
-
-        if (resourcesFit && canNodeHandleProcess(node, *process)) {
-            double newLoad = node.getCurrentLoad() + (resources.cpu / node.getCpuCapacity());
-            if (newLoad <= 1.0) {
-                // Calculate scoring components for the Comprehensive Scoring Mechanism
-                double locationScore = calculateLocationScore(process, node);
-                double loadBalanceScore = calculateLoadBalanceScore(node);
-
-                // Multifactor scoring
-                double score = 
-                    (1.0 / (1.0 + node.getDelay())) + // Delay preference
-                    (node.getBandwidth() / process->getRequiredBandwidth()) + // Bandwidth utilization
-                    (1.0 - (node.getPacketLoss() / process->getMaxPacketLoss())) + // Packet loss
-                    locationScore + // Location matching
-                    loadBalanceScore; // Load distribution
-
-                std::cout << "Fog Node " << node.getNodeID() 
-                          << " score: " << score 
-                          << " (newLoad: " << newLoad 
-                          << ", Location: " << node.getLocation() << ")\n";
-
-                if (score > bestScore) {
-                    bestScore = score;
-                    bestNode = node.getNodeID();
-                }
-            } else {
-                std::cout << "Fog Node " << node.getNodeID() 
-                          << " rejected due to high load: " << newLoad << "\n";
-            }
-        } else {
-            std::cout << "Fog Node " << node.getNodeID() 
-                      << " rejected due to resource constraints.\n";
-        }
-    }
-
-    return bestNode;
 }
 
 // Partition process across multiple nodes with recursion limit
