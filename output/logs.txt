@@ -137,3 +137,5 @@ Your scheduler is working correctly based on the provided configuration, but it 
 ===== [2025-03-16 15:04:14] Simulation Completed Successfully =====
 ===== [2025-03-16 15:14:50] Context-Aware Priority Scheduling Simulation Started =====
 ===== [2025-03-16 15:14:50] Simulation Completed Successfully =====
+===== [2025-03-20 12:22:23] Context-Aware Priority Scheduling Simulation Started =====
+===== [2025-03-20 12:22:23] Simulation Completed Successfully =====

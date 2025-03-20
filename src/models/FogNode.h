@@ -13,6 +13,9 @@ private:
     double memory;            // Available memory (MB)
     double bandwidth;         // Available network bandwidth (Mbps)
     double currentLoad;       // Current utilization (0.0 to 1.0, where 1.0 is fully loaded)
+    double usedCpu;           // Currently used CPU units
+    double usedMemory;        // Currently used memory (MB)
+    double initialMemory;     // Initial memory capacity (MB)
     double delay;             // Network latency to this node (ms)
     double packetLoss;        // Current packet loss rate (0.0 to 1.0)
     std::string location;     // Physical or logical location (e.g., "zone_A")
@@ -31,6 +34,11 @@ public:
     double getMemory() const { return memory; }
     double getBandwidth() const { return bandwidth; }
     double getCurrentLoad() const { return currentLoad; }
+    double getUsedCpu() const { return usedCpu; }
+    double getUsedMemory() const { return usedMemory; }
+    double getInitialMemory() const { return initialMemory; }
+    double getAvailableCpu() const { return processingPower - usedCpu; }
+    double getAvailableMemory() const { return memory; }
     double getDelay() const { return delay; }
     double getPacketLoss() const { return packetLoss; }
     std::string getLocation() const { return location; }

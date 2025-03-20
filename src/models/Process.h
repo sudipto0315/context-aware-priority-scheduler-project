@@ -17,6 +17,7 @@ private:
     int burstTime;         // Total burst time required by the process
     int priority;          // Base priority level (lower value = higher priority)
     int remainingTime;     // Remaining execution time (for preemptive scheduling)
+    double processScore;   // Score used for process prioritization in schedulers
 
     // User Context
     int userID;            // Identifier for the user initiating the process
@@ -77,6 +78,7 @@ public:
     int getDataSize() const { return dataSize; }
     int getExecutionTime() const { return burstTime; }
     int getDeadline() const { return arrivalTime + burstTime; }
+    double getProcessScore() const { return processScore; }  // New getter for score
 
     // Setters
     void setPriority(int newPriority) { priority = newPriority; }
@@ -85,6 +87,7 @@ public:
     void setBatteryLifetime(double batt) { batteryLifetime = batt; }
     void setCurrentTaskLoad(double load) { currentTaskLoad = load; }
     void setRequiredResources(double cpu, double memory) { requiredResources = Resource(cpu, memory); }
+    void setProcessScore(double newProcessScore) { processScore = newProcessScore; }  // New setter for score
 
     // Utility Functions
     void decreaseRemainingTime();
