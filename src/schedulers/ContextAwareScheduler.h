@@ -6,6 +6,7 @@
 #include "BaseScheduler.h"
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include <limits>
 #include <algorithm>
@@ -47,13 +48,15 @@ private:
 public:
     QuadTree(Point tl, Point br) : topLeft(tl), bottomRight(br) {}
     void insert(double x, double y, int nodeId);
-    void queryRange(Point center, double radius, std::vector<int>& results) const;
+    // Enhanced queryRange with early termination
+    void queryRange(Point center, double radius, std::vector<int>& results, int maxResults = 0) const;
 };
 
 class ContextAwareScheduler : public BaseScheduler {
 private:
     std::vector<FogNode> fogNodes;
     std::vector<FogNode> sortedNodes;  // Pre-sorted nodes for performance
+    bool needsResorting;               // Flag to determine if sorting is needed
     
     // Priority queue for processes
     std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessScoreComparator> processPriorityQueue;
@@ -64,10 +67,31 @@ private:
     // Maps process ID to list of fog node IDs
     std::map<int, std::vector<int>> processToNodeMap;
     
-    // Spatial index using QuadTree (replaces nodesByLocation)
+    // Spatial index using QuadTree
     std::unique_ptr<QuadTree> spatialIndex;
-    std::map<double, std::vector<int>> nodesByCapacity; // Maps capacity to node IDs
-    std::map<int, FogNode*> nodeMap;                    // Maps node ID to FogNode pointer
+    
+    // Multi-dimensional indices for faster resource filtering
+    std::map<double, std::vector<int>> nodesByCapacity;  // Maps capacity to node IDs
+    std::map<double, std::vector<int>> nodesByMemory;    // Maps memory to node IDs
+    std::map<double, std::vector<int>> nodesByBandwidth; // Maps bandwidth to node IDs
+    
+    // Process grouping for batch processing
+    std::map<int, std::vector<std::shared_ptr<Process>>> processesByGroup;
+    
+    // Node mapping and indexing for faster lookups
+    std::map<int, FogNode*> nodeMap;                   // Maps node ID to FogNode pointer
+    std::unordered_map<int, size_t> nodeIndexMap;      // Maps node ID to vector index
+    
+    // Cache for coordinates to avoid recalculation
+    std::unordered_map<int, std::pair<double, double>> nodeCoordinates;
+    
+    // Caches for expensive calculations
+    std::unordered_map<int, double> processScoreCache;                             // Process ID to score
+    std::unordered_map<int, std::pair<double, double>> loadBalanceCache;           // Node ID to {load, score}
+    
+    // Use map instead of unordered_map for pair keys to avoid hash complications
+    std::map<std::pair<int, int>, double> nodeScoreCache;                          // {Node ID, Process ID} to score
+    std::map<std::pair<int, int>, double> locationScoreCache;                      // {Process ID, Node ID} to location score
     
     // Comparator for ordering nodes by load
     struct NodeLoadComparator {
@@ -100,7 +124,7 @@ private:
     bool canResourcesFit(const FogNode& node, const Resource& resources, const Process& process);
     bool canNodeHandleProcess(const FogNode& node, const Process& process);
     
-    // New helper methods for optimization
+    // Helper methods for optimization
     std::vector<int> findCandidateNodes(const std::shared_ptr<Process>& process);
     void updateNodeIndices(int nodeId);
     void buildSpatialIndices();
