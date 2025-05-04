@@ -13,10 +13,10 @@ struct Resource {
 class Process {
 private:
     int processID;         // Unique identifier for the process
-    int arrivalTime;       // Arrival time of the process
-    int burstTime;         // Total burst time required by the process
+    std::time_t arrivalTime;       // Arrival time of the process
+    std::time_t burstTime;         // Total burst time required by the process
     int priority;          // Base priority level (lower value = higher priority)
-    int remainingTime;     // Remaining execution time (for preemptive scheduling)
+    std::time_t remainingTime;     // Remaining execution time (for preemptive scheduling)
     double processScore;   // Score used for process prioritization in schedulers
 
     // User Context
@@ -47,7 +47,7 @@ private:
 
 public:
     // Constructor declaration
-    Process(int id, int arrival, int burst, int prio,
+    Process(int id, std::time_t arrival, std::time_t burst, int prio,
         int uid = 0, double mob = 0.0, double rp = 0.0, std::string uh = "none", double nps_score = 0.0,
         std::string appType = "generic", double latSens = 0.0, double taskLoad = 0.0,
         std::string loc = "unknown", std::time_t rt = std::time(nullptr),

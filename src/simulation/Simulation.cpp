@@ -8,6 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <nlohmann/json.hpp>
+#include <typeinfo>
 
 using json = nlohmann::json;
 
@@ -75,11 +76,10 @@ void Simulation::loadConfig(const std::string& configFile) {
         json resources = processData.value("required_resources", json::object());
         int required_cpu = resources.value("cpu", 0);
         int required_memory = resources.value("memory", 0);
-
         Process process(
             processData["id"].get<int>(),
-            processData["arrival_time"].get<int>(),
-            processData["burst_time"].get<int>(),
+            processData["arrival_time"].get<std::time_t>(),
+            processData["burst_time"].get<std::time_t>(),
             processData["priority"].get<int>(),
             processData["user_id"].get<int>(),
             processData["mobility"].get<double>(),
@@ -109,8 +109,11 @@ void Simulation::run() {
     for (auto& process : processList) {
         scheduler->addProcess(std::make_shared<Process>(process));
     }
-    scheduler->schedule();
     scheduler->printQueue();
+    scheduler->schedule();
+    if (auto contextScheduler = dynamic_cast<ContextAwareScheduler*>(scheduler.get())) {
+        contextScheduler->printSchedulingSummary();
+    }
 }
 
 Simulation::~Simulation() = default;

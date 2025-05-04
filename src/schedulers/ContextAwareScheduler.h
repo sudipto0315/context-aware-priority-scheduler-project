@@ -8,9 +8,6 @@
 #include <map>
 #include <unordered_map>
 #include <memory>
-#include <limits>
-#include <algorithm>
-#include <iostream>
 #include <queue>
 #include <set>
 
@@ -67,13 +64,16 @@ private:
     // Maps process ID to list of fog node IDs
     std::map<int, std::vector<int>> processToNodeMap;
     
+    // Vector to store scheduled processes and their assigned nodes
+    std::vector<std::pair<std::shared_ptr<Process>, int>> scheduledProcesses;
+
     // Spatial index using QuadTree
     std::unique_ptr<QuadTree> spatialIndex;
     
     // Multi-dimensional indices for faster resource filtering
-    std::map<double, std::vector<int>> nodesByCapacity;  // Maps capacity to node IDs
-    std::map<double, std::vector<int>> nodesByMemory;    // Maps memory to node IDs
-    std::map<double, std::vector<int>> nodesByBandwidth; // Maps bandwidth to node IDs
+    std::set<std::pair<double, int>> nodesByCapacity;  // {capacity, nodeId}  // Maps capacity to node IDs
+    std::set<std::pair<double, int>> nodesByMemory;    // {memory, nodeId}    // Maps memory to node IDs
+    std::set<std::pair<double, int>> nodesByBandwidth; // {bandwidth, nodeId} // Maps bandwidth to node IDs
     
     // Process grouping for batch processing
     std::map<int, std::vector<std::shared_ptr<Process>>> processesByGroup;
@@ -134,6 +134,7 @@ public:
     void addProcess(std::shared_ptr<Process> process) override;
     void schedule() override;
     void printSchedulingState() const;
+    void printSchedulingSummary() const;
     virtual ~ContextAwareScheduler() = default;
 };
 

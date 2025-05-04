@@ -14,31 +14,25 @@ std::string getCurrentTimestamp() {
 }
 
 int main(int argc, char* argv[]) {
-    std::string configFile = "src/simulation/config.json"; // Default config file
+    std::string configFile = "src/simulation/config.json";
 
-    // Allow custom config file via command-line argument
     if (argc > 1) {
         configFile = argv[1];
     }
 
-    // Initialize Logger
     Logger::init("output/logs.txt");
-    Logger::log("===== [" + getCurrentTimestamp() + "] Context-Aware Priority Scheduling Simulation Started =====");
+    std::cout << "===== [" << getCurrentTimestamp() << "] Context-Aware Priority Scheduling Simulation Started =====" << std::endl;
 
     try {
-        // Load and run the simulation
         Simulation sim(configFile);
         sim.run();
     } catch (const std::exception& e) {
-        Logger::logError(std::string("Simulation Error: ") + e.what());
         std::cerr << "[ERROR] Simulation encountered an exception: " << e.what() << std::endl;
     } catch (...) {
-        Logger::logError("Unknown Error: An unexpected error occurred in the simulation.");
         std::cerr << "[ERROR] Unknown exception occurred." << std::endl;
     }
 
-    // Final log and cleanup
-    Logger::log("===== [" + getCurrentTimestamp() + "] Simulation Completed Successfully =====");
+    std::cout << "===== [" << getCurrentTimestamp() << "] Simulation Completed Successfully =====" << std::endl;
     Logger::close();
 
     return 0;

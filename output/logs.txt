@@ -1,141 +1,774 @@
-===== [2025-03-09 03:19:09] Context-Aware Priority Scheduling Simulation Started =====
-===== [2025-03-09 03:19:09] Simulation Completed Successfully =====
-
-
-this is the output in terminal
-===== [2025-03-09 03:19:09] Context-Aware Priority Scheduling Simulation Started =====
+===== [2025-05-05 03:12:57] Context-Aware Priority Scheduling Simulation Started =====
 Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (0, -10) to (60, 10).
+Spatial dimensions: (60, 20).
+Spatial boundary (A,B,C,D): (0, -10), (60, -10), (60, 10), (0, 10)
+ContextAwareScheduler initialized with 5 nodes.
 Starting Simulation...
-Process 1 added to queue.
-Process 2 added to queue.
-Process 3 added to queue.
-Process 4 added to queue.
-Process 5 added to queue.
-Process 6 added to queue.
+Process score for Process 1: 3.29
+Process 1 added to queue with score 3.29 (groupHash: 108).
+Process score for Process 2: 2.51333
+Process 2 added to queue with score 2.51333 (groupHash: 206).
+Process score for Process 3: 3.195
+Process 3 added to queue with score 3.195 (groupHash: 109).
+Process score for Process 4: 2.29
+Process 4 added to queue with score 2.29 (groupHash: 310).
+Process score for Process 5: 2.93033
+Process 5 added to queue with score 2.93033 (groupHash: 211).
+Process score for Process 6: 3.33
+Process 6 added to queue with score 3.33 (groupHash: 110).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 0
+Burst Time: 5
+Priority: 1
+Remaining Time: 5
+Process Score: 3.29
+User ID: 101
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.8
+Current Task Load: 0.5
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 10 ms
+Max Packet Loss: 0.02
+Battery Lifetime: 80 hours
+Required CPU: 1, Memory: 2
+Data Size: 500 MB
+Process ID: 2
+Arrival Time: 1
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 2.51333
+User ID: 102
+Mobility: 0.4
+Relinquish Probability: 0.2
+Usage History: 
+NPS: 7
+Application Type: gaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.3
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 5 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.05
+Battery Lifetime: 60 hours
+Required CPU: 0, Memory: 1
+Data Size: 300 MB
+Process ID: 3
+Arrival Time: 2
+Burst Time: 7
+Priority: 1
+Remaining Time: 7
+Process Score: 3.195
+User ID: 103
+Mobility: 0.1
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 8
+Application Type: cloud_offload
+Latency Sensitivity: 0.9
+Current Task Load: 0.7
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:03 1970
+Required Bandwidth: 20 Mbps
+Max Delay: 5 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 90 hours
+Required CPU: 2, Memory: 4
+Data Size: 700 MB
+Process ID: 4
+Arrival Time: 3
+Burst Time: 4
+Priority: 3
+Remaining Time: 4
+Process Score: 2.29
+User ID: 104
+Mobility: 0.5
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 6
+Application Type: ai_inference
+Latency Sensitivity: 0.95
+Current Task Load: 0.4
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:04 1970
+Required Bandwidth: 30 Mbps
+Max Delay: 3 ms
+Max Packet Loss: 0.005
+Battery Lifetime: 50 hours
+Required CPU: 3, Memory: 6
+Data Size: 1000 MB
+Process ID: 5
+Arrival Time: 4
+Burst Time: 6
+Priority: 2
+Remaining Time: 6
+Process Score: 2.93033
+User ID: 105
+Mobility: 0.3
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 8
+Application Type: autonomous_driving
+Latency Sensitivity: 0.98
+Current Task Load: 0.9
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:05 1970
+Required Bandwidth: 25 Mbps
+Max Delay: 2 ms
+Max Packet Loss: 0.002
+Battery Lifetime: 85 hours
+Required CPU: 4, Memory: 8
+Data Size: 1200 MB
+Process ID: 6
+Arrival Time: 5
+Burst Time: 8
+Priority: 1
+Remaining Time: 8
+Process Score: 3.33
+User ID: 106
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.9
+Current Task Load: 0.8
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:06 1970
+Required Bandwidth: 40 Mbps
+Max Delay: 4 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 70 hours
+Required CPU: 5, Memory: 10
+Data Size: 1500 MB
 Scheduling started. Queue size: 6
-Fog Node 5 score: 7.17769 (newLoad: 0.675, Location: Zone_D)
-Fog Node 3 score: 5.48407 (newLoad: 0.933333, Location: Zone_C)
-Fog Node 1 rejected due to resource constraints.
-Fog Node 2 rejected due to resource constraints.
-Fog Node 4 is inactive.
-Attempting to assign Process 6 to Node 5
-Current Load: 0.05, New Load: 0.675
-Current Memory: 16, Required: 10, Remaining: 6
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 4 from queue.
+Found 2 candidate nodes for Process 6.
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: Yes
+New load calculated for Node 3: 0.933333
+Location score for Process 6 and Node 3: 0.0322581
+Load balance score for Node 3: 0.377541
+Node score for Node 3 and Process 6: 4.9098
+Best node for Process 6 is Node 3 with score 4.9098.
+Attempting to assign Process 6 to Node 3
+Current CPU Usage: 0/6, New Usage: 5/6
+Current Memory Usage: 0/12, New Usage: 10/12
+Current Load: 0.1, New Load: 0.833333
 Process 6 assigned successfully.
-Process 6 assigned to Fog Node 5 (Location: Zone_D).
-Fog Node 5 score: 22.2777 (newLoad: 0.175, Location: Zone_D)
-Fog Node 3 score: 16.9841 (newLoad: 0.266667, Location: Zone_C)
-Fog Node 1 score: 11.9356 (newLoad: 0.45, Location: Zone_A)
-Fog Node 2 score: 5.87987 (newLoad: 0.8, Location: Zone_B)
-Fog Node 4 is inactive.
-Attempting to assign Process 1 to Node 5
-Current Load: 0.675, New Load: 0.8
-Current Memory: 6, Required: 2, Remaining: 4
+Process 6 assigned to Node 3.
+Node 3 indices updated. New capacity: 1
+Found 5 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+New load calculated for Node 1: 0.45
+Location score for Process 1 and Node 1: 1
+Load balance score for Node 1: 0.268941
+Node score for Node 1 and Process 1: 11.9356
+Best node for Process 1 is Node 1 with score 11.9356.
+Attempting to assign Process 1 to Node 1
+Current CPU Usage: 0/4, New Usage: 1/4
+Current Memory Usage: 0/8, New Usage: 2/8
+Current Load: 0.2, New Load: 0.25
 Process 1 assigned successfully.
-Process 1 assigned to Fog Node 5 (Location: Zone_D).
-Fog Node 5 score: 12.1777 (newLoad: 0.3, Location: Zone_D)
-Fog Node 3 score: 9.23407 (newLoad: 0.433333, Location: Zone_C)
-Fog Node 1 score: 6.43561 (newLoad: 0.7, Location: Zone_A)
-Fog Node 2 rejected due to resource constraints.
-Fog Node 4 is inactive.
-Attempting to assign Process 3 to Node 5
-Current Load: 0.8, New Load: 1.05
-Current Memory: 4, Required: 4, Remaining: 0
-Process 3 assignment failed. Insufficient resources.
-Fog Node 5 failed to assign Process 3 due to load constraints.
-Attempting to assign Process 3 to Node 5
-Current Load: 0.05, New Load: 0.3
-Current Memory: 16, Required: 4, Remaining: 12
+Process 1 assigned to Node 1.
+Node 1 indices updated. New capacity: 3
+Found 4 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 3 and Node 1: 0.047619
+Load balance score for Node 1: 0.2227
+Node score for Node 1 and Process 3: 5.43699
+Best node for Process 3 is Node 1 with score 5.43699.
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/4, New Usage: 3/4
+Current Memory Usage: 2/8, New Usage: 6/8
+Current Load: 0.25, New Load: 0.75
 Process 3 assigned successfully.
-Partitioned Process 3 partially assigned to Fog Node 5 (CPU: 2, Memory: 4)
-Process 3 fully partitioned across nodes: 5 
-Fog Node 5 score: 9.51576 (newLoad: 0.8, Location: Zone_D)
-Fog Node 3 rejected due to resource constraints.
-Fog Node 1 rejected due to resource constraints.
-Fog Node 2 rejected due to resource constraints.
-Fog Node 4 is inactive.
+Process 3 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 1 candidate nodes for Process 5.
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+New load calculated for Node 5: 0.55
+Location score for Process 5 and Node 5: 1
+Load balance score for Node 5: 0.437823
+Node score for Node 5 and Process 5: 9.77116
+Best node for Process 5 is Node 5 with score 9.77116.
 Attempting to assign Process 5 to Node 5
-Current Load: 0.8, New Load: 1.3
-Current Memory: 4, Required: 8, Remaining: -4
-Process 5 assignment failed. Insufficient resources.
-Fog Node 5 failed to assign Process 5 due to load constraints.
-Attempting to assign Process 5 to Node 5
-Current Load: 0.3, New Load: 0.8
-Current Memory: 12, Required: 8, Remaining: 4
+Current CPU Usage: 0/8, New Usage: 4/8
+Current Memory Usage: 0/16, New Usage: 8/16
+Current Load: 0.05, New Load: 0.5
 Process 5 assigned successfully.
-Partitioned Process 5 partially assigned to Fog Node 5 (CPU: 4, Memory: 8)
-Process 5 fully partitioned across nodes: 5 
-Fog Node 5 score: 41.9179 (newLoad: 0.8, Location: Zone_D)
-Fog Node 3 score: 32.1341 (newLoad: 0.1, Location: Zone_C)
-Fog Node 1 score: 21.8421 (newLoad: 0.2, Location: Zone_A)
-Fog Node 2 score: 11.8733 (newLoad: 0.3, Location: Zone_B)
-Fog Node 4 is inactive.
-Attempting to assign Process 2 to Node 5
-Current Load: 0.8, New Load: 0.8
-Current Memory: 4, Required: 1, Remaining: 3
+Process 5 assigned to Node 5.
+Node 5 indices updated. New capacity: 4
+Found 5 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 2 and Node 1: 0.0909091
+Load balance score for Node 1: 0.0229774
+Node score for Node 1 and Process 2: 21.0806
+Best node for Process 2 is Node 1 with score 21.0806.
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 3/4, New Usage: 3/4
+Current Memory Usage: 6/8, New Usage: 7/8
+Current Load: 0.75, New Load: 0.75
 Process 2 assigned successfully.
-Process 2 assigned to Fog Node 5 (Location: Zone_D).
-Fog Node 5 rejected due to resource constraints.
-Fog Node 3 score: 6.62754 (newLoad: 0.6, Location: Zone_C)
-Fog Node 1 rejected due to resource constraints.
-Fog Node 2 rejected due to resource constraints.
-Fog Node 4 is inactive.
-Attempting to assign Process 4 to Node 3
-Current Load: 0.1, New Load: 0.6
-Current Memory: 12, Required: 6, Remaining: 6
+Process 2 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 2 candidate nodes for Process 4.
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+New load calculated for Node 5: 0.875
+Location score for Process 4 and Node 5: 0.0909091
+Load balance score for Node 5: 0.0758582
+Node score for Node 5 and Process 4: 7.76677
+Best node for Process 4 is Node 5 with score 7.76677.
+Attempting to assign Process 4 to Node 5
+Current CPU Usage: 4/8, New Usage: 7/8
+Current Memory Usage: 8/16, New Usage: 14/16
+Current Load: 0.5, New Load: 0.875
 Process 4 assigned successfully.
-Process 4 assigned to Fog Node 3 (Location: Zone_C).
-Process queue is empty.
-===== [2025-03-09 03:19:09] Simulation Completed Successfully =====
+Process 4 assigned to Node 5.
+Node 5 indices updated. New capacity: 1
+Retry queue processing completed.
+Scheduling completed.
+===== [2025-05-05 03:12:57] Simulation Completed Successfully =====
+===== [2025-05-05 03:26:10] Context-Aware Priority Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (0, -10) to (60, 10).
+Spatial dimensions: (60, 20).
+Spatial boundary (A,B,C,D): (0, -10), (60, -10), (60, 10), (0, 10)
+ContextAwareScheduler initialized with 5 nodes.
+Starting Simulation...
+Process score for Process 1: 3.29
+Process 1 added to queue with score 3.29 (groupHash: 108).
+Process score for Process 2: 2.51333
+Process 2 added to queue with score 2.51333 (groupHash: 206).
+Process score for Process 3: 3.195
+Process 3 added to queue with score 3.195 (groupHash: 109).
+Process score for Process 4: 2.29
+Process 4 added to queue with score 2.29 (groupHash: 310).
+Process score for Process 5: 2.93033
+Process 5 added to queue with score 2.93033 (groupHash: 211).
+Process score for Process 6: 3.33
+Process 6 added to queue with score 3.33 (groupHash: 110).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 0
+Burst Time: 5
+Priority: 1
+Remaining Time: 5
+Process Score: 3.29
+User ID: 101
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.8
+Current Task Load: 0.5
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 10 ms
+Max Packet Loss: 0.02
+Battery Lifetime: 80 hours
+Required CPU: 1, Memory: 2
+Data Size: 500 MB
+Process ID: 2
+Arrival Time: 1
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 2.51333
+User ID: 102
+Mobility: 0.4
+Relinquish Probability: 0.2
+Usage History: 
+NPS: 7
+Application Type: gaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.3
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 5 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.05
+Battery Lifetime: 60 hours
+Required CPU: 0, Memory: 1
+Data Size: 300 MB
+Process ID: 3
+Arrival Time: 2
+Burst Time: 7
+Priority: 1
+Remaining Time: 7
+Process Score: 3.195
+User ID: 103
+Mobility: 0.1
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 8
+Application Type: cloud_offload
+Latency Sensitivity: 0.9
+Current Task Load: 0.7
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:03 1970
+Required Bandwidth: 20 Mbps
+Max Delay: 5 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 90 hours
+Required CPU: 2, Memory: 4
+Data Size: 700 MB
+Process ID: 4
+Arrival Time: 3
+Burst Time: 4
+Priority: 3
+Remaining Time: 4
+Process Score: 2.29
+User ID: 104
+Mobility: 0.5
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 6
+Application Type: ai_inference
+Latency Sensitivity: 0.95
+Current Task Load: 0.4
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:04 1970
+Required Bandwidth: 30 Mbps
+Max Delay: 3 ms
+Max Packet Loss: 0.005
+Battery Lifetime: 50 hours
+Required CPU: 3, Memory: 6
+Data Size: 1000 MB
+Process ID: 5
+Arrival Time: 4
+Burst Time: 6
+Priority: 2
+Remaining Time: 6
+Process Score: 2.93033
+User ID: 105
+Mobility: 0.3
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 8
+Application Type: autonomous_driving
+Latency Sensitivity: 0.98
+Current Task Load: 0.9
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:05 1970
+Required Bandwidth: 25 Mbps
+Max Delay: 2 ms
+Max Packet Loss: 0.002
+Battery Lifetime: 85 hours
+Required CPU: 4, Memory: 8
+Data Size: 1200 MB
+Process ID: 6
+Arrival Time: 5
+Burst Time: 8
+Priority: 1
+Remaining Time: 8
+Process Score: 3.33
+User ID: 106
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.9
+Current Task Load: 0.8
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:06 1970
+Required Bandwidth: 40 Mbps
+Max Delay: 4 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 70 hours
+Required CPU: 5, Memory: 10
+Data Size: 1500 MB
+Scheduling started. Queue size: 6
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 4 from queue.
+Found 2 candidate nodes for Process 6.
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: Yes
+New load calculated for Node 3: 0.933333
+Location score for Process 6 and Node 3: 0.0322581
+Load balance score for Node 3: 0.377541
+Node score for Node 3 and Process 6: 4.9098
+Best node for Process 6 is Node 3 with score 4.9098.
+Attempting to assign Process 6 to Node 3
+Current CPU Usage: 0/6, New Usage: 5/6
+Current Memory Usage: 0/12, New Usage: 10/12
+Current Load: 0.1, New Load: 0.833333
+Process 6 assigned successfully.
+Process 6 assigned to Node 3.
+Node 3 indices updated. New capacity: 1
+Found 5 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+New load calculated for Node 1: 0.45
+Location score for Process 1 and Node 1: 1
+Load balance score for Node 1: 0.268941
+Node score for Node 1 and Process 1: 11.9356
+Best node for Process 1 is Node 1 with score 11.9356.
+Attempting to assign Process 1 to Node 1
+Current CPU Usage: 0/4, New Usage: 1/4
+Current Memory Usage: 0/8, New Usage: 2/8
+Current Load: 0.2, New Load: 0.25
+Process 1 assigned successfully.
+Process 1 assigned to Node 1.
+Node 1 indices updated. New capacity: 3
+Found 4 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 3 and Node 1: 0.047619
+Load balance score for Node 1: 0.2227
+Node score for Node 1 and Process 3: 5.43699
+Best node for Process 3 is Node 1 with score 5.43699.
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/4, New Usage: 3/4
+Current Memory Usage: 2/8, New Usage: 6/8
+Current Load: 0.25, New Load: 0.75
+Process 3 assigned successfully.
+Process 3 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 1 candidate nodes for Process 5.
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+New load calculated for Node 5: 0.55
+Location score for Process 5 and Node 5: 1
+Load balance score for Node 5: 0.437823
+Node score for Node 5 and Process 5: 9.77116
+Best node for Process 5 is Node 5 with score 9.77116.
+Attempting to assign Process 5 to Node 5
+Current CPU Usage: 0/8, New Usage: 4/8
+Current Memory Usage: 0/16, New Usage: 8/16
+Current Load: 0.05, New Load: 0.5
+Process 5 assigned successfully.
+Process 5 assigned to Node 5.
+Node 5 indices updated. New capacity: 4
+Found 5 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 2 and Node 1: 0.0909091
+Load balance score for Node 1: 0.0229774
+Node score for Node 1 and Process 2: 21.0806
+Best node for Process 2 is Node 1 with score 21.0806.
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 3/4, New Usage: 3/4
+Current Memory Usage: 6/8, New Usage: 7/8
+Current Load: 0.75, New Load: 0.75
+Process 2 assigned successfully.
+Process 2 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 2 candidate nodes for Process 4.
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+New load calculated for Node 5: 0.875
+Location score for Process 4 and Node 5: 0.0909091
+Load balance score for Node 5: 0.0758582
+Node score for Node 5 and Process 4: 7.76677
+Best node for Process 4 is Node 5 with score 7.76677.
+Attempting to assign Process 4 to Node 5
+Current CPU Usage: 4/8, New Usage: 7/8
+Current Memory Usage: 8/16, New Usage: 14/16
+Current Load: 0.5, New Load: 0.875
+Process 4 assigned successfully.
+Process 4 assigned to Node 5.
+Node 5 indices updated. New capacity: 1
+Retry queue processing completed.
+Scheduling completed.
 
-Form ChatGPT:
+=== Scheduled Processes Summary ===
+Process 6 (score 3.33) is scheduled first and assigned to Node 3.
+Process 1 (score 3.29) goes to Node 1.
+Process 3 (score 3.195) goes to Node 1.
+Process 5 (score 2.93033) goes to Node 5.
+Process 2 (score 2.51333) goes to Node 1.
+Process 4 (score 2.29) goes to Node 5.
+==================================
+===== [2025-05-05 03:26:10] Simulation Completed Successfully =====
+===== [2025-05-05 03:27:04] Context-Aware Priority Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (0, -10) to (60, 10).
+Spatial dimensions: (60, 20).
+Spatial boundary (A,B,C,D): (0, -10), (60, -10), (60, 10), (0, 10)
+ContextAwareScheduler initialized with 5 nodes.
+Starting Simulation...
+Process score for Process 1: 3.29
+Process 1 added to queue with score 3.29 (groupHash: 108).
+Process score for Process 2: 2.51333
+Process 2 added to queue with score 2.51333 (groupHash: 206).
+Process score for Process 3: 3.195
+Process 3 added to queue with score 3.195 (groupHash: 109).
+Process score for Process 4: 2.29
+Process 4 added to queue with score 2.29 (groupHash: 310).
+Process score for Process 5: 2.93033
+Process 5 added to queue with score 2.93033 (groupHash: 211).
+Process score for Process 6: 3.33
+Process 6 added to queue with score 3.33 (groupHash: 110).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 0
+Burst Time: 5
+Priority: 1
+Remaining Time: 5
+Process Score: 3.29
+User ID: 101
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.8
+Current Task Load: 0.5
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 10 ms
+Max Packet Loss: 0.02
+Battery Lifetime: 80 hours
+Required CPU: 1, Memory: 2
+Data Size: 500 MB
+Process ID: 2
+Arrival Time: 1
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 2.51333
+User ID: 102
+Mobility: 0.4
+Relinquish Probability: 0.2
+Usage History: 
+NPS: 7
+Application Type: gaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.3
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 5 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.05
+Battery Lifetime: 60 hours
+Required CPU: 0, Memory: 1
+Data Size: 300 MB
+Process ID: 3
+Arrival Time: 2
+Burst Time: 7
+Priority: 1
+Remaining Time: 7
+Process Score: 3.195
+User ID: 103
+Mobility: 0.1
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 8
+Application Type: cloud_offload
+Latency Sensitivity: 0.9
+Current Task Load: 0.7
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:03 1970
+Required Bandwidth: 20 Mbps
+Max Delay: 5 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 90 hours
+Required CPU: 2, Memory: 4
+Data Size: 700 MB
+Process ID: 4
+Arrival Time: 3
+Burst Time: 4
+Priority: 3
+Remaining Time: 4
+Process Score: 2.29
+User ID: 104
+Mobility: 0.5
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 6
+Application Type: ai_inference
+Latency Sensitivity: 0.95
+Current Task Load: 0.4
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:04 1970
+Required Bandwidth: 30 Mbps
+Max Delay: 3 ms
+Max Packet Loss: 0.005
+Battery Lifetime: 50 hours
+Required CPU: 3, Memory: 6
+Data Size: 1000 MB
+Process ID: 5
+Arrival Time: 4
+Burst Time: 6
+Priority: 2
+Remaining Time: 6
+Process Score: 2.93033
+User ID: 105
+Mobility: 0.3
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 8
+Application Type: autonomous_driving
+Latency Sensitivity: 0.98
+Current Task Load: 0.9
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:05 1970
+Required Bandwidth: 25 Mbps
+Max Delay: 2 ms
+Max Packet Loss: 0.002
+Battery Lifetime: 85 hours
+Required CPU: 4, Memory: 8
+Data Size: 1200 MB
+Process ID: 6
+Arrival Time: 5
+Burst Time: 8
+Priority: 1
+Remaining Time: 8
+Process Score: 3.33
+User ID: 106
+Mobility: 0.2
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.9
+Current Task Load: 0.8
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:06 1970
+Required Bandwidth: 40 Mbps
+Max Delay: 4 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 70 hours
+Required CPU: 5, Memory: 10
+Data Size: 1500 MB
+Scheduling started. Queue size: 6
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 4 from queue.
+Found 2 candidate nodes for Process 6.
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: Yes
+New load calculated for Node 3: 0.933333
+Location score for Process 6 and Node 3: 0.0322581
+Load balance score for Node 3: 0.377541
+Node score for Node 3 and Process 6: 4.9098
+Best node for Process 6 is Node 3 with score 4.9098.
+Attempting to assign Process 6 to Node 3
+Current CPU Usage: 0/6, New Usage: 5/6
+Current Memory Usage: 0/12, New Usage: 10/12
+Current Load: 0.1, New Load: 0.833333
+Process 6 assigned successfully.
+Process 6 assigned to Node 3.
+Node 3 indices updated. New capacity: 1
+Found 5 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+New load calculated for Node 1: 0.45
+Location score for Process 1 and Node 1: 1
+Load balance score for Node 1: 0.268941
+Node score for Node 1 and Process 1: 11.9356
+Best node for Process 1 is Node 1 with score 11.9356.
+Attempting to assign Process 1 to Node 1
+Current CPU Usage: 0/4, New Usage: 1/4
+Current Memory Usage: 0/8, New Usage: 2/8
+Current Load: 0.2, New Load: 0.25
+Process 1 assigned successfully.
+Process 1 assigned to Node 1.
+Node 1 indices updated. New capacity: 3
+Found 4 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 3 and Node 1: 0.047619
+Load balance score for Node 1: 0.2227
+Node score for Node 1 and Process 3: 5.43699
+Best node for Process 3 is Node 1 with score 5.43699.
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/4, New Usage: 3/4
+Current Memory Usage: 2/8, New Usage: 6/8
+Current Load: 0.25, New Load: 0.75
+Process 3 assigned successfully.
+Process 3 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 1 candidate nodes for Process 5.
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+New load calculated for Node 5: 0.55
+Location score for Process 5 and Node 5: 1
+Load balance score for Node 5: 0.437823
+Node score for Node 5 and Process 5: 9.77116
+Best node for Process 5 is Node 5 with score 9.77116.
+Attempting to assign Process 5 to Node 5
+Current CPU Usage: 0/8, New Usage: 4/8
+Current Memory Usage: 0/16, New Usage: 8/16
+Current Load: 0.05, New Load: 0.5
+Process 5 assigned successfully.
+Process 5 assigned to Node 5.
+Node 5 indices updated. New capacity: 4
+Found 5 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+New load calculated for Node 1: 0.75
+Location score for Process 2 and Node 1: 0.0909091
+Load balance score for Node 1: 0.0229774
+Node score for Node 1 and Process 2: 21.0806
+Best node for Process 2 is Node 1 with score 21.0806.
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 3/4, New Usage: 3/4
+Current Memory Usage: 6/8, New Usage: 7/8
+Current Load: 0.75, New Load: 0.75
+Process 2 assigned successfully.
+Process 2 assigned to Node 1.
+Node 1 indices updated. New capacity: 1
+Found 2 candidate nodes for Process 4.
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+New load calculated for Node 5: 0.875
+Location score for Process 4 and Node 5: 0.0909091
+Load balance score for Node 5: 0.0758582
+Node score for Node 5 and Process 4: 7.76677
+Best node for Process 4 is Node 5 with score 7.76677.
+Attempting to assign Process 4 to Node 5
+Current CPU Usage: 4/8, New Usage: 7/8
+Current Memory Usage: 8/16, New Usage: 14/16
+Current Load: 0.5, New Load: 0.875
+Process 4 assigned successfully.
+Process 4 assigned to Node 5.
+Node 5 indices updated. New capacity: 1
+Retry queue processing completed.
+Scheduling completed.
 
-Your Context-Aware Priority Scheduling Simulation seems to be functioning as expected, but let's verify a few key points based on your config.json and the execution log.
-
-✅ What is Working Correctly
-Process Addition & Scheduling Start
-
-All 6 processes are correctly added to the queue.
-The scheduler starts with queue size = 6.
-Fog Node Evaluations & Scores
-
-Each active fog node is evaluated, and an assignment score is computed.
-Inactive nodes (Fog Node 4) are properly ignored.
-Nodes with resource constraints (memory, CPU, or load) are correctly rejecting processes.
-Process Assignments
-
-Process 6 → Node 5 ✅ (Success)
-Process 1 → Node 5 ✅ (Success)
-Process 3 → Node 5 ❌ (Failed initially, then partitioned & assigned)
-Process 5 → Node 5 ❌ (Failed initially, then partitioned & assigned)
-Process 2 → Node 5 ✅ (Success)
-Process 4 → Node 3 ✅ (Success)
-Partitioning of Processes
-
-Process 3 & Process 5 were partially assigned when full allocation was not possible.
-Partitioning logic worked well to distribute resource usage across nodes.
-End of Simulation
-
-The scheduler processed all tasks successfully.
-The process queue is empty at the end, indicating all processes were either scheduled or rejected due to constraints.
-⚠️ Possible Issues & Areas for Improvement
-Multiple Attempts to Assign the Same Process
-
-Process 3 and 5 had two assignment attempts (one failed, then another succeeded with partitioning).
-Q: Is this intended behavior in your scheduler logic?
-Suggestion: If partitioning is allowed, ensure that the first rejection doesn't prevent the second attempt.
-Fog Node Selection & Prioritization
-
-Most tasks heavily favored Node 5, leading to rapid resource exhaustion.
-Q: Are you optimizing for balanced workload distribution across all fog nodes? Suggestion: Consider re-evaluating the scoring system to balance load better.
-Potential Over-Assignment of Node 5
-
-Process 2 was assigned even though the log says Node 5 is "rejected due to resource constraints."
-Q: Is your scheduler ensuring proper constraints before finalizing assignments? Suggestion: Double-check memory/CPU constraints before committing a process to a node.
-🔎 Final Verdict
-Your scheduler is working correctly based on the provided configuration, but it may need tuning for load balancing, reducing redundant assignment attempts, and ensuring strict resource enforcement. Would you like to analyze a specific part of the logic in more detail? 🚀===== [2025-03-16 15:04:14] Context-Aware Priority Scheduling Simulation Started =====
-===== [2025-03-16 15:04:14] Simulation Completed Successfully =====
-===== [2025-03-16 15:14:50] Context-Aware Priority Scheduling Simulation Started =====
-===== [2025-03-16 15:14:50] Simulation Completed Successfully =====
-===== [2025-03-20 12:22:23] Context-Aware Priority Scheduling Simulation Started =====
-===== [2025-03-20 12:22:23] Simulation Completed Successfully =====
+=== Scheduled Processes Summary ===
+Process 6 (Process score: 3.33) is scheduled first and assigned to Node 3.
+Process 1 (Process score: 3.29) goes to Node 1.
+Process 3 (Process score: 3.195) goes to Node 1.
+Process 5 (Process score: 2.93033) goes to Node 5.
+Process 2 (Process score: 2.51333) goes to Node 1.
+Process 4 (Process score: 2.29) goes to Node 5.
+==================================
+===== [2025-05-05 03:27:04] Simulation Completed Successfully =====

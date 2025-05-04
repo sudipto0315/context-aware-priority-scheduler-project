@@ -6,7 +6,7 @@ FogNode::FogNode(int id, double cpu, double mem, double bw, double load, double 
       usedCpu(0.0), usedMemory(0.0), delay(dly), packetLoss(pl), location(loc), isActive(active), 
       runningProcess(nullptr) {}
 
-bool FogNode::assignProcess(const Process& process) {
+bool FogNode::assignProcess(const Process& process) { // 
     auto resources = process.getRequiredResources();
     
     // Calculate required resources
@@ -38,7 +38,7 @@ bool FogNode::assignProcess(const Process& process) {
         return true;
     }
 
-    std::cout << "Process " << process.getProcessID() << " assignment failed. Insufficient resources.\n";
+    std::cout << "Process " << process.getProcessID() << " assignment failed. Insufficient resources in Node " << nodeID << "\n";
     return false;
 }
 
