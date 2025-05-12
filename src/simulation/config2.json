@@ -1,140 +1,148 @@
 {
-    "scheduler": "ContextAwareAdaptive",
-    "global_settings": {
-        "zone_load_threshold": 0.7,
-        "migration_penalty": 0.2,
-        "max_migration_attempts": 3
-    },
-    "zones": [
-        {
-            "name": "Zone_A",
-            "geographical_coordinates": {"latitude": 40.7128, "longitude": -74.0060},
-            "max_concurrent_processes": 10
-        },
-        {
-            "name": "Zone_B", 
-            "geographical_coordinates": {"latitude": 34.0522, "longitude": -118.2437},
-            "max_concurrent_processes": 8
-        },
-        {
-            "name": "Zone_C",
-            "geographical_coordinates": {"latitude": 41.8781, "longitude": -87.6298},
-            "max_concurrent_processes": 12
-        }
-    ],
+    "scheduler": "ContextAware",
     "fog_nodes": [
         {
             "id": 1,
-            "zone": "Zone_A",
-            "cpu_capacity": 8,
-            "memory": 16,
-            "network_bandwidth": 200,
-            "current_load": 0.0,
-            "delay": 5.0,
-            "packet_loss": 0.01,
-            "is_active": true,
-            "energy_efficiency": 0.9
+            "cpu_capacity": 4,
+            "memory": 8,
+            "network_bandwidth": 80,
+            "current_load": 0.5,
+            "delay": 6.0,
+            "packet_loss": 0.015,
+            "location": "Zone_A",
+            "is_active": true
         },
         {
             "id": 2,
-            "zone": "Zone_A", 
-            "cpu_capacity": 6,
-            "memory": 12,
-            "network_bandwidth": 150,
-            "current_load": 0.0,
-            "delay": 7.0,
-            "packet_loss": 0.02,
-            "is_active": true,
-            "energy_efficiency": 0.85
+            "cpu_capacity": 2,
+            "memory": 4,
+            "network_bandwidth": 50,
+            "current_load": 0.7,
+            "delay": 12.0,
+            "packet_loss": 0.03,
+            "location": "Zone_B",
+            "is_active": true
         },
         {
             "id": 3,
-            "zone": "Zone_B",
-            "cpu_capacity": 4,
-            "memory": 8,
-            "network_bandwidth": 100,
-            "current_load": 0.0,
-            "delay": 10.0,
-            "packet_loss": 0.03,
-            "is_active": true,
-            "energy_efficiency": 0.75
+            "cpu_capacity": 6,
+            "memory": 10,
+            "network_bandwidth": 120,
+            "current_load": 0.4,
+            "delay": 4.0,
+            "packet_loss": 0.01,
+            "location": "Zone_C",
+            "is_active": true
         },
         {
             "id": 4,
-            "zone": "Zone_B",
-            "cpu_capacity": 5,
-            "memory": 10,
-            "network_bandwidth": 120,
-            "current_load": 0.0,
-            "delay": 8.0,
-            "packet_loss": 0.02,
-            "is_active": true,
-            "energy_efficiency": 0.80
+            "cpu_capacity": 3,
+            "memory": 6,
+            "network_bandwidth": 60,
+            "current_load": 0.8,
+            "delay": 10.0,
+            "packet_loss": 0.025,
+            "location": "Zone_A",
+            "is_active": false
         },
         {
             "id": 5,
-            "zone": "Zone_C",
-            "cpu_capacity": 7,
-            "memory": 14,
-            "network_bandwidth": 180,
-            "current_load": 0.0,
-            "delay": 6.0,
-            "packet_loss": 0.01,
-            "is_active": true,
-            "energy_efficiency": 0.88
+            "cpu_capacity": 8,
+            "memory": 12,
+            "network_bandwidth": 150,
+            "current_load": 0.3,
+            "delay": 3.0,
+            "packet_loss": 0.005,
+            "location": "Zone_D",
+            "is_active": true
+        },
+        {
+            "id": 6,
+            "cpu_capacity": 1,
+            "memory": 2,
+            "network_bandwidth": 30,
+            "current_load": 0.9,
+            "delay": 15.0,
+            "packet_loss": 0.04,
+            "location": "Zone_B",
+            "is_active": true
         }
     ],
     "processes": [
         {
             "id": 1,
             "arrival_time": 0,
-            "burst_time": 10,
+            "burst_time": 6,
             "priority": 1,
             "user_id": 101,
             "mobility": 0.3,
-            "relinquish_probability": 0.15,
+            "relinquish_probability": 0.1,
             "usage_history": "0.4,0.6,0.8",
+            "nps": 8,
             "application_type": "video_streaming",
+            "latency_sensitivity": 0.85,
+            "current_task_load": 0.6,
             "request_location": "Zone_A",
-            "max_tolerable_migration_delay": 50,
+            "request_time": 1.0,
+            "required_bandwidth": 20,
+            "max_packet_loss": 0.02,
+            "max_delay": 8,
+            "battery_lifetime": 75,
             "required_resources": {
                 "cpu": 2,
                 "memory": 4
-            }
+            },
+            "data_size": 600
         },
         {
             "id": 2,
             "arrival_time": 1,
-            "burst_time": 7,
+            "burst_time": 4,
             "priority": 2,
             "user_id": 102,
             "mobility": 0.5,
             "relinquish_probability": 0.25,
-            "usage_history": "0.3,0.5,0.7",
+            "usage_history": "0.3,0.4,0.5",
+            "nps": 7,
             "application_type": "gaming",
+            "latency_sensitivity": 0.7,
+            "current_task_load": 0.4,
             "request_location": "Zone_B",
-            "max_tolerable_migration_delay": 30,
+            "request_time": 2.0,
+            "required_bandwidth": 10,
+            "max_packet_loss": 0.03,
+            "max_delay": 12,
+            "battery_lifetime": 65,
             "required_resources": {
                 "cpu": 1,
                 "memory": 2
-            }
+            },
+            "data_size": 400
         },
         {
             "id": 3,
             "arrival_time": 2,
-            "burst_time": 15,
+            "burst_time": 8,
             "priority": 1,
             "user_id": 103,
             "mobility": 0.2,
-            "relinquish_probability": 0.1,
-            "usage_history": "0.5,0.7,0.9",
+            "relinquish_probability": 0.05,
+            "usage_history": "0.6,0.7,0.9",
+            "nps": 9,
             "application_type": "cloud_offload",
+            "latency_sensitivity": 0.9,
+            "current_task_load": 0.8,
             "request_location": "Zone_A",
-            "max_tolerable_migration_delay": 40,
+            "request_time": 3.0,
+            "required_bandwidth": 30,
+            "max_packet_loss": 0.01,
+            "max_delay": 5,
+            "battery_lifetime": 85,
             "required_resources": {
-                "cpu": 3,
-                "memory": 6
-            }
+                "cpu": 10,
+                "memory": 15
+            },
+            "data_size": 1000
         },
         {
             "id": 4,
@@ -144,45 +152,72 @@
             "user_id": 104,
             "mobility": 0.6,
             "relinquish_probability": 0.3,
-            "usage_history": "0.2,0.4,0.6",
-            "application_type": "real_time_communication",
-            "request_location": "Zone_B",
-            "max_tolerable_migration_delay": 20,
+            "usage_history": "0.2,0.3,0.4",
+            "nps": 6,
+            "application_type": "ai_inference",
+            "latency_sensitivity": 0.95,
+            "current_task_load": 0.5,
+            "request_location": "Zone_C",
+            "request_time": 4.0,
+            "required_bandwidth": 40,
+            "max_packet_loss": 0.005,
+            "max_delay": 4,
+            "battery_lifetime": 55,
             "required_resources": {
-                "cpu": 1,
-                "memory": 2
-            }
+                "cpu": 4,
+                "memory": 8
+            },
+            "data_size": 800
         },
         {
             "id": 5,
             "arrival_time": 4,
-            "burst_time": 12,
+            "burst_time": 7,
             "priority": 2,
             "user_id": 105,
             "mobility": 0.4,
             "relinquish_probability": 0.2,
-            "usage_history": "0.6,0.8,0.9",
-            "application_type": "machine_learning_inference",
-            "request_location": "Zone_C",
-            "max_tolerable_migration_delay": 60,
+            "usage_history": "0.5,0.6,0.8",
+            "nps": 8,
+            "application_type": "autonomous_driving",
+            "latency_sensitivity": 0.98,
+            "current_task_load": 0.9,
+            "request_location": "Zone_D",
+            "request_time": 5.0,
+            "required_bandwidth": 50,
+            "max_packet_loss": 0.002,
+            "max_delay": 3,
+            "battery_lifetime": 80,
             "required_resources": {
-                "cpu": 4,
-                "memory": 8
-            }
-        }
-    ],
-    "migration_strategies": {
-        "Zone_A": {
-            "backup_zones": ["Zone_C", "Zone_B"],
-            "load_transfer_threshold": 0.75
+                "cpu": 6,
+                "memory": 10
+            },
+            "data_size": 1200
         },
-        "Zone_B": {
-            "backup_zones": ["Zone_A", "Zone_C"],
-            "load_transfer_threshold": 0.8
-        },
-        "Zone_C": {
-            "backup_zones": ["Zone_B", "Zone_A"],
-            "load_transfer_threshold": 0.7
+        {
+            "id": 6,
+            "arrival_time": 5,
+            "burst_time": 9,
+            "priority": 1,
+            "user_id": 106,
+            "mobility": 0.25,
+            "relinquish_probability": 0.15,
+            "usage_history": "0.7,0.8,0.9",
+            "nps": 9,
+            "application_type": "industrial_automation",
+            "latency_sensitivity": 0.92,
+            "current_task_load": 0.85,
+            "request_location": "Zone_A",
+            "request_time": 6.0,
+            "required_bandwidth": 60,
+            "max_packet_loss": 0.01,
+            "max_delay": 5,
+            "battery_lifetime": 70,
+            "required_resources": {
+                "cpu": 3,
+                "memory": 6
+            },
+            "data_size": 1400
         }
-    }
+    ]
 }

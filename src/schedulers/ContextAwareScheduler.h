@@ -65,7 +65,10 @@ private:
     std::map<int, std::vector<int>> processToNodeMap;
     
     // Vector to store scheduled processes and their assigned nodes
-    std::vector<std::pair<std::shared_ptr<Process>, int>> scheduledProcesses;
+    std::vector<std::pair<std::shared_ptr<Process>, std::vector<int>>> scheduledProcesses;
+
+    // Vector to store all processed processes (scheduled or failed)
+    std::vector<std::tuple<std::shared_ptr<Process>, std::vector<int>, bool>> allProcesses;
 
     // Spatial index using QuadTree
     std::unique_ptr<QuadTree> spatialIndex;
