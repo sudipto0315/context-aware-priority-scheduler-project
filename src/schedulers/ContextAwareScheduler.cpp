@@ -8,6 +8,13 @@
 #include <random>
 #include <stdexcept>
 
+// Add calculation counters as member variables (declared in .h)
+int ContextAwareScheduler::processScoreCount = 0;
+int ContextAwareScheduler::nodeScoreCount = 0;
+int ContextAwareScheduler::resourceCheckCount = 0;
+int ContextAwareScheduler::retryAttemptCount = 0;
+int ContextAwareScheduler::partitioningAttemptCount = 0;
+
 /* Quadtree methods section */
 
 // Subdivide quadtree node into four quadrants
@@ -283,6 +290,7 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
 
 // Calculate comprehensive process score
 double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Process>& process) {
+    processScoreCount++;
     int processId = process->getProcessID();
     
     auto cacheIter = processScoreCache.find(processId);
@@ -303,6 +311,7 @@ double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Proces
 
 // Calculate comprehensive node selection score
 double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std::shared_ptr<Process>& process) {
+    nodeScoreCount++;
     int nodeId = node.getNodeID();
     int processId = process->getProcessID();
     
@@ -350,6 +359,7 @@ bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Proc
 
 // Check if resources can fit a process
 bool ContextAwareScheduler::canResourcesFit(const FogNode& node, const Resource& resources, const Process& process) {
+    resourceCheckCount++;
     bool fits = (node.getAvailableCpu() >= resources.cpu * 0.5) && // Partial assignment threshold
                 node.getAvailableMemory() >= resources.memory && 
                 node.getBandwidth() >= process.getRequiredBandwidth();
@@ -439,6 +449,8 @@ int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
 
 // Partition process across multiple nodes
 bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
+    partitioningAttemptCount++;
+    std::cout << "Attempting to partition Process " << process->getProcessID() << ".\n";
     auto resources = process->getRequiredResources();
     double remainingCpu = resources.cpu;
     double remainingMem = resources.memory;
@@ -505,7 +517,7 @@ void ContextAwareScheduler::processRetryQueue() {
         
         if (retryAttempts[processId] > MAX_RETRY_ATTEMPTS) {
             std::cout << "Max retry attempts reached for Process " << processId << ".\n";
-            allProcesses.push_back({process, {}, false}); // Add as failed
+            allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
             continue;
         }
         // Increase radius for retries
@@ -513,13 +525,15 @@ void ContextAwareScheduler::processRetryQueue() {
         double retryRadius = originalRadius * (1.0 + 0.5 * retryAttempts[processId]);
         std::cout << "Retrying Process " << processId << " with radius " << retryRadius << "\n";
         if (partitionProcess(process)) {
+            double start_time = static_cast<double>(process->getArrivalTime());
+            double completion_time = start_time + static_cast<double>(process->getBurstTime());
             scheduledProcesses.push_back({process, processToNodeMap[processId]});
-            allProcesses.push_back({process, processToNodeMap[processId], true});
+            allProcesses.push_back({process, processToNodeMap[processId], true, start_time, completion_time});
             std::cout << "Retry succeeded for Process " << processId << ".\n";
         } else {
             std::cout << "Retry failed for Process " << processId 
                       << " (attempt " << retryAttempts[processId] << ").\n";
-            allProcesses.push_back({process, {}, false}); // Add as failed
+            allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
         }
     }
     std::cout << "Retry queue processing completed.\n";
@@ -535,35 +549,64 @@ void ContextAwareScheduler::schedule() {
     while (!processPriorityQueue.empty()) {
         processes.push_back(getNextProcess());
     }
+
+    // Map to track the earliest available time for each node
+    std::unordered_map<int, double> nodeAvailableTime;
+    for (const auto& node : fogNodes) {
+        nodeAvailableTime[node.getNodeID()] = 0.0; // Initially available at time 0
+    }
     
     for (size_t i = 0; i < processes.size(); i++) {
         auto process = processes[i];
-        
+        double arrival_time = static_cast<double>(process->getArrivalTime());
         int assignedNode = assignToFogNode(process);
         
         if (assignedNode != -1) {
             FogNode& node = *nodeMap[assignedNode];
             if (node.assignProcess(*process)) {
+                // Start time is the maximum of arrival time and node's available time
+                double start_time = std::max(arrival_time, nodeAvailableTime[assignedNode]);
+                double completion_time = start_time + static_cast<double>(process->getBurstTime());
+                nodeAvailableTime[assignedNode] = completion_time; // Update node's available time
                 std::cout << "Process " << process->getProcessID() << " assigned to Node " << assignedNode << ".\n";
                 processToNodeMap[process->getProcessID()] = {assignedNode};
                 updateNodeIndices(assignedNode);
-                scheduledProcesses.push_back({process, {assignedNode}}); 
-                allProcesses.push_back({process, {assignedNode}, true});
+                scheduledProcesses.push_back({process, {assignedNode}});
+                allProcesses.push_back({process, {assignedNode}, true, start_time, completion_time});
             } else if (partitionProcess(process)) {
+                // For partitioned processes, use the latest completion time across assigned nodes
+                double start_time = arrival_time;
+                double latest_completion = start_time;
+                for (int nodeId : processToNodeMap[process->getProcessID()]) {
+                    start_time = std::max(arrival_time, nodeAvailableTime[nodeId]);
+                    double node_completion = start_time + static_cast<double>(process->getBurstTime()) / processToNodeMap[process->getProcessID()].size(); // Simplified split
+                    nodeAvailableTime[nodeId] = node_completion;
+                    latest_completion = std::max(latest_completion, node_completion);
+                }
                 scheduledProcesses.push_back({process, processToNodeMap[process->getProcessID()]});
-                allProcesses.push_back({process, processToNodeMap[process->getProcessID()], true});
+                allProcesses.push_back({process, processToNodeMap[process->getProcessID()], true, start_time, latest_completion});
             } else {
                 std::cout << "Assignment failed. Adding to retry queue.\n";
                 retryQueue.push(process);
-                allProcesses.push_back({process, {}, false}); // Add as failed
+                retryAttemptCount++;
+                allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
             }
         } else if (partitionProcess(process)) {
+            double start_time = arrival_time;
+            double latest_completion = start_time;
+            for (int nodeId : processToNodeMap[process->getProcessID()]) {
+                start_time = std::max(arrival_time, nodeAvailableTime[nodeId]);
+                double node_completion = start_time + static_cast<double>(process->getBurstTime()) / processToNodeMap[process->getProcessID()].size();
+                nodeAvailableTime[nodeId] = node_completion;
+                latest_completion = std::max(latest_completion, node_completion);
+            }
             scheduledProcesses.push_back({process, processToNodeMap[process->getProcessID()]});
-            allProcesses.push_back({process, processToNodeMap[process->getProcessID()], true});
+            allProcesses.push_back({process, processToNodeMap[process->getProcessID()], true, start_time, latest_completion});
         } else {
             std::cout << "No node found. Adding to retry queue.\n";
             retryQueue.push(process);
-            allProcesses.push_back({process, {}, false}); // Add as failed
+            retryAttemptCount++;
+            allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
         }
         
         // Evict oldest cache entries if size exceeds limit
@@ -591,7 +634,7 @@ void ContextAwareScheduler::schedule() {
 void ContextAwareScheduler::printSchedulingSummary() const {
     std::cout << "\n=== Scheduled Processes Summary ===\n";
     for (size_t i = 0; i < allProcesses.size(); ++i) {
-        const auto& [process, nodeIds, isScheduled] = allProcesses[i];
+        const auto& [process, nodeIds, isScheduled, start_time, completion_time] = allProcesses[i];
         std::cout << "Process " << process->getProcessID() 
                   << " (Process score: " << process->getProcessScore() << ") ";
         if (i == 0) {
@@ -613,12 +656,104 @@ void ContextAwareScheduler::printSchedulingSummary() const {
     std::cout << "==================================\n";
 }
 
-// Print the current scheduling state
-void ContextAwareScheduler::printSchedulingState() const {
-    std::cout << "Current Scheduling State:\n";
-    for (const auto& entry : processToNodeMap) {
-        std::cout << "Process " << entry.first << " -> Node(s): ";
-        for (int nodeId : entry.second) std::cout << nodeId << " ";
-        std::cout << "\n";
+void ContextAwareScheduler::printSchedulingMetrics() const {
+    std::cout << "\n========================================\n";
+    std::cout << "       Scheduling Summary Report        \n";
+    std::cout << "========================================\n";
+
+    // Per-process timing
+    std::cout << "\nPer-Process Timing Details:\n";
+    std::cout << "----------------------------------------\n";
+    double total_waiting_time = 0.0;
+    std::vector<double> waiting_times;
+    for (const auto& [process, nodeIds, isScheduled, start_time, completion_time] : allProcesses) {
+        std::cout << "Process " << process->getProcessID() << ":\n";
+        if (isScheduled) {
+            double arrival_time = static_cast<double>(process->getArrivalTime());
+            double waiting_time = start_time - arrival_time;
+            total_waiting_time += waiting_time;
+            waiting_times.push_back(waiting_time);
+            std::cout << "  Start Time: " << start_time << " units\n";
+            std::cout << "  Completion Time: " << completion_time << " units\n";
+            std::cout << "  Waiting Time: " << waiting_time << " units\n";
+            std::cout << "  Assigned to Node(s): ";
+            for (size_t j = 0; j < nodeIds.size(); ++j) {
+                std::cout << nodeIds[j];
+                if (j < nodeIds.size() - 1) std::cout << ", ";
+            }
+            std::cout << "\n";
+        } else {
+            std::cout << "  Status: Not Scheduled\n";
+        }
+        std::cout << "----------------------------------------\n";
     }
+
+    // Aggregate metrics
+    double min_arrival = std::numeric_limits<double>::max();
+    double max_completion = std::numeric_limits<double>::lowest();
+    int scheduled_count = 0;
+    
+    for (const auto& [process, nodeIds, isScheduled, start_time, completion_time] : allProcesses) {
+        if (isScheduled) {
+            min_arrival = std::min(min_arrival, static_cast<double>(process->getArrivalTime()));
+            max_completion = std::max(max_completion, completion_time);
+            scheduled_count++;
+        }
+    }
+    
+    double total_execution_time = (scheduled_count > 0) ? (max_completion - min_arrival) : 0;
+    double avg_waiting_time = (scheduled_count > 0) ? (total_waiting_time / scheduled_count) : 0;
+    
+    // Throughput
+    double throughput = (scheduled_count > 0) ? (static_cast<double>(scheduled_count) / total_execution_time) : 0;
+    
+    // Resource Utilization
+    double total_used_cpu = 0.0;
+    double total_cpu_capacity = 0.0;
+    double total_used_memory = 0.0;
+    double total_memory_capacity = 0.0;
+    
+    for (const auto& node : fogNodes) {
+        if (node.getIsActive()) {
+            total_used_cpu += (node.getCpuCapacity() - node.getAvailableCpu());
+            total_cpu_capacity += node.getCpuCapacity();
+            total_used_memory += (node.getMemory() - node.getAvailableMemory());
+            total_memory_capacity += node.getMemory();
+        }
+    }
+    
+    double cpu_utilization = (total_cpu_capacity > 0) ? (total_used_cpu / total_cpu_capacity) : 0;
+    double memory_utilization = (total_memory_capacity > 0) ? (total_used_memory / total_memory_capacity) : 0;
+    
+    // Fairness (Variance of waiting times)
+    double sum_squared_diff = 0.0;
+    for (double wt : waiting_times) {
+        sum_squared_diff += (wt - avg_waiting_time) * (wt - avg_waiting_time);
+    }
+    double variance = (scheduled_count > 0) ? (sum_squared_diff / scheduled_count) : 0;
+    
+    std::cout << "\nAggregate Metrics:\n";
+    std::cout << "----------------------------------------\n";
+    std::cout << "Total Execution Time: " << total_execution_time << " units\n";
+    std::cout << "Average Waiting Time: " << avg_waiting_time << " units\n";
+    std::cout << "Throughput: " << throughput << " processes/unit\n";
+    std::cout << "CPU Utilization: " << (cpu_utilization * 100) << "%\n";
+    std::cout << "Memory Utilization: " << (memory_utilization * 100) << "%\n";
+    std::cout << "Fairness (Variance of Waiting Times): " << variance << "\n";
+    std::cout << "----------------------------------------\n";
+
+    // Calculation counts (Scheduling Overhead)
+    int total_calculations = processScoreCount + nodeScoreCount + resourceCheckCount + retryAttemptCount + partitioningAttemptCount;
+    std::cout << "\nCalculation Counts:\n";
+    std::cout << "----------------------------------------\n";
+    std::cout << "Process Scoring: " << processScoreCount << "\n";
+    std::cout << "Node Scoring: " << nodeScoreCount << "\n";
+    std::cout << "Resource Checks: " << resourceCheckCount << "\n";
+    std::cout << "Retry Attempts: " << retryAttemptCount << "\n";
+    std::cout << "Partitioning Attempts: " << partitioningAttemptCount << "\n";
+    std::cout << "Scheduling Overhead (Total Calculations): " << total_calculations << "\n";
+    std::cout << "----------------------------------------\n";
+
+    std::cout << "\nEnd of Scheduling Summary\n";
+    std::cout << "========================================\n";
 }

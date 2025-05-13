@@ -113,6 +113,7 @@ void Simulation::run() {
     scheduler->schedule();
     if (auto contextScheduler = dynamic_cast<ContextAwareScheduler*>(scheduler.get())) {
         contextScheduler->printSchedulingSummary();
+        contextScheduler->printSchedulingMetrics();
     }
 }
 

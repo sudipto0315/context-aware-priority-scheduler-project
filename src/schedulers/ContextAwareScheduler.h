@@ -68,8 +68,8 @@ private:
     std::vector<std::pair<std::shared_ptr<Process>, std::vector<int>>> scheduledProcesses;
 
     // Vector to store all processed processes (scheduled or failed)
-    std::vector<std::tuple<std::shared_ptr<Process>, std::vector<int>, bool>> allProcesses;
-
+    std::vector<std::tuple<std::shared_ptr<Process>, std::vector<int>, bool, double, double>> allProcesses;
+    
     // Spatial index using QuadTree
     std::unique_ptr<QuadTree> spatialIndex;
     
@@ -132,12 +132,18 @@ private:
     void updateNodeIndices(int nodeId);
     void buildSpatialIndices();
 
-public:
+public: 
+    static int processScoreCount;
+    static int nodeScoreCount;
+    static int resourceCheckCount;
+    static int retryAttemptCount;
+    static int partitioningAttemptCount;
     ContextAwareScheduler(const std::vector<FogNode>& nodes);
     void addProcess(std::shared_ptr<Process> process) override;
     void schedule() override;
     void printSchedulingState() const;
     void printSchedulingSummary() const;
+    void printSchedulingMetrics() const;
     virtual ~ContextAwareScheduler() = default;
 };
 
