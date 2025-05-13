@@ -5,6 +5,8 @@
 #include <queue>
 #include <unordered_map>
 #include <set>
+#include <random>
+#include <stdexcept>
 
 /* Quadtree methods section */
 
@@ -20,7 +22,10 @@ void QuadTree::subdivide() {
 
 // Insert node into quadtree
 void QuadTree::insert(double x, double y, int nodeId) {
-    if (x < topLeft.x || x > bottomRight.x || y < topLeft.y || y > bottomRight.y) return;
+    if (x < topLeft.x || x > bottomRight.x || y < topLeft.y || y > bottomRight.y) {
+        std::cerr << "Point (" << x << ", " << y << ") out of bounds for nodeId " << nodeId << std::endl;
+        return;
+    }
 
     if (nodes.size() < CAPACITY && isLeaf()) {
         nodes.emplace_back(x, y, nodeId);
@@ -32,7 +37,7 @@ void QuadTree::insert(double x, double y, int nodeId) {
     double midX = (topLeft.x + bottomRight.x) / 2;
     double midY = (topLeft.y + bottomRight.y) / 2;
     
-    if (x < midX) {
+    if (x <= midX) {
         if (y < midY) nw->insert(x, y, nodeId);
         else sw->insert(x, y, nodeId);
     } else {
@@ -65,6 +70,7 @@ void QuadTree::queryRange(Point center, double radius, std::vector<int>& results
         bool isWest = center.x < midX;
         bool isNorth = center.y < midY;
         
+        // Process quadrants in order of proximity
         if (isWest && isNorth) {
             nw->queryRange(center, radius, results, maxResults);
             if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
@@ -106,17 +112,37 @@ void QuadTree::queryRange(Point center, double radius, std::vector<int>& results
 // Constructor
 ContextAwareScheduler::ContextAwareScheduler(const std::vector<FogNode>& nodes) 
     : fogNodes(nodes), sortedNodes(nodes), nodeMap(), nodeComparator(nodeMap), needsResorting(false) {
+    // Initialize node mappings
     for (size_t i = 0; i < fogNodes.size(); i++) {
         int nodeId = fogNodes[i].getNodeID();
         nodeMap[nodeId] = &fogNodes[i];
         nodeIndexMap[nodeId] = i;
     }
     
+    // Define location-to-coordinate mapping
+    std::unordered_map<std::string, Point> locationToCoords = {
+        {"Zone_A", Point(10.0, 10.0)},
+        {"Zone_B", Point(20.0, 10.0)},
+        {"Zone_C", Point(10.0, 20.0)},
+        {"Zone_D", Point(20.0, 20.0)}
+    };
+
+    // Random offset generator for nodes in the same zone
+    std::random_device rd;
+    std::default_random_engine generator(rd());
+    std::uniform_real_distribution<double> distribution(-5.0, 5.0);
+
+    // Assign coordinates based on node location
     for (const auto& node : fogNodes) {
         int nodeId = node.getNodeID();
-        double x = (nodeId % 100) * 10.0;
-        double y = (nodeId / 100) * 10.0;
-        nodeCoordinates[nodeId] = {x, y};
+        std::string location = node.getLocation();
+        if (locationToCoords.find(location) == locationToCoords.end()) {
+            throw std::runtime_error("Unknown location: " + location + " for Node " + std::to_string(nodeId));
+        }
+        Point baseCoords = locationToCoords[location];
+        double offsetX = distribution(generator);
+        double offsetY = distribution(generator);
+        nodeCoordinates[nodeId] = {baseCoords.x + offsetX, baseCoords.y + offsetY};
     }
     
     buildSpatialIndices();
@@ -137,8 +163,8 @@ void ContextAwareScheduler::buildSpatialIndices() {
         maxX = std::max(maxX, x);
         maxY = std::max(maxY, y);
         
-        nodesByCapacity.emplace(node.getCpuCapacity(), nodeId);
-        nodesByMemory.emplace(node.getMemory(), nodeId);
+        nodesByCapacity.emplace(node.getAvailableCpu(), nodeId);
+        nodesByMemory.emplace(node.getAvailableMemory(), nodeId);
         nodesByBandwidth.emplace(node.getBandwidth(), nodeId);
     }
     
@@ -166,7 +192,10 @@ void ContextAwareScheduler::addProcess(std::shared_ptr<Process> process) {
     int priority = process->getPriority();
     double latencySensitivity = process->getLatencySensitivity();
     double resourceNeeds = process->getRequiredResources().cpu + process->getRequiredResources().memory;
-    int groupHash = static_cast<int>((priority * 100) + (latencySensitivity * 10) + (resourceNeeds / 10)); // used for grouping processes why Hash? reason: to group processes that have the same priority, latency sensitivity, and resource needs
+    auto hash = std::hash<std::string>{}(std::to_string(priority) + "_" +
+                                         std::to_string(latencySensitivity) + "_" +
+                                         std::to_string(resourceNeeds));
+    int groupHash = static_cast<int>(hash % std::numeric_limits<int>::max());
     processesByGroup[groupHash].push_back(process);
     
     processPriorityQueue.push(process);
@@ -205,9 +234,23 @@ double ContextAwareScheduler::calculateLocationScore(const std::shared_ptr<Proce
     if (cacheIter != locationScoreCache.end()) {
         return cacheIter->second;
     }
+
+    // Define location-to-coordinate mapping for processes
+    std::unordered_map<std::string, Point> locationToCoords = {
+        {"Zone_A", Point(10.0, 10.0)},
+        {"Zone_B", Point(20.0, 10.0)},
+        {"Zone_C", Point(10.0, 20.0)},
+        {"Zone_D", Point(20.0, 20.0)}
+    };
+
+    std::string processLocation = process->getRequestLocation();
+    if (locationToCoords.find(processLocation) == locationToCoords.end()) {
+        throw std::runtime_error("Unknown process location: " + processLocation + " for Process " + std::to_string(processId));
+    }
+    Point pCoords = locationToCoords[processLocation];
+    double px = pCoords.x;
+    double py = pCoords.y;
     
-    double px = (processId % 100) * 10.0;
-    double py = (processId / 100) * 10.0;
     const auto& nodeCoord = nodeCoordinates[nodeId];
     double nx = nodeCoord.first;
     double ny = nodeCoord.second;
@@ -230,9 +273,10 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
         return cacheIter->second.second;
     }
     
-    double score = 1.0 / (1.0 + std::exp(std::min(node.getCurrentLoad() * 5, 10.0)));
+    double load = std::max(0.0, std::min(1.0, node.getCurrentLoad())); // Ensure load is [0, 1]
+    double score = 1.0 / (1.0 + std::exp(load * 5));
     
-    loadBalanceCache[nodeId] = {node.getCurrentLoad(), score};
+    loadBalanceCache[nodeId] = {load, score};
     std::cout << "Load balance score for Node " << nodeId << ": " << score << "\n";
     return score;
 }
@@ -246,11 +290,11 @@ double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Proces
         return cacheIter->second;
     }
     
-    double score = (1.0 / (1.0 + process->getPriority())) + // Priority consideration
-                   (0.5 * (1.0 - process->getMobility())) + // Mobility factor
-                   (0.2 * process->getNps()) + // Network Performance Score
-                   (0.3 * (1.0 - process->getRelinquishProbability())) + // Stability factor
-                   (0.4 * process->getLatencySensitivity()); // Latency sensitivity
+    double score = (1.0 / (1.0 + std::max(0, process->getPriority()))) + // Priority consideration
+                   (0.5 * (1.0 - std::max(0.0, std::min(1.0, process->getMobility())))) + // Mobility factor
+                   (0.2 * std::max(0.0, process->getNps())) + // Network Performance Score
+                   (0.3 * (1.0 - std::max(0.0, std::min(1.0, process->getRelinquishProbability())))) + // Stability factor
+                   (0.4 * std::max(0.0, std::min(1.0, process->getLatencySensitivity()))); // Latency sensitivity
     
     processScoreCache[processId] = score;
     std::cout << "Process score for Process " << processId << ": " << score << "\n";
@@ -271,9 +315,15 @@ double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std:
     double locationScore = calculateLocationScore(process, node);
     double loadBalanceScore = calculateLoadBalanceScore(node);
     
-    double score = (1.0 / (1.0 + node.getDelay())) + // Delay preference
-                   (node.getBandwidth() / process->getRequiredBandwidth()) + // Bandwidth utilization
-                   (1.0 - (node.getPacketLoss() / process->getMaxPacketLoss())) + // Packet loss
+    double delay = std::max(0.0, node.getDelay());
+    double bandwidth = std::max(1e-6, node.getBandwidth()); // Avoid division by zero
+    double packetLoss = std::max(0.0, std::min(1.0, node.getPacketLoss()));
+    double requiredBandwidth = std::max(1e-6, process->getRequiredBandwidth());
+    double maxPacketLoss = std::max(1e-6, process->getMaxPacketLoss());
+    
+    double score = (1.0 / (1.0 + delay)) + // Delay preference
+                   (bandwidth / requiredBandwidth) + // Bandwidth utilization
+                   (1.0 - (packetLoss / maxPacketLoss)) + // Packet loss
                    locationScore + // Location matching
                    loadBalanceScore; // Load distribution
     
@@ -284,7 +334,8 @@ double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std:
 
 // Calculate new load after assigning process to node
 double ContextAwareScheduler::calculateNewLoad(const FogNode& node, const Resource& resources) {
-    double newLoad = node.getCurrentLoad() + (resources.cpu / node.getCpuCapacity());
+    double newLoad = node.getCurrentLoad() + (resources.cpu / std::max(1e-6, node.getCpuCapacity()));
+    newLoad = std::max(0.0, std::min(1.0, newLoad)); // Ensure load is [0, 1]
     std::cout << "New load calculated for Node " << node.getNodeID() << ": " << newLoad << "\n";
     return newLoad;
 }
@@ -299,8 +350,8 @@ bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Proc
 
 // Check if resources can fit a process
 bool ContextAwareScheduler::canResourcesFit(const FogNode& node, const Resource& resources, const Process& process) {
-    bool fits = (node.getCpuCapacity() >= resources.cpu * 0.5) && // Partial assignment threshold
-                node.getMemory() >= resources.memory && 
+    bool fits = (node.getAvailableCpu() >= resources.cpu * 0.5) && // Partial assignment threshold
+                node.getAvailableMemory() >= resources.memory && 
                 node.getBandwidth() >= process.getRequiredBandwidth();
     std::cout << "Resources fit check for Node " << node.getNodeID() << " and Process " << process.getProcessID() << ": " << (fits ? "Yes" : "No") << "\n";
     return fits;
@@ -311,20 +362,25 @@ std::vector<int> ContextAwareScheduler::findCandidateNodes(const std::shared_ptr
     std::vector<int> candidates;
     const auto& resources = process->getRequiredResources();
     
-    // Use lower_bound to find nodes with sufficient resources
-    auto cpuIt = nodesByCapacity.lower_bound({resources.cpu * 0.5, 0});
-    auto memIt = nodesByMemory.lower_bound({resources.memory, 0});
-    auto bwIt = nodesByBandwidth.lower_bound({process->getRequiredBandwidth(), 0});
-    
-    double px = (process->getProcessID() % 100) * 10.0;
-    double py = (process->getProcessID() / 100) * 10.0;
+    // Define location-to-coordinate mapping for processes
+    std::unordered_map<std::string, Point> locationToCoords = {
+        {"Zone_A", Point(10.0, 10.0)},
+        {"Zone_B", Point(20.0, 10.0)},
+        {"Zone_C", Point(10.0, 20.0)},
+        {"Zone_D", Point(20.0, 20.0)}
+    };
+
+    std::string processLocation = process->getRequestLocation();
+    if (locationToCoords.find(processLocation) == locationToCoords.end()) {
+        throw std::runtime_error("Unknown process location: " + processLocation + " for Process " + std::to_string(process->getProcessID()));
+    }
+    Point center = locationToCoords[processLocation];
     double radius = 100.0 + (10.0 * process->getLatencySensitivity());
-    spatialIndex->queryRange(Point(px, py), radius, candidates, 20);
+    spatialIndex->queryRange(center, radius, candidates, 20);
     
     std::vector<int> finalCandidates;
     for (int nodeId : candidates) {
         const FogNode& node = *nodeMap[nodeId];
-        // Directly check resource availability instead of relying on iterator position
         if (node.getCpuCapacity() >= resources.cpu * 0.5 &&
             node.getMemory() >= resources.memory &&
             node.getBandwidth() >= process->getRequiredBandwidth()) {
@@ -392,9 +448,9 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
     std::priority_queue<std::pair<double, int>> nodeQueue;
     for (const auto& node : fogNodes) {
         if (node.getIsActive() && node.getCurrentLoad() < 1.0 && canNodeHandleProcess(node, *process)) {
-            double score = (0.6 * node.getAvailableCpu() / remainingCpu) + // CPU contribution
-                          (0.3 * node.getAvailableMemory() / remainingMem) + // Memory contribution
-                          (0.1 * node.getBandwidth() / remainingBw); // Bandwidth contribution
+            double score = (0.6 * node.getAvailableCpu() / std::max(1e-6, remainingCpu)) + // CPU contribution
+                          (0.3 * node.getAvailableMemory() / std::max(1e-6, remainingMem)) + // Memory contribution
+                          (0.1 * node.getBandwidth() / std::max(1e-6, remainingBw)); // Bandwidth contribution
             nodeQueue.emplace(score, node.getNodeID());
         }
     }
@@ -452,6 +508,10 @@ void ContextAwareScheduler::processRetryQueue() {
             allProcesses.push_back({process, {}, false}); // Add as failed
             continue;
         }
+        // Increase radius for retries
+        auto originalRadius = 100.0 + (10.0 * process->getLatencySensitivity());
+        double retryRadius = originalRadius * (1.0 + 0.5 * retryAttempts[processId]);
+        std::cout << "Retrying Process " << processId << " with radius " << retryRadius << "\n";
         if (partitionProcess(process)) {
             scheduledProcesses.push_back({process, processToNodeMap[processId]});
             allProcesses.push_back({process, processToNodeMap[processId], true});
@@ -470,6 +530,7 @@ void ContextAwareScheduler::schedule() {
     std::cout << "Scheduling started. Queue size: " << processPriorityQueue.size() << "\n";
     if (processPriorityQueue.empty()) return;
     
+    const size_t MAX_CACHE_SIZE = 1000;
     std::vector<std::shared_ptr<Process>> processes;
     while (!processPriorityQueue.empty()) {
         processes.push_back(getNextProcess());
@@ -505,12 +566,18 @@ void ContextAwareScheduler::schedule() {
             allProcesses.push_back({process, {}, false}); // Add as failed
         }
         
-        if (i % 100 == 0) {
-            if (nodeScoreCache.size() > 1000) {
-                nodeScoreCache.clear();
-                locationScoreCache.clear();
-                std::cout << "Caches cleared at iteration " << i << ".\n";
+        // Evict oldest cache entries if size exceeds limit
+        if (nodeScoreCache.size() > MAX_CACHE_SIZE) {
+            std::vector<std::pair<std::pair<int, int>, double>> entries(nodeScoreCache.begin(), nodeScoreCache.end());
+            std::sort(entries.begin(), entries.end(), [](const auto& a, const auto& b) {
+                return a.second < b.second; // Sort by score (proxy for age)
+            });
+            size_t evictCount = entries.size() / 5; // Evict 20%
+            for (size_t j = 0; j < evictCount; ++j) {
+                nodeScoreCache.erase(entries[j].first);
+                locationScoreCache.erase(entries[j].first); // Keep caches in sync
             }
+            std::cout << "Evicted " << evictCount << " cache entries at iteration " << i << ".\n";
         }
     }
     
@@ -545,8 +612,6 @@ void ContextAwareScheduler::printSchedulingSummary() const {
     }
     std::cout << "==================================\n";
 }
-
-
 
 // Print the current scheduling state
 void ContextAwareScheduler::printSchedulingState() const {
