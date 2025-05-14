@@ -89,8 +89,8 @@
             "max_delay": 8,
             "battery_lifetime": 75,
             "required_resources": {
-                "cpu": 2,
-                "memory": 4
+                "cpu": 1.5,
+                "memory": 3
             },
             "data_size": 600
         },
@@ -110,12 +110,12 @@
             "request_location": "Zone_B",
             "request_time": 2.0,
             "required_bandwidth": 10,
-            "max_packet_loss": 0.03,
-            "max_delay": 12,
+            "max_packet_loss": 0.04,
+            "max_delay": 15,
             "battery_lifetime": 65,
             "required_resources": {
-                "cpu": 1,
-                "memory": 2
+                "cpu": 0.5,
+                "memory": 1
             },
             "data_size": 400
         },
@@ -140,7 +140,7 @@
             "battery_lifetime": 85,
             "required_resources": {
                 "cpu": 10,
-                "memory": 15
+                "memory": 12
             },
             "data_size": 1000
         },
@@ -160,12 +160,12 @@
             "request_location": "Zone_C",
             "request_time": 4.0,
             "required_bandwidth": 40,
-            "max_packet_loss": 0.005,
-            "max_delay": 4,
+            "max_packet_loss": 0.03,
+            "max_delay": 12,
             "battery_lifetime": 55,
             "required_resources": {
-                "cpu": 4,
-                "memory": 8
+                "cpu": 2,
+                "memory": 4
             },
             "data_size": 800
         },
@@ -185,12 +185,12 @@
             "request_location": "Zone_D",
             "request_time": 5.0,
             "required_bandwidth": 50,
-            "max_packet_loss": 0.002,
-            "max_delay": 3,
+            "max_packet_loss": 0.01,
+            "max_delay": 6,
             "battery_lifetime": 80,
             "required_resources": {
-                "cpu": 6,
-                "memory": 10
+                "cpu": 3,
+                "memory": 6
             },
             "data_size": 1200
         },
@@ -209,15 +209,115 @@
             "current_task_load": 0.85,
             "request_location": "Zone_A",
             "request_time": 6.0,
-            "required_bandwidth": 60,
-            "max_packet_loss": 0.01,
-            "max_delay": 5,
+            "required_bandwidth": 30,
+            "max_packet_loss": 0.04,
+            "max_delay": 15,
             "battery_lifetime": 70,
             "required_resources": {
-                "cpu": 3,
-                "memory": 6
+                "cpu": 0.5,
+                "memory": 1
             },
             "data_size": 1400
+        },
+        {
+            "id": 7,
+            "arrival_time": 6,
+            "burst_time": 10,
+            "priority": 1,
+            "user_id": 107,
+            "mobility": 0.15,
+            "relinquish_probability": 0.1,
+            "usage_history": "0.8,0.9,1.0",
+            "nps": 9,
+            "application_type": "big_data_processing",
+            "latency_sensitivity": 0.88,
+            "current_task_load": 0.9,
+            "request_location": "Zone_C",
+            "request_time": 7.0,
+            "required_bandwidth": 35,
+            "max_packet_loss": 0.03,
+            "max_delay": 12,
+            "battery_lifetime": 90,
+            "required_resources": {
+                "cpu": 10,
+                "memory": 12
+            },
+            "data_size": 1500
+        },
+        {
+            "id": 8,
+            "arrival_time": 7,
+            "burst_time": 3,
+            "priority": 4,
+            "user_id": 108,
+            "mobility": 0.7,
+            "relinquish_probability": 0.4,
+            "usage_history": "0.1,0.2,0.3",
+            "nps": 5,
+            "application_type": "iot_monitoring",
+            "latency_sensitivity": 0.6,
+            "current_task_load": 0.3,
+            "request_location": "Zone_B",
+            "request_time": 8.0,
+            "required_bandwidth": 15,
+            "max_packet_loss": 0.04,
+            "max_delay": 15,
+            "battery_lifetime": 50,
+            "required_resources": {
+                "cpu": 0.5,
+                "memory": 1
+            },
+            "data_size": 300
+        },
+        {
+            "id": 9,
+            "arrival_time": 8,
+            "burst_time": 4,
+            "priority": 3,
+            "user_id": 109,
+            "mobility": 0.6,
+            "relinquish_probability": 0.3,
+            "usage_history": "0.2,0.3,0.4",
+            "nps": 6,
+            "application_type": "sensor_data_processing",
+            "latency_sensitivity": 0.7,
+            "current_task_load": 0.4,
+            "request_location": "Zone_B",
+            "request_time": 9.0,
+            "required_bandwidth": 20,
+            "max_packet_loss": 0.04,
+            "max_delay": 15,
+            "battery_lifetime": 60,
+            "required_resources": {
+                "cpu": 0.5,
+                "memory": 1
+            },
+            "data_size": 500
+        },
+        {
+            "id": 10,
+            "arrival_time": 9,
+            "burst_time": 5,
+            "priority": 2,
+            "user_id": 110,
+            "mobility": 0.5,
+            "relinquish_probability": 0.25,
+            "usage_history": "0.3,0.4,0.5",
+            "nps": 7,
+            "application_type": "real_time_analytics",
+            "latency_sensitivity": 0.8,
+            "current_task_load": 0.5,
+            "request_location": "Zone_C",
+            "request_time": 10.0,
+            "required_bandwidth": 25,
+            "max_packet_loss": 0.03,
+            "max_delay": 12,
+            "battery_lifetime": 70,
+            "required_resources": {
+                "cpu": 1,
+                "memory": 2
+            },
+            "data_size": 700
         }
     ]
 }

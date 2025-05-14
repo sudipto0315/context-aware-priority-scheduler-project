@@ -738,7 +738,6 @@ void ContextAwareScheduler::printSchedulingMetrics() const {
     std::cout << "Average Waiting Time: " << avg_waiting_time << " units\n";
     std::cout << "Throughput: " << throughput << " processes/unit\n";
     std::cout << "CPU Utilization: " << (cpu_utilization * 100) << "%\n";
-    std::cout << "Memory Utilization: " << (memory_utilization * 100) << "%\n";
     std::cout << "Fairness (Variance of Waiting Times): " << variance << "\n";
     std::cout << "----------------------------------------\n";
 

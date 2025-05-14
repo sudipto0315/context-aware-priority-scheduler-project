@@ -1,0 +1,548 @@
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (-3.42623, -4.03041) to (30.5403, 34.8062).
+Spatial dimensions: (33.9665, 38.8367).
+Spatial boundary (A,B,C,D): (-3.42623, -4.03041), (30.5403, -4.03041), (30.5403, 34.8062), (-3.42623, 34.8062)
+ContextAwareScheduler initialized with 6 nodes.
+Starting Simulation...
+Process score for Process 1: 3.06
+Process 1 added to queue with score 3.06 (groupHash: 706216355).
+Process score for Process 2: 2.48833
+Process 2 added to queue with score 2.48833 (groupHash: 124953369).
+Process score for Process 3: 3.345
+Process 3 added to queue with score 3.345 (groupHash: 287670542).
+Process score for Process 4: 2.24
+Process 4 added to queue with score 2.24 (groupHash: 651785598).
+Process score for Process 5: 2.86533
+Process 5 added to queue with score 2.86533 (groupHash: 1831090483).
+Process score for Process 6: 3.298
+Process 6 added to queue with score 3.298 (groupHash: 23008760).
+Process score for Process 7: 3.347
+Process 7 added to queue with score 3.347 (groupHash: 163047381).
+Process score for Process 8: 1.77
+Process 8 added to queue with score 1.77 (groupHash: 172708642).
+Process score for Process 9: 2.14
+Process 9 added to queue with score 2.14 (groupHash: 1328792358).
+Process score for Process 10: 2.52833
+Process 10 added to queue with score 2.52833 (groupHash: 779199771).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 0
+Burst Time: 6
+Priority: 1
+Remaining Time: 6
+Process Score: 3.06
+User ID: 101
+Mobility: 0.3
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 8
+Application Type: video_streaming
+Latency Sensitivity: 0.85
+Current Task Load: 0.6
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 20 Mbps
+Max Delay: 8 ms
+Max Packet Loss: 0.02
+Battery Lifetime: 75 hours
+Required CPU: 1, Memory: 3
+Data Size: 600 MB
+Process ID: 2
+Arrival Time: 1
+Burst Time: 4
+Priority: 2
+Remaining Time: 4
+Process Score: 2.48833
+User ID: 102
+Mobility: 0.5
+Relinquish Probability: 0.25
+Usage History: 
+NPS: 7
+Application Type: gaming
+Latency Sensitivity: 0.7
+Current Task Load: 0.4
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 65 hours
+Required CPU: 0, Memory: 1
+Data Size: 400 MB
+Process ID: 3
+Arrival Time: 2
+Burst Time: 8
+Priority: 1
+Remaining Time: 8
+Process Score: 3.345
+User ID: 103
+Mobility: 0.2
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 9
+Application Type: cloud_offload
+Latency Sensitivity: 0.9
+Current Task Load: 0.8
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:03 1970
+Required Bandwidth: 30 Mbps
+Max Delay: 5 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 85 hours
+Required CPU: 10, Memory: 12
+Data Size: 1000 MB
+Process ID: 4
+Arrival Time: 3
+Burst Time: 5
+Priority: 3
+Remaining Time: 5
+Process Score: 2.24
+User ID: 104
+Mobility: 0.6
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 6
+Application Type: ai_inference
+Latency Sensitivity: 0.95
+Current Task Load: 0.5
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:04 1970
+Required Bandwidth: 40 Mbps
+Max Delay: 12 ms
+Max Packet Loss: 0.03
+Battery Lifetime: 55 hours
+Required CPU: 2, Memory: 4
+Data Size: 800 MB
+Process ID: 5
+Arrival Time: 4
+Burst Time: 7
+Priority: 2
+Remaining Time: 7
+Process Score: 2.86533
+User ID: 105
+Mobility: 0.4
+Relinquish Probability: 0.2
+Usage History: 
+NPS: 8
+Application Type: autonomous_driving
+Latency Sensitivity: 0.98
+Current Task Load: 0.9
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:05 1970
+Required Bandwidth: 50 Mbps
+Max Delay: 6 ms
+Max Packet Loss: 0.01
+Battery Lifetime: 80 hours
+Required CPU: 3, Memory: 6
+Data Size: 1200 MB
+Process ID: 6
+Arrival Time: 5
+Burst Time: 9
+Priority: 1
+Remaining Time: 9
+Process Score: 3.298
+User ID: 106
+Mobility: 0.25
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.92
+Current Task Load: 0.85
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:06 1970
+Required Bandwidth: 30 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 70 hours
+Required CPU: 0, Memory: 1
+Data Size: 1400 MB
+Process ID: 7
+Arrival Time: 6
+Burst Time: 10
+Priority: 1
+Remaining Time: 10
+Process Score: 3.347
+User ID: 107
+Mobility: 0.15
+Relinquish Probability: 0.1
+Usage History: 
+NPS: 9
+Application Type: big_data_processing
+Latency Sensitivity: 0.88
+Current Task Load: 0.9
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:07 1970
+Required Bandwidth: 35 Mbps
+Max Delay: 12 ms
+Max Packet Loss: 0.03
+Battery Lifetime: 90 hours
+Required CPU: 10, Memory: 12
+Data Size: 1500 MB
+Process ID: 8
+Arrival Time: 7
+Burst Time: 3
+Priority: 4
+Remaining Time: 3
+Process Score: 1.77
+User ID: 108
+Mobility: 0.7
+Relinquish Probability: 0.4
+Usage History: 
+NPS: 5
+Application Type: iot_monitoring
+Latency Sensitivity: 0.6
+Current Task Load: 0.3
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:08 1970
+Required Bandwidth: 15 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 50 hours
+Required CPU: 0, Memory: 1
+Data Size: 300 MB
+Process ID: 9
+Arrival Time: 8
+Burst Time: 4
+Priority: 3
+Remaining Time: 4
+Process Score: 2.14
+User ID: 109
+Mobility: 0.6
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 6
+Application Type: sensor_data_processing
+Latency Sensitivity: 0.7
+Current Task Load: 0.4
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:09 1970
+Required Bandwidth: 20 Mbps
+Max Delay: 15 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 60 hours
+Required CPU: 0, Memory: 1
+Data Size: 500 MB
+Process ID: 10
+Arrival Time: 9
+Burst Time: 5
+Priority: 2
+Remaining Time: 5
+Process Score: 2.52833
+User ID: 110
+Mobility: 0.5
+Relinquish Probability: 0.25
+Usage History: 
+NPS: 7
+Application Type: real_time_analytics
+Latency Sensitivity: 0.8
+Current Task Load: 0.5
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:10 1970
+Required Bandwidth: 25 Mbps
+Max Delay: 12 ms
+Max Packet Loss: 0.03
+Battery Lifetime: 70 hours
+Required CPU: 1, Memory: 2
+Data Size: 700 MB
+Scheduling started. Queue size: 10
+Retrieved Process 7 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 10 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 9 from queue.
+Retrieved Process 8 from queue.
+Found 1 candidate nodes for Process 7.
+Resources fit check for Node 5 and Process 7: Yes
+Node 5 can handle Process 7: Yes
+New load calculated for Node 5: 1
+Location score for Process 7 and Node 5: 0.103256
+Load balance score for Node 5: 0.182426
+Node score for Node 5 and Process 7: 5.65473
+Best node for Process 7 is Node 5 with score 5.65473.
+Attempting to assign Process 7 to Node 5
+Current CPU Usage: 0/8, New Usage: 10/8
+Current Memory Usage: 0/12, New Usage: 12/12
+Current Load: 0.3, New Load: 1.25
+Process 7 assignment failed. Insufficient resources in Node 5
+Attempting to partition Process 7.
+Node 1 can handle Process 7: Yes
+Node 2 can handle Process 7: Yes
+Node 3 can handle Process 7: Yes
+Node 5 can handle Process 7: Yes
+Node 6 can handle Process 7: No
+Attempting to assign Process 7 to Node 5
+Current CPU Usage: 0/8, New Usage: 8/8
+Current Memory Usage: 0/12, New Usage: 12/12
+Current Load: 0.3, New Load: 1
+Process 7 assigned successfully.
+Node 5 indices updated. New capacity: 0
+Assigned 8 CPU to Node 5 for Process 7.
+Attempting to assign Process 7 to Node 3
+Current CPU Usage: 0/6, New Usage: 2/6
+Current Memory Usage: 0/10, New Usage: 0/10
+Current Load: 0.4, New Load: 0.333333
+Process 7 assigned successfully.
+Node 3 indices updated. New capacity: 4
+Assigned 2 CPU to Node 3 for Process 7.
+Process 7 fully partitioned across 2 nodes
+Found 0 candidate nodes for Process 3.
+No suitable node found for Process 3.
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: Yes
+Node 6 can handle Process 3: No
+Attempting to assign Process 3 to Node 3
+Current CPU Usage: 2/6, New Usage: 6/6
+Current Memory Usage: 0/10, New Usage: 10/10
+Current Load: 0.333333, New Load: 1
+Process 3 assigned successfully.
+Node 3 indices updated. New capacity: 0
+Assigned 4 CPU to Node 3 for Process 3.
+Partitioning failed for Process 3. Remaining: CPU=6
+No node found. Adding to retry queue.
+Found 4 candidate nodes for Process 6.
+Resources fit check for Node 1 and Process 6: Yes
+Node 1 can handle Process 6: Yes
+New load calculated for Node 1: 0.5
+Location score for Process 6 and Node 1: 0.168504
+Load balance score for Node 1: 0.0758582
+Node score for Node 1 and Process 6: 3.67889
+Resources fit check for Node 2 and Process 6: Yes
+Node 2 can handle Process 6: Yes
+New load calculated for Node 2: 0.7
+Location score for Process 6 and Node 2: 0.131657
+Load balance score for Node 2: 0.0293122
+Node score for Node 2 and Process 6: 2.15456
+Resources fit check for Node 6 and Process 6: Yes
+Node 6 can handle Process 6: Yes
+New load calculated for Node 6: 0.9
+Location score for Process 6 and Node 6: 0.081403
+Load balance score for Node 6: 0.0109869
+Node score for Node 6 and Process 6: 1.15489
+Best node for Process 6 is Node 1 with score 3.67889.
+Attempting to assign Process 6 to Node 1
+Current CPU Usage: 0/4, New Usage: 0/4
+Current Memory Usage: 0/8, New Usage: 1/8
+Current Load: 0.5, New Load: 0
+Process 6 assigned successfully.
+Process 6 assigned to Node 1.
+Node 1 indices updated. New capacity: 4
+Found 3 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+New load calculated for Node 1: 0.25
+Location score for Process 1 and Node 1: 0.168504
+Load balance score for Node 1: 0.5
+Node score for Node 1 and Process 1: 5.06136
+Best node for Process 1 is Node 1 with score 5.06136.
+Attempting to assign Process 1 to Node 1
+Current CPU Usage: 0/4, New Usage: 1/4
+Current Memory Usage: 1/8, New Usage: 4/8
+Current Load: 0, New Load: 0.25
+Process 1 assigned successfully.
+Process 1 assigned to Node 1.
+Node 1 indices updated. New capacity: 3
+Found 1 candidate nodes for Process 5.
+No suitable node found for Process 5.
+Attempting to partition Process 5.
+Node 1 can handle Process 5: No
+Node 2 can handle Process 5: No
+Node 6 can handle Process 5: No
+Partitioning failed for Process 5. Remaining: CPU=3
+No node found. Adding to retry queue.
+Found 4 candidate nodes for Process 10.
+Resources fit check for Node 1 and Process 10: Yes
+Node 1 can handle Process 10: Yes
+New load calculated for Node 1: 0.5
+Location score for Process 10 and Node 1: 0.120446
+Load balance score for Node 1: 0.2227
+Node score for Node 1 and Process 10: 4.186
+Best node for Process 10 is Node 1 with score 4.186.
+Attempting to assign Process 10 to Node 1
+Current CPU Usage: 1/4, New Usage: 2/4
+Current Memory Usage: 4/8, New Usage: 6/8
+Current Load: 0.25, New Load: 0.5
+Process 10 assigned successfully.
+Process 10 assigned to Node 1.
+Node 1 indices updated. New capacity: 2
+Found 4 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+New load calculated for Node 1: 0.5
+Location score for Process 2 and Node 1: 0.0671685
+Load balance score for Node 1: 0.0758582
+Node score for Node 1 and Process 2: 8.91088
+Best node for Process 2 is Node 1 with score 8.91088.
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 2/4, New Usage: 2/4
+Current Memory Usage: 6/8, New Usage: 7/8
+Current Load: 0.5, New Load: 0.5
+Process 2 assigned successfully.
+Process 2 assigned to Node 1.
+Node 1 indices updated. New capacity: 2
+Found 2 candidate nodes for Process 4.
+Resources fit check for Node 2 and Process 4: Yes
+Node 2 can handle Process 4: Yes
+New load calculated for Node 2: 1
+Location score for Process 4 and Node 2: 0.0781742
+Node score for Node 2 and Process 4: 1.43441
+Best node for Process 4 is Node 2 with score 1.43441.
+Attempting to assign Process 4 to Node 2
+Current CPU Usage: 0/2, New Usage: 2/2
+Current Memory Usage: 0/4, New Usage: 4/4
+Current Load: 0.7, New Load: 1
+Process 4 assigned successfully.
+Process 4 assigned to Node 2.
+Node 2 indices updated. New capacity: 0
+Found 3 candidate nodes for Process 9.
+Resources fit check for Node 1 and Process 9: Yes
+Node 1 can handle Process 9: Yes
+New load calculated for Node 1: 0.5
+Location score for Process 9 and Node 1: 0.0671685
+Node score for Node 1 and Process 9: 4.91088
+Best node for Process 9 is Node 1 with score 4.91088.
+Attempting to assign Process 9 to Node 1
+Current CPU Usage: 2/4, New Usage: 2/4
+Current Memory Usage: 7/8, New Usage: 8/8
+Current Load: 0.5, New Load: 0.5
+Process 9 assigned successfully.
+Process 9 assigned to Node 1.
+Node 1 indices updated. New capacity: 2
+Found 2 candidate nodes for Process 8.
+Resources fit check for Node 6 and Process 8: Yes
+Node 6 can handle Process 8: Yes
+New load calculated for Node 6: 0.9
+Location score for Process 8 and Node 6: 0.197376
+Node score for Node 6 and Process 8: 2.27086
+Best node for Process 8 is Node 6 with score 2.27086.
+Attempting to assign Process 8 to Node 6
+Current CPU Usage: 0/1, New Usage: 0/1
+Current Memory Usage: 0/2, New Usage: 1/2
+Current Load: 0.9, New Load: 0
+Process 8 assigned successfully.
+Process 8 assigned to Node 6.
+Node 6 indices updated. New capacity: 1
+Retrying Process 3 with radius 163.5
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 6 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=10
+Retry failed for Process 3 (attempt 1).
+Retrying Process 5 with radius 164.7
+Attempting to partition Process 5.
+Node 1 can handle Process 5: No
+Node 6 can handle Process 5: No
+Partitioning failed for Process 5. Remaining: CPU=3
+Retry failed for Process 5 (attempt 1).
+Retry queue processing completed.
+Scheduling completed.
+
+=== Scheduled Processes Summary ===
+Process 7 (Process score: 3.347) is scheduled first and partitioned across nodes: 5, 3.
+Process 3 (Process score: 3.345) not scheduled.
+Process 6 (Process score: 3.298) assigned to Node 1.
+Process 1 (Process score: 3.06) assigned to Node 1.
+Process 5 (Process score: 2.86533) not scheduled.
+Process 10 (Process score: 2.52833) assigned to Node 1.
+Process 2 (Process score: 2.48833) assigned to Node 1.
+Process 4 (Process score: 2.24) assigned to Node 2.
+Process 9 (Process score: 2.14) assigned to Node 1.
+Process 8 (Process score: 1.77) assigned to Node 6.
+Process 3 (Process score: 3.345) not scheduled.
+Process 5 (Process score: 2.86533) not scheduled.
+==================================
+
+========================================
+       Scheduling Summary Report        
+========================================
+
+Per-Process Timing Details:
+----------------------------------------
+Process 7:
+  Start Time: 6 units
+  Completion Time: 11 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 5, 3
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 6:
+  Start Time: 5 units
+  Completion Time: 14 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 1
+----------------------------------------
+Process 1:
+  Start Time: 14 units
+  Completion Time: 20 units
+  Waiting Time: 14 units
+  Assigned to Node(s): 1
+----------------------------------------
+Process 5:
+  Status: Not Scheduled
+----------------------------------------
+Process 10:
+  Start Time: 20 units
+  Completion Time: 25 units
+  Waiting Time: 11 units
+  Assigned to Node(s): 1
+----------------------------------------
+Process 2:
+  Start Time: 25 units
+  Completion Time: 29 units
+  Waiting Time: 24 units
+  Assigned to Node(s): 1
+----------------------------------------
+Process 4:
+  Start Time: 3 units
+  Completion Time: 8 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 9:
+  Start Time: 29 units
+  Completion Time: 33 units
+  Waiting Time: 21 units
+  Assigned to Node(s): 1
+----------------------------------------
+Process 8:
+  Start Time: 7 units
+  Completion Time: 10 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 5:
+  Status: Not Scheduled
+----------------------------------------
+
+Aggregate Metrics:
+----------------------------------------
+Total Execution Time: 33 units
+Average Waiting Time: 8.75 units
+Throughput: 0.242424 processes/unit
+CPU Utilization: 85.7143%
+Fairness (Variance of Waiting Times): 90.1875
+----------------------------------------
+
+Calculation Counts:
+----------------------------------------
+Process Scoring: 10
+Node Scoring: 10
+Resource Checks: 10
+Retry Attempts: 2
+Partitioning Attempts: 5
+Scheduling Overhead (Total Calculations): 37
+----------------------------------------
+
+End of Scheduling Summary
+========================================

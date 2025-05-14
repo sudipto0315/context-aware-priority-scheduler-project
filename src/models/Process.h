@@ -87,6 +87,7 @@ public:
     void setBatteryLifetime(double batt) { batteryLifetime = batt; }
     void setCurrentTaskLoad(double load) { currentTaskLoad = load; }
     void setRequiredResources(double cpu, double memory) { requiredResources = Resource(cpu, memory); }
+    void setRequiredBandwidth(double bw) { requiredBandwidth = bw; }
     void setProcessScore(double newProcessScore) { processScore = newProcessScore; }  // New setter for score
 
     // Utility Functions
