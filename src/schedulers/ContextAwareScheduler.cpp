@@ -420,40 +420,49 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
 
 // Assign process to the most suitable fog node
 int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
-    int bestNode = -1;
-    double bestScore = std::numeric_limits<double>::lowest();
+    std::vector<std::pair<double, int>> eligibleNodes; // Pair of (overallLoad, nodeId)
     
+    // Get candidate nodes for the process
     std::vector<int> candidateNodeIds = findCandidateNodes(process);
-    
+
+    // Evaluate each candidate node
     for (int nodeId : candidateNodeIds) {
         FogNode& node = *nodeMap[nodeId];
         if (!node.getIsActive()) continue;
-        
+
         auto resources = process->getRequiredResources();
         if (canResourcesFit(node, resources, *process) && canNodeHandleProcess(node, *process)) {
-            double newLoad = calculateNewLoad(node, resources);
-            if (newLoad <= 1.0) {
-                double score = calculateNodeScore(node, process);
-                if (score > bestScore) {
-                    bestScore = score;
-                    bestNode = nodeId;
-                    if (score > 4.0) break; // Early exit for high scores
-                }
+            // Calculate projected CPU load after assignment
+            double cpuLoad = node.getCurrentLoad() + (resources.cpu / std::max(1e-6, node.getCpuCapacity()));
+            // Calculate projected bandwidth load after assignment
+            double bandwidthLoad = (nodeUsedBandwidth[nodeId] + process->getRequiredBandwidth()) / node.getBandwidth();
+            // Overall load is the maximum of CPU and bandwidth loads
+            double overallLoad = std::max(cpuLoad, bandwidthLoad);
+            if (overallLoad <= 1.0) { // Ensure node can handle the process without overloading
+                eligibleNodes.emplace_back(overallLoad, nodeId);
             }
         }
     }
-    if (bestNode != -1) {
-        FogNode& node = *nodeMap[bestNode];
-        if (node.assignProcess(*process)) {
-            nodeUsedBandwidth[bestNode] += process->getRequiredBandwidth();
-            std::cout << "Best node for Process " << process->getProcessID() << " is Node " << bestNode << " with score " << bestScore << ".\n";
-        } else {
-            bestNode = -1; // Assignment failed
+
+    // If there are eligible nodes, select the one with the lowest load
+    if (!eligibleNodes.empty()) {
+        // Sort by overallLoad in ascending order (lowest load first)
+        std::sort(eligibleNodes.begin(), eligibleNodes.end());
+        int bestNodeId = eligibleNodes[0].second;
+        FogNode& bestNode = *nodeMap[bestNodeId];
+
+        // Attempt to assign the process to the selected node
+        if (bestNode.assignProcess(*process)) {
+            nodeUsedBandwidth[bestNodeId] += process->getRequiredBandwidth();
+            std::cout << "Assigned Process " << process->getProcessID() 
+                      << " to Node " << bestNodeId << " with lowest load.\n";
+            return bestNodeId;
         }
-    } else {
-        std::cout << "No suitable node found for Process " << process->getProcessID() << ".\n";
     }
-    return bestNode;
+
+    // No suitable node found
+    std::cout << "No suitable node found for Process " << process->getProcessID() << ".\n";
+    return -1;
 }
 
 // Partition process across multiple nodes
