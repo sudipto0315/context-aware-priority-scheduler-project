@@ -84,6 +84,7 @@ private:
     // Node mapping and indexing for faster lookups
     std::map<int, FogNode*> nodeMap;                   // Maps node ID to FogNode pointer
     std::unordered_map<int, size_t> nodeIndexMap;      // Maps node ID to vector index
+    std::unordered_map<int, double> nodeUsedBandwidth; // Maps node ID to used bandwidth
     
     // Cache for coordinates to avoid recalculation
     std::unordered_map<int, std::pair<double, double>> nodeCoordinates;
