@@ -1,0 +1,11 @@
+Process ID,Arrival Time,Burst Time,Priority,Start Time,Completion Time,Waiting Time,Assigned Nodes,Status
+1,0,6,1,14.0,20.0,14.0,1,Not Scheduled
+2,1,4,2,25.0,29.0,24.0,1,Not Scheduled
+3,2,8,1,,,,,Not Scheduled
+4,3,5,3,3.0,8.0,0.0,2,Not Scheduled
+5,4,7,2,,,,,Not Scheduled
+6,5,9,1,5.0,14.0,0.0,1,Not Scheduled
+7,6,10,1,6.0,11.0,0.0,"5, 3",Not Scheduled
+8,7,3,4,7.0,10.0,0.0,6,Not Scheduled
+9,8,4,3,29.0,33.0,21.0,1,Not Scheduled
+10,9,5,2,20.0,25.0,11.0,1,Not Scheduled

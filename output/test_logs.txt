@@ -1,0 +1,3843 @@
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (-3.75863, -3.48889) to (33.7683, 33.0404).
+Spatial dimensions: (37.5269, 36.5293).
+Spatial boundary (A,B,C,D): (-3.75863, -3.48889), (33.7683, -3.48889), (33.7683, 33.0404), (-3.75863, 33.0404)
+ContextAwareScheduler initialized with 10 nodes.
+Starting Simulation...
+Process score for Process 1: 1.407
+Process 1 added to queue with score 1.407 (groupHash: 1910523576).
+Process score for Process 2: 1.793
+Process 2 added to queue with score 1.793 (groupHash: 1948562201).
+Process score for Process 3: 1.92833
+Process 3 added to queue with score 1.92833 (groupHash: 2104568672).
+Process score for Process 4: 2.547
+Process 4 added to queue with score 2.547 (groupHash: 633836266).
+Process score for Process 5: 3.13
+Process 5 added to queue with score 3.13 (groupHash: 974236373).
+Process score for Process 6: 2.732
+Process 6 added to queue with score 2.732 (groupHash: 1159006837).
+Process score for Process 7: 2.86667
+Process 7 added to queue with score 2.86667 (groupHash: 511843742).
+Process score for Process 8: 1.179
+Process 8 added to queue with score 1.179 (groupHash: 660603087).
+Process score for Process 9: 1.13667
+Process 9 added to queue with score 1.13667 (groupHash: 553994499).
+Process score for Process 10: 2.42
+Process 10 added to queue with score 2.42 (groupHash: 1371831365).
+Process score for Process 11: 1.47833
+Process 11 added to queue with score 1.47833 (groupHash: 1394906134).
+Process score for Process 12: 1.41333
+Process 12 added to queue with score 1.41333 (groupHash: 702788185).
+Process score for Process 13: 2.359
+Process 13 added to queue with score 2.359 (groupHash: 1156799902).
+Process score for Process 14: 1.29867
+Process 14 added to queue with score 1.29867 (groupHash: 1998809461).
+Process score for Process 15: 1.24233
+Process 15 added to queue with score 1.24233 (groupHash: 658333257).
+Process score for Process 16: 1.627
+Process 16 added to queue with score 1.627 (groupHash: 6078808).
+Process score for Process 17: 1.54467
+Process 17 added to queue with score 1.54467 (groupHash: 1212208669).
+Process score for Process 18: 1.506
+Process 18 added to queue with score 1.506 (groupHash: 1047486500).
+Process score for Process 19: 1.57
+Process 19 added to queue with score 1.57 (groupHash: 1730783606).
+Process score for Process 20: 1.679
+Process 20 added to queue with score 1.679 (groupHash: 762959035).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 1
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.407
+User ID: 132
+Mobility: 0.15
+Relinquish Probability: 0.14
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.06
+Current Task Load: 0.93
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 44 Mbps
+Max Delay: 90.94 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 0
+Data Size: 765 MB
+Process ID: 2
+Arrival Time: 2
+Burst Time: 18
+Priority: 4
+Remaining Time: 18
+Process Score: 1.793
+User ID: 112
+Mobility: 0.65
+Relinquish Probability: 0.78
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.88
+Current Task Load: 0.31
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 100 ms
+Max Packet Loss: 0.0624
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 2
+Data Size: 1060 MB
+Process ID: 3
+Arrival Time: 7
+Burst Time: 41
+Priority: 2
+Remaining Time: 41
+Process Score: 1.92833
+User ID: 178
+Mobility: 0.97
+Relinquish Probability: 1
+Usage History: 
+NPS: 6
+Application Type: autonomous_driving
+Latency Sensitivity: 0.95
+Current Task Load: 0.44
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:07 1970
+Required Bandwidth: 62 Mbps
+Max Delay: 1.63 ms
+Max Packet Loss: 0.0011
+Battery Lifetime: 22 hours
+Required CPU: 1, Memory: 3
+Data Size: 1847 MB
+Process ID: 4
+Arrival Time: 10
+Burst Time: 53
+Priority: 4
+Remaining Time: 53
+Process Score: 2.547
+User ID: 148
+Mobility: 0.68
+Relinquish Probability: 0.43
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.54
+Current Task Load: 0.22
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:10 1970
+Required Bandwidth: 32 Mbps
+Max Delay: 92.11 ms
+Max Packet Loss: 0.0179
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 3
+Data Size: 349 MB
+Process ID: 5
+Arrival Time: 11
+Burst Time: 57
+Priority: 1
+Remaining Time: 57
+Process Score: 3.13
+User ID: 120
+Mobility: 0.82
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 10
+Application Type: iot_data_collection
+Latency Sensitivity: 0.63
+Current Task Load: 0.43
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:12 1970
+Required Bandwidth: 48 Mbps
+Max Delay: 93.1 ms
+Max Packet Loss: 0.0232
+Battery Lifetime: 5 hours
+Required CPU: 0, Memory: 1
+Data Size: 836 MB
+Process ID: 6
+Arrival Time: 15
+Burst Time: 17
+Priority: 3
+Remaining Time: 17
+Process Score: 2.732
+User ID: 165
+Mobility: 0.57
+Relinquish Probability: 0.51
+Usage History: 
+NPS: 10
+Application Type: cloud_offload
+Latency Sensitivity: 0.3
+Current Task Load: 0.87
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:15 1970
+Required Bandwidth: 34 Mbps
+Max Delay: 34.31 ms
+Max Packet Loss: 0.079
+Battery Lifetime: 29 hours
+Required CPU: 1, Memory: 1
+Data Size: 332 MB
+Process ID: 7
+Arrival Time: 19
+Burst Time: 28
+Priority: 5
+Remaining Time: 28
+Process Score: 2.86667
+User ID: 189
+Mobility: 0.25
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.17
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:20 1970
+Required Bandwidth: 27 Mbps
+Max Delay: 91.32 ms
+Max Packet Loss: 0.0145
+Battery Lifetime: 32 hours
+Required CPU: 0, Memory: 2
+Data Size: 386 MB
+Process ID: 8
+Arrival Time: 22
+Burst Time: 1
+Priority: 4
+Remaining Time: 1
+Process Score: 1.179
+User ID: 122
+Mobility: 0.01
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.23
+Current Task Load: 0.62
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:22 1970
+Required Bandwidth: 19 Mbps
+Max Delay: 71.93 ms
+Max Packet Loss: 0.0831
+Battery Lifetime: 67 hours
+Required CPU: 1, Memory: 1
+Data Size: 1412 MB
+Process ID: 9
+Arrival Time: 26
+Burst Time: 54
+Priority: 5
+Remaining Time: 54
+Process Score: 1.13667
+User ID: 149
+Mobility: 0.75
+Relinquish Probability: 0.53
+Usage History: 
+NPS: 3
+Application Type: virtual_reality
+Latency Sensitivity: 0.26
+Current Task Load: 0.39
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:27 1970
+Required Bandwidth: 66 Mbps
+Max Delay: 7.02 ms
+Max Packet Loss: 0.0007
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 6
+Data Size: 163 MB
+Process ID: 10
+Arrival Time: 29
+Burst Time: 57
+Priority: 4
+Remaining Time: 57
+Process Score: 2.42
+User ID: 106
+Mobility: 0.44
+Relinquish Probability: 0.76
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.17
+Current Task Load: 0.78
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:30 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 37.58 ms
+Max Packet Loss: 0.0321
+Battery Lifetime: 9 hours
+Required CPU: 1, Memory: 0
+Data Size: 533 MB
+Process ID: 11
+Arrival Time: 32
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 1.47833
+User ID: 103
+Mobility: 0.73
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 3
+Application Type: cloud_offload
+Latency Sensitivity: 0.5
+Current Task Load: 0.21
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 93 Mbps
+Max Delay: 10.41 ms
+Max Packet Loss: 0.0004
+Battery Lifetime: 89 hours
+Required CPU: 3, Memory: 3
+Data Size: 1192 MB
+Process ID: 12
+Arrival Time: 32
+Burst Time: 22
+Priority: 2
+Remaining Time: 22
+Process Score: 1.41333
+User ID: 179
+Mobility: 0.43
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 2
+Application Type: ai_inference
+Latency Sensitivity: 0.35
+Current Task Load: 0.57
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 8 Mbps
+Max Delay: 32.32 ms
+Max Packet Loss: 0.0693
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 3
+Data Size: 1802 MB
+Process ID: 13
+Arrival Time: 37
+Burst Time: 11
+Priority: 4
+Remaining Time: 11
+Process Score: 2.359
+User ID: 166
+Mobility: 0.75
+Relinquish Probability: 0.9
+Usage History: 
+NPS: 9
+Application Type: virtual_reality
+Latency Sensitivity: 0.51
+Current Task Load: 0.43
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:37 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 20.91 ms
+Max Packet Loss: 0.0246
+Battery Lifetime: 48 hours
+Required CPU: 0, Memory: 2
+Data Size: 1870 MB
+Process ID: 14
+Arrival Time: 41
+Burst Time: 14
+Priority: 5
+Remaining Time: 14
+Process Score: 1.29867
+User ID: 117
+Mobility: 0.16
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 2
+Application Type: autonomous_driving
+Latency Sensitivity: 0.3
+Current Task Load: 0.04
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:42 1970
+Required Bandwidth: 35 Mbps
+Max Delay: 84.08 ms
+Max Packet Loss: 0.0803
+Battery Lifetime: 61 hours
+Required CPU: 1, Memory: 3
+Data Size: 1044 MB
+Process ID: 15
+Arrival Time: 43
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 1.24233
+User ID: 154
+Mobility: 0.43
+Relinquish Probability: 0.8
+Usage History: 
+NPS: 2
+Application Type: iot_data_collection
+Latency Sensitivity: 0.41
+Current Task Load: 0.77
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:43 1970
+Required Bandwidth: 61 Mbps
+Max Delay: 9.85 ms
+Max Packet Loss: 0.0013
+Battery Lifetime: 44 hours
+Required CPU: 2, Memory: 6
+Data Size: 1387 MB
+Process ID: 16
+Arrival Time: 44
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.627
+User ID: 102
+Mobility: 0.99
+Relinquish Probability: 0.34
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.31
+Current Task Load: 0.66
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:45 1970
+Required Bandwidth: 73 Mbps
+Max Delay: 10.18 ms
+Max Packet Loss: 0.0022
+Battery Lifetime: 59 hours
+Required CPU: 2, Memory: 7
+Data Size: 1573 MB
+Process ID: 17
+Arrival Time: 46
+Burst Time: 39
+Priority: 5
+Remaining Time: 39
+Process Score: 1.54467
+User ID: 141
+Mobility: 0.9
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.34
+Current Task Load: 0.45
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:47 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 78.9 ms
+Max Packet Loss: 0.011
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 2
+Data Size: 303 MB
+Process ID: 18
+Arrival Time: 48
+Burst Time: 5
+Priority: 3
+Remaining Time: 5
+Process Score: 1.506
+User ID: 183
+Mobility: 0.55
+Relinquish Probability: 0.07
+Usage History: 
+NPS: 2
+Application Type: industrial_automation
+Latency Sensitivity: 0.88
+Current Task Load: 0.95
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:49 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 69.1 ms
+Max Packet Loss: 0.069
+Battery Lifetime: 13 hours
+Required CPU: 1, Memory: 1
+Data Size: 1285 MB
+Process ID: 19
+Arrival Time: 53
+Burst Time: 23
+Priority: 1
+Remaining Time: 23
+Process Score: 1.57
+User ID: 122
+Mobility: 0.3
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 2
+Application Type: virtual_reality
+Latency Sensitivity: 0.08
+Current Task Load: 0.85
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:53 1970
+Required Bandwidth: 59 Mbps
+Max Delay: 8.44 ms
+Max Packet Loss: 0.0014
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 4
+Data Size: 208 MB
+Process ID: 20
+Arrival Time: 56
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.679
+User ID: 134
+Mobility: 0.92
+Relinquish Probability: 0.71
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.13
+Current Task Load: 0.53
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:56 1970
+Required Bandwidth: 21 Mbps
+Max Delay: 24.09 ms
+Max Packet Loss: 0.0101
+Battery Lifetime: 73 hours
+Required CPU: 1, Memory: 1
+Data Size: 469 MB
+Scheduling started. Queue size: 20
+Retrieved Process 5 from queue.
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 10 from queue.
+Retrieved Process 13 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 20 from queue.
+Retrieved Process 16 from queue.
+Retrieved Process 19 from queue.
+Retrieved Process 17 from queue.
+Retrieved Process 18 from queue.
+Retrieved Process 11 from queue.
+Retrieved Process 12 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 14 from queue.
+Retrieved Process 15 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 9 from queue.
+Found 9 candidate nodes for Process 5.
+Resources fit check for Node 1 and Process 5: Yes
+Node 1 can handle Process 5: Yes
+Resources fit check for Node 2 and Process 5: Yes
+Node 2 can handle Process 5: Yes
+Resources fit check for Node 3 and Process 5: Yes
+Node 3 can handle Process 5: No
+Resources fit check for Node 8 and Process 5: Yes
+Node 8 can handle Process 5: Yes
+Resources fit check for Node 6 and Process 5: Yes
+Node 6 can handle Process 5: Yes
+Resources fit check for Node 9 and Process 5: Yes
+Node 9 can handle Process 5: Yes
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+Resources fit check for Node 7 and Process 5: Yes
+Node 7 can handle Process 5: Yes
+Resources fit check for Node 10 and Process 5: Yes
+Node 10 can handle Process 5: Yes
+Attempting to assign Process 5 to Node 6
+Current CPU Usage: 0/9, New Usage: 0/9
+Current Memory Usage: 0/32, New Usage: 1/32
+Current Load: 0.05, New Load: 0
+Process 5 assigned successfully.
+Assigned Process 5 to Node 6 with lowest load.
+Process 5 assigned to Node 6.
+Node 6 indices updated. New capacity: 9
+Found 9 candidate nodes for Process 7.
+Resources fit check for Node 1 and Process 7: Yes
+Node 1 can handle Process 7: Yes
+Resources fit check for Node 2 and Process 7: Yes
+Node 2 can handle Process 7: Yes
+Resources fit check for Node 3 and Process 7: Yes
+Node 3 can handle Process 7: No
+Resources fit check for Node 5 and Process 7: Yes
+Node 5 can handle Process 7: Yes
+Resources fit check for Node 7 and Process 7: Yes
+Node 7 can handle Process 7: Yes
+Resources fit check for Node 10 and Process 7: Yes
+Node 10 can handle Process 7: No
+Resources fit check for Node 8 and Process 7: Yes
+Node 8 can handle Process 7: Yes
+Resources fit check for Node 6 and Process 7: Yes
+Node 6 can handle Process 7: Yes
+Resources fit check for Node 9 and Process 7: Yes
+Node 9 can handle Process 7: Yes
+Attempting to assign Process 7 to Node 8
+Current CPU Usage: 0/14, New Usage: 0/14
+Current Memory Usage: 0/19, New Usage: 2/19
+Current Load: 0.02, New Load: 0
+Process 7 assigned successfully.
+Assigned Process 7 to Node 8 with lowest load.
+Process 7 assigned to Node 8.
+Node 8 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 6.
+Resources fit check for Node 1 and Process 6: Yes
+Node 1 can handle Process 6: Yes
+Resources fit check for Node 2 and Process 6: Yes
+Node 2 can handle Process 6: Yes
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: No
+Resources fit check for Node 5 and Process 6: Yes
+Node 5 can handle Process 6: Yes
+Resources fit check for Node 7 and Process 6: Yes
+Node 7 can handle Process 6: Yes
+Resources fit check for Node 10 and Process 6: Yes
+Node 10 can handle Process 6: No
+Resources fit check for Node 8 and Process 6: Yes
+Node 8 can handle Process 6: Yes
+Resources fit check for Node 6 and Process 6: Yes
+Node 6 can handle Process 6: Yes
+Resources fit check for Node 9 and Process 6: Yes
+Node 9 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 6
+Current CPU Usage: 0/9, New Usage: 1/9
+Current Memory Usage: 1/32, New Usage: 2/32
+Current Load: 0, New Load: 0.111111
+Process 6 assigned successfully.
+Assigned Process 6 to Node 6 with lowest load.
+Process 6 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 4.
+Resources fit check for Node 1 and Process 4: Yes
+Node 1 can handle Process 4: Yes
+Resources fit check for Node 2 and Process 4: Yes
+Node 2 can handle Process 4: Yes
+Resources fit check for Node 3 and Process 4: Yes
+Node 3 can handle Process 4: No
+Resources fit check for Node 6 and Process 4: Yes
+Node 6 can handle Process 4: Yes
+Resources fit check for Node 9 and Process 4: Yes
+Node 9 can handle Process 4: Yes
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+Resources fit check for Node 7 and Process 4: Yes
+Node 7 can handle Process 4: Yes
+Resources fit check for Node 10 and Process 4: Yes
+Node 10 can handle Process 4: Yes
+Resources fit check for Node 8 and Process 4: Yes
+Node 8 can handle Process 4: Yes
+Attempting to assign Process 4 to Node 6
+Current CPU Usage: 1/9, New Usage: 1/9
+Current Memory Usage: 2/32, New Usage: 5/32
+Current Load: 0.111111, New Load: 0.111111
+Process 4 assigned successfully.
+Assigned Process 4 to Node 6 with lowest load.
+Process 4 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 10.
+Resources fit check for Node 1 and Process 10: Yes
+Node 1 can handle Process 10: Yes
+Resources fit check for Node 2 and Process 10: Yes
+Node 2 can handle Process 10: Yes
+Resources fit check for Node 3 and Process 10: Yes
+Node 3 can handle Process 10: No
+Resources fit check for Node 5 and Process 10: Yes
+Node 5 can handle Process 10: Yes
+Resources fit check for Node 7 and Process 10: Yes
+Node 7 can handle Process 10: Yes
+Resources fit check for Node 10 and Process 10: Yes
+Node 10 can handle Process 10: No
+Resources fit check for Node 8 and Process 10: Yes
+Node 8 can handle Process 10: Yes
+Resources fit check for Node 6 and Process 10: Yes
+Node 6 can handle Process 10: Yes
+Resources fit check for Node 9 and Process 10: Yes
+Node 9 can handle Process 10: Yes
+Attempting to assign Process 10 to Node 8
+Current CPU Usage: 0/14, New Usage: 1/14
+Current Memory Usage: 2/19, New Usage: 2/19
+Current Load: 0, New Load: 0.0714286
+Process 10 assigned successfully.
+Assigned Process 10 to Node 8 with lowest load.
+Process 10 assigned to Node 8.
+Node 8 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 13.
+Resources fit check for Node 1 and Process 13: Yes
+Node 1 can handle Process 13: Yes
+Resources fit check for Node 2 and Process 13: Yes
+Node 2 can handle Process 13: Yes
+Resources fit check for Node 3 and Process 13: Yes
+Node 3 can handle Process 13: No
+Resources fit check for Node 4 and Process 13: Yes
+Node 4 can handle Process 13: No
+Resources fit check for Node 5 and Process 13: Yes
+Node 5 can handle Process 13: Yes
+Resources fit check for Node 7 and Process 13: Yes
+Node 7 can handle Process 13: Yes
+Resources fit check for Node 10 and Process 13: Yes
+Node 10 can handle Process 13: No
+Resources fit check for Node 8 and Process 13: Yes
+Node 8 can handle Process 13: Yes
+Resources fit check for Node 6 and Process 13: Yes
+Node 6 can handle Process 13: Yes
+Resources fit check for Node 9 and Process 13: Yes
+Node 9 can handle Process 13: Yes
+Attempting to assign Process 13 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 0/28, New Usage: 2/28
+Current Load: 0.14, New Load: 0
+Process 13 assigned successfully.
+Assigned Process 13 to Node 5 with lowest load.
+Process 13 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 9 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: No
+Resources fit check for Node 2 and Process 3: Yes
+Node 2 can handle Process 3: No
+Resources fit check for Node 3 and Process 3: Yes
+Node 3 can handle Process 3: No
+Resources fit check for Node 6 and Process 3: Yes
+Node 6 can handle Process 3: No
+Resources fit check for Node 9 and Process 3: Yes
+Node 9 can handle Process 3: No
+Resources fit check for Node 5 and Process 3: Yes
+Node 5 can handle Process 3: No
+Resources fit check for Node 7 and Process 3: Yes
+Node 7 can handle Process 3: No
+Resources fit check for Node 10 and Process 3: Yes
+Node 10 can handle Process 3: No
+Resources fit check for Node 8 and Process 3: Yes
+Node 8 can handle Process 3: No
+No suitable node found for Process 3.
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+No node found. Adding to retry queue.
+Found 10 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+Resources fit check for Node 2 and Process 2: Yes
+Node 2 can handle Process 2: Yes
+Resources fit check for Node 3 and Process 2: Yes
+Node 3 can handle Process 2: Yes
+Resources fit check for Node 4 and Process 2: Yes
+Node 4 can handle Process 2: Yes
+Resources fit check for Node 6 and Process 2: Yes
+Node 6 can handle Process 2: Yes
+Resources fit check for Node 9 and Process 2: Yes
+Node 9 can handle Process 2: Yes
+Resources fit check for Node 5 and Process 2: Yes
+Node 5 can handle Process 2: Yes
+Resources fit check for Node 7 and Process 2: Yes
+Node 7 can handle Process 2: Yes
+Resources fit check for Node 10 and Process 2: Yes
+Node 10 can handle Process 2: Yes
+Resources fit check for Node 8 and Process 2: Yes
+Node 8 can handle Process 2: Yes
+Attempting to assign Process 2 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 2/28, New Usage: 4/28
+Current Load: 0, New Load: 0
+Process 2 assigned successfully.
+Assigned Process 2 to Node 5 with lowest load.
+Process 2 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 10 candidate nodes for Process 20.
+Resources fit check for Node 1 and Process 20: Yes
+Node 1 can handle Process 20: Yes
+Resources fit check for Node 2 and Process 20: Yes
+Node 2 can handle Process 20: Yes
+Resources fit check for Node 3 and Process 20: Yes
+Node 3 can handle Process 20: No
+Resources fit check for Node 4 and Process 20: Yes
+Node 4 can handle Process 20: No
+Resources fit check for Node 6 and Process 20: Yes
+Node 6 can handle Process 20: Yes
+Resources fit check for Node 9 and Process 20: Yes
+Node 9 can handle Process 20: Yes
+Resources fit check for Node 8 and Process 20: Yes
+Node 8 can handle Process 20: Yes
+Resources fit check for Node 5 and Process 20: Yes
+Node 5 can handle Process 20: Yes
+Resources fit check for Node 7 and Process 20: Yes
+Node 7 can handle Process 20: Yes
+Resources fit check for Node 10 and Process 20: Yes
+Node 10 can handle Process 20: No
+Attempting to assign Process 20 to Node 5
+Current CPU Usage: 0/15, New Usage: 1/15
+Current Memory Usage: 4/28, New Usage: 5/28
+Current Load: 0, New Load: 0.0666667
+Process 20 assigned successfully.
+Assigned Process 20 to Node 5 with lowest load.
+Process 20 assigned to Node 5.
+Node 5 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 16.
+Resources fit check for Node 1 and Process 16: Yes
+Node 1 can handle Process 16: No
+Resources fit check for Node 2 and Process 16: Yes
+Node 2 can handle Process 16: Yes
+Resources fit check for Node 3 and Process 16: Yes
+Node 3 can handle Process 16: No
+Resources fit check for Node 5 and Process 16: Yes
+Node 5 can handle Process 16: No
+Resources fit check for Node 7 and Process 16: Yes
+Node 7 can handle Process 16: Yes
+Resources fit check for Node 10 and Process 16: Yes
+Node 10 can handle Process 16: No
+Resources fit check for Node 8 and Process 16: Yes
+Node 8 can handle Process 16: No
+Resources fit check for Node 6 and Process 16: Yes
+Node 6 can handle Process 16: No
+Resources fit check for Node 9 and Process 16: Yes
+Node 9 can handle Process 16: No
+Attempting to assign Process 16 to Node 7
+Current CPU Usage: 0/16, New Usage: 2/16
+Current Memory Usage: 0/17, New Usage: 7/17
+Current Load: 0.26, New Load: 0.125
+Process 16 assigned successfully.
+Assigned Process 16 to Node 7 with lowest load.
+Process 16 assigned to Node 7.
+Node 7 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 19.
+Resources fit check for Node 1 and Process 19: Yes
+Node 1 can handle Process 19: No
+Resources fit check for Node 2 and Process 19: Yes
+Node 2 can handle Process 19: Yes
+Resources fit check for Node 3 and Process 19: Yes
+Node 3 can handle Process 19: No
+Resources fit check for Node 6 and Process 19: Yes
+Node 6 can handle Process 19: No
+Resources fit check for Node 9 and Process 19: Yes
+Node 9 can handle Process 19: No
+Resources fit check for Node 5 and Process 19: Yes
+Node 5 can handle Process 19: No
+Resources fit check for Node 7 and Process 19: Yes
+Node 7 can handle Process 19: No
+Resources fit check for Node 10 and Process 19: Yes
+Node 10 can handle Process 19: No
+Resources fit check for Node 8 and Process 19: Yes
+Node 8 can handle Process 19: No
+Attempting to assign Process 19 to Node 2
+Current CPU Usage: 0/11, New Usage: 1/11
+Current Memory Usage: 0/17, New Usage: 4/17
+Current Load: 0.24, New Load: 0.0909091
+Process 19 assigned successfully.
+Assigned Process 19 to Node 2 with lowest load.
+Process 19 assigned to Node 2.
+Node 2 indices updated. New capacity: 10
+Found 9 candidate nodes for Process 17.
+Resources fit check for Node 1 and Process 17: Yes
+Node 1 can handle Process 17: Yes
+Resources fit check for Node 2 and Process 17: Yes
+Node 2 can handle Process 17: Yes
+Resources fit check for Node 3 and Process 17: Yes
+Node 3 can handle Process 17: No
+Resources fit check for Node 5 and Process 17: Yes
+Node 5 can handle Process 17: Yes
+Resources fit check for Node 7 and Process 17: Yes
+Node 7 can handle Process 17: Yes
+Resources fit check for Node 10 and Process 17: Yes
+Node 10 can handle Process 17: No
+Resources fit check for Node 8 and Process 17: Yes
+Node 8 can handle Process 17: Yes
+Resources fit check for Node 6 and Process 17: Yes
+Node 6 can handle Process 17: Yes
+Resources fit check for Node 9 and Process 17: Yes
+Node 9 can handle Process 17: Yes
+Attempting to assign Process 17 to Node 5
+Current CPU Usage: 1/15, New Usage: 2/15
+Current Memory Usage: 5/28, New Usage: 7/28
+Current Load: 0.0666667, New Load: 0.133333
+Process 17 assigned successfully.
+Assigned Process 17 to Node 5 with lowest load.
+Process 17 assigned to Node 5.
+Node 5 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 18.
+Resources fit check for Node 1 and Process 18: Yes
+Node 1 can handle Process 18: Yes
+Resources fit check for Node 2 and Process 18: Yes
+Node 2 can handle Process 18: Yes
+Resources fit check for Node 3 and Process 18: Yes
+Node 3 can handle Process 18: Yes
+Resources fit check for Node 4 and Process 18: Yes
+Node 4 can handle Process 18: No
+Resources fit check for Node 6 and Process 18: Yes
+Node 6 can handle Process 18: Yes
+Resources fit check for Node 9 and Process 18: Yes
+Node 9 can handle Process 18: Yes
+Resources fit check for Node 8 and Process 18: Yes
+Node 8 can handle Process 18: Yes
+Resources fit check for Node 5 and Process 18: Yes
+Node 5 can handle Process 18: Yes
+Resources fit check for Node 7 and Process 18: Yes
+Node 7 can handle Process 18: Yes
+Resources fit check for Node 10 and Process 18: Yes
+Node 10 can handle Process 18: No
+Attempting to assign Process 18 to Node 8
+Current CPU Usage: 1/14, New Usage: 2/14
+Current Memory Usage: 2/19, New Usage: 3/19
+Current Load: 0.0714286, New Load: 0.142857
+Process 18 assigned successfully.
+Assigned Process 18 to Node 8 with lowest load.
+Process 18 assigned to Node 8.
+Node 8 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 11.
+Resources fit check for Node 1 and Process 11: Yes
+Node 1 can handle Process 11: No
+Resources fit check for Node 2 and Process 11: Yes
+Node 2 can handle Process 11: Yes
+Resources fit check for Node 3 and Process 11: Yes
+Node 3 can handle Process 11: No
+Resources fit check for Node 8 and Process 11: Yes
+Node 8 can handle Process 11: No
+Resources fit check for Node 6 and Process 11: Yes
+Node 6 can handle Process 11: No
+Resources fit check for Node 9 and Process 11: Yes
+Node 9 can handle Process 11: No
+Resources fit check for Node 5 and Process 11: Yes
+Node 5 can handle Process 11: No
+Resources fit check for Node 7 and Process 11: Yes
+Node 7 can handle Process 11: No
+Resources fit check for Node 10 and Process 11: Yes
+Node 10 can handle Process 11: No
+Attempting to assign Process 11 to Node 2
+Current CPU Usage: 1/11, New Usage: 4/11
+Current Memory Usage: 4/17, New Usage: 7/17
+Current Load: 0.0909091, New Load: 0.363636
+Process 11 assigned successfully.
+Assigned Process 11 to Node 2 with lowest load.
+Process 11 assigned to Node 2.
+Node 2 indices updated. New capacity: 7
+Found 10 candidate nodes for Process 12.
+Resources fit check for Node 1 and Process 12: Yes
+Node 1 can handle Process 12: Yes
+Resources fit check for Node 2 and Process 12: Yes
+Node 2 can handle Process 12: Yes
+Resources fit check for Node 3 and Process 12: Yes
+Node 3 can handle Process 12: No
+Resources fit check for Node 4 and Process 12: Yes
+Node 4 can handle Process 12: No
+Resources fit check for Node 6 and Process 12: Yes
+Node 6 can handle Process 12: Yes
+Resources fit check for Node 9 and Process 12: Yes
+Node 9 can handle Process 12: Yes
+Resources fit check for Node 8 and Process 12: Yes
+Node 8 can handle Process 12: Yes
+Resources fit check for Node 5 and Process 12: Yes
+Node 5 can handle Process 12: Yes
+Resources fit check for Node 7 and Process 12: Yes
+Node 7 can handle Process 12: Yes
+Resources fit check for Node 10 and Process 12: Yes
+Node 10 can handle Process 12: No
+Attempting to assign Process 12 to Node 7
+Current CPU Usage: 2/16, New Usage: 3/16
+Current Memory Usage: 7/17, New Usage: 10/17
+Current Load: 0.125, New Load: 0.1875
+Process 12 assigned successfully.
+Assigned Process 12 to Node 7 with lowest load.
+Process 12 assigned to Node 7.
+Node 7 indices updated. New capacity: 13
+Found 9 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+Resources fit check for Node 2 and Process 1: Yes
+Node 2 can handle Process 1: Yes
+Resources fit check for Node 3 and Process 1: Yes
+Node 3 can handle Process 1: No
+Resources fit check for Node 6 and Process 1: Yes
+Node 6 can handle Process 1: Yes
+Resources fit check for Node 9 and Process 1: Yes
+Node 9 can handle Process 1: Yes
+Resources fit check for Node 5 and Process 1: Yes
+Node 5 can handle Process 1: Yes
+Resources fit check for Node 7 and Process 1: Yes
+Node 7 can handle Process 1: Yes
+Resources fit check for Node 10 and Process 1: Yes
+Node 10 can handle Process 1: Yes
+Resources fit check for Node 8 and Process 1: Yes
+Node 8 can handle Process 1: Yes
+Attempting to assign Process 1 to Node 5
+Current CPU Usage: 2/15, New Usage: 3/15
+Current Memory Usage: 7/28, New Usage: 7/28
+Current Load: 0.133333, New Load: 0.2
+Process 1 assigned successfully.
+Assigned Process 1 to Node 5 with lowest load.
+Process 1 assigned to Node 5.
+Node 5 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 14.
+Resources fit check for Node 1 and Process 14: Yes
+Node 1 can handle Process 14: Yes
+Resources fit check for Node 2 and Process 14: Yes
+Node 2 can handle Process 14: Yes
+Resources fit check for Node 3 and Process 14: Yes
+Node 3 can handle Process 14: Yes
+Resources fit check for Node 8 and Process 14: Yes
+Node 8 can handle Process 14: Yes
+Resources fit check for Node 6 and Process 14: Yes
+Node 6 can handle Process 14: Yes
+Resources fit check for Node 9 and Process 14: Yes
+Node 9 can handle Process 14: Yes
+Resources fit check for Node 5 and Process 14: Yes
+Node 5 can handle Process 14: Yes
+Resources fit check for Node 7 and Process 14: Yes
+Node 7 can handle Process 14: Yes
+Resources fit check for Node 10 and Process 14: Yes
+Node 10 can handle Process 14: No
+Attempting to assign Process 14 to Node 6
+Current CPU Usage: 1/9, New Usage: 2/9
+Current Memory Usage: 5/32, New Usage: 8/32
+Current Load: 0.111111, New Load: 0.222222
+Process 14 assigned successfully.
+Assigned Process 14 to Node 6 with lowest load.
+Process 14 assigned to Node 6.
+Node 6 indices updated. New capacity: 7
+Found 9 candidate nodes for Process 15.
+Resources fit check for Node 1 and Process 15: Yes
+Node 1 can handle Process 15: No
+Resources fit check for Node 2 and Process 15: Yes
+Node 2 can handle Process 15: Yes
+Resources fit check for Node 3 and Process 15: Yes
+Node 3 can handle Process 15: No
+Resources fit check for Node 6 and Process 15: Yes
+Node 6 can handle Process 15: No
+Resources fit check for Node 9 and Process 15: Yes
+Node 9 can handle Process 15: No
+Resources fit check for Node 5 and Process 15: Yes
+Node 5 can handle Process 15: No
+Resources fit check for Node 7 and Process 15: Yes
+Node 7 can handle Process 15: No
+Resources fit check for Node 10 and Process 15: Yes
+Node 10 can handle Process 15: No
+Resources fit check for Node 8 and Process 15: Yes
+Node 8 can handle Process 15: No
+Attempting to assign Process 15 to Node 2
+Current CPU Usage: 4/11, New Usage: 6/11
+Current Memory Usage: 7/17, New Usage: 13/17
+Current Load: 0.363636, New Load: 0.545455
+Process 15 assigned successfully.
+Assigned Process 15 to Node 2 with lowest load.
+Process 15 assigned to Node 2.
+Node 2 indices updated. New capacity: 5
+Found 10 candidate nodes for Process 8.
+Resources fit check for Node 1 and Process 8: Yes
+Node 1 can handle Process 8: Yes
+Resources fit check for Node 2 and Process 8: Yes
+Node 2 can handle Process 8: Yes
+Resources fit check for Node 3 and Process 8: Yes
+Node 3 can handle Process 8: Yes
+Resources fit check for Node 4 and Process 8: Yes
+Node 4 can handle Process 8: No
+Resources fit check for Node 5 and Process 8: Yes
+Node 5 can handle Process 8: Yes
+Resources fit check for Node 7 and Process 8: Yes
+Node 7 can handle Process 8: Yes
+Resources fit check for Node 10 and Process 8: Yes
+Node 10 can handle Process 8: No
+Resources fit check for Node 8 and Process 8: Yes
+Node 8 can handle Process 8: Yes
+Resources fit check for Node 6 and Process 8: Yes
+Node 6 can handle Process 8: Yes
+Resources fit check for Node 9 and Process 8: Yes
+Node 9 can handle Process 8: Yes
+Attempting to assign Process 8 to Node 8
+Current CPU Usage: 2/14, New Usage: 3/14
+Current Memory Usage: 3/19, New Usage: 4/19
+Current Load: 0.142857, New Load: 0.214286
+Process 8 assigned successfully.
+Assigned Process 8 to Node 8 with lowest load.
+Process 8 assigned to Node 8.
+Node 8 indices updated. New capacity: 11
+Found 8 candidate nodes for Process 9.
+Resources fit check for Node 1 and Process 9: Yes
+Node 1 can handle Process 9: No
+Resources fit check for Node 3 and Process 9: Yes
+Node 3 can handle Process 9: No
+Resources fit check for Node 8 and Process 9: Yes
+Node 8 can handle Process 9: No
+Resources fit check for Node 6 and Process 9: Yes
+Node 6 can handle Process 9: No
+Resources fit check for Node 9 and Process 9: Yes
+Node 9 can handle Process 9: No
+Resources fit check for Node 5 and Process 9: Yes
+Node 5 can handle Process 9: No
+Resources fit check for Node 7 and Process 9: Yes
+Node 7 can handle Process 9: No
+Resources fit check for Node 10 and Process 9: Yes
+Node 10 can handle Process 9: No
+No suitable node found for Process 9.
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Attempting to assign Process 9 to Node 2
+Current CPU Usage: 6/11, New Usage: 7/11
+Current Memory Usage: 13/17, New Usage: 17/17
+Current Load: 0.545455, New Load: 0.636364
+Process 9 assigned successfully.
+Node 2 indices updated. New capacity: 4
+Assigned 1 CPU to Node 2 for Process 9.
+Partitioning failed for Process 9. Remaining: CPU=0
+No node found. Adding to retry queue.
+Retrying Process 3 with radius 164.25
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+Retry failed for Process 3 (attempt 1).
+Retrying Process 9 with radius 153.9
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Partitioning failed for Process 9. Remaining: CPU=1
+Retry failed for Process 9 (attempt 1).
+Retry queue processing completed.
+Scheduling completed.
+
+=== Scheduled Processes Summary ===
+Process 5 (Process score: 3.13) is scheduled first and assigned to Node 6.
+Process 7 (Process score: 2.86667) assigned to Node 8.
+Process 6 (Process score: 2.732) assigned to Node 6.
+Process 4 (Process score: 2.547) assigned to Node 6.
+Process 10 (Process score: 2.42) assigned to Node 8.
+Process 13 (Process score: 2.359) assigned to Node 5.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 2 (Process score: 1.793) assigned to Node 5.
+Process 20 (Process score: 1.679) assigned to Node 5.
+Process 16 (Process score: 1.627) assigned to Node 7.
+Process 19 (Process score: 1.57) assigned to Node 2.
+Process 17 (Process score: 1.54467) assigned to Node 5.
+Process 18 (Process score: 1.506) assigned to Node 8.
+Process 11 (Process score: 1.47833) assigned to Node 2.
+Process 12 (Process score: 1.41333) assigned to Node 7.
+Process 1 (Process score: 1.407) assigned to Node 5.
+Process 14 (Process score: 1.29867) assigned to Node 6.
+Process 15 (Process score: 1.24233) assigned to Node 2.
+Process 8 (Process score: 1.179) assigned to Node 8.
+Process 9 (Process score: 1.13667) not scheduled.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 9 (Process score: 1.13667) not scheduled.
+==================================
+
+========================================
+       Scheduling Summary Report        
+========================================
+
+Per-Process Timing Details:
+----------------------------------------
+Process 5:
+  Start Time: 11 units
+  Completion Time: 68 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 7:
+  Start Time: 19 units
+  Completion Time: 47 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 6:
+  Start Time: 68 units
+  Completion Time: 85 units
+  Waiting Time: 53 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 4:
+  Start Time: 85 units
+  Completion Time: 138 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 10:
+  Start Time: 47 units
+  Completion Time: 104 units
+  Waiting Time: 18 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 13:
+  Start Time: 37 units
+  Completion Time: 48 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 2:
+  Start Time: 48 units
+  Completion Time: 66 units
+  Waiting Time: 46 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 20:
+  Start Time: 66 units
+  Completion Time: 121 units
+  Waiting Time: 10 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 16:
+  Start Time: 44 units
+  Completion Time: 81 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 19:
+  Start Time: 53 units
+  Completion Time: 76 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 17:
+  Start Time: 121 units
+  Completion Time: 160 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 18:
+  Start Time: 104 units
+  Completion Time: 109 units
+  Waiting Time: 56 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 11:
+  Start Time: 76 units
+  Completion Time: 79 units
+  Waiting Time: 44 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 12:
+  Start Time: 81 units
+  Completion Time: 103 units
+  Waiting Time: 49 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 1:
+  Start Time: 160 units
+  Completion Time: 197 units
+  Waiting Time: 159 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 14:
+  Start Time: 138 units
+  Completion Time: 152 units
+  Waiting Time: 97 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 15:
+  Start Time: 79 units
+  Completion Time: 114 units
+  Waiting Time: 36 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 8:
+  Start Time: 109 units
+  Completion Time: 110 units
+  Waiting Time: 87 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+
+Aggregate Metrics:
+----------------------------------------
+Total Execution Time: 196 units
+Average Waiting Time: 44.7222 units
+Throughput: 0.0918367 processes/unit
+CPU Utilization: 16.6667%
+Fairness (Variance of Waiting Times): 1756.98
+----------------------------------------
+
+Calculation Counts:
+----------------------------------------
+Process Scoring: 20
+Node Scoring: 0
+Resource Checks: 185
+Retry Attempts: 2
+Partitioning Attempts: 4
+Scheduling Overhead (Total Calculations): 211
+----------------------------------------
+
+End of Scheduling Summary
+========================================
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (-1.94003, -1.35668) to (34.2212, 34.661).
+Spatial dimensions: (36.1612, 36.0177).
+Spatial boundary (A,B,C,D): (-1.94003, -1.35668), (34.2212, -1.35668), (34.2212, 34.661), (-1.94003, 34.661)
+ContextAwareScheduler initialized with 10 nodes.
+Starting Simulation...
+Process score for Process 1: 1.407
+Process 1 added to queue with score 1.407 (groupHash: 1910523576).
+Process score for Process 2: 1.793
+Process 2 added to queue with score 1.793 (groupHash: 1948562201).
+Process score for Process 3: 1.92833
+Process 3 added to queue with score 1.92833 (groupHash: 2104568672).
+Process score for Process 4: 2.547
+Process 4 added to queue with score 2.547 (groupHash: 633836266).
+Process score for Process 5: 3.13
+Process 5 added to queue with score 3.13 (groupHash: 974236373).
+Process score for Process 6: 2.732
+Process 6 added to queue with score 2.732 (groupHash: 1159006837).
+Process score for Process 7: 2.86667
+Process 7 added to queue with score 2.86667 (groupHash: 511843742).
+Process score for Process 8: 1.179
+Process 8 added to queue with score 1.179 (groupHash: 660603087).
+Process score for Process 9: 1.13667
+Process 9 added to queue with score 1.13667 (groupHash: 553994499).
+Process score for Process 10: 2.42
+Process 10 added to queue with score 2.42 (groupHash: 1371831365).
+Process score for Process 11: 1.47833
+Process 11 added to queue with score 1.47833 (groupHash: 1394906134).
+Process score for Process 12: 1.41333
+Process 12 added to queue with score 1.41333 (groupHash: 702788185).
+Process score for Process 13: 2.359
+Process 13 added to queue with score 2.359 (groupHash: 1156799902).
+Process score for Process 14: 1.29867
+Process 14 added to queue with score 1.29867 (groupHash: 1998809461).
+Process score for Process 15: 1.24233
+Process 15 added to queue with score 1.24233 (groupHash: 658333257).
+Process score for Process 16: 1.627
+Process 16 added to queue with score 1.627 (groupHash: 6078808).
+Process score for Process 17: 1.54467
+Process 17 added to queue with score 1.54467 (groupHash: 1212208669).
+Process score for Process 18: 1.506
+Process 18 added to queue with score 1.506 (groupHash: 1047486500).
+Process score for Process 19: 1.57
+Process 19 added to queue with score 1.57 (groupHash: 1730783606).
+Process score for Process 20: 1.679
+Process 20 added to queue with score 1.679 (groupHash: 762959035).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 1
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.407
+User ID: 132
+Mobility: 0.15
+Relinquish Probability: 0.14
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.06
+Current Task Load: 0.93
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 44 Mbps
+Max Delay: 90.94 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 0
+Data Size: 765 MB
+Process ID: 2
+Arrival Time: 2
+Burst Time: 18
+Priority: 4
+Remaining Time: 18
+Process Score: 1.793
+User ID: 112
+Mobility: 0.65
+Relinquish Probability: 0.78
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.88
+Current Task Load: 0.31
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 100 ms
+Max Packet Loss: 0.0624
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 2
+Data Size: 1060 MB
+Process ID: 3
+Arrival Time: 7
+Burst Time: 41
+Priority: 2
+Remaining Time: 41
+Process Score: 1.92833
+User ID: 178
+Mobility: 0.97
+Relinquish Probability: 1
+Usage History: 
+NPS: 6
+Application Type: autonomous_driving
+Latency Sensitivity: 0.95
+Current Task Load: 0.44
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:07 1970
+Required Bandwidth: 62 Mbps
+Max Delay: 1.63 ms
+Max Packet Loss: 0.0011
+Battery Lifetime: 22 hours
+Required CPU: 1, Memory: 3
+Data Size: 1847 MB
+Process ID: 4
+Arrival Time: 10
+Burst Time: 53
+Priority: 4
+Remaining Time: 53
+Process Score: 2.547
+User ID: 148
+Mobility: 0.68
+Relinquish Probability: 0.43
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.54
+Current Task Load: 0.22
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:10 1970
+Required Bandwidth: 32 Mbps
+Max Delay: 92.11 ms
+Max Packet Loss: 0.0179
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 3
+Data Size: 349 MB
+Process ID: 5
+Arrival Time: 11
+Burst Time: 57
+Priority: 1
+Remaining Time: 57
+Process Score: 3.13
+User ID: 120
+Mobility: 0.82
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 10
+Application Type: iot_data_collection
+Latency Sensitivity: 0.63
+Current Task Load: 0.43
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:12 1970
+Required Bandwidth: 48 Mbps
+Max Delay: 93.1 ms
+Max Packet Loss: 0.0232
+Battery Lifetime: 5 hours
+Required CPU: 0, Memory: 1
+Data Size: 836 MB
+Process ID: 6
+Arrival Time: 15
+Burst Time: 17
+Priority: 3
+Remaining Time: 17
+Process Score: 2.732
+User ID: 165
+Mobility: 0.57
+Relinquish Probability: 0.51
+Usage History: 
+NPS: 10
+Application Type: cloud_offload
+Latency Sensitivity: 0.3
+Current Task Load: 0.87
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:15 1970
+Required Bandwidth: 34 Mbps
+Max Delay: 34.31 ms
+Max Packet Loss: 0.079
+Battery Lifetime: 29 hours
+Required CPU: 1, Memory: 1
+Data Size: 332 MB
+Process ID: 7
+Arrival Time: 19
+Burst Time: 28
+Priority: 5
+Remaining Time: 28
+Process Score: 2.86667
+User ID: 189
+Mobility: 0.25
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.17
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:20 1970
+Required Bandwidth: 27 Mbps
+Max Delay: 91.32 ms
+Max Packet Loss: 0.0145
+Battery Lifetime: 32 hours
+Required CPU: 0, Memory: 2
+Data Size: 386 MB
+Process ID: 8
+Arrival Time: 22
+Burst Time: 1
+Priority: 4
+Remaining Time: 1
+Process Score: 1.179
+User ID: 122
+Mobility: 0.01
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.23
+Current Task Load: 0.62
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:22 1970
+Required Bandwidth: 19 Mbps
+Max Delay: 71.93 ms
+Max Packet Loss: 0.0831
+Battery Lifetime: 67 hours
+Required CPU: 1, Memory: 1
+Data Size: 1412 MB
+Process ID: 9
+Arrival Time: 26
+Burst Time: 54
+Priority: 5
+Remaining Time: 54
+Process Score: 1.13667
+User ID: 149
+Mobility: 0.75
+Relinquish Probability: 0.53
+Usage History: 
+NPS: 3
+Application Type: virtual_reality
+Latency Sensitivity: 0.26
+Current Task Load: 0.39
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:27 1970
+Required Bandwidth: 66 Mbps
+Max Delay: 7.02 ms
+Max Packet Loss: 0.0007
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 6
+Data Size: 163 MB
+Process ID: 10
+Arrival Time: 29
+Burst Time: 57
+Priority: 4
+Remaining Time: 57
+Process Score: 2.42
+User ID: 106
+Mobility: 0.44
+Relinquish Probability: 0.76
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.17
+Current Task Load: 0.78
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:30 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 37.58 ms
+Max Packet Loss: 0.0321
+Battery Lifetime: 9 hours
+Required CPU: 1, Memory: 0
+Data Size: 533 MB
+Process ID: 11
+Arrival Time: 32
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 1.47833
+User ID: 103
+Mobility: 0.73
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 3
+Application Type: cloud_offload
+Latency Sensitivity: 0.5
+Current Task Load: 0.21
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 93 Mbps
+Max Delay: 10.41 ms
+Max Packet Loss: 0.0004
+Battery Lifetime: 89 hours
+Required CPU: 3, Memory: 3
+Data Size: 1192 MB
+Process ID: 12
+Arrival Time: 32
+Burst Time: 22
+Priority: 2
+Remaining Time: 22
+Process Score: 1.41333
+User ID: 179
+Mobility: 0.43
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 2
+Application Type: ai_inference
+Latency Sensitivity: 0.35
+Current Task Load: 0.57
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 8 Mbps
+Max Delay: 32.32 ms
+Max Packet Loss: 0.0693
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 3
+Data Size: 1802 MB
+Process ID: 13
+Arrival Time: 37
+Burst Time: 11
+Priority: 4
+Remaining Time: 11
+Process Score: 2.359
+User ID: 166
+Mobility: 0.75
+Relinquish Probability: 0.9
+Usage History: 
+NPS: 9
+Application Type: virtual_reality
+Latency Sensitivity: 0.51
+Current Task Load: 0.43
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:37 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 20.91 ms
+Max Packet Loss: 0.0246
+Battery Lifetime: 48 hours
+Required CPU: 0, Memory: 2
+Data Size: 1870 MB
+Process ID: 14
+Arrival Time: 41
+Burst Time: 14
+Priority: 5
+Remaining Time: 14
+Process Score: 1.29867
+User ID: 117
+Mobility: 0.16
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 2
+Application Type: autonomous_driving
+Latency Sensitivity: 0.3
+Current Task Load: 0.04
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:42 1970
+Required Bandwidth: 35 Mbps
+Max Delay: 84.08 ms
+Max Packet Loss: 0.0803
+Battery Lifetime: 61 hours
+Required CPU: 1, Memory: 3
+Data Size: 1044 MB
+Process ID: 15
+Arrival Time: 43
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 1.24233
+User ID: 154
+Mobility: 0.43
+Relinquish Probability: 0.8
+Usage History: 
+NPS: 2
+Application Type: iot_data_collection
+Latency Sensitivity: 0.41
+Current Task Load: 0.77
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:43 1970
+Required Bandwidth: 61 Mbps
+Max Delay: 9.85 ms
+Max Packet Loss: 0.0013
+Battery Lifetime: 44 hours
+Required CPU: 2, Memory: 6
+Data Size: 1387 MB
+Process ID: 16
+Arrival Time: 44
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.627
+User ID: 102
+Mobility: 0.99
+Relinquish Probability: 0.34
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.31
+Current Task Load: 0.66
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:45 1970
+Required Bandwidth: 73 Mbps
+Max Delay: 10.18 ms
+Max Packet Loss: 0.0022
+Battery Lifetime: 59 hours
+Required CPU: 2, Memory: 7
+Data Size: 1573 MB
+Process ID: 17
+Arrival Time: 46
+Burst Time: 39
+Priority: 5
+Remaining Time: 39
+Process Score: 1.54467
+User ID: 141
+Mobility: 0.9
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.34
+Current Task Load: 0.45
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:47 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 78.9 ms
+Max Packet Loss: 0.011
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 2
+Data Size: 303 MB
+Process ID: 18
+Arrival Time: 48
+Burst Time: 5
+Priority: 3
+Remaining Time: 5
+Process Score: 1.506
+User ID: 183
+Mobility: 0.55
+Relinquish Probability: 0.07
+Usage History: 
+NPS: 2
+Application Type: industrial_automation
+Latency Sensitivity: 0.88
+Current Task Load: 0.95
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:49 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 69.1 ms
+Max Packet Loss: 0.069
+Battery Lifetime: 13 hours
+Required CPU: 1, Memory: 1
+Data Size: 1285 MB
+Process ID: 19
+Arrival Time: 53
+Burst Time: 23
+Priority: 1
+Remaining Time: 23
+Process Score: 1.57
+User ID: 122
+Mobility: 0.3
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 2
+Application Type: virtual_reality
+Latency Sensitivity: 0.08
+Current Task Load: 0.85
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:53 1970
+Required Bandwidth: 59 Mbps
+Max Delay: 8.44 ms
+Max Packet Loss: 0.0014
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 4
+Data Size: 208 MB
+Process ID: 20
+Arrival Time: 56
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.679
+User ID: 134
+Mobility: 0.92
+Relinquish Probability: 0.71
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.13
+Current Task Load: 0.53
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:56 1970
+Required Bandwidth: 21 Mbps
+Max Delay: 24.09 ms
+Max Packet Loss: 0.0101
+Battery Lifetime: 73 hours
+Required CPU: 1, Memory: 1
+Data Size: 469 MB
+Scheduling started. Queue size: 20
+Retrieved Process 5 from queue.
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 10 from queue.
+Retrieved Process 13 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 20 from queue.
+Retrieved Process 16 from queue.
+Retrieved Process 19 from queue.
+Retrieved Process 17 from queue.
+Retrieved Process 18 from queue.
+Retrieved Process 11 from queue.
+Retrieved Process 12 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 14 from queue.
+Retrieved Process 15 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 9 from queue.
+Found 9 candidate nodes for Process 5.
+Resources fit check for Node 1 and Process 5: Yes
+Node 1 can handle Process 5: Yes
+Resources fit check for Node 2 and Process 5: Yes
+Node 2 can handle Process 5: Yes
+Resources fit check for Node 3 and Process 5: Yes
+Node 3 can handle Process 5: No
+Resources fit check for Node 8 and Process 5: Yes
+Node 8 can handle Process 5: Yes
+Resources fit check for Node 6 and Process 5: Yes
+Node 6 can handle Process 5: Yes
+Resources fit check for Node 9 and Process 5: Yes
+Node 9 can handle Process 5: Yes
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+Resources fit check for Node 7 and Process 5: Yes
+Node 7 can handle Process 5: Yes
+Resources fit check for Node 10 and Process 5: Yes
+Node 10 can handle Process 5: Yes
+Attempting to assign Process 5 to Node 6
+Current CPU Usage: 0/9, New Usage: 0/9
+Current Memory Usage: 0/32, New Usage: 1/32
+Current Load: 0.05, New Load: 0
+Process 5 assigned successfully.
+Assigned Process 5 to Node 6 with lowest load.
+Process 5 assigned to Node 6.
+Node 6 indices updated. New capacity: 9
+Found 9 candidate nodes for Process 7.
+Resources fit check for Node 1 and Process 7: Yes
+Node 1 can handle Process 7: Yes
+Resources fit check for Node 2 and Process 7: Yes
+Node 2 can handle Process 7: Yes
+Resources fit check for Node 3 and Process 7: Yes
+Node 3 can handle Process 7: No
+Resources fit check for Node 5 and Process 7: Yes
+Node 5 can handle Process 7: Yes
+Resources fit check for Node 7 and Process 7: Yes
+Node 7 can handle Process 7: Yes
+Resources fit check for Node 10 and Process 7: Yes
+Node 10 can handle Process 7: No
+Resources fit check for Node 8 and Process 7: Yes
+Node 8 can handle Process 7: Yes
+Resources fit check for Node 6 and Process 7: Yes
+Node 6 can handle Process 7: Yes
+Resources fit check for Node 9 and Process 7: Yes
+Node 9 can handle Process 7: Yes
+Attempting to assign Process 7 to Node 8
+Current CPU Usage: 0/14, New Usage: 0/14
+Current Memory Usage: 0/19, New Usage: 2/19
+Current Load: 0.02, New Load: 0
+Process 7 assigned successfully.
+Assigned Process 7 to Node 8 with lowest load.
+Process 7 assigned to Node 8.
+Node 8 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 6.
+Resources fit check for Node 1 and Process 6: Yes
+Node 1 can handle Process 6: Yes
+Resources fit check for Node 2 and Process 6: Yes
+Node 2 can handle Process 6: Yes
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: No
+Resources fit check for Node 5 and Process 6: Yes
+Node 5 can handle Process 6: Yes
+Resources fit check for Node 7 and Process 6: Yes
+Node 7 can handle Process 6: Yes
+Resources fit check for Node 10 and Process 6: Yes
+Node 10 can handle Process 6: No
+Resources fit check for Node 8 and Process 6: Yes
+Node 8 can handle Process 6: Yes
+Resources fit check for Node 6 and Process 6: Yes
+Node 6 can handle Process 6: Yes
+Resources fit check for Node 9 and Process 6: Yes
+Node 9 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 6
+Current CPU Usage: 0/9, New Usage: 1/9
+Current Memory Usage: 1/32, New Usage: 2/32
+Current Load: 0, New Load: 0.111111
+Process 6 assigned successfully.
+Assigned Process 6 to Node 6 with lowest load.
+Process 6 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 4.
+Resources fit check for Node 1 and Process 4: Yes
+Node 1 can handle Process 4: Yes
+Resources fit check for Node 2 and Process 4: Yes
+Node 2 can handle Process 4: Yes
+Resources fit check for Node 3 and Process 4: Yes
+Node 3 can handle Process 4: No
+Resources fit check for Node 6 and Process 4: Yes
+Node 6 can handle Process 4: Yes
+Resources fit check for Node 9 and Process 4: Yes
+Node 9 can handle Process 4: Yes
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+Resources fit check for Node 7 and Process 4: Yes
+Node 7 can handle Process 4: Yes
+Resources fit check for Node 10 and Process 4: Yes
+Node 10 can handle Process 4: Yes
+Resources fit check for Node 8 and Process 4: Yes
+Node 8 can handle Process 4: Yes
+Attempting to assign Process 4 to Node 6
+Current CPU Usage: 1/9, New Usage: 1/9
+Current Memory Usage: 2/32, New Usage: 5/32
+Current Load: 0.111111, New Load: 0.111111
+Process 4 assigned successfully.
+Assigned Process 4 to Node 6 with lowest load.
+Process 4 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 10.
+Resources fit check for Node 1 and Process 10: Yes
+Node 1 can handle Process 10: Yes
+Resources fit check for Node 2 and Process 10: Yes
+Node 2 can handle Process 10: Yes
+Resources fit check for Node 3 and Process 10: Yes
+Node 3 can handle Process 10: No
+Resources fit check for Node 5 and Process 10: Yes
+Node 5 can handle Process 10: Yes
+Resources fit check for Node 7 and Process 10: Yes
+Node 7 can handle Process 10: Yes
+Resources fit check for Node 10 and Process 10: Yes
+Node 10 can handle Process 10: No
+Resources fit check for Node 8 and Process 10: Yes
+Node 8 can handle Process 10: Yes
+Resources fit check for Node 6 and Process 10: Yes
+Node 6 can handle Process 10: Yes
+Resources fit check for Node 9 and Process 10: Yes
+Node 9 can handle Process 10: Yes
+Attempting to assign Process 10 to Node 8
+Current CPU Usage: 0/14, New Usage: 1/14
+Current Memory Usage: 2/19, New Usage: 2/19
+Current Load: 0, New Load: 0.0714286
+Process 10 assigned successfully.
+Assigned Process 10 to Node 8 with lowest load.
+Process 10 assigned to Node 8.
+Node 8 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 13.
+Resources fit check for Node 1 and Process 13: Yes
+Node 1 can handle Process 13: Yes
+Resources fit check for Node 2 and Process 13: Yes
+Node 2 can handle Process 13: Yes
+Resources fit check for Node 3 and Process 13: Yes
+Node 3 can handle Process 13: No
+Resources fit check for Node 4 and Process 13: Yes
+Node 4 can handle Process 13: No
+Resources fit check for Node 5 and Process 13: Yes
+Node 5 can handle Process 13: Yes
+Resources fit check for Node 7 and Process 13: Yes
+Node 7 can handle Process 13: Yes
+Resources fit check for Node 10 and Process 13: Yes
+Node 10 can handle Process 13: No
+Resources fit check for Node 8 and Process 13: Yes
+Node 8 can handle Process 13: Yes
+Resources fit check for Node 6 and Process 13: Yes
+Node 6 can handle Process 13: Yes
+Resources fit check for Node 9 and Process 13: Yes
+Node 9 can handle Process 13: Yes
+Attempting to assign Process 13 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 0/28, New Usage: 2/28
+Current Load: 0.14, New Load: 0
+Process 13 assigned successfully.
+Assigned Process 13 to Node 5 with lowest load.
+Process 13 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 9 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: No
+Resources fit check for Node 2 and Process 3: Yes
+Node 2 can handle Process 3: No
+Resources fit check for Node 3 and Process 3: Yes
+Node 3 can handle Process 3: No
+Resources fit check for Node 6 and Process 3: Yes
+Node 6 can handle Process 3: No
+Resources fit check for Node 9 and Process 3: Yes
+Node 9 can handle Process 3: No
+Resources fit check for Node 5 and Process 3: Yes
+Node 5 can handle Process 3: No
+Resources fit check for Node 7 and Process 3: Yes
+Node 7 can handle Process 3: No
+Resources fit check for Node 10 and Process 3: Yes
+Node 10 can handle Process 3: No
+Resources fit check for Node 8 and Process 3: Yes
+Node 8 can handle Process 3: No
+No suitable node found for Process 3.
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+No node found. Adding to retry queue.
+Found 10 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+Resources fit check for Node 2 and Process 2: Yes
+Node 2 can handle Process 2: Yes
+Resources fit check for Node 3 and Process 2: Yes
+Node 3 can handle Process 2: Yes
+Resources fit check for Node 4 and Process 2: Yes
+Node 4 can handle Process 2: Yes
+Resources fit check for Node 6 and Process 2: Yes
+Node 6 can handle Process 2: Yes
+Resources fit check for Node 9 and Process 2: Yes
+Node 9 can handle Process 2: Yes
+Resources fit check for Node 5 and Process 2: Yes
+Node 5 can handle Process 2: Yes
+Resources fit check for Node 7 and Process 2: Yes
+Node 7 can handle Process 2: Yes
+Resources fit check for Node 10 and Process 2: Yes
+Node 10 can handle Process 2: Yes
+Resources fit check for Node 8 and Process 2: Yes
+Node 8 can handle Process 2: Yes
+Attempting to assign Process 2 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 2/28, New Usage: 4/28
+Current Load: 0, New Load: 0
+Process 2 assigned successfully.
+Assigned Process 2 to Node 5 with lowest load.
+Process 2 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 10 candidate nodes for Process 20.
+Resources fit check for Node 1 and Process 20: Yes
+Node 1 can handle Process 20: Yes
+Resources fit check for Node 2 and Process 20: Yes
+Node 2 can handle Process 20: Yes
+Resources fit check for Node 3 and Process 20: Yes
+Node 3 can handle Process 20: No
+Resources fit check for Node 4 and Process 20: Yes
+Node 4 can handle Process 20: No
+Resources fit check for Node 6 and Process 20: Yes
+Node 6 can handle Process 20: Yes
+Resources fit check for Node 9 and Process 20: Yes
+Node 9 can handle Process 20: Yes
+Resources fit check for Node 8 and Process 20: Yes
+Node 8 can handle Process 20: Yes
+Resources fit check for Node 5 and Process 20: Yes
+Node 5 can handle Process 20: Yes
+Resources fit check for Node 7 and Process 20: Yes
+Node 7 can handle Process 20: Yes
+Resources fit check for Node 10 and Process 20: Yes
+Node 10 can handle Process 20: No
+Attempting to assign Process 20 to Node 5
+Current CPU Usage: 0/15, New Usage: 1/15
+Current Memory Usage: 4/28, New Usage: 5/28
+Current Load: 0, New Load: 0.0666667
+Process 20 assigned successfully.
+Assigned Process 20 to Node 5 with lowest load.
+Process 20 assigned to Node 5.
+Node 5 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 16.
+Resources fit check for Node 1 and Process 16: Yes
+Node 1 can handle Process 16: No
+Resources fit check for Node 2 and Process 16: Yes
+Node 2 can handle Process 16: Yes
+Resources fit check for Node 3 and Process 16: Yes
+Node 3 can handle Process 16: No
+Resources fit check for Node 5 and Process 16: Yes
+Node 5 can handle Process 16: No
+Resources fit check for Node 7 and Process 16: Yes
+Node 7 can handle Process 16: Yes
+Resources fit check for Node 10 and Process 16: Yes
+Node 10 can handle Process 16: No
+Resources fit check for Node 8 and Process 16: Yes
+Node 8 can handle Process 16: No
+Resources fit check for Node 6 and Process 16: Yes
+Node 6 can handle Process 16: No
+Resources fit check for Node 9 and Process 16: Yes
+Node 9 can handle Process 16: No
+Attempting to assign Process 16 to Node 7
+Current CPU Usage: 0/16, New Usage: 2/16
+Current Memory Usage: 0/17, New Usage: 7/17
+Current Load: 0.26, New Load: 0.125
+Process 16 assigned successfully.
+Assigned Process 16 to Node 7 with lowest load.
+Process 16 assigned to Node 7.
+Node 7 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 19.
+Resources fit check for Node 1 and Process 19: Yes
+Node 1 can handle Process 19: No
+Resources fit check for Node 2 and Process 19: Yes
+Node 2 can handle Process 19: Yes
+Resources fit check for Node 3 and Process 19: Yes
+Node 3 can handle Process 19: No
+Resources fit check for Node 6 and Process 19: Yes
+Node 6 can handle Process 19: No
+Resources fit check for Node 9 and Process 19: Yes
+Node 9 can handle Process 19: No
+Resources fit check for Node 5 and Process 19: Yes
+Node 5 can handle Process 19: No
+Resources fit check for Node 7 and Process 19: Yes
+Node 7 can handle Process 19: No
+Resources fit check for Node 10 and Process 19: Yes
+Node 10 can handle Process 19: No
+Resources fit check for Node 8 and Process 19: Yes
+Node 8 can handle Process 19: No
+Attempting to assign Process 19 to Node 2
+Current CPU Usage: 0/11, New Usage: 1/11
+Current Memory Usage: 0/17, New Usage: 4/17
+Current Load: 0.24, New Load: 0.0909091
+Process 19 assigned successfully.
+Assigned Process 19 to Node 2 with lowest load.
+Process 19 assigned to Node 2.
+Node 2 indices updated. New capacity: 10
+Found 9 candidate nodes for Process 17.
+Resources fit check for Node 1 and Process 17: Yes
+Node 1 can handle Process 17: Yes
+Resources fit check for Node 2 and Process 17: Yes
+Node 2 can handle Process 17: Yes
+Resources fit check for Node 3 and Process 17: Yes
+Node 3 can handle Process 17: No
+Resources fit check for Node 5 and Process 17: Yes
+Node 5 can handle Process 17: Yes
+Resources fit check for Node 7 and Process 17: Yes
+Node 7 can handle Process 17: Yes
+Resources fit check for Node 10 and Process 17: Yes
+Node 10 can handle Process 17: No
+Resources fit check for Node 8 and Process 17: Yes
+Node 8 can handle Process 17: Yes
+Resources fit check for Node 6 and Process 17: Yes
+Node 6 can handle Process 17: Yes
+Resources fit check for Node 9 and Process 17: Yes
+Node 9 can handle Process 17: Yes
+Attempting to assign Process 17 to Node 5
+Current CPU Usage: 1/15, New Usage: 2/15
+Current Memory Usage: 5/28, New Usage: 7/28
+Current Load: 0.0666667, New Load: 0.133333
+Process 17 assigned successfully.
+Assigned Process 17 to Node 5 with lowest load.
+Process 17 assigned to Node 5.
+Node 5 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 18.
+Resources fit check for Node 1 and Process 18: Yes
+Node 1 can handle Process 18: Yes
+Resources fit check for Node 2 and Process 18: Yes
+Node 2 can handle Process 18: Yes
+Resources fit check for Node 3 and Process 18: Yes
+Node 3 can handle Process 18: Yes
+Resources fit check for Node 4 and Process 18: Yes
+Node 4 can handle Process 18: No
+Resources fit check for Node 6 and Process 18: Yes
+Node 6 can handle Process 18: Yes
+Resources fit check for Node 9 and Process 18: Yes
+Node 9 can handle Process 18: Yes
+Resources fit check for Node 8 and Process 18: Yes
+Node 8 can handle Process 18: Yes
+Resources fit check for Node 5 and Process 18: Yes
+Node 5 can handle Process 18: Yes
+Resources fit check for Node 7 and Process 18: Yes
+Node 7 can handle Process 18: Yes
+Resources fit check for Node 10 and Process 18: Yes
+Node 10 can handle Process 18: No
+Attempting to assign Process 18 to Node 8
+Current CPU Usage: 1/14, New Usage: 2/14
+Current Memory Usage: 2/19, New Usage: 3/19
+Current Load: 0.0714286, New Load: 0.142857
+Process 18 assigned successfully.
+Assigned Process 18 to Node 8 with lowest load.
+Process 18 assigned to Node 8.
+Node 8 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 11.
+Resources fit check for Node 1 and Process 11: Yes
+Node 1 can handle Process 11: No
+Resources fit check for Node 2 and Process 11: Yes
+Node 2 can handle Process 11: Yes
+Resources fit check for Node 3 and Process 11: Yes
+Node 3 can handle Process 11: No
+Resources fit check for Node 8 and Process 11: Yes
+Node 8 can handle Process 11: No
+Resources fit check for Node 6 and Process 11: Yes
+Node 6 can handle Process 11: No
+Resources fit check for Node 9 and Process 11: Yes
+Node 9 can handle Process 11: No
+Resources fit check for Node 5 and Process 11: Yes
+Node 5 can handle Process 11: No
+Resources fit check for Node 7 and Process 11: Yes
+Node 7 can handle Process 11: No
+Resources fit check for Node 10 and Process 11: Yes
+Node 10 can handle Process 11: No
+Attempting to assign Process 11 to Node 2
+Current CPU Usage: 1/11, New Usage: 4/11
+Current Memory Usage: 4/17, New Usage: 7/17
+Current Load: 0.0909091, New Load: 0.363636
+Process 11 assigned successfully.
+Assigned Process 11 to Node 2 with lowest load.
+Process 11 assigned to Node 2.
+Node 2 indices updated. New capacity: 7
+Found 10 candidate nodes for Process 12.
+Resources fit check for Node 1 and Process 12: Yes
+Node 1 can handle Process 12: Yes
+Resources fit check for Node 2 and Process 12: Yes
+Node 2 can handle Process 12: Yes
+Resources fit check for Node 3 and Process 12: Yes
+Node 3 can handle Process 12: No
+Resources fit check for Node 4 and Process 12: Yes
+Node 4 can handle Process 12: No
+Resources fit check for Node 6 and Process 12: Yes
+Node 6 can handle Process 12: Yes
+Resources fit check for Node 9 and Process 12: Yes
+Node 9 can handle Process 12: Yes
+Resources fit check for Node 8 and Process 12: Yes
+Node 8 can handle Process 12: Yes
+Resources fit check for Node 5 and Process 12: Yes
+Node 5 can handle Process 12: Yes
+Resources fit check for Node 7 and Process 12: Yes
+Node 7 can handle Process 12: Yes
+Resources fit check for Node 10 and Process 12: Yes
+Node 10 can handle Process 12: No
+Attempting to assign Process 12 to Node 7
+Current CPU Usage: 2/16, New Usage: 3/16
+Current Memory Usage: 7/17, New Usage: 10/17
+Current Load: 0.125, New Load: 0.1875
+Process 12 assigned successfully.
+Assigned Process 12 to Node 7 with lowest load.
+Process 12 assigned to Node 7.
+Node 7 indices updated. New capacity: 13
+Found 9 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+Resources fit check for Node 2 and Process 1: Yes
+Node 2 can handle Process 1: Yes
+Resources fit check for Node 3 and Process 1: Yes
+Node 3 can handle Process 1: No
+Resources fit check for Node 6 and Process 1: Yes
+Node 6 can handle Process 1: Yes
+Resources fit check for Node 9 and Process 1: Yes
+Node 9 can handle Process 1: Yes
+Resources fit check for Node 5 and Process 1: Yes
+Node 5 can handle Process 1: Yes
+Resources fit check for Node 7 and Process 1: Yes
+Node 7 can handle Process 1: Yes
+Resources fit check for Node 10 and Process 1: Yes
+Node 10 can handle Process 1: Yes
+Resources fit check for Node 8 and Process 1: Yes
+Node 8 can handle Process 1: Yes
+Attempting to assign Process 1 to Node 5
+Current CPU Usage: 2/15, New Usage: 3/15
+Current Memory Usage: 7/28, New Usage: 7/28
+Current Load: 0.133333, New Load: 0.2
+Process 1 assigned successfully.
+Assigned Process 1 to Node 5 with lowest load.
+Process 1 assigned to Node 5.
+Node 5 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 14.
+Resources fit check for Node 1 and Process 14: Yes
+Node 1 can handle Process 14: Yes
+Resources fit check for Node 2 and Process 14: Yes
+Node 2 can handle Process 14: Yes
+Resources fit check for Node 3 and Process 14: Yes
+Node 3 can handle Process 14: Yes
+Resources fit check for Node 8 and Process 14: Yes
+Node 8 can handle Process 14: Yes
+Resources fit check for Node 6 and Process 14: Yes
+Node 6 can handle Process 14: Yes
+Resources fit check for Node 9 and Process 14: Yes
+Node 9 can handle Process 14: Yes
+Resources fit check for Node 5 and Process 14: Yes
+Node 5 can handle Process 14: Yes
+Resources fit check for Node 7 and Process 14: Yes
+Node 7 can handle Process 14: Yes
+Resources fit check for Node 10 and Process 14: Yes
+Node 10 can handle Process 14: No
+Attempting to assign Process 14 to Node 6
+Current CPU Usage: 1/9, New Usage: 2/9
+Current Memory Usage: 5/32, New Usage: 8/32
+Current Load: 0.111111, New Load: 0.222222
+Process 14 assigned successfully.
+Assigned Process 14 to Node 6 with lowest load.
+Process 14 assigned to Node 6.
+Node 6 indices updated. New capacity: 7
+Found 9 candidate nodes for Process 15.
+Resources fit check for Node 1 and Process 15: Yes
+Node 1 can handle Process 15: No
+Resources fit check for Node 2 and Process 15: Yes
+Node 2 can handle Process 15: Yes
+Resources fit check for Node 3 and Process 15: Yes
+Node 3 can handle Process 15: No
+Resources fit check for Node 6 and Process 15: Yes
+Node 6 can handle Process 15: No
+Resources fit check for Node 9 and Process 15: Yes
+Node 9 can handle Process 15: No
+Resources fit check for Node 5 and Process 15: Yes
+Node 5 can handle Process 15: No
+Resources fit check for Node 7 and Process 15: Yes
+Node 7 can handle Process 15: No
+Resources fit check for Node 10 and Process 15: Yes
+Node 10 can handle Process 15: No
+Resources fit check for Node 8 and Process 15: Yes
+Node 8 can handle Process 15: No
+Attempting to assign Process 15 to Node 2
+Current CPU Usage: 4/11, New Usage: 6/11
+Current Memory Usage: 7/17, New Usage: 13/17
+Current Load: 0.363636, New Load: 0.545455
+Process 15 assigned successfully.
+Assigned Process 15 to Node 2 with lowest load.
+Process 15 assigned to Node 2.
+Node 2 indices updated. New capacity: 5
+Found 10 candidate nodes for Process 8.
+Resources fit check for Node 1 and Process 8: Yes
+Node 1 can handle Process 8: Yes
+Resources fit check for Node 2 and Process 8: Yes
+Node 2 can handle Process 8: Yes
+Resources fit check for Node 3 and Process 8: Yes
+Node 3 can handle Process 8: Yes
+Resources fit check for Node 4 and Process 8: Yes
+Node 4 can handle Process 8: No
+Resources fit check for Node 5 and Process 8: Yes
+Node 5 can handle Process 8: Yes
+Resources fit check for Node 7 and Process 8: Yes
+Node 7 can handle Process 8: Yes
+Resources fit check for Node 10 and Process 8: Yes
+Node 10 can handle Process 8: No
+Resources fit check for Node 8 and Process 8: Yes
+Node 8 can handle Process 8: Yes
+Resources fit check for Node 6 and Process 8: Yes
+Node 6 can handle Process 8: Yes
+Resources fit check for Node 9 and Process 8: Yes
+Node 9 can handle Process 8: Yes
+Attempting to assign Process 8 to Node 8
+Current CPU Usage: 2/14, New Usage: 3/14
+Current Memory Usage: 3/19, New Usage: 4/19
+Current Load: 0.142857, New Load: 0.214286
+Process 8 assigned successfully.
+Assigned Process 8 to Node 8 with lowest load.
+Process 8 assigned to Node 8.
+Node 8 indices updated. New capacity: 11
+Found 8 candidate nodes for Process 9.
+Resources fit check for Node 1 and Process 9: Yes
+Node 1 can handle Process 9: No
+Resources fit check for Node 3 and Process 9: Yes
+Node 3 can handle Process 9: No
+Resources fit check for Node 8 and Process 9: Yes
+Node 8 can handle Process 9: No
+Resources fit check for Node 6 and Process 9: Yes
+Node 6 can handle Process 9: No
+Resources fit check for Node 9 and Process 9: Yes
+Node 9 can handle Process 9: No
+Resources fit check for Node 5 and Process 9: Yes
+Node 5 can handle Process 9: No
+Resources fit check for Node 7 and Process 9: Yes
+Node 7 can handle Process 9: No
+Resources fit check for Node 10 and Process 9: Yes
+Node 10 can handle Process 9: No
+No suitable node found for Process 9.
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Attempting to assign Process 9 to Node 2
+Current CPU Usage: 6/11, New Usage: 7/11
+Current Memory Usage: 13/17, New Usage: 17/17
+Current Load: 0.545455, New Load: 0.636364
+Process 9 assigned successfully.
+Node 2 indices updated. New capacity: 4
+Assigned 1 CPU to Node 2 for Process 9.
+Partitioning failed for Process 9. Remaining: CPU=0
+No node found. Adding to retry queue.
+Retrying Process 3 with radius 164.25
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+Retry failed for Process 3 (attempt 1).
+Retrying Process 9 with radius 153.9
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Partitioning failed for Process 9. Remaining: CPU=1
+Retry failed for Process 9 (attempt 1).
+Retry queue processing completed.
+Scheduling completed.
+
+=== Scheduled Processes Summary ===
+Process 5 (Process score: 3.13) is scheduled first and assigned to Node 6.
+Process 7 (Process score: 2.86667) assigned to Node 8.
+Process 6 (Process score: 2.732) assigned to Node 6.
+Process 4 (Process score: 2.547) assigned to Node 6.
+Process 10 (Process score: 2.42) assigned to Node 8.
+Process 13 (Process score: 2.359) assigned to Node 5.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 2 (Process score: 1.793) assigned to Node 5.
+Process 20 (Process score: 1.679) assigned to Node 5.
+Process 16 (Process score: 1.627) assigned to Node 7.
+Process 19 (Process score: 1.57) assigned to Node 2.
+Process 17 (Process score: 1.54467) assigned to Node 5.
+Process 18 (Process score: 1.506) assigned to Node 8.
+Process 11 (Process score: 1.47833) assigned to Node 2.
+Process 12 (Process score: 1.41333) assigned to Node 7.
+Process 1 (Process score: 1.407) assigned to Node 5.
+Process 14 (Process score: 1.29867) assigned to Node 6.
+Process 15 (Process score: 1.24233) assigned to Node 2.
+Process 8 (Process score: 1.179) assigned to Node 8.
+Process 9 (Process score: 1.13667) not scheduled.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 9 (Process score: 1.13667) not scheduled.
+==================================
+
+========================================
+       Scheduling Summary Report        
+========================================
+
+Per-Process Timing Details:
+----------------------------------------
+Process 5:
+  Start Time: 11 units
+  Completion Time: 68 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 7:
+  Start Time: 19 units
+  Completion Time: 47 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 6:
+  Start Time: 68 units
+  Completion Time: 85 units
+  Waiting Time: 53 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 4:
+  Start Time: 85 units
+  Completion Time: 138 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 10:
+  Start Time: 47 units
+  Completion Time: 104 units
+  Waiting Time: 18 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 13:
+  Start Time: 37 units
+  Completion Time: 48 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 2:
+  Start Time: 48 units
+  Completion Time: 66 units
+  Waiting Time: 46 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 20:
+  Start Time: 66 units
+  Completion Time: 121 units
+  Waiting Time: 10 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 16:
+  Start Time: 44 units
+  Completion Time: 81 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 19:
+  Start Time: 53 units
+  Completion Time: 76 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 17:
+  Start Time: 121 units
+  Completion Time: 160 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 18:
+  Start Time: 104 units
+  Completion Time: 109 units
+  Waiting Time: 56 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 11:
+  Start Time: 76 units
+  Completion Time: 79 units
+  Waiting Time: 44 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 12:
+  Start Time: 81 units
+  Completion Time: 103 units
+  Waiting Time: 49 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 1:
+  Start Time: 160 units
+  Completion Time: 197 units
+  Waiting Time: 159 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 14:
+  Start Time: 138 units
+  Completion Time: 152 units
+  Waiting Time: 97 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 15:
+  Start Time: 79 units
+  Completion Time: 114 units
+  Waiting Time: 36 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 8:
+  Start Time: 109 units
+  Completion Time: 110 units
+  Waiting Time: 87 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+
+Aggregate Metrics:
+----------------------------------------
+Total Execution Time: 196 units
+Average Waiting Time: 44.7222 units
+Throughput: 0.0918367 processes/unit
+CPU Utilization: 16.6667%
+Fairness (Variance of Waiting Times): 1756.98
+----------------------------------------
+
+Calculation Counts:
+----------------------------------------
+Process Scoring: 20
+Node Scoring: 0
+Resource Checks: 185
+Retry Attempts: 2
+Partitioning Attempts: 4
+Scheduling Overhead (Total Calculations): 211
+----------------------------------------
+
+End of Scheduling Summary
+========================================
+Initializing Simulation with config: src/simulation/config.json
+Spatial indices built with boundaries: (-4.52946, -2.53833) to (33.835, 34.5874).
+Spatial dimensions: (38.3645, 37.1257).
+Spatial boundary (A,B,C,D): (-4.52946, -2.53833), (33.835, -2.53833), (33.835, 34.5874), (-4.52946, 34.5874)
+ContextAwareScheduler initialized with 10 nodes.
+Starting Simulation...
+Process score for Process 1: 1.407
+Process 1 added to queue with score 1.407 (groupHash: 1910523576).
+Process score for Process 2: 1.793
+Process 2 added to queue with score 1.793 (groupHash: 1948562201).
+Process score for Process 3: 1.92833
+Process 3 added to queue with score 1.92833 (groupHash: 2104568672).
+Process score for Process 4: 2.547
+Process 4 added to queue with score 2.547 (groupHash: 633836266).
+Process score for Process 5: 3.13
+Process 5 added to queue with score 3.13 (groupHash: 974236373).
+Process score for Process 6: 2.732
+Process 6 added to queue with score 2.732 (groupHash: 1159006837).
+Process score for Process 7: 2.86667
+Process 7 added to queue with score 2.86667 (groupHash: 511843742).
+Process score for Process 8: 1.179
+Process 8 added to queue with score 1.179 (groupHash: 660603087).
+Process score for Process 9: 1.13667
+Process 9 added to queue with score 1.13667 (groupHash: 553994499).
+Process score for Process 10: 2.42
+Process 10 added to queue with score 2.42 (groupHash: 1371831365).
+Process score for Process 11: 1.47833
+Process 11 added to queue with score 1.47833 (groupHash: 1394906134).
+Process score for Process 12: 1.41333
+Process 12 added to queue with score 1.41333 (groupHash: 702788185).
+Process score for Process 13: 2.359
+Process 13 added to queue with score 2.359 (groupHash: 1156799902).
+Process score for Process 14: 1.29867
+Process 14 added to queue with score 1.29867 (groupHash: 1998809461).
+Process score for Process 15: 1.24233
+Process 15 added to queue with score 1.24233 (groupHash: 658333257).
+Process score for Process 16: 1.627
+Process 16 added to queue with score 1.627 (groupHash: 6078808).
+Process score for Process 17: 1.54467
+Process 17 added to queue with score 1.54467 (groupHash: 1212208669).
+Process score for Process 18: 1.506
+Process 18 added to queue with score 1.506 (groupHash: 1047486500).
+Process score for Process 19: 1.57
+Process 19 added to queue with score 1.57 (groupHash: 1730783606).
+Process score for Process 20: 1.679
+Process 20 added to queue with score 1.679 (groupHash: 762959035).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 1
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.407
+User ID: 132
+Mobility: 0.15
+Relinquish Probability: 0.14
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.06
+Current Task Load: 0.93
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 44 Mbps
+Max Delay: 90.94 ms
+Max Packet Loss: 0.04
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 0
+Data Size: 765 MB
+Process ID: 2
+Arrival Time: 2
+Burst Time: 18
+Priority: 4
+Remaining Time: 18
+Process Score: 1.793
+User ID: 112
+Mobility: 0.65
+Relinquish Probability: 0.78
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.88
+Current Task Load: 0.31
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:02 1970
+Required Bandwidth: 10 Mbps
+Max Delay: 100 ms
+Max Packet Loss: 0.0624
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 2
+Data Size: 1060 MB
+Process ID: 3
+Arrival Time: 7
+Burst Time: 41
+Priority: 2
+Remaining Time: 41
+Process Score: 1.92833
+User ID: 178
+Mobility: 0.97
+Relinquish Probability: 1
+Usage History: 
+NPS: 6
+Application Type: autonomous_driving
+Latency Sensitivity: 0.95
+Current Task Load: 0.44
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:07 1970
+Required Bandwidth: 62 Mbps
+Max Delay: 1.63 ms
+Max Packet Loss: 0.0011
+Battery Lifetime: 22 hours
+Required CPU: 1, Memory: 3
+Data Size: 1847 MB
+Process ID: 4
+Arrival Time: 10
+Burst Time: 53
+Priority: 4
+Remaining Time: 53
+Process Score: 2.547
+User ID: 148
+Mobility: 0.68
+Relinquish Probability: 0.43
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.54
+Current Task Load: 0.22
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:10 1970
+Required Bandwidth: 32 Mbps
+Max Delay: 92.11 ms
+Max Packet Loss: 0.0179
+Battery Lifetime: 3 hours
+Required CPU: 0, Memory: 3
+Data Size: 349 MB
+Process ID: 5
+Arrival Time: 11
+Burst Time: 57
+Priority: 1
+Remaining Time: 57
+Process Score: 3.13
+User ID: 120
+Mobility: 0.82
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 10
+Application Type: iot_data_collection
+Latency Sensitivity: 0.63
+Current Task Load: 0.43
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:12 1970
+Required Bandwidth: 48 Mbps
+Max Delay: 93.1 ms
+Max Packet Loss: 0.0232
+Battery Lifetime: 5 hours
+Required CPU: 0, Memory: 1
+Data Size: 836 MB
+Process ID: 6
+Arrival Time: 15
+Burst Time: 17
+Priority: 3
+Remaining Time: 17
+Process Score: 2.732
+User ID: 165
+Mobility: 0.57
+Relinquish Probability: 0.51
+Usage History: 
+NPS: 10
+Application Type: cloud_offload
+Latency Sensitivity: 0.3
+Current Task Load: 0.87
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:15 1970
+Required Bandwidth: 34 Mbps
+Max Delay: 34.31 ms
+Max Packet Loss: 0.079
+Battery Lifetime: 29 hours
+Required CPU: 1, Memory: 1
+Data Size: 332 MB
+Process ID: 7
+Arrival Time: 19
+Burst Time: 28
+Priority: 5
+Remaining Time: 28
+Process Score: 2.86667
+User ID: 189
+Mobility: 0.25
+Relinquish Probability: 0.05
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.6
+Current Task Load: 0.17
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:20 1970
+Required Bandwidth: 27 Mbps
+Max Delay: 91.32 ms
+Max Packet Loss: 0.0145
+Battery Lifetime: 32 hours
+Required CPU: 0, Memory: 2
+Data Size: 386 MB
+Process ID: 8
+Arrival Time: 22
+Burst Time: 1
+Priority: 4
+Remaining Time: 1
+Process Score: 1.179
+User ID: 122
+Mobility: 0.01
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 1
+Application Type: autonomous_driving
+Latency Sensitivity: 0.23
+Current Task Load: 0.62
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:22 1970
+Required Bandwidth: 19 Mbps
+Max Delay: 71.93 ms
+Max Packet Loss: 0.0831
+Battery Lifetime: 67 hours
+Required CPU: 1, Memory: 1
+Data Size: 1412 MB
+Process ID: 9
+Arrival Time: 26
+Burst Time: 54
+Priority: 5
+Remaining Time: 54
+Process Score: 1.13667
+User ID: 149
+Mobility: 0.75
+Relinquish Probability: 0.53
+Usage History: 
+NPS: 3
+Application Type: virtual_reality
+Latency Sensitivity: 0.26
+Current Task Load: 0.39
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:27 1970
+Required Bandwidth: 66 Mbps
+Max Delay: 7.02 ms
+Max Packet Loss: 0.0007
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 6
+Data Size: 163 MB
+Process ID: 10
+Arrival Time: 29
+Burst Time: 57
+Priority: 4
+Remaining Time: 57
+Process Score: 2.42
+User ID: 106
+Mobility: 0.44
+Relinquish Probability: 0.76
+Usage History: 
+NPS: 9
+Application Type: industrial_automation
+Latency Sensitivity: 0.17
+Current Task Load: 0.78
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:30 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 37.58 ms
+Max Packet Loss: 0.0321
+Battery Lifetime: 9 hours
+Required CPU: 1, Memory: 0
+Data Size: 533 MB
+Process ID: 11
+Arrival Time: 32
+Burst Time: 3
+Priority: 2
+Remaining Time: 3
+Process Score: 1.47833
+User ID: 103
+Mobility: 0.73
+Relinquish Probability: 0.3
+Usage History: 
+NPS: 3
+Application Type: cloud_offload
+Latency Sensitivity: 0.5
+Current Task Load: 0.21
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 93 Mbps
+Max Delay: 10.41 ms
+Max Packet Loss: 0.0004
+Battery Lifetime: 89 hours
+Required CPU: 3, Memory: 3
+Data Size: 1192 MB
+Process ID: 12
+Arrival Time: 32
+Burst Time: 22
+Priority: 2
+Remaining Time: 22
+Process Score: 1.41333
+User ID: 179
+Mobility: 0.43
+Relinquish Probability: 0.15
+Usage History: 
+NPS: 2
+Application Type: ai_inference
+Latency Sensitivity: 0.35
+Current Task Load: 0.57
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:33 1970
+Required Bandwidth: 8 Mbps
+Max Delay: 32.32 ms
+Max Packet Loss: 0.0693
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 3
+Data Size: 1802 MB
+Process ID: 13
+Arrival Time: 37
+Burst Time: 11
+Priority: 4
+Remaining Time: 11
+Process Score: 2.359
+User ID: 166
+Mobility: 0.75
+Relinquish Probability: 0.9
+Usage History: 
+NPS: 9
+Application Type: virtual_reality
+Latency Sensitivity: 0.51
+Current Task Load: 0.43
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:37 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 20.91 ms
+Max Packet Loss: 0.0246
+Battery Lifetime: 48 hours
+Required CPU: 0, Memory: 2
+Data Size: 1870 MB
+Process ID: 14
+Arrival Time: 41
+Burst Time: 14
+Priority: 5
+Remaining Time: 14
+Process Score: 1.29867
+User ID: 117
+Mobility: 0.16
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 2
+Application Type: autonomous_driving
+Latency Sensitivity: 0.3
+Current Task Load: 0.04
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:42 1970
+Required Bandwidth: 35 Mbps
+Max Delay: 84.08 ms
+Max Packet Loss: 0.0803
+Battery Lifetime: 61 hours
+Required CPU: 1, Memory: 3
+Data Size: 1044 MB
+Process ID: 15
+Arrival Time: 43
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 1.24233
+User ID: 154
+Mobility: 0.43
+Relinquish Probability: 0.8
+Usage History: 
+NPS: 2
+Application Type: iot_data_collection
+Latency Sensitivity: 0.41
+Current Task Load: 0.77
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:43 1970
+Required Bandwidth: 61 Mbps
+Max Delay: 9.85 ms
+Max Packet Loss: 0.0013
+Battery Lifetime: 44 hours
+Required CPU: 2, Memory: 6
+Data Size: 1387 MB
+Process ID: 16
+Arrival Time: 44
+Burst Time: 37
+Priority: 1
+Remaining Time: 37
+Process Score: 1.627
+User ID: 102
+Mobility: 0.99
+Relinquish Probability: 0.34
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.31
+Current Task Load: 0.66
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:45 1970
+Required Bandwidth: 73 Mbps
+Max Delay: 10.18 ms
+Max Packet Loss: 0.0022
+Battery Lifetime: 59 hours
+Required CPU: 2, Memory: 7
+Data Size: 1573 MB
+Process ID: 17
+Arrival Time: 46
+Burst Time: 39
+Priority: 5
+Remaining Time: 39
+Process Score: 1.54467
+User ID: 141
+Mobility: 0.9
+Relinquish Probability: 0.36
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.34
+Current Task Load: 0.45
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:47 1970
+Required Bandwidth: 43 Mbps
+Max Delay: 78.9 ms
+Max Packet Loss: 0.011
+Battery Lifetime: 0 hours
+Required CPU: 1, Memory: 2
+Data Size: 303 MB
+Process ID: 18
+Arrival Time: 48
+Burst Time: 5
+Priority: 3
+Remaining Time: 5
+Process Score: 1.506
+User ID: 183
+Mobility: 0.55
+Relinquish Probability: 0.07
+Usage History: 
+NPS: 2
+Application Type: industrial_automation
+Latency Sensitivity: 0.88
+Current Task Load: 0.95
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:49 1970
+Required Bandwidth: 23 Mbps
+Max Delay: 69.1 ms
+Max Packet Loss: 0.069
+Battery Lifetime: 13 hours
+Required CPU: 1, Memory: 1
+Data Size: 1285 MB
+Process ID: 19
+Arrival Time: 53
+Burst Time: 23
+Priority: 1
+Remaining Time: 23
+Process Score: 1.57
+User ID: 122
+Mobility: 0.3
+Relinquish Probability: 0.04
+Usage History: 
+NPS: 2
+Application Type: virtual_reality
+Latency Sensitivity: 0.08
+Current Task Load: 0.85
+Location: Zone_D
+Request Time: Thu Jan  1 05:30:53 1970
+Required Bandwidth: 59 Mbps
+Max Delay: 8.44 ms
+Max Packet Loss: 0.0014
+Battery Lifetime: 96 hours
+Required CPU: 1, Memory: 4
+Data Size: 208 MB
+Process ID: 20
+Arrival Time: 56
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.679
+User ID: 134
+Mobility: 0.92
+Relinquish Probability: 0.71
+Usage History: 
+NPS: 5
+Application Type: iot_data_collection
+Latency Sensitivity: 0.13
+Current Task Load: 0.53
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:56 1970
+Required Bandwidth: 21 Mbps
+Max Delay: 24.09 ms
+Max Packet Loss: 0.0101
+Battery Lifetime: 73 hours
+Required CPU: 1, Memory: 1
+Data Size: 469 MB
+Scheduling started. Queue size: 20
+Retrieved Process 5 from queue.
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 10 from queue.
+Retrieved Process 13 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 20 from queue.
+Retrieved Process 16 from queue.
+Retrieved Process 19 from queue.
+Retrieved Process 17 from queue.
+Retrieved Process 18 from queue.
+Retrieved Process 11 from queue.
+Retrieved Process 12 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 14 from queue.
+Retrieved Process 15 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 9 from queue.
+Found 9 candidate nodes for Process 5.
+Resources fit check for Node 1 and Process 5: Yes
+Node 1 can handle Process 5: Yes
+Resources fit check for Node 2 and Process 5: Yes
+Node 2 can handle Process 5: Yes
+Resources fit check for Node 3 and Process 5: Yes
+Node 3 can handle Process 5: No
+Resources fit check for Node 8 and Process 5: Yes
+Node 8 can handle Process 5: Yes
+Resources fit check for Node 6 and Process 5: Yes
+Node 6 can handle Process 5: Yes
+Resources fit check for Node 9 and Process 5: Yes
+Node 9 can handle Process 5: Yes
+Resources fit check for Node 5 and Process 5: Yes
+Node 5 can handle Process 5: Yes
+Resources fit check for Node 7 and Process 5: Yes
+Node 7 can handle Process 5: Yes
+Resources fit check for Node 10 and Process 5: Yes
+Node 10 can handle Process 5: Yes
+Attempting to assign Process 5 to Node 6
+Current CPU Usage: 0/9, New Usage: 0/9
+Current Memory Usage: 0/32, New Usage: 1/32
+Current Load: 0.05, New Load: 0
+Process 5 assigned successfully.
+Assigned Process 5 to Node 6 with lowest load.
+Process 5 assigned to Node 6.
+Node 6 indices updated. New capacity: 9
+Found 9 candidate nodes for Process 7.
+Resources fit check for Node 1 and Process 7: Yes
+Node 1 can handle Process 7: Yes
+Resources fit check for Node 2 and Process 7: Yes
+Node 2 can handle Process 7: Yes
+Resources fit check for Node 3 and Process 7: Yes
+Node 3 can handle Process 7: No
+Resources fit check for Node 5 and Process 7: Yes
+Node 5 can handle Process 7: Yes
+Resources fit check for Node 7 and Process 7: Yes
+Node 7 can handle Process 7: Yes
+Resources fit check for Node 10 and Process 7: Yes
+Node 10 can handle Process 7: No
+Resources fit check for Node 8 and Process 7: Yes
+Node 8 can handle Process 7: Yes
+Resources fit check for Node 6 and Process 7: Yes
+Node 6 can handle Process 7: Yes
+Resources fit check for Node 9 and Process 7: Yes
+Node 9 can handle Process 7: Yes
+Attempting to assign Process 7 to Node 8
+Current CPU Usage: 0/14, New Usage: 0/14
+Current Memory Usage: 0/19, New Usage: 2/19
+Current Load: 0.02, New Load: 0
+Process 7 assigned successfully.
+Assigned Process 7 to Node 8 with lowest load.
+Process 7 assigned to Node 8.
+Node 8 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 6.
+Resources fit check for Node 1 and Process 6: Yes
+Node 1 can handle Process 6: Yes
+Resources fit check for Node 2 and Process 6: Yes
+Node 2 can handle Process 6: Yes
+Resources fit check for Node 3 and Process 6: Yes
+Node 3 can handle Process 6: No
+Resources fit check for Node 5 and Process 6: Yes
+Node 5 can handle Process 6: Yes
+Resources fit check for Node 7 and Process 6: Yes
+Node 7 can handle Process 6: Yes
+Resources fit check for Node 10 and Process 6: Yes
+Node 10 can handle Process 6: No
+Resources fit check for Node 8 and Process 6: Yes
+Node 8 can handle Process 6: Yes
+Resources fit check for Node 6 and Process 6: Yes
+Node 6 can handle Process 6: Yes
+Resources fit check for Node 9 and Process 6: Yes
+Node 9 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 6
+Current CPU Usage: 0/9, New Usage: 1/9
+Current Memory Usage: 1/32, New Usage: 2/32
+Current Load: 0, New Load: 0.111111
+Process 6 assigned successfully.
+Assigned Process 6 to Node 6 with lowest load.
+Process 6 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 4.
+Resources fit check for Node 1 and Process 4: Yes
+Node 1 can handle Process 4: Yes
+Resources fit check for Node 2 and Process 4: Yes
+Node 2 can handle Process 4: Yes
+Resources fit check for Node 3 and Process 4: Yes
+Node 3 can handle Process 4: No
+Resources fit check for Node 6 and Process 4: Yes
+Node 6 can handle Process 4: Yes
+Resources fit check for Node 9 and Process 4: Yes
+Node 9 can handle Process 4: Yes
+Resources fit check for Node 5 and Process 4: Yes
+Node 5 can handle Process 4: Yes
+Resources fit check for Node 7 and Process 4: Yes
+Node 7 can handle Process 4: Yes
+Resources fit check for Node 10 and Process 4: Yes
+Node 10 can handle Process 4: Yes
+Resources fit check for Node 8 and Process 4: Yes
+Node 8 can handle Process 4: Yes
+Attempting to assign Process 4 to Node 6
+Current CPU Usage: 1/9, New Usage: 1/9
+Current Memory Usage: 2/32, New Usage: 5/32
+Current Load: 0.111111, New Load: 0.111111
+Process 4 assigned successfully.
+Assigned Process 4 to Node 6 with lowest load.
+Process 4 assigned to Node 6.
+Node 6 indices updated. New capacity: 8
+Found 9 candidate nodes for Process 10.
+Resources fit check for Node 1 and Process 10: Yes
+Node 1 can handle Process 10: Yes
+Resources fit check for Node 2 and Process 10: Yes
+Node 2 can handle Process 10: Yes
+Resources fit check for Node 3 and Process 10: Yes
+Node 3 can handle Process 10: No
+Resources fit check for Node 5 and Process 10: Yes
+Node 5 can handle Process 10: Yes
+Resources fit check for Node 7 and Process 10: Yes
+Node 7 can handle Process 10: Yes
+Resources fit check for Node 10 and Process 10: Yes
+Node 10 can handle Process 10: No
+Resources fit check for Node 8 and Process 10: Yes
+Node 8 can handle Process 10: Yes
+Resources fit check for Node 6 and Process 10: Yes
+Node 6 can handle Process 10: Yes
+Resources fit check for Node 9 and Process 10: Yes
+Node 9 can handle Process 10: Yes
+Attempting to assign Process 10 to Node 8
+Current CPU Usage: 0/14, New Usage: 1/14
+Current Memory Usage: 2/19, New Usage: 2/19
+Current Load: 0, New Load: 0.0714286
+Process 10 assigned successfully.
+Assigned Process 10 to Node 8 with lowest load.
+Process 10 assigned to Node 8.
+Node 8 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 13.
+Resources fit check for Node 1 and Process 13: Yes
+Node 1 can handle Process 13: Yes
+Resources fit check for Node 2 and Process 13: Yes
+Node 2 can handle Process 13: Yes
+Resources fit check for Node 3 and Process 13: Yes
+Node 3 can handle Process 13: No
+Resources fit check for Node 4 and Process 13: Yes
+Node 4 can handle Process 13: No
+Resources fit check for Node 5 and Process 13: Yes
+Node 5 can handle Process 13: Yes
+Resources fit check for Node 7 and Process 13: Yes
+Node 7 can handle Process 13: Yes
+Resources fit check for Node 10 and Process 13: Yes
+Node 10 can handle Process 13: No
+Resources fit check for Node 8 and Process 13: Yes
+Node 8 can handle Process 13: Yes
+Resources fit check for Node 6 and Process 13: Yes
+Node 6 can handle Process 13: Yes
+Resources fit check for Node 9 and Process 13: Yes
+Node 9 can handle Process 13: Yes
+Attempting to assign Process 13 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 0/28, New Usage: 2/28
+Current Load: 0.14, New Load: 0
+Process 13 assigned successfully.
+Assigned Process 13 to Node 5 with lowest load.
+Process 13 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 9 candidate nodes for Process 3.
+Resources fit check for Node 1 and Process 3: Yes
+Node 1 can handle Process 3: No
+Resources fit check for Node 2 and Process 3: Yes
+Node 2 can handle Process 3: No
+Resources fit check for Node 3 and Process 3: Yes
+Node 3 can handle Process 3: No
+Resources fit check for Node 6 and Process 3: Yes
+Node 6 can handle Process 3: No
+Resources fit check for Node 9 and Process 3: Yes
+Node 9 can handle Process 3: No
+Resources fit check for Node 5 and Process 3: Yes
+Node 5 can handle Process 3: No
+Resources fit check for Node 7 and Process 3: Yes
+Node 7 can handle Process 3: No
+Resources fit check for Node 10 and Process 3: Yes
+Node 10 can handle Process 3: No
+Resources fit check for Node 8 and Process 3: Yes
+Node 8 can handle Process 3: No
+No suitable node found for Process 3.
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+No node found. Adding to retry queue.
+Found 10 candidate nodes for Process 2.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+Resources fit check for Node 2 and Process 2: Yes
+Node 2 can handle Process 2: Yes
+Resources fit check for Node 3 and Process 2: Yes
+Node 3 can handle Process 2: Yes
+Resources fit check for Node 4 and Process 2: Yes
+Node 4 can handle Process 2: Yes
+Resources fit check for Node 6 and Process 2: Yes
+Node 6 can handle Process 2: Yes
+Resources fit check for Node 9 and Process 2: Yes
+Node 9 can handle Process 2: Yes
+Resources fit check for Node 5 and Process 2: Yes
+Node 5 can handle Process 2: Yes
+Resources fit check for Node 7 and Process 2: Yes
+Node 7 can handle Process 2: Yes
+Resources fit check for Node 10 and Process 2: Yes
+Node 10 can handle Process 2: Yes
+Resources fit check for Node 8 and Process 2: Yes
+Node 8 can handle Process 2: Yes
+Attempting to assign Process 2 to Node 5
+Current CPU Usage: 0/15, New Usage: 0/15
+Current Memory Usage: 2/28, New Usage: 4/28
+Current Load: 0, New Load: 0
+Process 2 assigned successfully.
+Assigned Process 2 to Node 5 with lowest load.
+Process 2 assigned to Node 5.
+Node 5 indices updated. New capacity: 15
+Found 10 candidate nodes for Process 20.
+Resources fit check for Node 1 and Process 20: Yes
+Node 1 can handle Process 20: Yes
+Resources fit check for Node 2 and Process 20: Yes
+Node 2 can handle Process 20: Yes
+Resources fit check for Node 3 and Process 20: Yes
+Node 3 can handle Process 20: No
+Resources fit check for Node 4 and Process 20: Yes
+Node 4 can handle Process 20: No
+Resources fit check for Node 6 and Process 20: Yes
+Node 6 can handle Process 20: Yes
+Resources fit check for Node 9 and Process 20: Yes
+Node 9 can handle Process 20: Yes
+Resources fit check for Node 8 and Process 20: Yes
+Node 8 can handle Process 20: Yes
+Resources fit check for Node 5 and Process 20: Yes
+Node 5 can handle Process 20: Yes
+Resources fit check for Node 7 and Process 20: Yes
+Node 7 can handle Process 20: Yes
+Resources fit check for Node 10 and Process 20: Yes
+Node 10 can handle Process 20: No
+Attempting to assign Process 20 to Node 5
+Current CPU Usage: 0/15, New Usage: 1/15
+Current Memory Usage: 4/28, New Usage: 5/28
+Current Load: 0, New Load: 0.0666667
+Process 20 assigned successfully.
+Assigned Process 20 to Node 5 with lowest load.
+Process 20 assigned to Node 5.
+Node 5 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 16.
+Resources fit check for Node 1 and Process 16: Yes
+Node 1 can handle Process 16: No
+Resources fit check for Node 2 and Process 16: Yes
+Node 2 can handle Process 16: Yes
+Resources fit check for Node 3 and Process 16: Yes
+Node 3 can handle Process 16: No
+Resources fit check for Node 5 and Process 16: Yes
+Node 5 can handle Process 16: No
+Resources fit check for Node 7 and Process 16: Yes
+Node 7 can handle Process 16: Yes
+Resources fit check for Node 10 and Process 16: Yes
+Node 10 can handle Process 16: No
+Resources fit check for Node 8 and Process 16: Yes
+Node 8 can handle Process 16: No
+Resources fit check for Node 6 and Process 16: Yes
+Node 6 can handle Process 16: No
+Resources fit check for Node 9 and Process 16: Yes
+Node 9 can handle Process 16: No
+Attempting to assign Process 16 to Node 7
+Current CPU Usage: 0/16, New Usage: 2/16
+Current Memory Usage: 0/17, New Usage: 7/17
+Current Load: 0.26, New Load: 0.125
+Process 16 assigned successfully.
+Assigned Process 16 to Node 7 with lowest load.
+Process 16 assigned to Node 7.
+Node 7 indices updated. New capacity: 14
+Found 9 candidate nodes for Process 19.
+Resources fit check for Node 1 and Process 19: Yes
+Node 1 can handle Process 19: No
+Resources fit check for Node 2 and Process 19: Yes
+Node 2 can handle Process 19: Yes
+Resources fit check for Node 3 and Process 19: Yes
+Node 3 can handle Process 19: No
+Resources fit check for Node 6 and Process 19: Yes
+Node 6 can handle Process 19: No
+Resources fit check for Node 9 and Process 19: Yes
+Node 9 can handle Process 19: No
+Resources fit check for Node 5 and Process 19: Yes
+Node 5 can handle Process 19: No
+Resources fit check for Node 7 and Process 19: Yes
+Node 7 can handle Process 19: No
+Resources fit check for Node 10 and Process 19: Yes
+Node 10 can handle Process 19: No
+Resources fit check for Node 8 and Process 19: Yes
+Node 8 can handle Process 19: No
+Attempting to assign Process 19 to Node 2
+Current CPU Usage: 0/11, New Usage: 1/11
+Current Memory Usage: 0/17, New Usage: 4/17
+Current Load: 0.24, New Load: 0.0909091
+Process 19 assigned successfully.
+Assigned Process 19 to Node 2 with lowest load.
+Process 19 assigned to Node 2.
+Node 2 indices updated. New capacity: 10
+Found 9 candidate nodes for Process 17.
+Resources fit check for Node 1 and Process 17: Yes
+Node 1 can handle Process 17: Yes
+Resources fit check for Node 2 and Process 17: Yes
+Node 2 can handle Process 17: Yes
+Resources fit check for Node 3 and Process 17: Yes
+Node 3 can handle Process 17: No
+Resources fit check for Node 5 and Process 17: Yes
+Node 5 can handle Process 17: Yes
+Resources fit check for Node 7 and Process 17: Yes
+Node 7 can handle Process 17: Yes
+Resources fit check for Node 10 and Process 17: Yes
+Node 10 can handle Process 17: No
+Resources fit check for Node 8 and Process 17: Yes
+Node 8 can handle Process 17: Yes
+Resources fit check for Node 6 and Process 17: Yes
+Node 6 can handle Process 17: Yes
+Resources fit check for Node 9 and Process 17: Yes
+Node 9 can handle Process 17: Yes
+Attempting to assign Process 17 to Node 5
+Current CPU Usage: 1/15, New Usage: 2/15
+Current Memory Usage: 5/28, New Usage: 7/28
+Current Load: 0.0666667, New Load: 0.133333
+Process 17 assigned successfully.
+Assigned Process 17 to Node 5 with lowest load.
+Process 17 assigned to Node 5.
+Node 5 indices updated. New capacity: 13
+Found 10 candidate nodes for Process 18.
+Resources fit check for Node 1 and Process 18: Yes
+Node 1 can handle Process 18: Yes
+Resources fit check for Node 2 and Process 18: Yes
+Node 2 can handle Process 18: Yes
+Resources fit check for Node 3 and Process 18: Yes
+Node 3 can handle Process 18: Yes
+Resources fit check for Node 4 and Process 18: Yes
+Node 4 can handle Process 18: No
+Resources fit check for Node 6 and Process 18: Yes
+Node 6 can handle Process 18: Yes
+Resources fit check for Node 9 and Process 18: Yes
+Node 9 can handle Process 18: Yes
+Resources fit check for Node 8 and Process 18: Yes
+Node 8 can handle Process 18: Yes
+Resources fit check for Node 5 and Process 18: Yes
+Node 5 can handle Process 18: Yes
+Resources fit check for Node 7 and Process 18: Yes
+Node 7 can handle Process 18: Yes
+Resources fit check for Node 10 and Process 18: Yes
+Node 10 can handle Process 18: No
+Attempting to assign Process 18 to Node 8
+Current CPU Usage: 1/14, New Usage: 2/14
+Current Memory Usage: 2/19, New Usage: 3/19
+Current Load: 0.0714286, New Load: 0.142857
+Process 18 assigned successfully.
+Assigned Process 18 to Node 8 with lowest load.
+Process 18 assigned to Node 8.
+Node 8 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 11.
+Resources fit check for Node 1 and Process 11: Yes
+Node 1 can handle Process 11: No
+Resources fit check for Node 2 and Process 11: Yes
+Node 2 can handle Process 11: Yes
+Resources fit check for Node 3 and Process 11: Yes
+Node 3 can handle Process 11: No
+Resources fit check for Node 8 and Process 11: Yes
+Node 8 can handle Process 11: No
+Resources fit check for Node 6 and Process 11: Yes
+Node 6 can handle Process 11: No
+Resources fit check for Node 9 and Process 11: Yes
+Node 9 can handle Process 11: No
+Resources fit check for Node 5 and Process 11: Yes
+Node 5 can handle Process 11: No
+Resources fit check for Node 7 and Process 11: Yes
+Node 7 can handle Process 11: No
+Resources fit check for Node 10 and Process 11: Yes
+Node 10 can handle Process 11: No
+Attempting to assign Process 11 to Node 2
+Current CPU Usage: 1/11, New Usage: 4/11
+Current Memory Usage: 4/17, New Usage: 7/17
+Current Load: 0.0909091, New Load: 0.363636
+Process 11 assigned successfully.
+Assigned Process 11 to Node 2 with lowest load.
+Process 11 assigned to Node 2.
+Node 2 indices updated. New capacity: 7
+Found 10 candidate nodes for Process 12.
+Resources fit check for Node 1 and Process 12: Yes
+Node 1 can handle Process 12: Yes
+Resources fit check for Node 2 and Process 12: Yes
+Node 2 can handle Process 12: Yes
+Resources fit check for Node 3 and Process 12: Yes
+Node 3 can handle Process 12: No
+Resources fit check for Node 4 and Process 12: Yes
+Node 4 can handle Process 12: No
+Resources fit check for Node 6 and Process 12: Yes
+Node 6 can handle Process 12: Yes
+Resources fit check for Node 9 and Process 12: Yes
+Node 9 can handle Process 12: Yes
+Resources fit check for Node 8 and Process 12: Yes
+Node 8 can handle Process 12: Yes
+Resources fit check for Node 5 and Process 12: Yes
+Node 5 can handle Process 12: Yes
+Resources fit check for Node 7 and Process 12: Yes
+Node 7 can handle Process 12: Yes
+Resources fit check for Node 10 and Process 12: Yes
+Node 10 can handle Process 12: No
+Attempting to assign Process 12 to Node 7
+Current CPU Usage: 2/16, New Usage: 3/16
+Current Memory Usage: 7/17, New Usage: 10/17
+Current Load: 0.125, New Load: 0.1875
+Process 12 assigned successfully.
+Assigned Process 12 to Node 7 with lowest load.
+Process 12 assigned to Node 7.
+Node 7 indices updated. New capacity: 13
+Found 9 candidate nodes for Process 1.
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+Resources fit check for Node 2 and Process 1: Yes
+Node 2 can handle Process 1: Yes
+Resources fit check for Node 3 and Process 1: Yes
+Node 3 can handle Process 1: No
+Resources fit check for Node 6 and Process 1: Yes
+Node 6 can handle Process 1: Yes
+Resources fit check for Node 9 and Process 1: Yes
+Node 9 can handle Process 1: Yes
+Resources fit check for Node 5 and Process 1: Yes
+Node 5 can handle Process 1: Yes
+Resources fit check for Node 7 and Process 1: Yes
+Node 7 can handle Process 1: Yes
+Resources fit check for Node 10 and Process 1: Yes
+Node 10 can handle Process 1: Yes
+Resources fit check for Node 8 and Process 1: Yes
+Node 8 can handle Process 1: Yes
+Attempting to assign Process 1 to Node 5
+Current CPU Usage: 2/15, New Usage: 3/15
+Current Memory Usage: 7/28, New Usage: 7/28
+Current Load: 0.133333, New Load: 0.2
+Process 1 assigned successfully.
+Assigned Process 1 to Node 5 with lowest load.
+Process 1 assigned to Node 5.
+Node 5 indices updated. New capacity: 12
+Found 9 candidate nodes for Process 14.
+Resources fit check for Node 1 and Process 14: Yes
+Node 1 can handle Process 14: Yes
+Resources fit check for Node 2 and Process 14: Yes
+Node 2 can handle Process 14: Yes
+Resources fit check for Node 3 and Process 14: Yes
+Node 3 can handle Process 14: Yes
+Resources fit check for Node 8 and Process 14: Yes
+Node 8 can handle Process 14: Yes
+Resources fit check for Node 6 and Process 14: Yes
+Node 6 can handle Process 14: Yes
+Resources fit check for Node 9 and Process 14: Yes
+Node 9 can handle Process 14: Yes
+Resources fit check for Node 5 and Process 14: Yes
+Node 5 can handle Process 14: Yes
+Resources fit check for Node 7 and Process 14: Yes
+Node 7 can handle Process 14: Yes
+Resources fit check for Node 10 and Process 14: Yes
+Node 10 can handle Process 14: No
+Attempting to assign Process 14 to Node 6
+Current CPU Usage: 1/9, New Usage: 2/9
+Current Memory Usage: 5/32, New Usage: 8/32
+Current Load: 0.111111, New Load: 0.222222
+Process 14 assigned successfully.
+Assigned Process 14 to Node 6 with lowest load.
+Process 14 assigned to Node 6.
+Node 6 indices updated. New capacity: 7
+Found 9 candidate nodes for Process 15.
+Resources fit check for Node 1 and Process 15: Yes
+Node 1 can handle Process 15: No
+Resources fit check for Node 2 and Process 15: Yes
+Node 2 can handle Process 15: Yes
+Resources fit check for Node 3 and Process 15: Yes
+Node 3 can handle Process 15: No
+Resources fit check for Node 6 and Process 15: Yes
+Node 6 can handle Process 15: No
+Resources fit check for Node 9 and Process 15: Yes
+Node 9 can handle Process 15: No
+Resources fit check for Node 5 and Process 15: Yes
+Node 5 can handle Process 15: No
+Resources fit check for Node 7 and Process 15: Yes
+Node 7 can handle Process 15: No
+Resources fit check for Node 10 and Process 15: Yes
+Node 10 can handle Process 15: No
+Resources fit check for Node 8 and Process 15: Yes
+Node 8 can handle Process 15: No
+Attempting to assign Process 15 to Node 2
+Current CPU Usage: 4/11, New Usage: 6/11
+Current Memory Usage: 7/17, New Usage: 13/17
+Current Load: 0.363636, New Load: 0.545455
+Process 15 assigned successfully.
+Assigned Process 15 to Node 2 with lowest load.
+Process 15 assigned to Node 2.
+Node 2 indices updated. New capacity: 5
+Found 10 candidate nodes for Process 8.
+Resources fit check for Node 1 and Process 8: Yes
+Node 1 can handle Process 8: Yes
+Resources fit check for Node 2 and Process 8: Yes
+Node 2 can handle Process 8: Yes
+Resources fit check for Node 3 and Process 8: Yes
+Node 3 can handle Process 8: Yes
+Resources fit check for Node 4 and Process 8: Yes
+Node 4 can handle Process 8: No
+Resources fit check for Node 5 and Process 8: Yes
+Node 5 can handle Process 8: Yes
+Resources fit check for Node 7 and Process 8: Yes
+Node 7 can handle Process 8: Yes
+Resources fit check for Node 10 and Process 8: Yes
+Node 10 can handle Process 8: No
+Resources fit check for Node 8 and Process 8: Yes
+Node 8 can handle Process 8: Yes
+Resources fit check for Node 6 and Process 8: Yes
+Node 6 can handle Process 8: Yes
+Resources fit check for Node 9 and Process 8: Yes
+Node 9 can handle Process 8: Yes
+Attempting to assign Process 8 to Node 8
+Current CPU Usage: 2/14, New Usage: 3/14
+Current Memory Usage: 3/19, New Usage: 4/19
+Current Load: 0.142857, New Load: 0.214286
+Process 8 assigned successfully.
+Assigned Process 8 to Node 8 with lowest load.
+Process 8 assigned to Node 8.
+Node 8 indices updated. New capacity: 11
+Found 8 candidate nodes for Process 9.
+Resources fit check for Node 1 and Process 9: Yes
+Node 1 can handle Process 9: No
+Resources fit check for Node 3 and Process 9: Yes
+Node 3 can handle Process 9: No
+Resources fit check for Node 8 and Process 9: Yes
+Node 8 can handle Process 9: No
+Resources fit check for Node 6 and Process 9: Yes
+Node 6 can handle Process 9: No
+Resources fit check for Node 9 and Process 9: Yes
+Node 9 can handle Process 9: No
+Resources fit check for Node 5 and Process 9: Yes
+Node 5 can handle Process 9: No
+Resources fit check for Node 7 and Process 9: Yes
+Node 7 can handle Process 9: No
+Resources fit check for Node 10 and Process 9: Yes
+Node 10 can handle Process 9: No
+No suitable node found for Process 9.
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Attempting to assign Process 9 to Node 2
+Current CPU Usage: 6/11, New Usage: 7/11
+Current Memory Usage: 13/17, New Usage: 17/17
+Current Load: 0.545455, New Load: 0.636364
+Process 9 assigned successfully.
+Node 2 indices updated. New capacity: 4
+Assigned 1 CPU to Node 2 for Process 9.
+Partitioning failed for Process 9. Remaining: CPU=0
+No node found. Adding to retry queue.
+Retrying Process 3 with radius 164.25
+Attempting to partition Process 3.
+Node 1 can handle Process 3: No
+Node 2 can handle Process 3: No
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: No
+Node 5 can handle Process 3: No
+Node 6 can handle Process 3: No
+Node 7 can handle Process 3: No
+Node 8 can handle Process 3: No
+Node 9 can handle Process 3: No
+Node 10 can handle Process 3: No
+Partitioning failed for Process 3. Remaining: CPU=1
+Retry failed for Process 3 (attempt 1).
+Retrying Process 9 with radius 153.9
+Attempting to partition Process 9.
+Node 1 can handle Process 9: No
+Node 2 can handle Process 9: Yes
+Node 3 can handle Process 9: No
+Node 4 can handle Process 9: No
+Node 5 can handle Process 9: No
+Node 6 can handle Process 9: No
+Node 7 can handle Process 9: No
+Node 8 can handle Process 9: No
+Node 9 can handle Process 9: No
+Node 10 can handle Process 9: No
+Partitioning failed for Process 9. Remaining: CPU=1
+Retry failed for Process 9 (attempt 1).
+Retry queue processing completed.
+Scheduling completed.
+
+=== Scheduled Processes Summary ===
+Process 5 (Process score: 3.13) is scheduled first and assigned to Node 6.
+Process 7 (Process score: 2.86667) assigned to Node 8.
+Process 6 (Process score: 2.732) assigned to Node 6.
+Process 4 (Process score: 2.547) assigned to Node 6.
+Process 10 (Process score: 2.42) assigned to Node 8.
+Process 13 (Process score: 2.359) assigned to Node 5.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 2 (Process score: 1.793) assigned to Node 5.
+Process 20 (Process score: 1.679) assigned to Node 5.
+Process 16 (Process score: 1.627) assigned to Node 7.
+Process 19 (Process score: 1.57) assigned to Node 2.
+Process 17 (Process score: 1.54467) assigned to Node 5.
+Process 18 (Process score: 1.506) assigned to Node 8.
+Process 11 (Process score: 1.47833) assigned to Node 2.
+Process 12 (Process score: 1.41333) assigned to Node 7.
+Process 1 (Process score: 1.407) assigned to Node 5.
+Process 14 (Process score: 1.29867) assigned to Node 6.
+Process 15 (Process score: 1.24233) assigned to Node 2.
+Process 8 (Process score: 1.179) assigned to Node 8.
+Process 9 (Process score: 1.13667) not scheduled.
+Process 3 (Process score: 1.92833) not scheduled.
+Process 9 (Process score: 1.13667) not scheduled.
+==================================
+
+========================================
+       Scheduling Summary Report        
+========================================
+
+Per-Process Timing Details:
+----------------------------------------
+Process 5:
+  Start Time: 11 units
+  Completion Time: 68 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 7:
+  Start Time: 19 units
+  Completion Time: 47 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 6:
+  Start Time: 68 units
+  Completion Time: 85 units
+  Waiting Time: 53 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 4:
+  Start Time: 85 units
+  Completion Time: 138 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 10:
+  Start Time: 47 units
+  Completion Time: 104 units
+  Waiting Time: 18 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 13:
+  Start Time: 37 units
+  Completion Time: 48 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 2:
+  Start Time: 48 units
+  Completion Time: 66 units
+  Waiting Time: 46 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 20:
+  Start Time: 66 units
+  Completion Time: 121 units
+  Waiting Time: 10 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 16:
+  Start Time: 44 units
+  Completion Time: 81 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 19:
+  Start Time: 53 units
+  Completion Time: 76 units
+  Waiting Time: 0 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 17:
+  Start Time: 121 units
+  Completion Time: 160 units
+  Waiting Time: 75 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 18:
+  Start Time: 104 units
+  Completion Time: 109 units
+  Waiting Time: 56 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 11:
+  Start Time: 76 units
+  Completion Time: 79 units
+  Waiting Time: 44 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 12:
+  Start Time: 81 units
+  Completion Time: 103 units
+  Waiting Time: 49 units
+  Assigned to Node(s): 7
+----------------------------------------
+Process 1:
+  Start Time: 160 units
+  Completion Time: 197 units
+  Waiting Time: 159 units
+  Assigned to Node(s): 5
+----------------------------------------
+Process 14:
+  Start Time: 138 units
+  Completion Time: 152 units
+  Waiting Time: 97 units
+  Assigned to Node(s): 6
+----------------------------------------
+Process 15:
+  Start Time: 79 units
+  Completion Time: 114 units
+  Waiting Time: 36 units
+  Assigned to Node(s): 2
+----------------------------------------
+Process 8:
+  Start Time: 109 units
+  Completion Time: 110 units
+  Waiting Time: 87 units
+  Assigned to Node(s): 8
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+Process 3:
+  Status: Not Scheduled
+----------------------------------------
+Process 9:
+  Status: Not Scheduled
+----------------------------------------
+
+Aggregate Metrics:
+----------------------------------------
+Total Execution Time: 196 units
+Average Waiting Time: 44.7222 units
+Throughput: 0.0918367 processes/unit
+CPU Utilization: 16.6667%
+Fairness (Variance of Waiting Times): 1756.98
+----------------------------------------
+
+Calculation Counts:
+----------------------------------------
+Process Scoring: 20
+Node Scoring: 0
+Resource Checks: 185
+Retry Attempts: 2
+Partitioning Attempts: 4
+Scheduling Overhead (Total Calculations): 211
+----------------------------------------
+
+End of Scheduling Summary
+========================================

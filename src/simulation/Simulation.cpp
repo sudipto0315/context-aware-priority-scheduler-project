@@ -1,13 +1,12 @@
 #include "Simulation.h"
-#include "../schedulers/PreemptiveScheduler.h"
-#include "../schedulers/NonPreemptiveScheduler.h"
-#include "../schedulers/StaticPriorityScheduler.h"
-#include "../schedulers/DynamicPriorityScheduler.h"
 #include "../schedulers/ContextAwareScheduler.h"
+#include "../schedulers/FCFS.h"
+#include "../schedulers/SJF.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <nlohmann/json.hpp>
+#include <typeinfo>
 
 using json = nlohmann::json;
 
@@ -45,16 +44,12 @@ void Simulation::loadConfig(const std::string& configFile) {
 
     // Step 2: Create the scheduler with the populated fogNodes
     std::string schedulerType = config["scheduler"];
-    if (schedulerType == "Preemptive") {
-        scheduler = std::make_unique<PreemptiveScheduler>(fogNodes);
-    } else if (schedulerType == "NonPreemptive") {
-        scheduler = std::make_unique<NonPreemptiveScheduler>(fogNodes);
-    } else if (schedulerType == "StaticPriority") {
-        scheduler = std::make_unique<StaticPriorityScheduler>();
-    } else if (schedulerType == "DynamicPriority") {
-        scheduler = std::make_unique<DynamicPriorityScheduler>();
-    } else if (schedulerType == "ContextAware") {
+    if (schedulerType == "ContextAware") {
         scheduler = std::make_unique<ContextAwareScheduler>(fogNodes);
+    } else if (schedulerType == "FCFS") {
+        scheduler = std::make_unique<FCFSScheduler>(fogNodes);
+    } else if (schedulerType == "SJF") {
+        scheduler = std::make_unique<SJFScheduler>(fogNodes);
     } else {
         std::cerr << "Error: Unknown scheduler type in config file.\n";
         exit(EXIT_FAILURE);
@@ -75,11 +70,10 @@ void Simulation::loadConfig(const std::string& configFile) {
         json resources = processData.value("required_resources", json::object());
         int required_cpu = resources.value("cpu", 0);
         int required_memory = resources.value("memory", 0);
-
         Process process(
             processData["id"].get<int>(),
-            processData["arrival_time"].get<int>(),
-            processData["burst_time"].get<int>(),
+            processData["arrival_time"].get<std::time_t>(),
+            processData["burst_time"].get<std::time_t>(),
             processData["priority"].get<int>(),
             processData["user_id"].get<int>(),
             processData["mobility"].get<double>(),
@@ -109,8 +103,10 @@ void Simulation::run() {
     for (auto& process : processList) {
         scheduler->addProcess(std::make_shared<Process>(process));
     }
-    scheduler->schedule();
     scheduler->printQueue();
+    scheduler->schedule();
+    scheduler->printSchedulingSummary();
+    scheduler->printSchedulingMetrics();
 }
 
 Simulation::~Simulation() = default;

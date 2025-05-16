@@ -6,24 +6,115 @@
 #include "BaseScheduler.h"
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <memory>
-#include <limits>
-#include <algorithm>
-#include <iostream>
+#include <queue>
+#include <set>
+
+// Custom comparator for priority queue
+struct ProcessScoreComparator {
+    bool operator()(const std::shared_ptr<Process>& a, const std::shared_ptr<Process>& b) const {
+        return a->getProcessScore() < b->getProcessScore(); // Higher score has higher priority (max-heap)
+    }
+};
+
+// Simple 2D Point structure
+struct Point {
+    double x, y;
+    Point(double x_ = 0, double y_ = 0) : x(x_), y(y_) {}
+};
+
+// QuadTree Node structure
+struct QuadTreeNode {
+    Point point;              // Node's coordinates
+    int nodeId;               // FogNode ID
+    QuadTreeNode(double x, double y, int id) : point(x, y), nodeId(id) {}
+};
+
+// QuadTree class for spatial indexing
+class QuadTree {
+private:
+    static constexpr int CAPACITY = 4; // Max nodes per QuadTree node before splitting
+    Point topLeft, bottomRight;        // Boundary of this QuadTree node
+    std::vector<QuadTreeNode> nodes;   // Nodes stored in this QuadTree node
+    std::unique_ptr<QuadTree> nw, ne, sw, se; // Child quadrants
+
+    bool isLeaf() const { return !nw; }
+    void subdivide();
+
+public:
+    QuadTree(Point tl, Point br) : topLeft(tl), bottomRight(br) {}
+    void insert(double x, double y, int nodeId);
+    // Enhanced queryRange with early termination
+    void queryRange(Point center, double radius, std::vector<int>& results, int maxResults = 0) const;
+};
 
 class ContextAwareScheduler : public BaseScheduler {
 private:
     std::vector<FogNode> fogNodes;
     std::vector<FogNode> sortedNodes;  // Pre-sorted nodes for performance
-    std::vector<std::shared_ptr<Process>> retryQueue;  // Queue for failed assignments
-    std::map<int, std::vector<int>> processToNodeMap;  // Maps process ID to list of fog node IDs
+    bool needsResorting;               // Flag to determine if sorting is needed
+    
+    // Priority queue for processes
+    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessScoreComparator> processPriorityQueue;
+    
+    // Retry queue for failed assignments
+    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessScoreComparator> retryQueue;
+    
+    // Maps process ID to list of fog node IDs
+    std::map<int, std::vector<int>> processToNodeMap;
+    
+    // Vector to store scheduled processes and their assigned nodes
+    std::vector<std::pair<std::shared_ptr<Process>, std::vector<int>>> scheduledProcesses;
 
-    // Override the inherited getNextProcess from BaseScheduler
-    std::shared_ptr<Process> getNextProcess() override;
+    // Vector to store all processed processes (scheduled or failed)
+    std::vector<std::tuple<std::shared_ptr<Process>, std::vector<int>, bool, double, double>> allProcesses;
+    
+    // Spatial index using QuadTree
+    std::unique_ptr<QuadTree> spatialIndex;
+    
+    // Multi-dimensional indices for faster resource filtering
+    std::set<std::pair<double, int>> nodesByCapacity;  // {capacity, nodeId}  // Maps capacity to node IDs
+    std::set<std::pair<double, int>> nodesByMemory;    // {memory, nodeId}    // Maps memory to node IDs
+    std::set<std::pair<double, int>> nodesByBandwidth; // {bandwidth, nodeId} // Maps bandwidth to node IDs
+    
+    // Process grouping for batch processing
+    std::map<int, std::vector<std::shared_ptr<Process>>> processesByGroup;
+    
+    // Node mapping and indexing for faster lookups
+    std::map<int, FogNode*> nodeMap;                   // Maps node ID to FogNode pointer
+    std::unordered_map<int, size_t> nodeIndexMap;      // Maps node ID to vector index
+    std::unordered_map<int, double> nodeUsedBandwidth; // Maps node ID to used bandwidth
+    
+    // Cache for coordinates to avoid recalculation
+    std::unordered_map<int, std::pair<double, double>> nodeCoordinates;
+    
+    // Caches for expensive calculations
+    std::unordered_map<int, double> processScoreCache;                             // Process ID to score
+    std::unordered_map<int, std::pair<double, double>> loadBalanceCache;           // Node ID to {load, score}
+    
+    // Use map instead of unordered_map for pair keys to avoid hash complications
+    std::map<std::pair<int, int>, double> nodeScoreCache;                          // {Node ID, Process ID} to score
+    std::map<std::pair<int, int>, double> locationScoreCache;                      // {Process ID, Node ID} to location score
+    
+    // Comparator for ordering nodes by load
+    struct NodeLoadComparator {
+        const std::map<int, FogNode*>& nodeMap;
+        NodeLoadComparator(const std::map<int, FogNode*>& nm) : nodeMap(nm) {}
+        bool operator()(int a, int b) const {
+            double loadA = nodeMap.at(a)->getCurrentLoad();
+            double loadB = nodeMap.at(b)->getCurrentLoad();
+            return (loadA != loadB) ? loadA < loadB : a < b;
+        }
+    };
+    NodeLoadComparator nodeComparator;
     
     // Node assignment and partitioning methods
     int assignToFogNode(std::shared_ptr<Process> process);
     bool partitionProcess(std::shared_ptr<Process> process);
+    
+    // Process retry queue
+    void processRetryQueue();
 
     // Helper methods for scoring and evaluation
     double calculateLocationScore(const std::shared_ptr<Process>& process, const FogNode& node);
@@ -33,19 +124,24 @@ private:
     double calculateNewLoad(const FogNode& node, const Resource& resources);
     bool canResourcesFit(const FogNode& node, const Resource& resources, const Process& process);
     bool canNodeHandleProcess(const FogNode& node, const Process& process);
+    
+    // Helper methods for optimization
+    std::vector<int> findCandidateNodes(const std::shared_ptr<Process>& process);
+    void updateNodeIndices(int nodeId);
+    void buildSpatialIndices();
 
-public:
-    // Constructor
+public: 
+    static int processScoreCount;
+    static int nodeScoreCount;
+    static int resourceCheckCount;
+    static int retryAttemptCount;
+    static int partitioningAttemptCount;
     ContextAwareScheduler(const std::vector<FogNode>& nodes);
-
-    // Override methods from BaseScheduler
     void addProcess(std::shared_ptr<Process> process) override;
+    std::shared_ptr<Process> getNextProcess() override;
     void schedule() override;
-
-    // Additional methods
-    void printSchedulingState() const;
-
-    // Virtual destructor
+    void printSchedulingSummary() const override;
+    void printSchedulingMetrics() const override;
     virtual ~ContextAwareScheduler() = default;
 };
 

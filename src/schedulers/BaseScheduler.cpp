@@ -10,7 +10,7 @@ void BaseScheduler::printQueue() const {
         std::cout << "Process queue is empty.\n";
         return;
     }
-    std::cout << "Current process queue:\n";
+    std::cout << "All processes managed by the scheduler:\n";
     for (const auto& process : processQueue) {
         process->printProcessInfo();
     }
