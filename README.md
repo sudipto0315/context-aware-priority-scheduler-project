@@ -1,6 +1,24 @@
-🚀 How to Compile & Run
-1️⃣ Compile the Code
-❯ g++ -std=c++17 -o output/scheduler_simulation \
+
+
+
+          
+# Context-Aware Priority Scheduler Project
+
+This project implements a context-aware priority scheduler for fog computing environments. The scheduler intelligently allocates resources based on process context and priority.
+
+## 📋 Project Overview
+
+The scheduler simulation includes:
+- Multiple scheduling algorithms (FCFS, SJF, Context-Aware)
+- Process and fog node modeling
+- Comprehensive testing suite
+- Performance metrics and logging
+
+## 🚀 How to Compile & Run
+
+### 1️⃣ Compile the Code
+```bash
+g++ -std=c++17 -o output/scheduler_simulation \
     src/main.cpp \
     src/simulation/Simulation.cpp \
     src/utils/Logger.cpp \
@@ -11,22 +29,33 @@
     src/models/Process.cpp \
     src/models/FogNode.cpp \
     -I. -I/opt/homebrew/include
+```
 
-2️⃣ Run the Simulation
-❯ ./output/scheduler_simulation
+### 2️⃣ Run the Simulation
+```bash
+./output/scheduler_simulation
+```
 
+## 🧪 Running the Tests
 
-🚀 Running the Tests
-1️⃣ Install Google Test (if not installed)
+### 1️⃣ Install Google Test (if not installed)
+```bash
 brew install googletest         # macOS
+```
 
-2️⃣ Compile the Tests
-❯ clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
+### 2️⃣ Compile the Tests
+
+#### Process Tests
+```bash
+clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
     tests/test_process.cpp src/models/Process.cpp \
     -lgtest -lgtest_main -pthread -o output/test_process
+```
 
-❯ clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
+#### Scheduler Tests
+```bash
+clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
     -lgtest -lgtest_main -pthread -o output/test_scheduler \
     tests/test_scheduler.cpp \
@@ -36,8 +65,11 @@ brew install googletest         # macOS
     src/schedulers/SJF.cpp \
     src/models/Process.cpp \
     src/models/FogNode.cpp
-    
-❯ clang++ -std=c++17 \
+```
+
+#### Simulation Tests
+```bash
+clang++ -std=c++17 \
     -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
     -I/opt/homebrew/opt/nlohmann-json/include \
@@ -51,36 +83,53 @@ brew install googletest         # macOS
     src/schedulers/SJF.cpp \
     src/models/Process.cpp \
     src/models/FogNode.cpp
+```
 
+### 3️⃣ Run the Tests
+```bash
+./output/test_process
+./output/test_scheduler
+./output/test_simulation
+```
 
-3️⃣ Run the Tests
-❯ ./output/test_process
-❯ ./output/test_scheduler
-❯ ./output/test_simulation
+## 🛠️ Using the Makefile
 
+The project includes a Makefile for simplified building and testing:
 
+| Command | Description |
+|---------|-------------|
+| `make` | Build the entire project |
+| `make run` | Run the scheduler simulation |
+| `make test` | Run all unit tests |
+| `make testprocess` | Run only process tests |
+| `make testscheduler` | Run only scheduler tests |
+| `make testsimulation` | Run only simulation tests |
+| `make clean` | Clean compiled files |
+| `make help` | Display help information |
 
-🚀 How to Use the Makefile
-1️⃣ Build the Project
-make
+## 📁 Project Structure
 
-2️⃣ Run the Scheduler Simulation
-make run
-
-3️⃣ Run Unit Tests
-make test
-
-4️⃣ Run only process tests
-make testprocess
-
-5️⃣ Run only scheduler tests
-make testscheduler
-
-6️⃣ Run only simulation tests
-make testsimulation
-
-7️⃣ Clean Compiled Files
-make clean
-
-8️⃣ Display Help
-make help
+```
+.
+├── src/
+│   ├── main.cpp
+│   ├── models/
+│   │   ├── Process.cpp
+│   │   └── FogNode.cpp
+│   ├── schedulers/
+│   │   ├── BaseScheduler.cpp
+│   │   ├── ContextAwareScheduler.cpp
+│   │   ├── FCFS.cpp
+│   │   └── SJF.cpp
+│   ├── simulation/
+│   │   └── Simulation.cpp
+│   └── utils/
+│       └── Logger.cpp
+├── tests/
+│   ├── test_process.cpp
+│   ├── test_scheduler.cpp
+│   └── test_simulation.cpp
+├── output/
+├── Makefile
+└── README.md
+```
