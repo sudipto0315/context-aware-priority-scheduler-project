@@ -1,11 +1,12 @@
 #include "../src/simulation/Simulation.h"
 #include "../src/utils/Logger.h"
 #include <gtest/gtest.h>
+
 // Test Simulation Execution
-TEST(SimulationTest, RunsSuccessfully) { 
+TEST(SimulationTest, RunsSuccessfully) {
     Logger::init("output/test_logs.txt"); // Separate log file for tests
 
-    Simulation sim("src/simulation/config.json"); // Use test config
+    Simulation sim("src/simulation/config.json");
     EXPECT_NO_THROW(sim.run()); // Ensure simulation runs without crashing
 
     Logger::close();

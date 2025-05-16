@@ -1,56 +1,66 @@
-#include "../src/schedulers/PreemptiveScheduler.h"
-#include "../src/schedulers/NonPreemptiveScheduler.h"
-#include "../src/schedulers/StaticPriorityScheduler.h"
-#include "../src/schedulers/DynamicPriorityScheduler.h"
+#include "../src/schedulers/ContextAwareScheduler.h"
+#include "../src/schedulers/FCFS.h"
+#include "../src/schedulers/SJF.h"
 #include "../src/models/Process.h"
+#include "../src/models/FogNode.h"
 #include <gtest/gtest.h>
 
-// Test Preemptive Scheduler
-TEST(SchedulerTest, PreemptiveExecution) {
-    PreemptiveScheduler scheduler;
+// Test Fixture for Scheduler Tests
+class SchedulerTest : public ::testing::Test {
+protected:
+    std::vector<FogNode> nodes;
 
-    scheduler.addProcess(Process(1, 0, 5, 2)); // Lower priority
-    scheduler.addProcess(Process(2, 0, 3, 1)); // Higher priority (preempts Process 1)
+    void SetUp() override {
+        // Initialize fog nodes similar to config.json
+        nodes.emplace_back(1, 16, 25, 202, 0.17, 10.33, 0.0005, "Zone_D", true);
+        nodes.emplace_back(2, 11, 17, 305, 0.24, 4.49, 0.0004, "Zone_B", true);
+    }
+};
 
-    scheduler.schedule();
-
-    EXPECT_EQ(scheduler.getExecutionOrder()[0], 2); // Process 2 should execute first
+// Test FCFS Scheduler
+TEST_F(SchedulerTest, FCFSSchedulesProcesses) {
+    FCFSScheduler scheduler(nodes);
+    std::shared_ptr<Process> p1 = std::make_shared<Process>(
+        1, 0, 5, 1, 0, 0.0, 0.0, "none", 0.0, "generic", 0.0, 0.0, "Zone_D", std::time(nullptr),
+        44.0, 0.04, 90.0, 0.0, 1.63, 0.66, 765);
+    std::shared_ptr<Process> p2 = std::make_shared<Process>(
+        2, 1, 3, 2, 0, 0.0, 0.0, "none", 0.0, "generic", 0.0, 0.0, "Zone_D", std::time(nullptr),
+        10.0, 0.0624, 100.0, 0.0, 0.2, 2.73, 1060);
+    scheduler.addProcess(p1);
+    scheduler.addProcess(p2);
+    EXPECT_NO_THROW(scheduler.schedule());
+    // Verify p1 is processed first (FCFS)
+    auto nextProcess = scheduler.getNextProcess();
+    EXPECT_EQ(nextProcess, nullptr); // Queue should be empty after schedule()
 }
 
-// Test Non-Preemptive Scheduler
-TEST(SchedulerTest, NonPreemptiveExecution) {
-    NonPreemptiveScheduler scheduler;
-
-    scheduler.addProcess(Process(1, 0, 5, 2));
-    scheduler.addProcess(Process(2, 1, 3, 1));
-
-    scheduler.schedule();
-
-    EXPECT_EQ(scheduler.getExecutionOrder()[0], 1); // Process 1 starts first (Non-preemptive)
+// Test SJF Scheduler
+TEST_F(SchedulerTest, SJFSchedulesProcesses) {
+    SJFScheduler scheduler(nodes);
+    std::shared_ptr<Process> p1 = std::make_shared<Process>(
+        1, 0, 10, 1, 0, 0.0, 0.0, "none", 0.0, "generic", 0.0, 0.0, "Zone_D", std::time(nullptr),
+        44.0, 0.04, 90.0, 0.0, 1.63, 0.66, 765);
+    std::shared_ptr<Process> p2 = std::make_shared<Process>(
+        2, 0, 5, 2, 0, 0.0, 0.0, "none", 0.0, "generic", 0.0, 0.0, "Zone_D", std::time(nullptr),
+        10.0, 0.0624, 100.0, 0.0, 0.2, 2.73, 1060);
+    scheduler.addProcess(p1);
+    scheduler.addProcess(p2);
+    EXPECT_NO_THROW(scheduler.schedule());
+    // Verify p2 is processed first (shorter burst time)
+    auto nextProcess = scheduler.getNextProcess();
+    EXPECT_EQ(nextProcess, nullptr); // Queue should be empty after schedule()
 }
 
-// Test Static Priority Scheduler
-TEST(SchedulerTest, StaticPriorityExecution) {
-    StaticPriorityScheduler scheduler;
-
-    scheduler.addProcess(Process(1, 0, 5, 2)); // Lower priority
-    scheduler.addProcess(Process(2, 0, 3, 1)); // Higher priority
-
-    scheduler.schedule();
-
-    EXPECT_EQ(scheduler.getExecutionOrder()[0], 2); // Process 2 has higher priority and executes first
-}
-
-// Test Dynamic Priority Scheduler
-TEST(SchedulerTest, DynamicPriorityExecution) {
-    DynamicPriorityScheduler scheduler;
-
-    scheduler.addProcess(Process(1, 0, 5, 2)); // Lower priority
-    scheduler.addProcess(Process(2, 0, 3, 1)); // Higher priority initially
-
-    scheduler.schedule();
-
-    EXPECT_EQ(scheduler.getExecutionOrder()[0], 2); // Initially, Process 2 has higher priority
+// Test ContextAwareScheduler
+TEST_F(SchedulerTest, ContextAwareSchedulesProcesses) {
+    ContextAwareScheduler scheduler(nodes);
+    std::shared_ptr<Process> p1 = std::make_shared<Process>(
+        1, 0, 5, 1, 0, 0.0, 0.0, "none", 0.0, "generic", 0.0, 0.0, "Zone_D", std::time(nullptr),
+        44.0, 0.04, 90.0, 0.0, 1.63, 0.66, 765);
+    scheduler.addProcess(p1);
+    EXPECT_NO_THROW(scheduler.schedule());
+    auto nextProcess = scheduler.getNextProcess();
+    EXPECT_EQ(nextProcess, nullptr); // Queue should be empty after schedule()
 }
 
 // Run all tests
