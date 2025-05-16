@@ -1,22 +1,18 @@
 🚀 How to Compile & Run
 1️⃣ Compile the Code
-~/Developer/scheduler/context-aware-priority-scheduler-project
 ❯ g++ -std=c++17 -o output/scheduler_simulation \
     src/main.cpp \
     src/simulation/Simulation.cpp \
     src/utils/Logger.cpp \
     src/schedulers/BaseScheduler.cpp \
-    src/schedulers/DynamicPriorityScheduler.cpp \
-    src/schedulers/NonPreemptiveScheduler.cpp \
-    src/schedulers/PreemptiveScheduler.cpp \
-    src/schedulers/StaticPriorityScheduler.cpp \
     src/schedulers/ContextAwareScheduler.cpp \
+    src/schedulers/FCFS.cpp \
+    src/schedulers/SJF.cpp \
     src/models/Process.cpp \
     src/models/FogNode.cpp \
     -I. -I/opt/homebrew/include
 
 2️⃣ Run the Simulation
-~/Developer/scheduler/context-aware-priority-scheduler-project
 ❯ ./output/scheduler_simulation
 
 
@@ -25,42 +21,42 @@
 brew install googletest         # macOS
 
 2️⃣ Compile the Tests
-~/Developer/scheduler/priority-scheduler-project
 ❯ clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
     tests/test_process.cpp src/models/Process.cpp \
-    -lgtest -lgtest_main -pthread -o test_process
+    -lgtest -lgtest_main -pthread -o output/test_process
 
 ❯ clang++ -std=c++17 -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
-    -lgtest -lgtest_main -pthread -o test_scheduler \
+    -lgtest -lgtest_main -pthread -o output/test_scheduler \
     tests/test_scheduler.cpp \
-    src/schedulers/DynamicPriorityScheduler.cpp \
-    src/schedulers/NonPreemptiveScheduler.cpp \
-    src/schedulers/PreemptiveScheduler.cpp \
-    src/schedulers/StaticPriorityScheduler.cpp \
-    src/models/Process.cpp
+    src/schedulers/BaseScheduler.cpp \
+    src/schedulers/ContextAwareScheduler.cpp \
+    src/schedulers/FCFS.cpp \
+    src/schedulers/SJF.cpp \
+    src/models/Process.cpp \
+    src/models/FogNode.cpp
     
 ❯ clang++ -std=c++17 \
     -I/opt/homebrew/opt/googletest/include \
     -L/opt/homebrew/opt/googletest/lib \
     -I/opt/homebrew/opt/nlohmann-json/include \
-    -lgtest -lgtest_main -pthread -o test_simulation \
+    -lgtest -lgtest_main -pthread -o output/test_simulation \
     tests/test_simulation.cpp \
     src/simulation/Simulation.cpp \
     src/utils/Logger.cpp \
-    src/schedulers/DynamicPriorityScheduler.cpp \
-    src/schedulers/NonPreemptiveScheduler.cpp \
-    src/schedulers/PreemptiveScheduler.cpp \
-    src/schedulers/StaticPriorityScheduler.cpp \
-    src/models/Process.cpp
+    src/schedulers/BaseScheduler.cpp \
+    src/schedulers/ContextAwareScheduler.cpp \
+    src/schedulers/FCFS.cpp \
+    src/schedulers/SJF.cpp \
+    src/models/Process.cpp \
+    src/models/FogNode.cpp
 
 
 3️⃣ Run the Tests
-~/Developer/scheduler/priority-scheduler-project/
-❯ ./test_process
-❯ ./test_scheduler
-❯ ./test_simulation
+❯ ./output/test_process
+❯ ./output/test_scheduler
+❯ ./output/test_simulation
 
 
 
@@ -74,8 +70,17 @@ make run
 3️⃣ Run Unit Tests
 make test
 
-4️⃣ Clean Compiled Files
+4️⃣ Run only process tests
+make testprocess
+
+5️⃣ Run only scheduler tests
+make testscheduler
+
+6️⃣ Run only simulation tests
+make testsimulation
+
+7️⃣ Clean Compiled Files
 make clean
 
-5️⃣ Display Help
+8️⃣ Display Help
 make help
