@@ -108,9 +108,6 @@ private:
         }
     };
     NodeLoadComparator nodeComparator;
-
-    // Override the inherited getNextProcess from BaseScheduler
-    std::shared_ptr<Process> getNextProcess() override;
     
     // Node assignment and partitioning methods
     int assignToFogNode(std::shared_ptr<Process> process);
@@ -141,10 +138,10 @@ public:
     static int partitioningAttemptCount;
     ContextAwareScheduler(const std::vector<FogNode>& nodes);
     void addProcess(std::shared_ptr<Process> process) override;
+    std::shared_ptr<Process> getNextProcess() override;
     void schedule() override;
-    void printSchedulingState() const;
-    void printSchedulingSummary() const;
-    void printSchedulingMetrics() const;
+    void printSchedulingSummary() const override;
+    void printSchedulingMetrics() const override;
     virtual ~ContextAwareScheduler() = default;
 };
 

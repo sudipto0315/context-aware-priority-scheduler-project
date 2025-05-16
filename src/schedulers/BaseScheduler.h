@@ -18,6 +18,12 @@ public:
     // Pure virtual function for scheduling (to be implemented by derived classes)
     virtual void schedule() = 0;
 
+    // Pure virtual function for SchedulingSummary (to be implemented by derived classes)
+    virtual void printSchedulingSummary() const = 0;
+
+    // Pure virtual function for SchedulingMetrics (to be implemented by derived classes)
+    virtual void printSchedulingMetrics() const = 0;
+
     // Add a process to the queue
     virtual void addProcess(std::shared_ptr<Process> process) {
         processQueue.push_back(process);
