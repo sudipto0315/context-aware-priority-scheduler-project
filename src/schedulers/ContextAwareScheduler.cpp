@@ -388,7 +388,10 @@ std::vector<int> ContextAwareScheduler::findCandidateNodes(const std::shared_ptr
         throw std::runtime_error("Unknown process location: " + processLocation + " for Process " + std::to_string(process->getProcessID()));
     }
     Point center = locationToCoords[processLocation];
-    double radius = 100.0 + (10.0 * process->getLatencySensitivity());
+    const double BASE_RADIUS = 15.0;
+    const double ALPHA = 0.5;
+    const double MIN_RADIUS = 5.0;
+    double radius = std::max(MIN_RADIUS, BASE_RADIUS * (1 - ALPHA * process->getLatencySensitivity()));
     spatialIndex->queryRange(center, radius, candidates, 20);
     
     std::vector<int> finalCandidates;
