@@ -556,13 +556,13 @@
             "current_task_load": 0.7146604805600424,
             "request_location": "Zone_A",
             "request_time": 62.344351561642206,
-            "required_bandwidth": 10.0,
+            "required_bandwidth": 16.76887217920527,
             "max_packet_loss": 0.023023998154264654,
             "max_delay": 55.56258123510204,
             "battery_lifetime": 54,
             "required_resources": {
-              "cpu": 1.0230973422304469,
-              "memory": 1.2245307317355
+                "cpu": 2.194122313526036,
+                "memory": 1.5388549971083931
             },
             "data_size": 227
         },
@@ -586,8 +586,8 @@
             "max_delay": 12.134731722047265,
             "battery_lifetime": 88,
             "required_resources": {
-                "cpu": 2.028812831237108,
-                "memory": 4.542196756909462
+                "cpu": 5.028812831237108,
+                "memory": 13.542196756909462
             },
             "data_size": 1253
         },

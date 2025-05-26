@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     }
 
     Logger::init("output/logs.txt");
-    std::cout << "===== [" << getCurrentTimestamp() << "] Context-Aware Priority Scheduling Simulation Started =====" << std::endl;
+    std::cout << "===== [" << getCurrentTimestamp() << "] Scheduling Simulation Started =====" << std::endl;
 
     try {
         Simulation sim(configFile);
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "[ERROR] Unknown exception occurred." << std::endl;
     }
 
-    std::cout << "===== [" << getCurrentTimestamp() << "] Simulation Completed Successfully =====" << std::endl;
+    std::cout << "===== [" << getCurrentTimestamp() << "] Scheduling Simulation Completed Successfully =====" << std::endl;
     Logger::close();
 
     return 0;

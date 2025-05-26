@@ -232,43 +232,13 @@ void SJFScheduler::printSchedulingMetrics() const {
 
     double total_execution_time = (scheduled_count > 0) ? (max_completion - min_arrival) : 0;
     double avg_waiting_time = (scheduled_count > 0) ? (total_waiting_time / scheduled_count) : 0;
-
-    // Throughput
     double throughput = (scheduled_count > 0) ? (static_cast<double>(scheduled_count) / total_execution_time) : 0;
-
-    // Resource Utilization
-    double total_used_cpu = 0.0;
-    double total_cpu_capacity = 0.0;
-    double total_used_memory = 0.0;
-    double total_memory_capacity = 0.0;
-
-    for (const auto& node : fogNodes) {
-        if (node.getIsActive()) {
-            total_used_cpu += (node.getCpuCapacity() - node.getAvailableCpu());
-            total_cpu_capacity += node.getCpuCapacity();
-            total_used_memory += (node.getMemory() - node.getAvailableMemory());
-            total_memory_capacity += node.getMemory();
-        }
-    }
-
-    double cpu_utilization = (total_cpu_capacity > 0) ? (total_used_cpu / total_cpu_capacity) : 0;
-    double memory_utilization = (total_memory_capacity > 0) ? (total_used_memory / total_memory_capacity) : 0;
-
-    // Fairness (Variance of waiting times)
-    double sum_squared_diff = 0.0;
-    for (double wt : waiting_times) {
-        sum_squared_diff += (wt - avg_waiting_time) * (wt - avg_waiting_time);
-    }
-    double variance = (scheduled_count > 0) ? (sum_squared_diff / scheduled_count) : 0;
 
     std::cout << "\nAggregate Metrics:\n";
     std::cout << "----------------------------------------\n";
     std::cout << "Total Execution Time: " << total_execution_time << " units\n";
     std::cout << "Average Waiting Time: " << avg_waiting_time << " units\n";
     std::cout << "Throughput: " << throughput << " processes/unit\n";
-    std::cout << "CPU Utilization: " << (cpu_utilization * 100) << "%\n";
-    // std::cout << "Memory Utilization: " << (memory_utilization * 100) << "%\n";
-    std::cout << "Fairness (Variance of Waiting Times): " << variance << "\n";
     std::cout << "----------------------------------------\n";
 
     // Calculation counts

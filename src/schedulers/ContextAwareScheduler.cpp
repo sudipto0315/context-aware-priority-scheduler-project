@@ -1,4 +1,5 @@
 #include "ContextAwareScheduler.h"
+#include <glpk.h>
 #include <iostream>
 #include <cmath>
 #include <limits>
@@ -7,6 +8,7 @@
 #include <set>
 #include <random>
 #include <stdexcept>
+#include <memory>
 
 // Add calculation counters as member variables (declared in .h)
 int ContextAwareScheduler::processScoreCount = 0;
@@ -14,105 +16,6 @@ int ContextAwareScheduler::nodeScoreCount = 0;
 int ContextAwareScheduler::resourceCheckCount = 0;
 int ContextAwareScheduler::retryAttemptCount = 0;
 int ContextAwareScheduler::partitioningAttemptCount = 0;
-
-/* Quadtree methods section */
-
-// Subdivide quadtree node into four quadrants
-void QuadTree::subdivide() {
-    double midX = (topLeft.x + bottomRight.x) / 2;
-    double midY = (topLeft.y + bottomRight.y) / 2;
-    nw = std::make_unique<QuadTree>(Point(topLeft.x, topLeft.y), Point(midX, midY));
-    ne = std::make_unique<QuadTree>(Point(midX, topLeft.y), Point(bottomRight.x, midY));
-    sw = std::make_unique<QuadTree>(Point(topLeft.x, midY), Point(midX, bottomRight.y));
-    se = std::make_unique<QuadTree>(Point(midX, midY), Point(bottomRight.x, bottomRight.y));
-}
-
-// Insert node into quadtree
-void QuadTree::insert(double x, double y, int nodeId) {
-    if (x < topLeft.x || x > bottomRight.x || y < topLeft.y || y > bottomRight.y) {
-        std::cerr << "Point (" << x << ", " << y << ") out of bounds for nodeId " << nodeId << std::endl;
-        return;
-    }
-
-    if (nodes.size() < CAPACITY && isLeaf()) {
-        nodes.emplace_back(x, y, nodeId);
-        return;
-    }
-
-    if (isLeaf()) subdivide();
-
-    double midX = (topLeft.x + bottomRight.x) / 2;
-    double midY = (topLeft.y + bottomRight.y) / 2;
-    
-    if (x <= midX) {
-        if (y < midY) nw->insert(x, y, nodeId);
-        else sw->insert(x, y, nodeId);
-    } else {
-        if (y < midY) ne->insert(x, y, nodeId);
-        else se->insert(x, y, nodeId);
-    }
-}
-
-// Query nodes within a given radius
-void QuadTree::queryRange(Point center, double radius, std::vector<int>& results, int maxResults) const {
-    if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-
-    if (topLeft.x > center.x + radius || bottomRight.x < center.x - radius ||
-        topLeft.y > center.y + radius || bottomRight.y < center.y - radius) {
-        return;
-    }
-
-    for (const auto& node : nodes) {
-        double dx = node.point.x - center.x;
-        double dy = node.point.y - center.y;
-        if (dx * dx + dy * dy <= radius * radius) {
-            results.push_back(node.nodeId);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-        }
-    }
-
-    if (!isLeaf()) {
-        double midX = (topLeft.x + bottomRight.x) / 2;
-        double midY = (topLeft.y + bottomRight.y) / 2;
-        bool isWest = center.x < midX;
-        bool isNorth = center.y < midY;
-        
-        // Process quadrants in order of proximity
-        if (isWest && isNorth) {
-            nw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            ne->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            sw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            se->queryRange(center, radius, results, maxResults);
-        } else if (!isWest && isNorth) {
-            ne->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            nw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            se->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            sw->queryRange(center, radius, results, maxResults);
-        } else if (isWest && !isNorth) {
-            sw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            nw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            se->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            ne->queryRange(center, radius, results, maxResults);
-        } else {
-            se->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            ne->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            sw->queryRange(center, radius, results, maxResults);
-            if (maxResults > 0 && static_cast<int>(results.size()) >= maxResults) return;
-            nw->queryRange(center, radius, results, maxResults);
-        }
-    }
-}
 
 /* Constructor and initialization section */
 
@@ -126,67 +29,6 @@ ContextAwareScheduler::ContextAwareScheduler(const std::vector<FogNode>& nodes)
         nodeIndexMap[nodeId] = i;
         nodeUsedBandwidth[nodeId] = 0.0; // Initialize used bandwidth for each node
     }
-    
-    // Define location-to-coordinate mapping
-    std::unordered_map<std::string, Point> locationToCoords = {
-        {"Zone_A", Point(10.0, 10.0)},
-        {"Zone_B", Point(20.0, 10.0)},
-        {"Zone_C", Point(10.0, 20.0)},
-        {"Zone_D", Point(20.0, 20.0)}
-    };
-
-    // Random offset generator for nodes in the same zone
-    std::random_device rd;
-    std::default_random_engine generator(rd());
-    std::uniform_real_distribution<double> distribution(-5.0, 5.0);
-
-    // Assign coordinates based on node location
-    for (const auto& node : fogNodes) {
-        int nodeId = node.getNodeID();
-        std::string location = node.getLocation();
-        if (locationToCoords.find(location) == locationToCoords.end()) {
-            throw std::runtime_error("Unknown location: " + location + " for Node " + std::to_string(nodeId));
-        }
-        Point baseCoords = locationToCoords[location];
-        double offsetX = distribution(generator);
-        double offsetY = distribution(generator);
-        nodeCoordinates[nodeId] = {baseCoords.x + offsetX, baseCoords.y + offsetY};
-    }
-    
-    buildSpatialIndices();
-    std::cout << "ContextAwareScheduler initialized with " << fogNodes.size() << " nodes.\n";
-}
-
-// Build spatial indices for fog nodes
-void ContextAwareScheduler::buildSpatialIndices() {
-    double minX = std::numeric_limits<double>::max(), minY = minX;
-    double maxX = std::numeric_limits<double>::lowest(), maxY = maxX;
-    
-    for (const auto& node : fogNodes) {
-        int nodeId = node.getNodeID();
-        double x = nodeCoordinates[nodeId].first;
-        double y = nodeCoordinates[nodeId].second;
-        minX = std::min(minX, x);
-        minY = std::min(minY, y);
-        maxX = std::max(maxX, x);
-        maxY = std::max(maxY, y);
-        
-        nodesByCapacity.emplace(node.getAvailableCpu(), nodeId);
-        nodesByMemory.emplace(node.getAvailableMemory(), nodeId);
-        nodesByBandwidth.emplace(node.getBandwidth(), nodeId);
-    }
-    
-    minX -= 10.0; minY -= 10.0;
-    maxX += 10.0; maxY += 10.0;
-    
-    spatialIndex = std::make_unique<QuadTree>(Point(minX, minY), Point(maxX, maxY));
-    for (const auto& node : fogNodes) {
-        int nodeId = node.getNodeID();
-        spatialIndex->insert(nodeCoordinates[nodeId].first, nodeCoordinates[nodeId].second, nodeId);
-    }
-    std::cout << "Spatial indices built with boundaries: (" << minX << ", " << minY << ") to (" << maxX << ", " << maxY << ").\n";
-    std::cout << "Spatial dimensions: (" << maxX - minX << ", " << maxY - minY << ").\n";
-    std::cout << "Spatial boundary (A,B,C,D): (" << minX << ", " << minY << "), (" << maxX << ", " << minY << "), (" << maxX << ", " << maxY << "), (" << minX << ", " << maxY << ")\n";
 }
 
 /* Process management section */
@@ -282,7 +124,7 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
     }
     
     double load = std::max(0.0, std::min(1.0, node.getCurrentLoad())); // Ensure load is [0, 1]
-    double score = 1.0 / (1.0 + std::exp(load * 5));
+    double score = 1.0 / (1.0 + std::exp(load * 10));
     
     loadBalanceCache[nodeId] = {load, score};
     std::cout << "Load balance score for Node " << nodeId << ": " << score << "\n";
@@ -290,7 +132,7 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
 }
 
 // Calculate comprehensive process score
-double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Process>& process) {
+double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Process>& process) { // process suitability score
     processScoreCount++;
     int processId = process->getProcessID();
     
@@ -342,69 +184,12 @@ double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std:
     return score;
 }
 
-// Calculate new load after assigning process to node
-double ContextAwareScheduler::calculateNewLoad(const FogNode& node, const Resource& resources) {
-    double newLoad = node.getCurrentLoad() + (resources.cpu / std::max(1e-6, node.getCpuCapacity()));
-    newLoad = std::max(0.0, std::min(1.0, newLoad)); // Ensure load is [0, 1]
-    std::cout << "New load calculated for Node " << node.getNodeID() << ": " << newLoad << "\n";
-    return newLoad;
-}
-
 // Check if a node can handle a process
 bool ContextAwareScheduler::canNodeHandleProcess(const FogNode& node, const Process& process) {
     bool canHandle = node.getDelay() <= process.getMaxDelay() && 
                      node.getPacketLoss() <= process.getMaxPacketLoss();
     std::cout << "Node " << node.getNodeID() << " can handle Process " << process.getProcessID() << ": " << (canHandle ? "Yes" : "No") << "\n";
     return canHandle;
-}
-
-// Check if resources can fit a process
-bool ContextAwareScheduler::canResourcesFit(const FogNode& node, const Resource& resources, const Process& process) {
-    resourceCheckCount++;
-    int nodeId = node.getNodeID();
-    double remainingBandwidth = node.getBandwidth() - nodeUsedBandwidth[nodeId];
-    bool fits = (node.getAvailableCpu() >= resources.cpu * 0.5) && // Partial assignment threshold
-                node.getAvailableMemory() >= resources.memory && 
-                remainingBandwidth >= process.getRequiredBandwidth();
-    std::cout << "Resources fit check for Node " << nodeId << " and Process " << process.getProcessID() << ": " << (fits ? "Yes" : "No") << "\n";
-    return fits;
-}
-
-// Find candidate nodes using quadtree and resource constraints
-std::vector<int> ContextAwareScheduler::findCandidateNodes(const std::shared_ptr<Process>& process) {
-    std::vector<int> candidates;
-    const auto& resources = process->getRequiredResources();
-    
-    // Define location-to-coordinate mapping for processes
-    std::unordered_map<std::string, Point> locationToCoords = {
-        {"Zone_A", Point(10.0, 10.0)},
-        {"Zone_B", Point(20.0, 10.0)},
-        {"Zone_C", Point(10.0, 20.0)},
-        {"Zone_D", Point(20.0, 20.0)}
-    };
-
-    std::string processLocation = process->getRequestLocation();
-    if (locationToCoords.find(processLocation) == locationToCoords.end()) {
-        throw std::runtime_error("Unknown process location: " + processLocation + " for Process " + std::to_string(process->getProcessID()));
-    }
-    Point center = locationToCoords[processLocation];
-    const double BASE_RADIUS = 15.0;
-    const double ALPHA = 0.5;
-    const double MIN_RADIUS = 5.0;
-    double radius = std::max(MIN_RADIUS, BASE_RADIUS * (1 - ALPHA * process->getLatencySensitivity()));
-    spatialIndex->queryRange(center, radius, candidates, 20);
-    
-    std::vector<int> finalCandidates;
-    for (int nodeId : candidates) {
-        const FogNode& node = *nodeMap[nodeId];
-        if (node.getCpuCapacity() >= resources.cpu * 0.5 &&
-            node.getMemory() >= resources.memory &&
-            (node.getBandwidth() - nodeUsedBandwidth[nodeId]) >= process->getRequiredBandwidth()) {
-            finalCandidates.push_back(nodeId);
-        }
-    }
-    std::cout << "Found " << finalCandidates.size() << " candidate nodes for Process " << process->getProcessID() << ".\n";
-    return finalCandidates;
 }
 
 /* Algorithm methods section */
@@ -419,53 +204,6 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     processPriorityQueue.pop();
     std::cout << "Retrieved Process " << process->getProcessID() << " from queue.\n";
     return process;
-}
-
-// Assign process to the most suitable fog node
-int ContextAwareScheduler::assignToFogNode(std::shared_ptr<Process> process) {
-    std::vector<std::pair<double, int>> eligibleNodes; // Pair of (overallLoad, nodeId)
-    
-    // Get candidate nodes for the process
-    std::vector<int> candidateNodeIds = findCandidateNodes(process);
-
-    // Evaluate each candidate node
-    for (int nodeId : candidateNodeIds) {
-        FogNode& node = *nodeMap[nodeId];
-        if (!node.getIsActive()) continue;
-
-        auto resources = process->getRequiredResources();
-        if (canResourcesFit(node, resources, *process) && canNodeHandleProcess(node, *process)) {
-            // Calculate projected CPU load after assignment
-            double cpuLoad = node.getCurrentLoad() + (resources.cpu / std::max(1e-6, node.getCpuCapacity()));
-            // Calculate projected bandwidth load after assignment
-            double bandwidthLoad = (nodeUsedBandwidth[nodeId] + process->getRequiredBandwidth()) / node.getBandwidth();
-            // Overall load is the maximum of CPU and bandwidth loads
-            double overallLoad = std::max(cpuLoad, bandwidthLoad);
-            if (overallLoad <= 1.0) { // Ensure node can handle the process without overloading
-                eligibleNodes.emplace_back(overallLoad, nodeId);
-            }
-        }
-    }
-
-    // If there are eligible nodes, select the one with the lowest load
-    if (!eligibleNodes.empty()) {
-        // Sort by overallLoad in ascending order (lowest load first)
-        std::sort(eligibleNodes.begin(), eligibleNodes.end());
-        int bestNodeId = eligibleNodes[0].second;
-        FogNode& bestNode = *nodeMap[bestNodeId];
-
-        // Attempt to assign the process to the selected node
-        if (bestNode.assignProcess(*process)) {
-            nodeUsedBandwidth[bestNodeId] += process->getRequiredBandwidth();
-            std::cout << "Assigned Process " << process->getProcessID() 
-                      << " to Node " << bestNodeId << " with lowest load.\n";
-            return bestNodeId;
-        }
-    }
-
-    // No suitable node found
-    std::cout << "No suitable node found for Process " << process->getProcessID() << ".\n";
-    return -1;
 }
 
 // Partition process across multiple nodes
@@ -505,6 +243,7 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
         double remainingBandwidth = node.getBandwidth() - nodeUsedBandwidth[nodeId];
         double bwToAssign = process->getRequiredBandwidth() * (cpuToAssign / resources.cpu);
         if (remainingBandwidth >= bwToAssign) {
+            resourceCheckCount++;
             if (node.assignProcess(*partitionedProcess)) {
                 nodeUsedBandwidth[nodeId] += process->getRequiredBandwidth();
                 remainingBw -= bwToAssign;
@@ -540,6 +279,7 @@ void ContextAwareScheduler::processRetryQueue() {
         
         int processId = process->getProcessID();
         retryAttempts[processId]++;
+        retryAttemptCount++;
         
         if (retryAttempts[processId] > MAX_RETRY_ATTEMPTS) {
             std::cout << "Max retry attempts reached for Process " << processId << ".\n";
@@ -567,72 +307,172 @@ void ContextAwareScheduler::processRetryQueue() {
 
 // Main scheduling method
 void ContextAwareScheduler::schedule() {
-    std::cout << "Scheduling started. Queue size: " << processPriorityQueue.size() << "\n";
+    std::cout << "Scheduling started with global optimization. Queue size: " << processPriorityQueue.size() << "\n";
     if (processPriorityQueue.empty()) return;
-    
-    const size_t MAX_CACHE_SIZE = 1000;
+
+    // Collect all processes from the priority queue
     std::vector<std::shared_ptr<Process>> processes;
     while (!processPriorityQueue.empty()) {
-        processes.push_back(getNextProcess());
+        processes.push_back(getNextProcess()); /**/
     }
 
-    // Map to track the earliest available time for each node
-    std::unordered_map<int, double> nodeAvailableTime;
-    for (const auto& node : fogNodes) {
-        nodeAvailableTime[node.getNodeID()] = 0.0; // Initially available at time 0
+    // Create the GLPK problem
+    glp_prob *lp = glp_create_prob();
+    glp_set_prob_name(lp, "FogScheduling");
+    glp_set_obj_dir(lp, GLP_MAX);  // Maximize the objective
+
+    // Define decision variables: x[i][j] is the fraction of process i assigned to node j
+    int numVars = processes.size() * fogNodes.size();
+    glp_add_cols(lp, numVars);
+    for (size_t i = 0; i < processes.size(); ++i) {
+        for (size_t j = 0; j < fogNodes.size(); ++j) {
+            int varIndex = i * fogNodes.size() + j + 1;  // GLPK indices start at 1
+            glp_set_col_name(lp, varIndex, ("x_" + std::to_string(i) + "_" + std::to_string(j)).c_str());
+            glp_set_col_bnds(lp, varIndex, GLP_DB, 0.0, 1.0);  // 0 <= x_ij <= 1
+        }
     }
-    
-    for (size_t i = 0; i < processes.size(); i++) {
-        auto process = processes[i];
-        double arrival_time = static_cast<double>(process->getArrivalTime());
-        int assignedNode = assignToFogNode(process);
-        
-        if (assignedNode != -1) {
-            FogNode& node = *nodeMap[assignedNode];
-            // Start time is the maximum of arrival time and node's available time
-            double start_time = std::max(arrival_time, nodeAvailableTime[assignedNode]);
-            double completion_time = start_time + static_cast<double>(process->getBurstTime());
-            nodeAvailableTime[assignedNode] = completion_time; // Update node's available time
-            std::cout << "Process " << process->getProcessID() << " assigned to Node " << assignedNode << ".\n";
-            processToNodeMap[process->getProcessID()] = {assignedNode};
-            updateNodeIndices(assignedNode);
-            scheduledProcesses.push_back({process, {assignedNode}});
-            allProcesses.push_back({process, {assignedNode}, true, start_time, completion_time});
-        } else if (partitionProcess(process)) {
-            // For partitioned processes, use the latest completion time across assigned nodes
+
+    // Objective: Maximize sum of x_ij * s_i * s_j,i
+    for (size_t i = 0; i < processes.size(); ++i) {
+        double s_i = calculateProcessScore(processes[i]);
+        for (size_t j = 0; j < fogNodes.size(); ++j) {
+            int varIndex = i * fogNodes.size() + j + 1;
+            double s_ji = calculateNodeScore(fogNodes[j], processes[i]);
+            double combinedScore = s_i * s_ji;
+            glp_set_obj_coef(lp, varIndex, combinedScore);
+        }
+    }
+
+    // Constraint 1: Each process must be fully assigned (sum of x_ij = 1 for each i)
+    glp_add_rows(lp, processes.size());
+    for (size_t i = 0; i < processes.size(); ++i) {
+        glp_set_row_name(lp, i + 1, ("assign_" + std::to_string(i)).c_str());
+        glp_set_row_bnds(lp, i + 1, GLP_FX, 1.0, 1.0);  // sum x_ij = 1
+        std::vector<int> indices(fogNodes.size());
+        std::vector<double> coeffs(fogNodes.size(), 1.0);
+        for (size_t j = 0; j < fogNodes.size(); ++j) {
+            indices[j] = i * fogNodes.size() + j + 1;
+        }
+        glp_set_mat_row(lp, i + 1, fogNodes.size(), indices.data() - 1, coeffs.data() - 1);
+    }
+
+    // Constraint 2: Resource constraints for each node
+    int resourceRows = fogNodes.size() * 3;  // CPU, memory, bandwidth for each node
+    glp_add_rows(lp, resourceRows);
+    int rowIndex = processes.size() + 1;
+    for (size_t j = 0; j < fogNodes.size(); ++j) {
+        const FogNode& node = fogNodes[j];
+        // CPU constraint
+        glp_set_row_name(lp, rowIndex, ("cpu_" + std::to_string(j)).c_str());
+        glp_set_row_bnds(lp, rowIndex, GLP_UP, 0.0, node.getCpuCapacity());
+        // Memory constraint
+        glp_set_row_name(lp, rowIndex + 1, ("mem_" + std::to_string(j)).c_str());
+        glp_set_row_bnds(lp, rowIndex + 1, GLP_UP, 0.0, node.getMemory());
+        // Bandwidth constraint
+        glp_set_row_name(lp, rowIndex + 2, ("bw_" + std::to_string(j)).c_str());
+        glp_set_row_bnds(lp, rowIndex + 2, GLP_UP, 0.0, node.getBandwidth());
+
+        std::vector<int> indices(processes.size());
+        std::vector<double> cpuCoeffs(processes.size());
+        std::vector<double> memCoeffs(processes.size());
+        std::vector<double> bwCoeffs(processes.size());
+        for (size_t i = 0; i < processes.size(); ++i) {
+            int varIndex = i * fogNodes.size() + j + 1;
+            indices[i] = varIndex;
+            const auto& resources = processes[i]->getRequiredResources();
+            cpuCoeffs[i] = resources.cpu;
+            memCoeffs[i] = resources.memory;
+            bwCoeffs[i] = processes[i]->getRequiredBandwidth();
+        }
+        glp_set_mat_row(lp, rowIndex, processes.size(), indices.data() - 1, cpuCoeffs.data() - 1);
+        glp_set_mat_row(lp, rowIndex + 1, processes.size(), indices.data() - 1, memCoeffs.data() - 1);
+        glp_set_mat_row(lp, rowIndex + 2, processes.size(), indices.data() - 1, bwCoeffs.data() - 1);
+        rowIndex += 3;
+    }
+
+    // Constraint 3: Latency constraint (x_ij = 0 if node delay > process max delay)
+    for (size_t i = 0; i < processes.size(); ++i) {
+        for (size_t j = 0; j < fogNodes.size(); ++j) {
+            if (fogNodes[j].getDelay() > processes[i]->getMaxDelay()) {
+                int varIndex = i * fogNodes.size() + j + 1;
+                glp_set_col_bnds(lp, varIndex, GLP_FX, 0.0, 0.0);  // Fix x_ij = 0
+            }
+        }
+    }
+
+    // Solve the problem
+    glp_simplex(lp, nullptr);
+
+    if (glp_get_status(lp) == GLP_OPT) {
+        std::cout << "Optimal solution found with objective value: " << glp_get_obj_val(lp) << "\n";
+
+        // Process the solution and assign processes to nodes
+        std::unordered_map<int, double> nodeAvailableTime;
+        for (const auto& node : fogNodes) {
+            nodeAvailableTime[node.getNodeID()] = 0.0; //0.0 is the initial time for each node
+        }
+
+        for (size_t i = 0; i < processes.size(); ++i) {
+            auto process = processes[i];
+            double arrival_time = static_cast<double>(process->getArrivalTime());
+            std::vector<int> assignedNodes;
             double start_time = arrival_time;
             double latest_completion = start_time;
-            for (int nodeId : processToNodeMap[process->getProcessID()]) {
-                start_time = std::max(arrival_time, nodeAvailableTime[nodeId]);
-                double node_completion = start_time + static_cast<double>(process->getBurstTime()) / processToNodeMap[process->getProcessID()].size(); // Simplified split
-                nodeAvailableTime[nodeId] = node_completion;
-                latest_completion = std::max(latest_completion, node_completion);
+
+            for (size_t j = 0; j < fogNodes.size(); ++j) {
+                int varIndex = i * fogNodes.size() + j + 1;
+                double fraction = glp_get_col_prim(lp, varIndex);
+                if (fraction > 0.1) {  // Consider assignments above a small threshold
+                    int nodeId = fogNodes[j].getNodeID();
+                    FogNode& node = *nodeMap[nodeId];
+                    auto resources = process->getRequiredResources();
+
+                    // Create a partitioned process if fraction < 1
+                    auto partitionedProcess = std::make_shared<Process>(*process);
+                    partitionedProcess->setRequiredResources(resources.cpu * fraction, resources.memory * fraction);
+                    partitionedProcess->setRequiredBandwidth(process->getRequiredBandwidth() * fraction);
+
+                    partitioningAttemptCount++;
+                    resourceCheckCount++;
+
+                    if (node.assignProcess(*partitionedProcess)) {
+                        nodeUsedBandwidth[nodeId] += process->getRequiredBandwidth() * fraction;
+                        assignedNodes.push_back(nodeId);
+
+                        // Update timing
+                        start_time = std::max(arrival_time, nodeAvailableTime[nodeId]);
+                        double completion_time = start_time + static_cast<double>(process->getBurstTime()) * fraction;
+                        nodeAvailableTime[nodeId] = completion_time;
+                        latest_completion = std::max(latest_completion, completion_time);
+                        updateNodeIndices(nodeId);
+                    }
+                }
             }
-            scheduledProcesses.push_back({process, processToNodeMap[process->getProcessID()]});
-            allProcesses.push_back({process, processToNodeMap[process->getProcessID()], true, start_time, latest_completion});
-        } else {
-            std::cout << "No node found. Adding to retry queue.\n";
+
+            if (!assignedNodes.empty()) { // If assigned to at least one node
+                processToNodeMap[process->getProcessID()] = assignedNodes;
+                scheduledProcesses.push_back({process, assignedNodes});
+                allProcesses.push_back({process, assignedNodes, true, start_time, latest_completion});
+                std::cout << "Process " << process->getProcessID() << " assigned to " << assignedNodes.size() << " node(s).\n";
+            } else { // If not assigned to any node
+                std::cout << "Process " << process->getProcessID() << " could not be assigned.\n";
+                allProcesses.push_back({process, {}, false, -1.0, -1.0});
+            }
+        }
+    } else { // If no optimal solution found
+        std::cout << "No optimal solution found.\n";
+        // Fallback to adding processes to retry queue or marking as failed
+        for (auto& process : processes) {
+            allProcesses.push_back({process, {}, false, -1.0, -1.0});
             retryQueue.push(process);
             retryAttemptCount++;
-            allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
         }
-        
-        // Evict oldest cache entries if size exceeds limit
-        if (nodeScoreCache.size() > MAX_CACHE_SIZE) {
-            std::vector<std::pair<std::pair<int, int>, double>> entries(nodeScoreCache.begin(), nodeScoreCache.end());
-            std::sort(entries.begin(), entries.end(), [](const auto& a, const auto& b) {
-                return a.second < b.second; // Sort by score (proxy for age)
-            });
-            size_t evictCount = entries.size() / 5; // Evict 20%
-            for (size_t j = 0; j < evictCount; ++j) {
-                nodeScoreCache.erase(entries[j].first);
-                locationScoreCache.erase(entries[j].first); // Keep caches in sync
-            }
-            std::cout << "Evicted " << evictCount << " cache entries at iteration " << i << ".\n";
-        }
+        processRetryQueue();
     }
-    
-    processRetryQueue();
+
+    // Clean up
+    glp_delete_prob(lp);
+
     std::cout << "Scheduling completed.\n";
 }
 
@@ -711,42 +551,13 @@ void ContextAwareScheduler::printSchedulingMetrics() const {
     
     double total_execution_time = (scheduled_count > 0) ? (max_completion - min_arrival) : 0;
     double avg_waiting_time = (scheduled_count > 0) ? (total_waiting_time / scheduled_count) : 0;
-    
-    // Throughput
     double throughput = (scheduled_count > 0) ? (static_cast<double>(scheduled_count) / total_execution_time) : 0;
-    
-    // Resource Utilization
-    double total_used_cpu = 0.0;
-    double total_cpu_capacity = 0.0;
-    double total_used_memory = 0.0;
-    double total_memory_capacity = 0.0;
-    
-    for (const auto& node : fogNodes) {
-        if (node.getIsActive()) {
-            total_used_cpu += (node.getCpuCapacity() - node.getAvailableCpu());
-            total_cpu_capacity += node.getCpuCapacity();
-            total_used_memory += (node.getMemory() - node.getAvailableMemory());
-            total_memory_capacity += node.getMemory();
-        }
-    }
-    
-    double cpu_utilization = (total_cpu_capacity > 0) ? (total_used_cpu / total_cpu_capacity) : 0;
-    double memory_utilization = (total_memory_capacity > 0) ? (total_used_memory / total_memory_capacity) : 0;
-    
-    // Fairness (Variance of waiting times)
-    double sum_squared_diff = 0.0;
-    for (double wt : waiting_times) {
-        sum_squared_diff += (wt - avg_waiting_time) * (wt - avg_waiting_time);
-    }
-    double variance = (scheduled_count > 0) ? (sum_squared_diff / scheduled_count) : 0;
     
     std::cout << "\nAggregate Metrics:\n";
     std::cout << "----------------------------------------\n";
     std::cout << "Total Execution Time: " << total_execution_time << " units\n";
     std::cout << "Average Waiting Time: " << avg_waiting_time << " units\n";
-    std::cout << "Throughput: " << throughput << " processes/unit\n";
-    std::cout << "CPU Utilization: " << (cpu_utilization * 100) << "%\n";
-    std::cout << "Fairness (Variance of Waiting Times): " << variance << "\n";
+    std::cout << "Throughput: " << throughput << " processes/unit-time\n";
     std::cout << "----------------------------------------\n";
 
     // Calculation counts (Scheduling Overhead)
@@ -761,6 +572,6 @@ void ContextAwareScheduler::printSchedulingMetrics() const {
     std::cout << "Scheduling Overhead (Total Calculations): " << total_calculations << "\n";
     std::cout << "----------------------------------------\n";
 
-    std::cout << "\nEnd of Scheduling Summary\n";
+    std::cout << "\nEnd of Context-Aware Scheduling Summary\n";
     std::cout << "========================================\n";
 }
