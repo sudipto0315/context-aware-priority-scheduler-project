@@ -52,7 +52,7 @@ TEST(ProcessTest, ContextGetters) {
     EXPECT_EQ(p.getUserID(), 100);
     EXPECT_DOUBLE_EQ(p.getMobility(), 0.5);
     EXPECT_DOUBLE_EQ(p.getRelinquishProbability(), 0.1);
-    EXPECT_EQ(p.getUsageHistory(), "high_frequency");
+    EXPECT_EQ(p.getUsageHistory(), "0.42,0.39,0.34");
     EXPECT_DOUBLE_EQ(p.getNps(), 8.0);
     EXPECT_EQ(p.getApplicationType(), "video_streaming");
     EXPECT_DOUBLE_EQ(p.getLatencySensitivity(), 0.7);

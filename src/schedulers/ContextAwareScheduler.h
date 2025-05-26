@@ -119,6 +119,7 @@ private:
     // Helper methods for scoring and evaluation
     double calculateLocationScore(const std::shared_ptr<Process>& process, const FogNode& node);
     double calculateLoadBalanceScore(const FogNode& node);
+    double calculateUserActivityLevel(const std::string& usageHistory);
     double calculateProcessScore(const std::shared_ptr<Process>& process);
     double calculateNodeScore(const FogNode& node, const std::shared_ptr<Process>& process);
     double calculateNewLoad(const FogNode& node, const Resource& resources);

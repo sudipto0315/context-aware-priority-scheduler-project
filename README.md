@@ -28,7 +28,7 @@ g++ -std=c++17 -o output/scheduler_simulation \
     src/schedulers/SJF.cpp \
     src/models/Process.cpp \
     src/models/FogNode.cpp \
-    -I. -I/opt/homebrew/include
+    -I. -I/opt/homebrew/include -L/opt/homebrew/lib -lglpk
 ```
 
 ### 2️⃣ Run the Simulation

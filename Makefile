@@ -3,7 +3,7 @@ CXX = g++
 CLANGXX = clang++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pthread
 GTEST_FLAGS = -lgtest -lgtest_main
-INCLUDES = -I. -I/opt/homebrew/include
+INCLUDES = -I. -I/opt/homebrew/include -L/opt/homebrew/lib -lglpk
 GTEST_INCLUDES = -I/opt/homebrew/opt/googletest/include -L/opt/homebrew/opt/googletest/lib
 JSON_INCLUDES = -I/opt/homebrew/opt/nlohmann-json/include
 

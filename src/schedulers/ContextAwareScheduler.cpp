@@ -2,14 +2,8 @@
 #include <glpk.h>
 #include <iostream>
 #include <cmath>
-#include <limits>
-#include <queue>
-#include <unordered_map>
-#include <set>
-#include <random>
-#include <stdexcept>
-#include <memory>
-
+#include <climits>
+#include <sstream>
 // Add calculation counters as member variables (declared in .h)
 int ContextAwareScheduler::processScoreCount = 0;
 int ContextAwareScheduler::nodeScoreCount = 0;
@@ -36,6 +30,8 @@ ContextAwareScheduler::ContextAwareScheduler(const std::vector<FogNode>& nodes)
 // Add process to the queue
 void ContextAwareScheduler::addProcess(std::shared_ptr<Process> process) {
     BaseScheduler::addProcess(process);
+    double activityLevel = calculateUserActivityLevel(process->getUsageHistory());
+    process->setUserActivityLevel(activityLevel);
     double score = calculateProcessScore(process);
     process->setProcessScore(score);
     
@@ -50,7 +46,7 @@ void ContextAwareScheduler::addProcess(std::shared_ptr<Process> process) {
     
     processPriorityQueue.push(process);
     std::cout << "Process " << process->getProcessID() << " added to queue with score " << score 
-              << " (groupHash: " << groupHash << ").\n";
+              << ", userActivityLevel: " << activityLevel << " (, groupHash: " << groupHash << ").\n";
 }
 
 /* Calculations and scoring methods section */
@@ -131,6 +127,31 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
     return score;
 }
 
+double ContextAwareScheduler::calculateUserActivityLevel(const std::string& usageHistory) {
+    // Parse comma-separated values
+    std::vector<double> activityValues;
+    std::stringstream ss(usageHistory);
+    std::string value;
+    while (std::getline(ss, value, ',')) {
+        try {
+            activityValues.push_back(std::stod(value));
+        } catch (const std::exception& e) {
+            std::cerr << "Error parsing usageHistory: " << usageHistory << "\n";
+            return 0.0; // Default for invalid format
+        }
+    }
+
+    // Ensure we have exactly 3 values
+    if (activityValues.size() != 3) {
+        std::cerr << "Invalid usageHistory format: " << usageHistory << "\n";
+        return 0.0; // Default for incorrect number of values
+    }
+
+    double weightedAverage = (activityValues[0] + activityValues[1] + activityValues[2]) / 3.0;
+    double activityLevel = weightedAverage * 10.0; // Scale to 0–10
+    return std::max(0.0, std::min(10.0, activityLevel)); // Clamp to [0, 10]
+}
+
 // Calculate comprehensive process score
 double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Process>& process) { // process suitability score
     processScoreCount++;
@@ -140,10 +161,11 @@ double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Proces
     if (cacheIter != processScoreCache.end()) {
         return cacheIter->second;
     }
-    
+
+    double userActivityLevel = calculateUserActivityLevel(process->getUsageHistory());
     double score = (1.0 / (1.0 + std::max(0, process->getPriority()))) + // Priority consideration
                    (0.5 * (1.0 - std::max(0.0, std::min(1.0, process->getMobility())))) + // Mobility factor
-                   (0.2 * std::max(0.0, process->getNps())) + // Network Performance Score
+                   (0.2 * userActivityLevel / 10) + // User activity level (normalized)
                    (0.3 * (1.0 - std::max(0.0, std::min(1.0, process->getRelinquishProbability())))) + // Stability factor
                    (0.4 * std::max(0.0, std::min(1.0, process->getLatencySensitivity()))); // Latency sensitivity
     
@@ -286,10 +308,6 @@ void ContextAwareScheduler::processRetryQueue() {
             allProcesses.push_back({process, {}, false, -1.0, -1.0}); // Add as failed
             continue;
         }
-        // Increase radius for retries
-        auto originalRadius = 100.0 + (10.0 * process->getLatencySensitivity());
-        double retryRadius = originalRadius * (1.0 + 0.5 * retryAttempts[processId]);
-        std::cout << "Retrying Process " << processId << " with radius " << retryRadius << "\n";
         if (partitionProcess(process)) {
             double start_time = static_cast<double>(process->getArrivalTime());
             double completion_time = start_time + static_cast<double>(process->getBurstTime());

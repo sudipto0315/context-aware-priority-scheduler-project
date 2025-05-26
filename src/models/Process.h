@@ -23,8 +23,9 @@ private:
     int userID;            // Identifier for the user initiating the process
     double mobility;       // Mobility level (0.0 = stationary, 1.0 = highly mobile)
     double relinquishProbability; // Likelihood of user abandoning the process (0.0 to 1.0)
-    std::string usageHistory;     // Simplified usage history (e.g., "high_frequency")
+    std::string usageHistory;     // Simplified usage history 
     double nps;            // Net Promoter Score (e.g., 0 to 10)
+    double userActivityLevel;     // User's activity level derived from usage history (0.0 to 1.0)
 
     // Application Context
     std::string applicationType;  // e.g., "computer_vision", "log_processing"
@@ -65,6 +66,7 @@ public:
     double getRelinquishProbability() const { return relinquishProbability; }
     std::string getUsageHistory() const { return usageHistory; }
     double getNps() const { return nps; }
+    double getUserActivityLevel() const { return userActivityLevel; }
     std::string getApplicationType() const { return applicationType; }
     double getLatencySensitivity() const { return latencySensitivity; }
     double getCurrentTaskLoad() const { return currentTaskLoad; }
@@ -88,7 +90,8 @@ public:
     void setCurrentTaskLoad(double load) { currentTaskLoad = load; }
     void setRequiredResources(double cpu, double memory) { requiredResources = Resource(cpu, memory); }
     void setRequiredBandwidth(double bw) { requiredBandwidth = bw; }
-    void setProcessScore(double newProcessScore) { processScore = newProcessScore; }  // New setter for score
+    void setProcessScore(double newProcessScore) { processScore = newProcessScore; }  
+    void setUserActivityLevel(double activity) { userActivityLevel = activity; }
 
     // Utility Functions
     void decreaseRemainingTime();
