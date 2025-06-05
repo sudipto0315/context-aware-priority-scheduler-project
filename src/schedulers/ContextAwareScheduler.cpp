@@ -249,7 +249,7 @@ bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
     }
     
     const double MIN_CPU_ALLOCATION = 0.1;
-    while (!nodeQueue.empty() && remainingCpu > 0.001) {
+    while (!nodeQueue.empty() && remainingCpu > 0.001 && remainingMem > 0.001 && remainingBw > 0.001) {
         int nodeId = nodeQueue.top().second;
         nodeQueue.pop();
         FogNode& node = *nodeMap[nodeId];
@@ -440,7 +440,7 @@ void ContextAwareScheduler::schedule() {
             for (size_t j = 0; j < fogNodes.size(); ++j) {
                 int varIndex = i * fogNodes.size() + j + 1;
                 double fraction = glp_get_col_prim(lp, varIndex);
-                if (fraction > 0.1) {  // Consider assignments above a small threshold
+                if (fraction > 0.001) {  // Consider assignments above a small threshold
                     int nodeId = fogNodes[j].getNodeID();
                     FogNode& node = *nodeMap[nodeId];
                     auto resources = process->getRequiredResources();
@@ -498,98 +498,148 @@ void ContextAwareScheduler::schedule() {
 
 // Print summary of scheduled processes
 void ContextAwareScheduler::printSchedulingSummary() const {
-    std::cout << "\n=== Scheduled Processes Summary ===\n";
-    for (size_t i = 0; i < allProcesses.size(); ++i) {
-        const auto& [process, nodeIds, isScheduled, start_time, completion_time] = allProcesses[i];
-        std::cout << "Process " << process->getProcessID() 
-                  << " (Process score: " << process->getProcessScore() << ") ";
-        if (i == 0) {
-            std::cout << "is scheduled first and ";
-        }
-        if (!isScheduled) {
-            std::cout << "not scheduled.\n";
-        } else if (nodeIds.size() == 1) {
-            std::cout << "assigned to Node " << nodeIds[0] << ".\n";
-        } else {
-            std::cout << "partitioned across nodes: ";
-            for (size_t j = 0; j < nodeIds.size(); ++j) {
-                std::cout << nodeIds[j];
-                if (j < nodeIds.size() - 1) std::cout << ", ";
-            }
-            std::cout << ".\n";
-        }
-    }
-    std::cout << "==================================\n";
-}
-
-void ContextAwareScheduler::printSchedulingMetrics() const {
-    std::cout << "\n========================================\n";
-    std::cout << "       Scheduling Summary Report        \n";
-    std::cout << "========================================\n";
-
-    // Per-process timing
-    std::cout << "\nPer-Process Timing Details:\n";
-    std::cout << "----------------------------------------\n";
-    double total_waiting_time = 0.0;
-    std::vector<double> waiting_times;
+    std::cout << "\n=== Context-Aware Scheduled Processes Summary ===\n";
+    std::cout << "Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status\n";
+    
     for (const auto& [process, nodeIds, isScheduled, start_time, completion_time] : allProcesses) {
-        std::cout << "Process " << process->getProcessID() << ":\n";
+        std::cout << process->getProcessID() << ","
+                  << process->getArrivalTime() << ","
+                  << process->getBurstTime() << ",";
+        
         if (isScheduled) {
             double arrival_time = static_cast<double>(process->getArrivalTime());
             double waiting_time = start_time - arrival_time;
-            total_waiting_time += waiting_time;
-            waiting_times.push_back(waiting_time);
-            std::cout << "  Start Time: " << start_time << " units\n";
-            std::cout << "  Completion Time: " << completion_time << " units\n";
-            std::cout << "  Waiting Time: " << waiting_time << " units\n";
-            std::cout << "  Assigned to Node(s): ";
+            double turnaround_time = completion_time - arrival_time;
+            
+            std::cout << start_time << ","
+                      << completion_time << ","
+                      << waiting_time << ","
+                      << turnaround_time << ",";
+            
+            // Print assigned nodes
+            std::cout << "\"";
             for (size_t j = 0; j < nodeIds.size(); ++j) {
                 std::cout << nodeIds[j];
-                if (j < nodeIds.size() - 1) std::cout << ", ";
+                if (j < nodeIds.size() - 1) std::cout << ";";
             }
-            std::cout << "\n";
+            std::cout << "\",Scheduled\n";
         } else {
-            std::cout << "  Status: Not Scheduled\n";
+            std::cout << "-1,-1,-1,-1,\"\",Failed\n";
         }
-        std::cout << "----------------------------------------\n";
     }
+    std::cout << "==================================================\n";
+}
 
-    // Aggregate metrics
+// Print scheduling metrics
+void ContextAwareScheduler::printSchedulingMetrics() const {
+    std::cout << "\n========================================\n";
+    std::cout << "    Context-Aware Scheduling Metrics    \n";
+    std::cout << "========================================\n";
+
+    // Calculate basic metrics
+    double total_waiting_time = 0.0;
+    double total_turnaround_time = 0.0;
     double min_arrival = std::numeric_limits<double>::max();
     double max_completion = std::numeric_limits<double>::lowest();
     int scheduled_count = 0;
+    int total_processes = allProcesses.size();
     
+    // Resource utilization tracking
+    std::unordered_map<int, double> node_utilization_time;
+    double total_cpu_used = 0.0;
+    double total_memory_used = 0.0;
+    double total_bandwidth_used = 0.0;
+    double total_cpu_capacity = 0.0;
+    double total_memory_capacity = 0.0;
+    double total_bandwidth_capacity = 0.0;
+
+    // Initialize node capacities
+    for (const auto& node : fogNodes) {
+        total_cpu_capacity += node.getCpuCapacity();
+        total_memory_capacity += node.getMemory();
+        total_bandwidth_capacity += node.getBandwidth();
+        node_utilization_time[node.getNodeID()] = 0.0;
+    }
+
+    // Process metrics calculation
     for (const auto& [process, nodeIds, isScheduled, start_time, completion_time] : allProcesses) {
         if (isScheduled) {
-            min_arrival = std::min(min_arrival, static_cast<double>(process->getArrivalTime()));
+            double arrival_time = static_cast<double>(process->getArrivalTime());
+            double waiting_time = start_time - arrival_time;
+            double turnaround_time = completion_time - arrival_time;
+            
+            total_waiting_time += waiting_time;
+            total_turnaround_time += turnaround_time;
+            min_arrival = std::min(min_arrival, arrival_time);
             max_completion = std::max(max_completion, completion_time);
             scheduled_count++;
+            
+            // Resource usage calculation
+            auto resources = process->getRequiredResources();
+            double process_duration = static_cast<double>(process->getBurstTime());
+            
+            // For partitioned processes, distribute resources across nodes
+            double cpu_per_node = resources.cpu / nodeIds.size();
+            double memory_per_node = resources.memory / nodeIds.size();
+            double bandwidth_per_node = process->getRequiredBandwidth() / nodeIds.size();
+            
+            for (int nodeId : nodeIds) {
+                node_utilization_time[nodeId] += process_duration;
+                total_cpu_used += cpu_per_node * process_duration;
+                total_memory_used += memory_per_node * process_duration;
+                total_bandwidth_used += bandwidth_per_node * process_duration;
+            }
         }
     }
-    
+
+    // Calculate derived metrics
     double total_execution_time = (scheduled_count > 0) ? (max_completion - min_arrival) : 0;
     double avg_waiting_time = (scheduled_count > 0) ? (total_waiting_time / scheduled_count) : 0;
-    double throughput = (scheduled_count > 0) ? (static_cast<double>(scheduled_count) / total_execution_time) : 0;
+    double avg_turnaround_time = (scheduled_count > 0) ? (total_turnaround_time / scheduled_count) : 0;
+    double throughput = (total_execution_time > 0) ? (static_cast<double>(scheduled_count) / total_execution_time) : 0;
+    double success_rate = (total_processes > 0) ? (static_cast<double>(scheduled_count) / total_processes * 100.0) : 0;
     
-    std::cout << "\nAggregate Metrics:\n";
-    std::cout << "----------------------------------------\n";
-    std::cout << "Total Execution Time: " << total_execution_time << " units\n";
-    std::cout << "Average Waiting Time: " << avg_waiting_time << " units\n";
-    std::cout << "Throughput: " << throughput << " processes/unit-time\n";
-    std::cout << "----------------------------------------\n";
+    // Resource utilization percentages
+    double cpu_utilization = (total_cpu_capacity * total_execution_time > 0) ? 
+                            (total_cpu_used / (total_cpu_capacity * total_execution_time) * 100.0) : 0;
+    double memory_utilization = (total_memory_capacity * total_execution_time > 0) ? 
+                               (total_memory_used / (total_memory_capacity * total_execution_time) * 100.0) : 0;
+    double bandwidth_utilization = (total_bandwidth_capacity * total_execution_time > 0) ? 
+                                  (total_bandwidth_used / (total_bandwidth_capacity * total_execution_time) * 100.0) : 0;
 
-    // Calculation counts (Scheduling Overhead)
-    int total_calculations = processScoreCount + nodeScoreCount + resourceCheckCount + retryAttemptCount + partitioningAttemptCount;
-    std::cout << "\nCalculation Counts:\n";
-    std::cout << "----------------------------------------\n";
-    std::cout << "Process Scoring: " << processScoreCount << "\n";
-    std::cout << "Node Scoring: " << nodeScoreCount << "\n";
-    std::cout << "Resource Checks: " << resourceCheckCount << "\n";
-    std::cout << "Retry Attempts: " << retryAttemptCount << "\n";
-    std::cout << "Partitioning Attempts: " << partitioningAttemptCount << "\n";
-    std::cout << "Scheduling Overhead (Total Calculations): " << total_calculations << "\n";
-    std::cout << "----------------------------------------\n";
+    // Scheduling overhead
+    int total_calculations = processScoreCount + nodeScoreCount + resourceCheckCount + 
+                           retryAttemptCount + partitioningAttemptCount;
 
-    std::cout << "\nEnd of Context-Aware Scheduling Summary\n";
+    // Print summary metrics in CSV format for easy plotting
+    std::cout << "\n=== DETAILED SUMMARY METRICS (CSV FORMAT) ===\n";
+    std::cout << "Metric,Value\n";
+    std::cout << "Algorithm,Context-Aware\n";
+    std::cout << "Total Processes," << total_processes << "\n";
+    std::cout << "Scheduled Processes," << scheduled_count << "\n";
+    std::cout << "Failed Processes," << (total_processes - scheduled_count) << "\n";
+    std::cout << "Success Rate," << success_rate << "%\n";
+    std::cout << "Total Execution Time," << total_execution_time << " units\n";
+    std::cout << "Average Waiting Time," << avg_waiting_time << " units\n";
+    std::cout << "Average Turnaround Time," << avg_turnaround_time << " units\n";
+    std::cout << "Throughput," << throughput << " processes/unit\n";
+    std::cout << "CPU Utilization," << cpu_utilization << "%\n";
+    std::cout << "Memory Utilization," << memory_utilization << "%\n";
+    std::cout << "Bandwidth Utilization," << bandwidth_utilization << "%\n";
+    std::cout << "Scheduling Overhead," << total_calculations << " calculations\n";
+    std::cout << "Process Score Calculations," << processScoreCount << "\n";
+    std::cout << "Node Score Calculations," << nodeScoreCount << "\n";
+    std::cout << "Resource Checks," << resourceCheckCount << "\n";
+    std::cout << "Retry Attempts," << retryAttemptCount << "\n";
+    std::cout << "Partitioning Attempts," << partitioningAttemptCount << "\n";
+
+    std::cout << "\n=== NODE UTILIZATION ===\n";
+    std::cout << "Node_ID,Utilization_Time,Utilization_Percent\n";
+    for (const auto& [nodeId, util_time] : node_utilization_time) {
+        double util_percent = (total_execution_time > 0) ? (util_time / total_execution_time * 100.0) : 0;
+        std::cout << nodeId << "," << util_time << "," << util_percent << "\n";
+    }
+
+    std::cout << "\nEnd of Context-Aware Scheduling Analysis\n";
     std::cout << "========================================\n";
 }
