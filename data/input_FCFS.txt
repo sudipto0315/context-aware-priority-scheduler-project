@@ -1,0 +1,43 @@
+=== FCFS Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Node,Status
+1,24,58,24,82,0,58,1,Scheduled
+2,0,29,82,111,82,111,1,Scheduled
+3,95,40,95,135,0,40,2,Scheduled
+4,74,35,74,109,0,35,3,Scheduled
+5,48,36,111,147,63,99,1,Scheduled
+6,99,39,99,138,0,39,4,Scheduled
+7,47,55,147,202,100,155,1,Scheduled
+8,85,39,135,174,50,89,2,Scheduled
+==========================================
+
+========================================
+         FCFS Scheduling Metrics        
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,FCFS
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,202 units
+Average Waiting Time,36.875 units
+Average Turnaround Time,78.25 units
+Throughput,0.039604 processes/unit
+CPU Utilization,9.20652%
+Memory Utilization Percent,44.3252%
+Bandwidth Utilization Percent,5.38534%
+Scheduling Overhead,23 calculations
+Resource Checks,15
+Assignment Attempts,8
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,39,19.3069
+3,35,17.3267
+2,79,39.1089
+1,178,88.1188
+
+End of FCFS Scheduling Analysis
+========================================

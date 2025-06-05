@@ -2,85 +2,61 @@ import csv
 
 def parse_process_details(text):
     processes = {}
-    current_pid = None
-    current_data = {}
-    for line in text.splitlines():
-        if line.startswith("Process ID:"):
-            if current_pid is not None:
-                processes[current_pid] = current_data
-            current_pid = int(line.split(":")[1].strip())
-            current_data = {}
-        elif ":" in line:
-            key, value = line.split(":", 1)
-            key = key.strip()
-            value = value.strip()
-            if key in ["Arrival Time", "Burst Time", "Priority"]:
-                current_data[key] = int(value)
-    if current_pid is not None:
-        processes[current_pid] = current_data
-    return processes
-
-def parse_scheduling_details(text):
-    scheduling = {}
-    current_pid = None
-    current_data = {}
-    in_timing_details = False
-
-    for line in text.splitlines():
-        line = line.strip()
-
-        # Detect the start of the Per-Process Timing Details section
-        if line.startswith("Per-Process Timing Details:"):
-            in_timing_details = True
-            continue
-        # Detect the end of the section
-        elif line.startswith("Aggregate Metrics:"):
-            in_timing_details = False
-            continue
-
-        # Process lines only within the timing details section
-        if in_timing_details:
-            if line.startswith("Process "):
-                if current_pid is not None:
-                    scheduling[current_pid] = current_data
-                # Extract PID from "Process X:"
-                current_pid = int(line.split()[1].strip(":"))
-                current_data = {}
-            elif line.startswith("Start Time:"):
-                value = line.split(":")[1].strip().split()[0]
-                current_data['Start Time'] = float(value)
-            elif line.startswith("Completion Time:"):
-                value = line.split(":")[1].strip().split()[0]
-                current_data['Completion Time'] = float(value)
-            elif line.startswith("Waiting Time:"):
-                value = line.split(":")[1].strip().split()[0]
-                current_data['Waiting Time'] = float(value)
-            elif line.startswith("Assigned to Node(s):"):
-                nodes = line.split(":")[1].strip()
-                current_data['Assigned Nodes'] = nodes
-            elif line.startswith("Status:"):
-                status = line.split(":")[1].strip()
-                current_data['Status'] = status
-
-    if current_pid is not None:
-        scheduling[current_pid] = current_data
-    return scheduling
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        if line.startswith("=== ") and " Scheduled Processes Summary ===" in line:
+            for j in range(i + 1, len(lines)):
+                if lines[j].strip().startswith("Process_ID"):
+                    header_line = lines[j].strip()
+                    separator = "\t" if "\t" in header_line else ","
+                    headers = [h.strip() for h in header_line.split(separator)]
+                    data_lines = []
+                    for k in range(j + 1, len(lines)):
+                        if lines[k].strip() and not lines[k].startswith("="):
+                            data_lines.append(lines[k].strip())
+                        else:
+                            break
+                    for data_line in data_lines:
+                        parts = [p.strip() for p in data_line.split(separator)]
+                        if len(parts) == len(headers):
+                            pid = int(parts[0])
+                            process_data = {}
+                            for header, value in zip(headers[1:], parts[1:]):
+                                key = header.replace("_", " ")
+                                if key in ["Arrival Time", "Burst Time"]:
+                                    process_data[key] = int(value)
+                                elif key in ["Start Time", "Completion Time", "Waiting Time", "Turnaround Time"]:
+                                    process_data[key] = float(value)
+                                elif key == "Assigned Node" or key == "Assigned Nodes":
+                                    process_data["Assigned Nodes"] = value
+                                else:
+                                    process_data[key] = value
+                            processes[pid] = process_data
+                    return processes
+    return {}
 
 def parse_summary_metrics(text):
     metrics = {}
-    in_aggregate = False
-    in_calculation = False
+    in_summary = False
     for line in text.splitlines():
-        if line.startswith("Aggregate Metrics:"):
-            in_aggregate = True
-            in_calculation = False
-        elif line.startswith("Calculation Counts:"):
-            in_aggregate = False
-            in_calculation = True
-        elif in_aggregate and ":" in line:
-            parts = line.split(":", 1)
-            key = parts[0].strip()
-            value_str = parts[1].strip()
+        line = line.strip()
+        if "SUMMARY METRICS (CSV FORMAT)" in line:
+            in_summary = True
+            continue
+        if in_summary:
+            if line.startswith("==="):
+                in_summary = False
+                continue
+            if "\t" in line:
+                key, value_str = line.split("\t", 1)
+            elif "," in line:
+                key, value_str = line.split(",", 1)
+            elif ":" in line:
+                key, value_str = line.split(":", 1)
+            else:
+                continue
+            key = key.strip()
+            value_str = value_str.strip()
             if "units" in value_str:
                 value = float(value_str.split()[0])
             elif "%" in value_str:
@@ -88,56 +64,126 @@ def parse_summary_metrics(text):
             elif "processes/unit" in value_str:
                 value = float(value_str.split()[0])
             else:
-                value = value_str
-            metrics[key] = value
-        elif in_calculation and ":" in line:
-            key, value = line.split(":", 1)
-            key = key.strip()
-            value = int(value.strip())
+                try:
+                    value = float(value_str)
+                except ValueError:
+                    value = value_str
             metrics[key] = value
     return metrics
 
+def parse_node_utilization(text):
+    nodes = []
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        if line.startswith("=== NODE UTILIZATION ==="):
+            for j in range(i + 1, len(lines)):
+                if lines[j].strip().startswith("Node_ID"):
+                    header_line = lines[j].strip()
+                    separator = "\t" if "\t" in header_line else ","
+                    headers = [h.strip() for h in header_line.split(separator)]
+                    data_lines = []
+                    for k in range(j + 1, len(lines)):
+                        if lines[k].strip() and not lines[k].startswith("="):
+                            data_lines.append(lines[k].strip())
+                        else:
+                            break
+                    for data_line in data_lines:
+                        parts = [p.strip() for p in data_line.split(separator)]
+                        if len(parts) == len(headers):
+                            node_data = {}
+                            for header, value in zip(headers, parts):
+                                key = header.replace("_", " ")
+                                if key == "Node ID":
+                                    node_data[key] = value
+                                elif key in ["Utilization Time", "Utilization Percent"]:
+                                    node_data[key] = float(value)
+                            nodes.append(node_data)
+                    return nodes
+    return []
+
 def main():
-    with open("input.txt", "r") as file:
-        text = file.read()
-    
-    processes = parse_process_details(text)
-    scheduling = parse_scheduling_details(text)
-    summary = parse_summary_metrics(text)
-    
-    # Combine process data
-    process_data = []
-    for pid in processes:
-        initial = processes[pid]
-        sched = scheduling.get(pid, {})
-        row = {
-            'Process ID': pid,
-            'Arrival Time': initial['Arrival Time'],
-            'Burst Time': initial['Burst Time'],
-            'Priority': initial['Priority'],
-            'Start Time': sched.get('Start Time', ''),
-            'Completion Time': sched.get('Completion Time', ''),
-            'Waiting Time': sched.get('Waiting Time', ''),
-            'Assigned Nodes': sched.get('Assigned Nodes', ''),
-            'Status': sched.get('Status', 'Not Scheduled')
-        }
-        process_data.append(row)
-    
-    # Write processes.csv
-    with open("processes.csv", "w", newline='') as csvfile:
-        fieldnames = ['Process ID', 'Arrival Time', 'Burst Time', 'Priority', 'Start Time', 'Completion Time', 'Waiting Time', 'Assigned Nodes', 'Status']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in process_data:
-            writer.writerow(row)
-    
-    # Write summary.csv
-    with open("summary.csv", "w", newline='') as csvfile:
-        fieldnames = ['Metric', 'Value']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+    input_files = {
+        "ContextAware": "data/Input_ContextAware.txt",
+        "FCFS": "data/input_FCFS.txt",
+        "SJF": "data/input_SJF.txt"
+    }
+
+    all_rows = []
+
+    for algorithm, filename in input_files.items():
+        try:
+            with open(filename, "r") as file:
+                text = file.read()
+        except FileNotFoundError:
+            print(f"Warning: {filename} not found. Skipping.")
+            continue
+
+        processes = parse_process_details(text)
+        summary = parse_summary_metrics(text)
+        nodes = parse_node_utilization(text)
+
+        # Process rows
+        for pid in processes:
+            proc = processes[pid]
+            row = {
+                'Scheduling Algorithm': algorithm,
+                'Type': 'Process',
+                'Process ID': str(pid),
+                'Arrival Time': str(proc.get('Arrival Time', '')),
+                'Burst Time': str(proc.get('Burst Time', '')),
+                'Start Time': str(proc.get('Start Time', '')),
+                'Completion Time': str(proc.get('Completion Time', '')),
+                'Waiting Time': str(proc.get('Waiting Time', '')),
+                'Turnaround Time': str(proc.get('Turnaround Time', '')),
+                'Assigned Nodes': str(proc.get('Assigned Nodes', '')),
+                'Status': proc.get('Status', 'Scheduled'),
+                'Metric': '',
+                'Value': ''
+            }
+            all_rows.append(row)
+
+        # Summary rows
         for metric, value in summary.items():
-            writer.writerow({'Metric': metric, 'Value': value})
+            row = {
+                'Scheduling Algorithm': algorithm,
+                'Type': 'Summary',
+                'Process ID': '',
+                'Arrival Time': '',
+                'Burst Time': '',
+                'Start Time': '',
+                'Completion Time': '',
+                'Waiting Time': '',
+                'Turnaround Time': '',
+                'Assigned Nodes': '',
+                'Status': '',
+                'Metric': metric,
+                'Value': str(value)
+            }
+            all_rows.append(row)
+
+        # Node utilization rows
+        for node in nodes:
+            row = {
+                'Scheduling Algorithm': algorithm,
+                'Type': 'Node Utilization',
+                'Node ID': node['Node ID'],
+                'Utilization Time': str(node['Utilization Time']),
+                'Utilization Percent': str(node['Utilization Percent']),
+            }
+            all_rows.append(row)
+
+    fieldnames = [
+        'Scheduling Algorithm', 'Type', 'Process ID', 'Arrival Time', 'Burst Time',
+        'Start Time', 'Completion Time', 'Waiting Time', 'Turnaround Time',
+        'Assigned Nodes', 'Status', 'Metric', 'Value',
+        'Node ID', 'Utilization Time', 'Utilization Percent'
+    ]
+
+    with open("data/scheduling_data.csv", "w", newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in all_rows:
+            writer.writerow(row)
 
 if __name__ == "__main__":
     main()

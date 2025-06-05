@@ -1,0 +1,43 @@
+=== SJF Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Node,Status
+2,0,29,0,29,0,29,4,Scheduled
+4,74,35,74,109,0,35,3,Scheduled
+5,48,36,109,145,61,97,2,Scheduled
+6,99,39,145,184,46,85,2,Scheduled
+8,85,39,184,223,99,138,4,Scheduled
+3,95,40,223,263,128,168,1,Scheduled
+7,47,55,263,318,216,271,2,Scheduled
+1,24,58,318,376,294,352,4,Scheduled
+========================================
+
+========================================
+         SJF Scheduling Metrics         
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,SJF
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,376 units
+Average Waiting Time,105.5 units
+Average Turnaround Time,146.875 units
+Throughput,0.0212766 processes/unit
+CPU Utilization,4.94606%
+Memory Utilization,23.813%
+Bandwidth Utilization,2.89319%
+Scheduling Overhead,40 calculations
+Resource Checks,32
+Assignment Attempts,8
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,126,33.5106
+3,35,9.30851
+2,130,34.5745
+1,40,10.6383
+
+End of SJF Scheduling Analysis
+========================================

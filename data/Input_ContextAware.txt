@@ -1,0 +1,46 @@
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+7,47,55,47,102,0,55,"2",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+1,24,58,24,176.495,0,152.495,"2;3",Scheduled
+4,74,35,74,98.8917,0,24.8917,"1;3",Scheduled
+8,85,39,176.495,215.495,91.4946,130.495,"2",Scheduled
+3,95,40,95,132.699,0,37.6988,"1;4",Scheduled
+2,0,29,132.699,161.699,132.699,161.699,"1",Scheduled
+5,48,36,98.8917,134.892,50.8917,86.8917,"3",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,215.495 units
+Average Waiting Time,34.7606 units
+Average Turnaround Time,86.3963 units
+Throughput,0.0371239 processes/unit
+CPU Utilization,8.63%
+Memory Utilization,41.5495%
+Bandwidth Utilization,5.0481%
+Scheduling Overhead,70 calculations
+Process Score Calculations,16
+Node Score Calculations,32
+Resource Checks,11
+Retry Attempts,0
+Partitioning Attempts,11
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,40,18.5619
+3,129,59.8623
+2,191,88.6333
+1,104,48.2611
+
+End of Context-Aware Scheduling Analysis
+========================================
