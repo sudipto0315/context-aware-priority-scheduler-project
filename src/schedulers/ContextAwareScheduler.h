@@ -12,41 +12,13 @@
 #include <set>
 
 // Custom comparator for priority queue
-struct ProcessScoreComparator {
+struct ProcessArrivalComparator {
     bool operator()(const std::shared_ptr<Process>& a, const std::shared_ptr<Process>& b) const {
-        return a->getProcessScore() < b->getProcessScore(); // Higher score has higher priority (max-heap)
+        if (a->getArrivalTime() != b->getArrivalTime()) {
+            return a->getArrivalTime() > b->getArrivalTime(); // Min-heap on arrival time
+        }
+        return a->getProcessScore() < b->getProcessScore(); // Max-heap on score if arrival times are equal (tie-breaker)
     }
-};
-
-// Simple 2D Point structure
-struct Point {
-    double x, y;
-    Point(double x_ = 0, double y_ = 0) : x(x_), y(y_) {}
-};
-
-// QuadTree Node structure
-struct QuadTreeNode {
-    Point point;              // Node's coordinates
-    int nodeId;               // FogNode ID
-    QuadTreeNode(double x, double y, int id) : point(x, y), nodeId(id) {}
-};
-
-// QuadTree class for spatial indexing
-class QuadTree {
-private:
-    static constexpr int CAPACITY = 4; // Max nodes per QuadTree node before splitting
-    Point topLeft, bottomRight;        // Boundary of this QuadTree node
-    std::vector<QuadTreeNode> nodes;   // Nodes stored in this QuadTree node
-    std::unique_ptr<QuadTree> nw, ne, sw, se; // Child quadrants
-
-    bool isLeaf() const { return !nw; }
-    void subdivide();
-
-public:
-    QuadTree(Point tl, Point br) : topLeft(tl), bottomRight(br) {}
-    void insert(double x, double y, int nodeId);
-    // Enhanced queryRange with early termination
-    void queryRange(Point center, double radius, std::vector<int>& results, int maxResults = 0) const;
 };
 
 class ContextAwareScheduler : public BaseScheduler {
@@ -56,10 +28,10 @@ private:
     bool needsResorting;               // Flag to determine if sorting is needed
     
     // Priority queue for processes
-    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessScoreComparator> processPriorityQueue;
+    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessArrivalComparator> processPriorityQueue; // Process queue sorted by arrival time and score
     
     // Retry queue for failed assignments
-    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessScoreComparator> retryQueue;
+    std::priority_queue<std::shared_ptr<Process>, std::vector<std::shared_ptr<Process>>, ProcessArrivalComparator> retryQueue;
     
     // Maps process ID to list of fog node IDs
     std::map<int, std::vector<int>> processToNodeMap;
@@ -69,9 +41,6 @@ private:
 
     // Vector to store all processed processes (scheduled or failed)
     std::vector<std::tuple<std::shared_ptr<Process>, std::vector<int>, bool, double, double>> allProcesses;
-    
-    // Spatial index using QuadTree
-    std::unique_ptr<QuadTree> spatialIndex;
     
     // Multi-dimensional indices for faster resource filtering
     std::set<std::pair<double, int>> nodesByCapacity;  // {capacity, nodeId}  // Maps capacity to node IDs

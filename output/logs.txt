@@ -9892,4 +9892,5007 @@ Node_ID,Utilization_Time,Utilization_Percent
 
 End of SJF Scheduling Analysis
 ========================================
-===== [2025-06-06 03:15:10] Scheduling Simulation Completed Successfully =====
+===== [2025-06-06 03:15:10] Scheduling Simulation Completed Successfully ========== [2025-06-07 11:59:06] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+FCFSScheduler initialized with 4 nodes.
+Starting Simulation...
+Process 1 added to FCFS queue.
+Process 2 added to FCFS queue.
+Process 3 added to FCFS queue.
+Process 4 added to FCFS queue.
+Process 5 added to FCFS queue.
+Process 6 added to FCFS queue.
+Process 7 added to FCFS queue.
+Process 8 added to FCFS queue.
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 0
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+FCFS Scheduling started. Queue size: 8
+Resources fit check for Node 1 and Process 1: Yes
+Node 1 can handle Process 1: Yes
+Attempting to assign Process 1 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 7/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 1 assigned successfully.
+Assigned Process 1 to Node 1.
+Node 1 indices updated.
+Process 1 assigned to Node 1.
+Resources fit check for Node 1 and Process 2: Yes
+Node 1 can handle Process 2: Yes
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 4/11.0826
+Current Memory Usage: 7/19.353, New Usage: 11/19.353
+Current Load: 0.0902318, New Load: 0.360927
+Process 2 assigned successfully.
+Assigned Process 2 to Node 1.
+Node 1 indices updated.
+Process 2 assigned to Node 1.
+Resources fit check for Node 1 and Process 3: No
+Resources fit check for Node 2 and Process 3: Yes
+Node 2 can handle Process 3: Yes
+Attempting to assign Process 3 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 12/18.2838
+Current Load: 0.210187, New Load: 0.526584
+Process 3 assigned successfully.
+Assigned Process 3 to Node 2.
+Node 2 indices updated.
+Process 3 assigned to Node 2.
+Resources fit check for Node 1 and Process 4: No
+Resources fit check for Node 2 and Process 4: No
+Resources fit check for Node 3 and Process 4: Yes
+Node 3 can handle Process 4: Yes
+Attempting to assign Process 4 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 4/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 14/17.6728
+Current Load: 0.249151, New Load: 0.251882
+Process 4 assigned successfully.
+Assigned Process 4 to Node 3.
+Node 3 indices updated.
+Process 4 assigned to Node 3.
+Resources fit check for Node 1 and Process 5: Yes
+Node 1 can handle Process 5: Yes
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 4/11.0826, New Usage: 5/11.0826
+Current Memory Usage: 11/19.353, New Usage: 16/19.353
+Current Load: 0.360927, New Load: 0.451159
+Process 5 assigned successfully.
+Assigned Process 5 to Node 1.
+Node 1 indices updated.
+Process 5 assigned to Node 1.
+Resources fit check for Node 1 and Process 6: No
+Resources fit check for Node 2 and Process 6: No
+Resources fit check for Node 3 and Process 6: No
+Resources fit check for Node 4 and Process 6: Yes
+Node 4 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 3/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 7/25.8196
+Current Load: 0.166015, New Load: 0.268663
+Process 6 assigned successfully.
+Assigned Process 6 to Node 4.
+Node 4 indices updated.
+Process 6 assigned to Node 4.
+Resources fit check for Node 1 and Process 7: Yes
+Node 1 can handle Process 7: Yes
+Attempting to assign Process 7 to Node 1
+Current CPU Usage: 5/11.0826, New Usage: 8/11.0826
+Current Memory Usage: 16/19.353, New Usage: 18/19.353
+Current Load: 0.451159, New Load: 0.721854
+Process 7 assigned successfully.
+Assigned Process 7 to Node 1.
+Node 1 indices updated.
+Process 7 assigned to Node 1.
+Resources fit check for Node 1 and Process 8: No
+Resources fit check for Node 2 and Process 8: Yes
+Node 2 can handle Process 8: Yes
+Attempting to assign Process 8 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 8/11.3942
+Current Memory Usage: 12/18.2838, New Usage: 17/18.2838
+Current Load: 0.526584, New Load: 0.702112
+Process 8 assigned successfully.
+Assigned Process 8 to Node 2.
+Node 2 indices updated.
+Process 8 assigned to Node 2.
+FCFS Scheduling completed.
+
+=== FCFS Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Node,Status
+1,24,58,24,82,0,58,1,Scheduled
+2,0,29,82,111,82,111,1,Scheduled
+3,95,40,95,135,0,40,2,Scheduled
+4,74,35,74,109,0,35,3,Scheduled
+5,48,36,111,147,63,99,1,Scheduled
+6,99,39,99,138,0,39,4,Scheduled
+7,47,55,147,202,100,155,1,Scheduled
+8,85,39,135,174,50,89,2,Scheduled
+==========================================
+
+========================================
+         FCFS Scheduling Metrics        
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,FCFS
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,202 units
+Average Waiting Time,36.875 units
+Average Turnaround Time,78.25 units
+Throughput,0.039604 processes/unit
+CPU Utilization,9.20652%
+Memory Utilization,44.3252%
+Bandwidth Utilization,5.38534%
+Scheduling Overhead,23 calculations
+Resource Checks,15
+Assignment Attempts,8
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,39,19.3069
+3,35,17.3267
+2,79,39.1089
+1,178,88.1188
+
+End of FCFS Scheduling Analysis
+========================================
+===== [2025-06-07 11:59:06] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 08:28:25] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 5 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 4/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 11/18.2838
+Current Load: 0.263292, New Load: 0.351056
+Process 1 assigned successfully.
+Node 2 indices updated. New capacity: 7.3942
+Assigned fraction 1 of Process 1 to Node 2 (Start: 29, End: 87).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0290133
+Node score for Node 2 and Process 7: 16.7282
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 4/11.3942, New Usage: 7/11.3942
+Current Memory Usage: 11/18.2838, New Usage: 13/18.2838
+Current Load: 0.351056, New Load: 0.614348
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 4.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 87, End: 142).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00214284
+Node score for Node 2 and Process 5: 11.782
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Node score for Node 3 and Process 5: 8.14426
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 5/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 5 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 5 to Node 3 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Node score for Node 1 and Process 4: 6.69559
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.49982
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 4/11.0826
+Current Memory Usage: 0/19.353, New Usage: 14/19.353
+Current Load: 0.299556, New Load: 0.360927
+Process 4 assigned successfully.
+Node 1 indices updated. New capacity: 7.08257
+Assigned fraction 1 of Process 4 to Node 1 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Load balance score for Node 1: 0.026358
+Node score for Node 1 and Process 8: 8.35583
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.361
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Node score for Node 4 and Process 8: 6.83025
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 5/17.6728, New Usage: 10/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.47861
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.07846
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 5.107
+Attempting to assign Process 3 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 6/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 12/25.8196
+Current Load: 0.166015, New Load: 0.537325
+Process 3 assigned successfully.
+Node 4 indices updated. New capacity: 5.16643
+Assigned fraction 1 of Process 3 to Node 4 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Node score for Node 1 and Process 6: 7.97078
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7751
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Load balance score for Node 4: 0.00461761
+Node score for Node 4 and Process 6: 6.37239
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 7/11.3942, New Usage: 9.2645/11.3942
+Current Memory Usage: 13/18.2838, New Usage: 18.2838/18.2838
+Current Load: 0.614348, New Load: 0.813089
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.1297
+Assigned fraction 0.754833 of Process 6 to Node 2 (Start: 142, End: 171.439).
+Node 1 can handle Process 6: Yes
+Node 2 can handle Process 6: Yes
+Node 3 can handle Process 6: Yes
+Node 4 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 1
+Current CPU Usage: 4/11.0826, New Usage: 4.7355/11.0826
+Current Memory Usage: 14/19.353, New Usage: 15.7162/19.353
+Current Load: 0.360927, New Load: 0.427293
+Process 6 assigned successfully.
+Node 1 indices updated. New capacity: 6.34707
+Assigned fraction 1 of Process 6 to Node 1 (Start: 109, End: 148).
+Process 6 fully assigned to 2 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,29,87,5,63,"2",Scheduled
+7,47,55,87,142,40,95,"2",Scheduled
+5,48,36,48,84,0,36,"3",Scheduled
+4,74,35,74,109,0,35,"1",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"4",Scheduled
+6,99,39,109,171.439,10,72.4385,"2;1",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,171.439 units
+Average Waiting Time,6.875 units
+Average Turnaround Time,51.1798 units
+Throughput,0.046664 processes/unit
+CPU Utilization,10.8477%
+Memory Utilization,52.2269%
+Bandwidth Utilization,6.34536%
+Scheduling Overhead,41 calculations
+Process Score Calculations,8
+Node Score Calculations,33
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,40,23.332
+3,75,43.7475
+2,181,105.577
+1,74,43.1642
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 08:28:25] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 10:14:49] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 5 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 4/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 11/18.2838
+Current Load: 0.263292, New Load: 0.351056
+Process 1 assigned successfully.
+Node 2 indices updated. New capacity: 7.3942
+Assigned fraction 1 of Process 1 to Node 2 (Start: 29, End: 87).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0290133
+Node score for Node 2 and Process 7: 16.7282
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 4/11.3942, New Usage: 7/11.3942
+Current Memory Usage: 11/18.2838, New Usage: 13/18.2838
+Current Load: 0.351056, New Load: 0.614348
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 4.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 87, End: 142).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00214284
+Node score for Node 2 and Process 5: 11.782
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Node score for Node 3 and Process 5: 8.14426
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 5/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 5 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 5 to Node 3 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Node score for Node 1 and Process 4: 6.69559
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.49982
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 4/11.0826
+Current Memory Usage: 0/19.353, New Usage: 14/19.353
+Current Load: 0.299556, New Load: 0.360927
+Process 4 assigned successfully.
+Node 1 indices updated. New capacity: 7.08257
+Assigned fraction 1 of Process 4 to Node 1 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Load balance score for Node 1: 0.026358
+Node score for Node 1 and Process 8: 8.35583
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.361
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Node score for Node 4 and Process 8: 6.83025
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 5/17.6728, New Usage: 10/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.47861
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.07846
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 5.107
+Attempting to assign Process 3 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 6/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 12/25.8196
+Current Load: 0.166015, New Load: 0.537325
+Process 3 assigned successfully.
+Node 4 indices updated. New capacity: 5.16643
+Assigned fraction 1 of Process 3 to Node 4 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Node score for Node 1 and Process 6: 7.97078
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7751
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Load balance score for Node 4: 0.00461761
+Node score for Node 4 and Process 6: 6.37239
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 7/11.3942, New Usage: 9.2645/11.3942
+Current Memory Usage: 13/18.2838, New Usage: 18.2838/18.2838
+Current Load: 0.614348, New Load: 0.813089
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.1297
+Assigned fraction 0.754833 of Process 6 to Node 2 (Start: 142, End: 171.439).
+Node 1 can handle Process 6: Yes
+Node 2 can handle Process 6: Yes
+Node 3 can handle Process 6: Yes
+Node 4 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 1
+Current CPU Usage: 4/11.0826, New Usage: 4.7355/11.0826
+Current Memory Usage: 14/19.353, New Usage: 15.7162/19.353
+Current Load: 0.360927, New Load: 0.427293
+Process 6 assigned successfully.
+Node 1 indices updated. New capacity: 6.34707
+Assigned fraction 1 of Process 6 to Node 1 (Start: 109, End: 148).
+Process 6 fully assigned to 2 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,29,87,5,63,"2",Scheduled
+7,47,55,87,142,40,95,"2",Scheduled
+5,48,36,48,84,0,36,"3",Scheduled
+4,74,35,74,109,0,35,"1",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"4",Scheduled
+6,99,39,109,171.439,10,72.4385,"2;1",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,171.439 units
+Average Waiting Time,6.875 units
+Average Turnaround Time,51.1798 units
+Throughput,0.046664 processes/unit
+CPU Utilization,10.8477%
+Memory Utilization,52.2269%
+Bandwidth Utilization,6.34536%
+Scheduling Overhead,74 calculations
+Process Score Calculations,41
+Node Score Calculations,33
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,40,23.332
+3,75,43.7475
+2,181,105.577
+1,74,43.1642
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 10:14:49] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 10:16:17] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 5 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 4/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 11/18.2838
+Current Load: 0.263292, New Load: 0.351056
+Process 1 assigned successfully.
+Node 2 indices updated. New capacity: 7.3942
+Assigned fraction 1 of Process 1 to Node 2 (Start: 29, End: 87).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0290133
+Node score for Node 2 and Process 7: 16.7282
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 4/11.3942, New Usage: 7/11.3942
+Current Memory Usage: 11/18.2838, New Usage: 13/18.2838
+Current Load: 0.351056, New Load: 0.614348
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 4.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 87, End: 142).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00214284
+Node score for Node 2 and Process 5: 11.782
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Node score for Node 3 and Process 5: 8.14426
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 5/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 5 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 5 to Node 3 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Node score for Node 1 and Process 4: 6.69559
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.49982
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 4/11.0826
+Current Memory Usage: 0/19.353, New Usage: 14/19.353
+Current Load: 0.299556, New Load: 0.360927
+Process 4 assigned successfully.
+Node 1 indices updated. New capacity: 7.08257
+Assigned fraction 1 of Process 4 to Node 1 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Load balance score for Node 1: 0.026358
+Node score for Node 1 and Process 8: 8.35583
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.361
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Node score for Node 4 and Process 8: 6.83025
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 5/17.6728, New Usage: 10/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.47861
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.07846
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 5.107
+Attempting to assign Process 3 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 6/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 12/25.8196
+Current Load: 0.166015, New Load: 0.537325
+Process 3 assigned successfully.
+Node 4 indices updated. New capacity: 5.16643
+Assigned fraction 1 of Process 3 to Node 4 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Node score for Node 1 and Process 6: 7.97078
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7751
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Load balance score for Node 4: 0.00461761
+Node score for Node 4 and Process 6: 6.37239
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 7/11.3942, New Usage: 9.2645/11.3942
+Current Memory Usage: 13/18.2838, New Usage: 18.2838/18.2838
+Current Load: 0.614348, New Load: 0.813089
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.1297
+Assigned fraction 0.754833 of Process 6 to Node 2 (Start: 142, End: 171.439).
+Node 1 can handle Process 6: Yes
+Node 2 can handle Process 6: Yes
+Node 3 can handle Process 6: Yes
+Node 4 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 1
+Current CPU Usage: 4/11.0826, New Usage: 4.7355/11.0826
+Current Memory Usage: 14/19.353, New Usage: 15.7162/19.353
+Current Load: 0.360927, New Load: 0.427293
+Process 6 assigned successfully.
+Node 1 indices updated. New capacity: 6.34707
+Assigned fraction 1 of Process 6 to Node 1 (Start: 109, End: 148).
+Process 6 fully assigned to 2 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,29,87,5,63,"2",Scheduled
+7,47,55,87,142,40,95,"2",Scheduled
+5,48,36,48,84,0,36,"3",Scheduled
+4,74,35,74,109,0,35,"1",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"4",Scheduled
+6,99,39,109,171.439,10,72.4385,"2;1",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,171.439 units
+Average Waiting Time,6.875 units
+Average Turnaround Time,51.1798 units
+Throughput,0.046664 processes/unit
+CPU Utilization,10.8477%
+Memory Utilization,52.2269%
+Bandwidth Utilization,6.34536%
+Scheduling Overhead,41 calculations
+Process Score Calculations,8
+Node Score Calculations,33
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,40,23.332
+3,75,43.7475
+2,181,105.577
+1,74,43.1642
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 10:16:17] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 10:21:16] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 7 from queue.
+Retrieved Process 6 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 2 from queue.
+Retrieved Process 5 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 10:21:16] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 10:49:03] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 6 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 7 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 2 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 6: 7.99205
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 6: 11.8819
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 6: 8.15616
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 6: 6.52751
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 7/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 99, End: 138).
+Process 6 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.49987
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 3: 9.14337
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 5.107
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 6/11.0826
+Current Memory Usage: 0/19.353, New Usage: 12/19.353
+Current Load: 0.299556, New Load: 0.541391
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 5.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Load balance score for Node 1: 0.00443446
+Node score for Node 1 and Process 8: 8.3339
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.4259
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.54988
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Node score for Node 4 and Process 8: 6.83025
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 2/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 5/17.6728
+Current Load: 0.249151, New Load: 0.125941
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 13.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Node score for Node 1 and Process 4: 6.65239
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.56473
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Load balance score for Node 3: 0.221075
+Node score for Node 3 and Process 4: 6.76654
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.01354
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Node score for Node 2 and Process 5: 11.8469
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Node score for Node 3 and Process 5: 8.28888
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 5: 6.3712
+Attempting to assign Process 5 to Node 4
+Current CPU Usage: 4/11.1664, New Usage: 5/11.1664
+Current Memory Usage: 14/25.8196, New Usage: 19/25.8196
+Current Load: 0.358217, New Load: 0.447771
+Process 5 assigned successfully.
+Node 4 indices updated. New capacity: 6.16643
+Assigned fraction 1 of Process 5 to Node 4 (Start: 109, End: 145).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.0318
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 7/18.2838, New Usage: 9/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 138, End: 193).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.21837
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 1: 12.0679
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.47622
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0112318
+Node score for Node 4 and Process 1: 6.49669
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 2/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 5/17.6728, New Usage: 12/17.6728
+Current Load: 0.125941, New Load: 0.188912
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 124, End: 182).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Node score for Node 1 and Process 2: 6.57495
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Node score for Node 2 and Process 2: 9.43263
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 2: 6.64209
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Node score for Node 4 and Process 2: 5.17178
+Attempting to assign Process 2 to Node 1
+Current CPU Usage: 6/11.0826, New Usage: 9/11.0826
+Current Memory Usage: 12/19.353, New Usage: 16/19.353
+Current Load: 0.541391, New Load: 0.812086
+Process 2 assigned successfully.
+Node 1 indices updated. New capacity: 2.08257
+Assigned fraction 1 of Process 2 to Node 1 (Start: 135, End: 164).
+Process 2 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+6,99,39,99,138,0,39,"2",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+5,48,36,109,145,61,97,"4",Scheduled
+7,47,55,138,193,91,146,"2",Scheduled
+1,24,58,124,182,100,158,"3",Scheduled
+2,0,29,135,164,135,164,"1",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,193 units
+Average Waiting Time,48.375 units
+Average Turnaround Time,89.75 units
+Throughput,0.0414508 processes/unit
+CPU Utilization,9.63584%
+Memory Utilization,46.3922%
+Bandwidth Utilization,5.63647%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,71,36.7876
+3,97,50.2591
+2,94,48.7047
+1,69,35.7513
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 10:49:03] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 10:51:37] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 6 from queue.
+Retrieved Process 3 from queue.
+Retrieved Process 8 from queue.
+Retrieved Process 4 from queue.
+Retrieved Process 5 from queue.
+Retrieved Process 7 from queue.
+Retrieved Process 1 from queue.
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 10:51:37] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 11:08:17] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Retrieved Process 1 from queue.
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Retrieved Process 7 from queue.
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Retrieved Process 5 from queue.
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Retrieved Process 4 from queue.
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Retrieved Process 8 from queue.
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Retrieved Process 3 from queue.
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Retrieved Process 6 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 11:08:17] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 11:17:28] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Retrieved Process 1 from queue.
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Retrieved Process 7 from queue.
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Retrieved Process 5 from queue.
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Retrieved Process 4 from queue.
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Retrieved Process 8 from queue.
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Retrieved Process 3 from queue.
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Retrieved Process 6 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 11:17:28] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 11:35:46] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Retrieved Process 1 from queue.
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 4/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 11/18.2838
+Current Load: 0.263292, New Load: 0.351056
+Process 1 assigned successfully.
+Node 2 indices updated. New capacity: 7.3942
+Assigned fraction 1 of Process 1 to Node 2 (Start: 29, End: 87).
+Process 1 fully assigned to 1 node(s).
+Retrieved Process 7 from queue.
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0290133
+Node score for Node 2 and Process 7: 16.7282
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 4/11.3942, New Usage: 7/11.3942
+Current Memory Usage: 11/18.2838, New Usage: 13/18.2838
+Current Load: 0.351056, New Load: 0.614348
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 4.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 87, End: 142).
+Process 7 fully assigned to 1 node(s).
+Retrieved Process 5 from queue.
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00214284
+Node score for Node 2 and Process 5: 11.782
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Node score for Node 3 and Process 5: 8.14426
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 5/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 5 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 5 to Node 3 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Retrieved Process 4 from queue.
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Node score for Node 1 and Process 4: 6.69559
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.49982
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 4/11.0826
+Current Memory Usage: 0/19.353, New Usage: 14/19.353
+Current Load: 0.299556, New Load: 0.360927
+Process 4 assigned successfully.
+Node 1 indices updated. New capacity: 7.08257
+Assigned fraction 1 of Process 4 to Node 1 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Retrieved Process 8 from queue.
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Load balance score for Node 1: 0.026358
+Node score for Node 1 and Process 8: 8.35583
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.361
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Node score for Node 4 and Process 8: 6.83025
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 5/17.6728, New Usage: 10/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Retrieved Process 3 from queue.
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.47861
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.07846
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 5.107
+Attempting to assign Process 3 to Node 2
+Current CPU Usage: 7/11.3942, New Usage: 9.64192/11.3942
+Current Memory Usage: 13/18.2838, New Usage: 18.2838/18.2838
+Current Load: 0.614348, New Load: 0.846213
+Process 3 assigned successfully.
+Node 2 indices updated. New capacity: 1.75228
+Assigned fraction 0.440319 of Process 3 to Node 2 (Start: 142, End: 159.613).
+Node 1 can handle Process 3: Yes
+Node 2 can handle Process 3: Yes
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Insufficient resources on Node 2 for Process 3.
+Process 3 fully assigned to 1 node(s).
+Retrieved Process 6 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Node score for Node 1 and Process 6: 7.97078
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Load balance score for Node 2: 0.000211277
+Node score for Node 2 and Process 6: 11.7732
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.52751
+Insufficient resources on Node 2 for Process 6.
+Attempting to partition Process 3.
+Node 1 can handle Process 3: Yes
+Node 2 can handle Process 3: Yes
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Attempting to assign Process 3 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 6/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 12/25.8196
+Current Load: 0.166015, New Load: 0.537325
+Process 3 assigned successfully.
+Node 4 indices updated. New capacity: 5.16643
+Assigned 6 CPU to Node 4 for Process 3.
+Process 3 fully partitioned across 1 nodes
+Retry succeeded for Process 3.
+Attempting to partition Process 6.
+Node 1 can handle Process 6: Yes
+Node 2 can handle Process 6: Yes
+Node 3 can handle Process 6: Yes
+Node 4 can handle Process 6: Yes
+Attempting to assign Process 6 to Node 3
+Current CPU Usage: 3/15.8804, New Usage: 6/15.8804
+Current Memory Usage: 10/17.6728, New Usage: 17/17.6728
+Current Load: 0.188912, New Load: 0.377823
+Process 6 assigned successfully.
+Node 3 indices updated. New capacity: 9.88045
+Assigned 3 CPU to Node 3 for Process 6.
+Process 6 fully partitioned across 1 nodes
+Retry succeeded for Process 6.
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,29,87,5,63,"2",Scheduled
+7,47,55,87,142,40,95,"2",Scheduled
+5,48,36,48,84,0,36,"3",Scheduled
+4,74,35,74,109,0,35,"1",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,142,159.613,47,64.6128,"2",Scheduled
+6,99,39,-1,-1,-1,-1,"",Failed
+3,95,40,95,135,0,40,"2;4",Scheduled
+6,99,39,99,138,0,39,"3",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,10
+Scheduled Processes,9
+Failed Processes,1
+Success Rate,90%
+Total Execution Time,159.613 units
+Average Waiting Time,10.2222 units
+Average Turnaround Time,48.957 units
+Throughput,0.0563865 processes/unit
+CPU Utilization,14.6876%
+Memory Utilization,86.1855%
+Bandwidth Utilization,7.83447%
+Scheduling Overhead,46 calculations
+Process Score Calculations,8
+Node Score Calculations,32
+Resource Checks,2
+Retry Attempts,2
+Partitioning Attempts,2
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,40,25.0607
+3,114,71.4229
+2,222,139.087
+1,35,21.9281
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 11:35:46] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 11:36:32] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Retrieved Process 1 from queue.
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Retrieved Process 7 from queue.
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Retrieved Process 5 from queue.
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Retrieved Process 4 from queue.
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Retrieved Process 8 from queue.
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Retrieved Process 3 from queue.
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Retrieved Process 6 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 11:36:32] Scheduling Simulation Completed Successfully =====
+===== [2025-06-08 11:49:32] Scheduling Simulation Started =====
+Initializing Simulation with config: src/simulation/config.json
+Starting Simulation...
+Process score for Process 1: 0.969501
+Process 1 added to queue with score 0.969501, userActivityLevel: 0 (, groupHash: 633872864).
+Process score for Process 2: 0.671088
+Process 2 added to queue with score 0.671088, userActivityLevel: 0 (, groupHash: 2106116692).
+Process score for Process 3: 0.729357
+Process 3 added to queue with score 0.729357, userActivityLevel: 0 (, groupHash: 652224967).
+Process score for Process 4: 0.932109
+Process 4 added to queue with score 0.932109, userActivityLevel: 0 (, groupHash: 521162125).
+Process score for Process 5: 0.628748
+Process 5 added to queue with score 0.628748, userActivityLevel: 0 (, groupHash: 1179557780).
+Process score for Process 6: 0.999308
+Process 6 added to queue with score 0.999308, userActivityLevel: 0 (, groupHash: 481210583).
+Process score for Process 7: 1.59688
+Process 7 added to queue with score 1.59688, userActivityLevel: 0 (, groupHash: 458814203).
+Process score for Process 8: 0.856095
+Process 8 added to queue with score 0.856095, userActivityLevel: 0 (, groupHash: 2139625046).
+All processes managed by the scheduler:
+Process ID: 1
+Arrival Time: 24
+Burst Time: 58
+Priority: 5
+Remaining Time: 58
+Process Score: 0.969501
+User ID: 176
+Mobility: 0.538312
+Relinquish Probability: 0.0143558
+Usage History: 
+NPS: 1
+Application Type: virtual_reality
+Latency Sensitivity: 0.690743
+Current Task Load: 0.0748958
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:24 1970
+Required Bandwidth: 70.2378 Mbps
+Max Delay: 28.4 ms
+Max Packet Loss: 0.0136371
+Battery Lifetime: 26 hours
+Required CPU: 1, Memory: 7
+Data Size: 439 MB
+Process ID: 2
+Arrival Time: 0
+Burst Time: 29
+Priority: 3
+Remaining Time: 29
+Process Score: 0.671088
+User ID: 128
+Mobility: 0.962169
+Relinquish Probability: 0.800438
+Usage History: 
+NPS: 9
+Application Type: video_streaming
+Latency Sensitivity: 0.855759
+Current Task Load: 0.448646
+Location: Zone_C
+Request Time: Thu Jan  1 05:30:01 1970
+Required Bandwidth: 90.8221 Mbps
+Max Delay: 30.1188 ms
+Max Packet Loss: 0.0136628
+Battery Lifetime: 83 hours
+Required CPU: 3, Memory: 4
+Data Size: 132 MB
+Process ID: 3
+Arrival Time: 95
+Burst Time: 40
+Priority: 1
+Remaining Time: 40
+Process Score: 0.729357
+User ID: 119
+Mobility: 0.946127
+Relinquish Probability: 0.798101
+Usage History: 
+NPS: 4
+Application Type: ai_inference
+Latency Sensitivity: 0.354627
+Current Task Load: 0.207009
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:36 1970
+Required Bandwidth: 91.4602 Mbps
+Max Delay: 12.5019 ms
+Max Packet Loss: 0.00907975
+Battery Lifetime: 38 hours
+Required CPU: 6, Memory: 12
+Data Size: 270 MB
+Process ID: 4
+Arrival Time: 74
+Burst Time: 35
+Priority: 2
+Remaining Time: 35
+Process Score: 0.932109
+User ID: 102
+Mobility: 0.197797
+Relinquish Probability: 0.791494
+Usage History: 
+NPS: 5
+Application Type: gaming
+Latency Sensitivity: 0.337806
+Current Task Load: 0.220495
+Location: Zone_C
+Request Time: Thu Jan  1 05:31:14 1970
+Required Bandwidth: 88.9571 Mbps
+Max Delay: 17.051 ms
+Max Packet Loss: 0.0114933
+Battery Lifetime: 45 hours
+Required CPU: 4, Memory: 14
+Data Size: 176 MB
+Process ID: 5
+Arrival Time: 48
+Burst Time: 36
+Priority: 3
+Remaining Time: 36
+Process Score: 0.628748
+User ID: 176
+Mobility: 0.801215
+Relinquish Probability: 0.943338
+Usage History: 
+NPS: 5
+Application Type: virtual_reality
+Latency Sensitivity: 0.655892
+Current Task Load: 0.113076
+Location: Zone_B
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 72.3104 Mbps
+Max Delay: 19.9186 ms
+Max Packet Loss: 0.0153972
+Battery Lifetime: 82 hours
+Required CPU: 1, Memory: 5
+Data Size: 762 MB
+Process ID: 6
+Arrival Time: 99
+Burst Time: 39
+Priority: 3
+Remaining Time: 39
+Process Score: 0.999308
+User ID: 182
+Mobility: 0.494215
+Relinquish Probability: 0.128038
+Usage History: 
+NPS: 7
+Application Type: ai_inference
+Latency Sensitivity: 0.587068
+Current Task Load: 0.728417
+Location: Zone_D
+Request Time: Thu Jan  1 05:31:40 1970
+Required Bandwidth: 73.5907 Mbps
+Max Delay: 15.6054 ms
+Max Packet Loss: 0.0239891
+Battery Lifetime: 39 hours
+Required CPU: 3, Memory: 7
+Data Size: 147 MB
+Process ID: 7
+Arrival Time: 47
+Burst Time: 55
+Priority: 1
+Remaining Time: 55
+Process Score: 1.59688
+User ID: 122
+Mobility: 0.0532865
+Relinquish Probability: 0.181144
+Usage History: 
+NPS: 4
+Application Type: video_streaming
+Latency Sensitivity: 0.944669
+Current Task Load: 0.535547
+Location: Zone_A
+Request Time: Thu Jan  1 05:30:48 1970
+Required Bandwidth: 50.7621 Mbps
+Max Delay: 10.7735 ms
+Max Packet Loss: 0.020771
+Battery Lifetime: 86 hours
+Required CPU: 3, Memory: 2
+Data Size: 1916 MB
+Process ID: 8
+Arrival Time: 85
+Burst Time: 39
+Priority: 2
+Remaining Time: 39
+Process Score: 0.856095
+User ID: 155
+Mobility: 0.928692
+Relinquish Probability: 0.441911
+Usage History: 
+NPS: 7
+Application Type: industrial_automation
+Latency Sensitivity: 0.799203
+Current Task Load: 0.227328
+Location: Zone_A
+Request Time: Thu Jan  1 05:31:26 1970
+Required Bandwidth: 69.864 Mbps
+Max Delay: 23.831 ms
+Max Packet Loss: 0.0219348
+Battery Lifetime: 97 hours
+Required CPU: 2, Memory: 5
+Data Size: 1113 MB
+Context-Aware Scheduling started with greedy heuristic. Queue size: 8
+Retrieved Process 2 from queue.
+Node 1 can handle Process 2: Yes
+Location score for Process 2 and Node 1: 0.042807
+Load balance score for Node 1: 0.0476267
+Node score for Node 1 and Process 2: 6.61814
+Node 2 can handle Process 2: Yes
+Location score for Process 2 and Node 2: 0.042807
+Load balance score for Node 2: 0.108915
+Node score for Node 2 and Process 2: 9.5364
+Node 3 can handle Process 2: Yes
+Location score for Process 2 and Node 3: 0.042807
+Load balance score for Node 3: 0.0764554
+Node score for Node 3 and Process 2: 6.5872
+Node 4 can handle Process 2: Yes
+Location score for Process 2 and Node 4: 0.042807
+Load balance score for Node 4: 0.159742
+Node score for Node 4 and Process 2: 5.32029
+Attempting to assign Process 2 to Node 2
+Current CPU Usage: 0/11.3942, New Usage: 3/11.3942
+Current Memory Usage: 0/18.2838, New Usage: 4/18.2838
+Current Load: 0.210187, New Load: 0.263292
+Process 2 assigned successfully.
+Node 2 indices updated. New capacity: 8.3942
+Assigned fraction 1 of Process 2 to Node 2 (Start: 0, End: 29).
+Process 2 fully assigned to 1 node(s).
+Retrieved Process 1 from queue.
+Node 1 can handle Process 1: Yes
+Location score for Process 1 and Node 1: 0.0660409
+Node score for Node 1 and Process 1: 8.26156
+Node 2 can handle Process 1: Yes
+Location score for Process 1 and Node 2: 0.0660409
+Load balance score for Node 2: 0.0670496
+Node score for Node 2 and Process 1: 12.1298
+Node 3 can handle Process 1: Yes
+Location score for Process 1 and Node 3: 0.0660409
+Node score for Node 3 and Process 1: 8.3316
+Node 4 can handle Process 1: Yes
+Location score for Process 1 and Node 4: 0.0660409
+Node score for Node 4 and Process 1: 6.6452
+Attempting to assign Process 1 to Node 3
+Current CPU Usage: 0/15.8804, New Usage: 1/15.8804
+Current Memory Usage: 0/17.6728, New Usage: 7/17.6728
+Current Load: 0.249151, New Load: 0.0629705
+Process 1 assigned successfully.
+Node 3 indices updated. New capacity: 14.8804
+Assigned fraction 1 of Process 1 to Node 3 (Start: 24, End: 82).
+Process 1 fully assigned to 1 node(s).
+Retrieved Process 7 from queue.
+Node 1 can handle Process 7: Yes
+Location score for Process 7 and Node 1: 0.0660409
+Node score for Node 1 and Process 7: 11.075
+Node 2 can handle Process 7: Yes
+Location score for Process 7 and Node 2: 0.0660409
+Node score for Node 2 and Process 7: 16.7663
+Node 3 can handle Process 7: No
+Node 4 can handle Process 7: No
+Attempting to assign Process 7 to Node 2
+Current CPU Usage: 3/11.3942, New Usage: 6/11.3942
+Current Memory Usage: 4/18.2838, New Usage: 6/18.2838
+Current Load: 0.263292, New Load: 0.526584
+Process 7 assigned successfully.
+Node 2 indices updated. New capacity: 5.3942
+Assigned fraction 1 of Process 7 to Node 2 (Start: 47, End: 102).
+Process 7 fully assigned to 1 node(s).
+Retrieved Process 5 from queue.
+Node 1 can handle Process 5: Yes
+Location score for Process 5 and Node 1: 0.042807
+Node score for Node 1 and Process 5: 8.05674
+Node 2 can handle Process 5: Yes
+Location score for Process 5 and Node 2: 0.042807
+Load balance score for Node 2: 0.00513852
+Node score for Node 2 and Process 5: 11.785
+Node 3 can handle Process 5: Yes
+Location score for Process 5 and Node 3: 0.042807
+Load balance score for Node 3: 0.347577
+Node score for Node 3 and Process 5: 8.41539
+Node 4 can handle Process 5: Yes
+Location score for Process 5 and Node 4: 0.042807
+Node score for Node 4 and Process 5: 6.50388
+Attempting to assign Process 5 to Node 1
+Current CPU Usage: 0/11.0826, New Usage: 1/11.0826
+Current Memory Usage: 0/19.353, New Usage: 5/19.353
+Current Load: 0.299556, New Load: 0.0902318
+Process 5 assigned successfully.
+Node 1 indices updated. New capacity: 10.0826
+Assigned fraction 1 of Process 5 to Node 1 (Start: 48, End: 84).
+Process 5 fully assigned to 1 node(s).
+Retrieved Process 4 from queue.
+Node 1 can handle Process 4: Yes
+Location score for Process 4 and Node 1: 0.042807
+Load balance score for Node 1: 0.288574
+Node score for Node 1 and Process 4: 6.93653
+Node 2 can handle Process 4: Yes
+Location score for Process 4 and Node 2: 0.042807
+Node score for Node 2 and Process 4: 9.50282
+Node 3 can handle Process 4: Yes
+Location score for Process 4 and Node 3: 0.042807
+Node score for Node 3 and Process 4: 6.89304
+Node 4 can handle Process 4: Yes
+Location score for Process 4 and Node 4: 0.042807
+Node score for Node 4 and Process 4: 5.33661
+Attempting to assign Process 4 to Node 4
+Current CPU Usage: 0/11.1664, New Usage: 4/11.1664
+Current Memory Usage: 0/25.8196, New Usage: 14/25.8196
+Current Load: 0.166015, New Load: 0.358217
+Process 4 assigned successfully.
+Node 4 indices updated. New capacity: 7.16643
+Assigned fraction 1 of Process 4 to Node 4 (Start: 74, End: 109).
+Process 4 fully assigned to 1 node(s).
+Retrieved Process 8 from queue.
+Node 1 can handle Process 8: Yes
+Location score for Process 8 and Node 1: 0.0660409
+Node score for Node 1 and Process 8: 8.61804
+Node 2 can handle Process 8: Yes
+Location score for Process 8 and Node 2: 0.0660409
+Node score for Node 2 and Process 8: 12.364
+Node 3 can handle Process 8: Yes
+Location score for Process 8 and Node 3: 0.0660409
+Node score for Node 3 and Process 8: 8.82101
+Node 4 can handle Process 8: Yes
+Location score for Process 8 and Node 4: 0.0660409
+Load balance score for Node 4: 0.0270626
+Node score for Node 4 and Process 8: 6.69758
+Attempting to assign Process 8 to Node 3
+Current CPU Usage: 1/15.8804, New Usage: 3/15.8804
+Current Memory Usage: 7/17.6728, New Usage: 12/17.6728
+Current Load: 0.0629705, New Load: 0.188912
+Process 8 assigned successfully.
+Node 3 indices updated. New capacity: 12.8804
+Assigned fraction 1 of Process 8 to Node 3 (Start: 85, End: 124).
+Process 8 fully assigned to 1 node(s).
+Retrieved Process 3 from queue.
+Node 1 can handle Process 3: Yes
+Location score for Process 3 and Node 1: 0.0660409
+Node score for Node 1 and Process 3: 6.74082
+Node 2 can handle Process 3: Yes
+Location score for Process 3 and Node 2: 0.0660409
+Node score for Node 2 and Process 3: 9.08146
+Node 3 can handle Process 3: No
+Node 4 can handle Process 3: Yes
+Location score for Process 3 and Node 4: 0.0660409
+Node score for Node 4 and Process 3: 4.97432
+Attempting to assign Process 3 to Node 1
+Current CPU Usage: 1/11.0826, New Usage: 7/11.0826
+Current Memory Usage: 5/19.353, New Usage: 17/19.353
+Current Load: 0.0902318, New Load: 0.631622
+Process 3 assigned successfully.
+Node 1 indices updated. New capacity: 4.08257
+Assigned fraction 1 of Process 3 to Node 1 (Start: 95, End: 135).
+Process 3 fully assigned to 1 node(s).
+Retrieved Process 6 from queue.
+Node 1 can handle Process 6: Yes
+Location score for Process 6 and Node 1: 0.034148
+Load balance score for Node 1: 0.0018035
+Node score for Node 1 and Process 6: 7.94622
+Node 2 can handle Process 6: Yes
+Location score for Process 6 and Node 2: 0.034148
+Node score for Node 2 and Process 6: 11.7781
+Node 3 can handle Process 6: Yes
+Location score for Process 6 and Node 3: 0.034148
+Load balance score for Node 3: 0.131345
+Node score for Node 3 and Process 6: 8.21105
+Node 4 can handle Process 6: Yes
+Location score for Process 6 and Node 4: 0.034148
+Node score for Node 4 and Process 6: 6.39483
+Attempting to assign Process 6 to Node 2
+Current CPU Usage: 6/11.3942, New Usage: 9/11.3942
+Current Memory Usage: 6/18.2838, New Usage: 13/18.2838
+Current Load: 0.526584, New Load: 0.789876
+Process 6 assigned successfully.
+Node 2 indices updated. New capacity: 2.3942
+Assigned fraction 1 of Process 6 to Node 2 (Start: 102, End: 141).
+Process 6 fully assigned to 1 node(s).
+Retry queue processing completed.
+Context-Aware Scheduling completed.
+
+=== Context-Aware Scheduled Processes Summary ===
+Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
+2,0,29,0,29,0,29,"2",Scheduled
+1,24,58,24,82,0,58,"3",Scheduled
+7,47,55,47,102,0,55,"2",Scheduled
+5,48,36,48,84,0,36,"1",Scheduled
+4,74,35,74,109,0,35,"4",Scheduled
+8,85,39,85,124,0,39,"3",Scheduled
+3,95,40,95,135,0,40,"1",Scheduled
+6,99,39,102,141,3,42,"2",Scheduled
+==================================================
+
+========================================
+    Context-Aware Scheduling Metrics    
+========================================
+
+=== DETAILED SUMMARY METRICS (CSV FORMAT) ===
+Metric,Value
+Algorithm,Context-Aware
+Total Processes,8
+Scheduled Processes,8
+Failed Processes,0
+Success Rate,100%
+Total Execution Time,141 units
+Average Waiting Time,0.375 units
+Average Turnaround Time,41.75 units
+Throughput,0.0567376 processes/unit
+CPU Utilization,13.1895%
+Memory Utilization,63.5014%
+Bandwidth Utilization,7.71517%
+Scheduling Overhead,37 calculations
+Process Score Calculations,8
+Node Score Calculations,29
+Resource Checks,0
+Retry Attempts,0
+Partitioning Attempts,0
+
+=== NODE UTILIZATION ===
+Node_ID,Utilization_Time,Utilization_Percent
+4,35,24.8227
+3,97,68.7943
+2,123,87.234
+1,76,53.9007
+
+End of Context-Aware Scheduling Analysis
+========================================
+===== [2025-06-08 11:49:33] Scheduling Simulation Completed Successfully =====

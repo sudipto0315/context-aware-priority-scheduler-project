@@ -241,8 +241,8 @@ void FCFSScheduler::printSchedulingMetrics() const {
     std::cout << "Average Turnaround Time," << avg_turnaround_time << " units\n";
     std::cout << "Throughput," << throughput << " processes/unit\n";
     std::cout << "CPU Utilization," << cpu_utilization << "%\n";
-    std::cout << "Memory Utilization Percent," << memory_utilization << "%\n";
-    std::cout << "Bandwidth Utilization Percent," << bandwidth_utilization << "%\n";
+    std::cout << "Memory Utilization," << memory_utilization << "%\n";
+    std::cout << "Bandwidth Utilization," << bandwidth_utilization << "%\n";
     std::cout << "Scheduling Overhead," << total_calculations << " calculations\n";
     std::cout << "Resource Checks," << resourceCheckCount << "\n";
     std::cout << "Assignment Attempts," << assignmentAttemptCount << "\n";

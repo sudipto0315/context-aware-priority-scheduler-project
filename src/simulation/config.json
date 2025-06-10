@@ -1,5 +1,5 @@
 {
-    "scheduler": "SJF",
+    "scheduler": "ContextAware",
     "fog_nodes": [
         {
             "id": 1,

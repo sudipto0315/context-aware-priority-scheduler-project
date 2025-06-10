@@ -26,8 +26,8 @@ Average Waiting Time,36.875 units
 Average Turnaround Time,78.25 units
 Throughput,0.039604 processes/unit
 CPU Utilization,9.20652%
-Memory Utilization Percent,44.3252%
-Bandwidth Utilization Percent,5.38534%
+Memory Utilization,44.3252%
+Bandwidth Utilization,5.38534%
 Scheduling Overhead,23 calculations
 Resource Checks,15
 Assignment Attempts,8
@@ -41,3 +41,4 @@ Node_ID,Utilization_Time,Utilization_Percent
 
 End of FCFS Scheduling Analysis
 ========================================
+===== [2025-06-07 11:59:06] Scheduling Simulation Completed Successfully =====
