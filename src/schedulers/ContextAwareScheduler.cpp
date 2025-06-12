@@ -90,18 +90,30 @@ double ContextAwareScheduler::calculateLocationScore(const std::shared_ptr<Proce
     if (locationToCoords.find(processLocation) == locationToCoords.end()) {
         throw std::runtime_error("Unknown process location: " + processLocation + " for Process " + std::to_string(processId));
     }
+
+    std::string nodeLocation = node.getLocation();
+    if (locationToCoords.find(nodeLocation) == locationToCoords.end()) {
+        throw std::runtime_error("Unknown node location: " + nodeLocation + " for Node " + std::to_string(nodeId));
+    }
+
     Point pCoords = locationToCoords[processLocation];
     double px = pCoords.x;
     double py = pCoords.y;
     
-    const auto& nodeCoord = nodeCoordinates[nodeId];
-    double nx = nodeCoord.first;
-    double ny = nodeCoord.second;
+    const auto& nodeCoord = locationToCoords[nodeLocation];
+    double nx = nodeCoord.x;
+    double ny = nodeCoord.y;
     
     double distance = std::sqrt((px - nx) * (px - nx) + (py - ny) * (py - ny)); // Euclidean distance of process location to node location
     double score = 1.0 / (1.0 + distance);
     
     locationScoreCache[cacheKey] = score;
+    std::cout << "Node " << nodeId << " at location " << nodeLocation 
+              << " with coordinates (" << nx << ", " << ny << ") and Process " 
+              << processId << " at location " << processLocation 
+              << " with coordinates (" << px << ", " << py 
+              << ") has distance: " << distance 
+              << ", resulting in score: " << score << "\n";
     std::cout << "Location score for Process " << processId << " and Node " << nodeId << ": " << score << "\n";
     return score;
 }
@@ -124,21 +136,33 @@ double ContextAwareScheduler::calculateLoadBalanceScore(const FogNode& node) {
 }
 
 double ContextAwareScheduler::calculateUserActivityLevel(const std::string& usageHistory) {
+    if (usageHistory.empty()) {
+        std::cerr << "Error: usageHistory is empty\n";
+        return 0.5; // Fallback to a neutral value (adjust as needed)
+    }
+
     std::vector<double> activityValues;
     std::stringstream ss(usageHistory);
     std::string value;
     while (std::getline(ss, value, ',')) {
         try {
+            // Remove any leading/trailing whitespace
+            value.erase(0, value.find_first_not_of(" \t"));
+            value.erase(value.find_last_not_of(" \t") + 1);
+            if (value.empty()) {
+                std::cerr << "Error: Empty value in usageHistory: " << usageHistory << "\n";
+                continue;
+            }
             activityValues.push_back(std::stod(value));
         } catch (const std::exception& e) {
-            std::cerr << "Error parsing usageHistory: " << usageHistory << "\n";
-            return 0.0;
+            std::cerr << "Error parsing value '" << value << "' in usageHistory: " << usageHistory << ": " << e.what() << "\n";
+            return 0.5; // Fallback to a neutral value
         }
     }
 
     if (activityValues.size() != 3) {
-        std::cerr << "Invalid usageHistory format: " << usageHistory << "\n";
-        return 0.0;
+        std::cerr << "Error: Invalid usageHistory format, expected 3 values, got " << activityValues.size() << ": " << usageHistory << "\n";
+        return 0.5; // Fallback to a neutral value
     }
 
     double weightedAverage = (activityValues[0] + activityValues[1] + activityValues[2]) / 3.0;
@@ -156,6 +180,8 @@ double ContextAwareScheduler::calculateProcessScore(const std::shared_ptr<Proces
     }
 
     double userActivityLevel = calculateUserActivityLevel(process->getUsageHistory());
+    std::cout << "Calculating process score for Process " << processId 
+              << " with userActivityLevel: " << userActivityLevel << "\n";
     double score = (1.0 / (1.0 + std::max(0, process->getPriority()))) +
                    (0.5 * (1.0 - std::max(0.0, std::min(1.0, process->getMobility())))) +
                    (0.2 * userActivityLevel / 10) +
@@ -186,7 +212,8 @@ double ContextAwareScheduler::calculateNodeScore(const FogNode& node, const std:
     double packetLoss = std::max(0.0, std::min(1.0, node.getPacketLoss()));
     double requiredBandwidth = std::max(1e-6, process->getRequiredBandwidth());
     double maxPacketLoss = std::max(1e-6, process->getMaxPacketLoss());
-    
+    std::cout << "packetLoss/maxPacketLoss: " << packetLoss/maxPacketLoss 
+              << ", delay: " << delay << ", bandwidth/requiredBandwidth " << bandwidth/requiredBandwidth << "\n";
     double score = (1.0 / (1.0 + delay)) +
                    (bandwidth / requiredBandwidth) +
                    (1.0 - (packetLoss / maxPacketLoss)) +
@@ -216,100 +243,52 @@ std::shared_ptr<Process> ContextAwareScheduler::getNextProcess() {
     return process;
 }
 
-bool ContextAwareScheduler::partitionProcess(std::shared_ptr<Process> process) {
-    partitioningAttemptCount++;
-    std::cout << "Attempting to partition Process " << process->getProcessID() << ".\n";
-    auto resources = process->getRequiredResources();
-    double remainingCpu = resources.cpu;
-    double remainingMem = resources.memory;
-    double remainingBw = process->getRequiredBandwidth();
-    std::vector<int> assignedNodes;
-    
-    std::priority_queue<std::pair<double, int>> nodeQueue;
-    for (const auto& node : fogNodes) {
-        if (node.getIsActive() && node.getCurrentLoad() < 1.0 && canNodeHandleProcess(node, *process)) {
-            double resourceFitScore = (0.6 * node.getAvailableCpu() / std::max(1e-6, remainingCpu)) + // CPU contribution
-                          (0.3 * node.getAvailableMemory() / std::max(1e-6, remainingMem)) + // Memory contribution
-                          (0.1 * node.getBandwidth() / std::max(1e-6, remainingBw)); // Bandwidth contribution
-            nodeQueue.emplace(resourceFitScore, node.getNodeID()); 
-        }
-    }
-    
-    const double MIN_CPU_ALLOCATION = 0.1;
-    while (!nodeQueue.empty() && remainingCpu > 0.001 && remainingMem > 0.001 && remainingBw > 0.001) {
-        int nodeId = nodeQueue.top().second;
-        nodeQueue.pop();
-        FogNode& node = *nodeMap[nodeId];
-        
-        double cpuToAssign = std::min(node.getAvailableCpu(), remainingCpu);
-        double memToAssign = std::min(node.getAvailableMemory(), remainingMem);
-        
-        if (cpuToAssign < MIN_CPU_ALLOCATION) continue;
-        
-        auto partitionedProcess = std::make_shared<Process>(*process);
-        partitionedProcess->setRequiredResources(cpuToAssign, memToAssign);
-        
-        double remainingBandwidth = node.getBandwidth() - nodeUsedBandwidth[nodeId];
-        double bwToAssign = process->getRequiredBandwidth() * (cpuToAssign / resources.cpu);
-        if (remainingBandwidth >= bwToAssign) {
-            resourceCheckCount++;
-            if (node.assignProcess(*partitionedProcess)) {
-                nodeUsedBandwidth[nodeId] += process->getRequiredBandwidth();
-                remainingBw -= bwToAssign;
-                processToNodeMap[process->getProcessID()].push_back(nodeId);
-                assignedNodes.push_back(nodeId);
-                remainingCpu -= cpuToAssign;
-                remainingMem -= memToAssign;
-                remainingBw -= bwToAssign;
-                updateNodeIndices(nodeId);
-                std::cout << "Assigned " << cpuToAssign << " CPU to Node " << nodeId << " for Process " << process->getProcessID() << ".\n";
-            }
-        }
-    }
-    
-    if (remainingCpu <= 0.001 && remainingMem <= 0.001 && remainingBw <= 0.001) {
-        std::cout << "Process " << process->getProcessID() << " fully partitioned across " 
-                  << assignedNodes.size() << " nodes\n";
+bool ContextAwareScheduler::assignProcessFraction(
+    const std::shared_ptr<Process>& process,
+    FogNode& bestNode,
+    int bestNodeId,
+    double fraction,
+    double start_time,
+    double burst_time,
+    double& remaining_cpu,
+    double& remaining_mem,
+    double& remaining_bw,
+    std::vector<int>& assignedNodes,
+    std::vector<NodeAssignment>& assignments,
+    std::unordered_map<int, double>& nodeAvailableTime
+) {
+    // Create partitioned process
+    auto partitionedProcess = std::make_shared<Process>(*process);
+    partitionedProcess->setRequiredResources(remaining_cpu * fraction, remaining_mem * fraction);
+    partitionedProcess->setRequiredBandwidth(remaining_bw * fraction);
+
+    if (bestNode.assignProcess(*partitionedProcess)) {
+        double fraction_duration = burst_time * fraction;
+        double completion_time = start_time + fraction_duration;
+        nodeUsedBandwidth[bestNodeId] += remaining_bw * fraction;
+        assignedNodes.push_back(bestNodeId);
+        assignments.push_back({bestNodeId, fraction, start_time, completion_time, partitionedProcess});
+        nodeAvailableTime[bestNodeId] = completion_time;
+        updateNodeIndices(bestNodeId);
+
+        // Update remaining resources
+        remaining_cpu -= remaining_cpu * fraction;
+        remaining_mem -= remaining_mem * fraction;
+        remaining_bw -= remaining_bw * fraction;
+
+        std::cout << "Assigned fraction " << fraction << " of Process " << process->getProcessID() 
+                  << " to Node " << bestNodeId << " (Start: " << start_time << ", End: " << completion_time << ").\n";
+        std::cout << "Remaining resources - CPU: " << remaining_cpu 
+                  << ", Memory: " << remaining_mem 
+                  << ", Bandwidth: " << remaining_bw << "\n";
+        std::cout << "nodeAvailableTime[" << bestNodeId << "] updated to " << nodeAvailableTime[bestNodeId] << "\n";
         return true;
+    } else {
+        std::cout << "Failed to assign fraction to Node " << bestNodeId << " for Process " << process->getProcessID() << ".\n";
+        return false;
     }
-    std::cout << "Partitioning failed for Process " << process->getProcessID() 
-              << ". Remaining: CPU=" << remainingCpu << "\n";
-    return false;
 }
 
-void ContextAwareScheduler::processRetryQueue() {
-    const int MAX_RETRY_ATTEMPTS = 3;
-    std::unordered_map<int, int> retryAttempts;
-    
-    while (!retryQueue.empty()) {
-        auto process = retryQueue.top();
-        retryQueue.pop();
-        
-        int processId = process->getProcessID();
-        retryAttempts[processId]++;
-        retryAttemptCount++;
-        
-        if (retryAttempts[processId] > MAX_RETRY_ATTEMPTS) {
-            std::cout << "Max retry attempts reached for Process " << processId << ".\n";
-            allProcesses.push_back({process, {}, false, -1.0, -1.0});
-            continue;
-        }
-        if (partitionProcess(process)) {
-            double start_time = static_cast<double>(process->getArrivalTime());
-            double completion_time = start_time + static_cast<double>(process->getBurstTime());
-            scheduledProcesses.push_back({process, processToNodeMap[processId]});
-            allProcesses.push_back({process, processToNodeMap[processId], true, start_time, completion_time});
-            std::cout << "Retry succeeded for Process " << processId << ".\n";
-        } else {
-            std::cout << "Retry failed for Process " << processId 
-                      << " (attempt " << retryAttempts[processId] << ").\n";
-            allProcesses.push_back({process, {}, false, -1.0, -1.0});
-        }
-    }
-    std::cout << "Retry queue processing completed.\n";
-}
-
-// Scheduling method using greedy heuristic
 void ContextAwareScheduler::schedule() {
     std::cout << "Context-Aware Scheduling started with greedy heuristic. Queue size: " << processPriorityQueue.size() << "\n";
     if (processPriorityQueue.empty()) return;
@@ -319,6 +298,8 @@ void ContextAwareScheduler::schedule() {
     for (const auto& node : fogNodes) {
         nodeAvailableTime[node.getNodeID()] = 0.0;
     }
+
+    double fractionThreshold = 0.001; // Minimum fraction to consider for assignment
 
     // Process each process directly from the priority queue in arrival order
     while (!processPriorityQueue.empty()) {
@@ -333,40 +314,37 @@ void ContextAwareScheduler::schedule() {
         double process_start_time = arrival_time;
         double process_completion_time = arrival_time;
 
-        // Structure to hold node assignment details
-        struct NodeAssignment {
-            int nodeId;
-            double fraction;
-            double start_time;
-            double completion_time;
-        };
         std::vector<NodeAssignment> assignments;
+        bool assignmentSuccess = true;
 
         // Assign process or its fractions
-        while (remaining_cpu > 0.001 && remaining_mem > 0.001 && remaining_bw > 0.001) { // if resources are still available
-            // Find the best node based on earliest finish time
-            std::vector<std::pair<double, int>> node_finish_times; // {heuristic_rank, nodeId}
+        while (remaining_cpu > 0.001 && remaining_mem > 0.001 && remaining_bw > 0.001) {
+            std::vector<std::pair<double, int>> node_finish_times;
             for (auto& node : fogNodes) {
                 int nodeId = node.getNodeID();
                 if (node.getIsActive() && canNodeHandleProcess(node, *process)) {
                     double start_time = std::max(arrival_time, nodeAvailableTime[nodeId]);
                     double nodeScore = calculateNodeScore(node, process);
                     double processScore = process->getProcessScore();
-                    double completion_time = start_time + burst_time; // Initial estimate
+                    double completion_time = start_time + burst_time;
+                    std::cout << "Completion time for Process " << process->getProcessID() 
+                              << " on Node " << nodeId << ": " << completion_time << "\n";
                     double heuristic_rank = completion_time - (nodeScore + processScore);
-                    node_finish_times.emplace_back(heuristic_rank, nodeId); // Adjust by score
+                    std::cout << "Node " << nodeId << " heuristic rank for Process " 
+                              << process->getProcessID() << ": " << heuristic_rank << "\n";
+                    node_finish_times.emplace_back(heuristic_rank, nodeId);
                 }
             }
 
             if (node_finish_times.empty()) {
                 std::cout << "No suitable node found for Process " << process->getProcessID() << ".\n";
-                retryQueue.push(process);
+                assignmentSuccess = false;
                 break;
             }
 
             // Sort by earliest finish time
             std::sort(node_finish_times.begin(), node_finish_times.end());
-
+            
             int bestNodeId = node_finish_times[0].second; // Node with best heuristic score
             FogNode& bestNode = *nodeMap[bestNodeId];
             double start_time = std::max(arrival_time, nodeAvailableTime[bestNodeId]); // nodeAvailableTime of the best node
@@ -375,46 +353,40 @@ void ContextAwareScheduler::schedule() {
             double cpu_fraction = std::min(1.0, bestNode.getAvailableCpu() / std::max(1e-6, remaining_cpu));
             double mem_fraction = std::min(1.0, bestNode.getAvailableMemory() / std::max(1e-6, remaining_mem));
             double bw_fraction = std::min(1.0, (bestNode.getBandwidth() - nodeUsedBandwidth[bestNodeId]) / std::max(1e-6, remaining_bw));
-            double fraction = std::min({cpu_fraction, mem_fraction, bw_fraction});
-
-            if (fraction < 0.001) { // 0.0
+            double fraction = std::min({cpu_fraction, mem_fraction, bw_fraction}); // Fraction of resources that can be assigned
+            std::cout << "bestNode.getAvailableCpu(): " << bestNode.getAvailableCpu() 
+                      << ", remaining_cpu: " << remaining_cpu 
+                      << ", cpu_fraction: " << cpu_fraction 
+                      << ", bestNode.getAvailableMemory(): " << bestNode.getAvailableMemory() 
+                      << ", remaining_mem: " << remaining_mem 
+                      << ", mem_fraction: " << mem_fraction 
+                      << ", bestNode.getBandwidth(): " << bestNode.getBandwidth() 
+                      << ", nodeUsedBandwidth[bestNodeId]: " << nodeUsedBandwidth[bestNodeId] 
+                      << ", remaining_bw: " << remaining_bw 
+                      << ", bw_fraction: " << bw_fraction 
+                      << ", fraction: " << fraction << "\n";
+            std::cout << "Computed fractions for Node " << bestNodeId 
+                      << ": CPU fraction = " << cpu_fraction 
+                      << ", Memory fraction = " << mem_fraction 
+                      << ", Bandwidth fraction = " << bw_fraction 
+                      << ", Overall fraction = " << fraction << "\n";
+            if (fraction < 0.001) {
                 std::cout << "Insufficient resources on Node " << bestNodeId << " for Process " << process->getProcessID() << ".\n";
-                retryQueue.push(process);
+                assignmentSuccess = false;
                 break;
             }
 
-            // Create partitioned process
-            auto partitionedProcess = std::make_shared<Process>(*process);
-            partitionedProcess->setRequiredResources(remaining_cpu * fraction, remaining_mem * fraction);
-            partitionedProcess->setRequiredBandwidth(remaining_bw * fraction);
-
-            if (bestNode.assignProcess(*partitionedProcess)) {
-                double fraction_duration = burst_time * fraction;
-                double completion_time = start_time + fraction_duration;
-                nodeUsedBandwidth[bestNodeId] += remaining_bw * fraction;
-                assignedNodes.push_back(bestNodeId);
-                assignments.push_back({bestNodeId, fraction, start_time, completion_time});
-                nodeAvailableTime[bestNodeId] = completion_time;
-                updateNodeIndices(bestNodeId);
-
-                // Update remaining resources
-                remaining_cpu -= remaining_cpu * fraction;
-                remaining_mem -= remaining_mem * fraction;
-                remaining_bw -= remaining_bw * fraction;
-
-                std::cout << "Assigned fraction " << fraction << " of Process " << process->getProcessID() 
-                          << " to Node " << bestNodeId << " (Start: " << start_time << ", End: " << completion_time << ").\n";
-            } else {
-                std::cout << "Failed to assign fraction to Node " << bestNodeId << " for Process " << process->getProcessID() << ".\n";
-                retryQueue.push(process);
+            // Assign the process fraction
+            if (!assignProcessFraction(process, bestNode, bestNodeId, fraction, start_time, burst_time,
+                                      remaining_cpu, remaining_mem, remaining_bw, assignedNodes,
+                                      assignments, nodeAvailableTime)) {
+                assignmentSuccess = false;
                 break;
             }
         }
 
-        if (assignedNodes.empty()) {
-            allProcesses.push_back({process, {}, false, -1.0, -1.0});
-        } else {
-            // Determine overall start and completion times
+        if (assignmentSuccess && remaining_cpu <= 0.001 && remaining_mem <= 0.001 && remaining_bw <= 0.001) {
+            // Full assignment successful
             double earliest_start = assignments[0].start_time;
             double latest_completion = assignments[0].completion_time;
             for (const auto& assignment : assignments) {
@@ -425,11 +397,19 @@ void ContextAwareScheduler::schedule() {
             scheduledProcesses.push_back({process, assignedNodes});
             allProcesses.push_back({process, assignedNodes, true, earliest_start, latest_completion});
             std::cout << "Process " << process->getProcessID() << " fully assigned to " << assignedNodes.size() << " node(s).\n";
+        } else {
+            // Assignment failed, rollback partial assignments
+            for (const auto& assignment : assignments) {
+                FogNode& node = *nodeMap[assignment.nodeId];
+                node.releaseProcess(assignment.process->getProcessID());
+                nodeUsedBandwidth[assignment.nodeId] -= assignment.process->getRequiredBandwidth();
+                updateNodeIndices(assignment.nodeId);
+            }
+            allProcesses.push_back({process, {}, false, -1.0, -1.0});
+            std::cout << "Process " << process->getProcessID() << " could not be fully assigned and was skipped.\n";
         }
     }
 
-    // Handle retries
-    processRetryQueue();
     std::cout << "Context-Aware Scheduling completed.\n";
 }
 

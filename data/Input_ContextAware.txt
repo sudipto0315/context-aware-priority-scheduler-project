@@ -1,13 +1,13 @@
 === Context-Aware Scheduled Processes Summary ===
 Process_ID,Arrival_Time,Burst_Time,Start_Time,Completion_Time,Waiting_Time,Turnaround_Time,Assigned_Nodes,Status
 2,0,29,0,29,0,29,"2",Scheduled
-1,24,58,24,82,0,58,"3",Scheduled
+1,24,58,24,82,0,58,"1",Scheduled
 7,47,55,47,102,0,55,"2",Scheduled
-5,48,36,48,84,0,36,"1",Scheduled
+5,48,36,48,84,0,36,"3",Scheduled
 4,74,35,74,109,0,35,"4",Scheduled
-8,85,39,85,124,0,39,"3",Scheduled
-3,95,40,95,135,0,40,"1",Scheduled
-6,99,39,102,141,3,42,"2",Scheduled
+8,85,39,85,124,0,39,"1",Scheduled
+3,95,40,102,149,7,54,"2;4",Scheduled
+6,99,39,99,138,0,39,"3",Scheduled
 ==================================================
 
 ========================================
@@ -21,26 +21,26 @@ Total Processes,8
 Scheduled Processes,8
 Failed Processes,0
 Success Rate,100%
-Total Execution Time,141 units
-Average Waiting Time,0.375 units
-Average Turnaround Time,41.75 units
-Throughput,0.0567376 processes/unit
-CPU Utilization,13.1895%
-Memory Utilization,63.5014%
-Bandwidth Utilization,7.71517%
-Scheduling Overhead,37 calculations
+Total Execution Time,149 units
+Average Waiting Time,0.875 units
+Average Turnaround Time,43.125 units
+Throughput,0.0536913 processes/unit
+CPU Utilization,12.4813%
+Memory Utilization,60.0919%
+Bandwidth Utilization,7.30093%
+Scheduling Overhead,40 calculations
 Process Score Calculations,8
-Node Score Calculations,29
+Node Score Calculations,32
 Resource Checks,0
 Retry Attempts,0
 Partitioning Attempts,0
 
 === NODE UTILIZATION ===
 Node_ID,Utilization_Time,Utilization_Percent
-4,35,24.8227
-3,97,68.7943
-2,123,87.234
-1,76,53.9007
+4,75,50.3356
+3,75,50.3356
+2,124,83.2215
+1,97,65.1007
 
 End of Context-Aware Scheduling Analysis
 ========================================

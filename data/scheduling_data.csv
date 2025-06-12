@@ -1,35 +1,35 @@
 Scheduling Algorithm,Type,Process ID,Arrival Time,Burst Time,Start Time,Completion Time,Waiting Time,Turnaround Time,Assigned Nodes,Status,Metric,Value,Node ID,Utilization Time,Utilization Percent
 ContextAware,Process,2,0,29,0.0,29.0,0.0,29.0,"""2""",Scheduled,,,,,
-ContextAware,Process,1,24,58,24.0,82.0,0.0,58.0,"""3""",Scheduled,,,,,
+ContextAware,Process,1,24,58,24.0,82.0,0.0,58.0,"""1""",Scheduled,,,,,
 ContextAware,Process,7,47,55,47.0,102.0,0.0,55.0,"""2""",Scheduled,,,,,
-ContextAware,Process,5,48,36,48.0,84.0,0.0,36.0,"""1""",Scheduled,,,,,
+ContextAware,Process,5,48,36,48.0,84.0,0.0,36.0,"""3""",Scheduled,,,,,
 ContextAware,Process,4,74,35,74.0,109.0,0.0,35.0,"""4""",Scheduled,,,,,
-ContextAware,Process,8,85,39,85.0,124.0,0.0,39.0,"""3""",Scheduled,,,,,
-ContextAware,Process,3,95,40,95.0,135.0,0.0,40.0,"""1""",Scheduled,,,,,
-ContextAware,Process,6,99,39,102.0,141.0,3.0,42.0,"""2""",Scheduled,,,,,
+ContextAware,Process,8,85,39,85.0,124.0,0.0,39.0,"""1""",Scheduled,,,,,
+ContextAware,Process,3,95,40,102.0,149.0,7.0,54.0,"""2;4""",Scheduled,,,,,
+ContextAware,Process,6,99,39,99.0,138.0,0.0,39.0,"""3""",Scheduled,,,,,
 ContextAware,Summary,,,,,,,,,,Metric,Value,,,
 ContextAware,Summary,,,,,,,,,,Algorithm,Context-Aware,,,
 ContextAware,Summary,,,,,,,,,,Total Processes,8.0,,,
 ContextAware,Summary,,,,,,,,,,Scheduled Processes,8.0,,,
 ContextAware,Summary,,,,,,,,,,Failed Processes,0.0,,,
 ContextAware,Summary,,,,,,,,,,Success Rate,100.0,,,
-ContextAware,Summary,,,,,,,,,,Total Execution Time,141.0,,,
-ContextAware,Summary,,,,,,,,,,Average Waiting Time,0.375,,,
-ContextAware,Summary,,,,,,,,,,Average Turnaround Time,41.75,,,
-ContextAware,Summary,,,,,,,,,,Throughput,0.0567376,,,
-ContextAware,Summary,,,,,,,,,,CPU Utilization,13.1895,,,
-ContextAware,Summary,,,,,,,,,,Memory Utilization,63.5014,,,
-ContextAware,Summary,,,,,,,,,,Bandwidth Utilization,7.71517,,,
-ContextAware,Summary,,,,,,,,,,Scheduling Overhead,37 calculations,,,
+ContextAware,Summary,,,,,,,,,,Total Execution Time,149.0,,,
+ContextAware,Summary,,,,,,,,,,Average Waiting Time,0.875,,,
+ContextAware,Summary,,,,,,,,,,Average Turnaround Time,43.125,,,
+ContextAware,Summary,,,,,,,,,,Throughput,0.0536913,,,
+ContextAware,Summary,,,,,,,,,,CPU Utilization,12.4813,,,
+ContextAware,Summary,,,,,,,,,,Memory Utilization,60.0919,,,
+ContextAware,Summary,,,,,,,,,,Bandwidth Utilization,7.30093,,,
+ContextAware,Summary,,,,,,,,,,Scheduling Overhead,40 calculations,,,
 ContextAware,Summary,,,,,,,,,,Process Score Calculations,8.0,,,
-ContextAware,Summary,,,,,,,,,,Node Score Calculations,29.0,,,
+ContextAware,Summary,,,,,,,,,,Node Score Calculations,32.0,,,
 ContextAware,Summary,,,,,,,,,,Resource Checks,0.0,,,
 ContextAware,Summary,,,,,,,,,,Retry Attempts,0.0,,,
 ContextAware,Summary,,,,,,,,,,Partitioning Attempts,0.0,,,
-ContextAware,Node Utilization,,,,,,,,,,,,4,35.0,24.8227
-ContextAware,Node Utilization,,,,,,,,,,,,3,97.0,68.7943
-ContextAware,Node Utilization,,,,,,,,,,,,2,123.0,87.234
-ContextAware,Node Utilization,,,,,,,,,,,,1,76.0,53.9007
+ContextAware,Node Utilization,,,,,,,,,,,,4,75.0,50.3356
+ContextAware,Node Utilization,,,,,,,,,,,,3,75.0,50.3356
+ContextAware,Node Utilization,,,,,,,,,,,,2,124.0,83.2215
+ContextAware,Node Utilization,,,,,,,,,,,,1,97.0,65.1007
 FCFS,Process,1,24,58,24.0,82.0,0.0,58.0,1,Scheduled,,,,,
 FCFS,Process,2,0,29,82.0,111.0,82.0,111.0,1,Scheduled,,,,,
 FCFS,Process,3,95,40,95.0,135.0,0.0,40.0,2,Scheduled,,,,,

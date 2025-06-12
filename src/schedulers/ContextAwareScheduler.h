@@ -78,10 +78,34 @@ private:
     };
     NodeLoadComparator nodeComparator;
     
+    // Nested struct for node assignments
+    struct NodeAssignment {
+        int nodeId;
+        double fraction;
+        double start_time;
+        double completion_time;
+        std::shared_ptr<Process> process;
+    };
+
     // Node assignment and partitioning methods
     int assignToFogNode(std::shared_ptr<Process> process);
     bool partitionProcess(std::shared_ptr<Process> process);
     
+    bool assignProcessFraction(
+        const std::shared_ptr<Process>& process,
+        FogNode& bestNode,
+        int bestNodeId,
+        double fraction,
+        double start_time,
+        double burst_time,
+        double& remaining_cpu,
+        double& remaining_mem,
+        double& remaining_bw,
+        std::vector<int>& assignedNodes,
+        std::vector<NodeAssignment>& assignments,
+        std::unordered_map<int, double>& nodeAvailableTime
+    );
+
     // Process retry queue
     void processRetryQueue();
 

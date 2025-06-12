@@ -57,15 +57,7 @@ void Simulation::loadConfig(const std::string& configFile) {
 
     // Step 3: Load processes
     for (const auto& processData : config["processes"]) {
-        std::string usageHistoryStr;
-        if (processData.contains("usage_history") && processData["usage_history"].is_array()) {
-            std::ostringstream oss;
-            for (size_t i = 0; i < processData["usage_history"].size(); ++i) {
-                if (i > 0) oss << ",";
-                oss << processData["usage_history"][i].get<double>();
-            }
-            usageHistoryStr = oss.str();
-        }
+        std::string usageHistoryStr = processData["usage_history"].get<std::string>();
 
         json resources = processData.value("required_resources", json::object());
         int required_cpu = resources.value("cpu", 0);

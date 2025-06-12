@@ -1,0 +1,9 @@
+Scheduling Algorithm,Type,Process ID,Arrival Time,Burst Time,Start Time,Completion Time,Waiting Time,Turnaround Time,Assigned Nodes,Status
+ContextAware,Process,2,0,29,0.0,29.0,0.0,29.0,"2",Scheduled
+ContextAware,Process,1,24,58,24.0,82.0,0.0,58.0,"1",Scheduled
+ContextAware,Process,7,47,55,47.0,102.0,0.0,55.0,"2",Scheduled
+ContextAware,Process,5,48,36,48.0,84.0,0.0,36.0,"3",Scheduled
+ContextAware,Process,4,74,35,74.0,109.0,0.0,35.0,"4",Scheduled
+ContextAware,Process,8,85,39,85.0,124.0,0.0,39.0,"1",Scheduled
+ContextAware,Process,3,95,40,102.0,149.0,7.0,54.0,"2;4",Scheduled
+ContextAware,Process,6,99,39,99.0,138.0,0.0,39.0,"3",Scheduled
